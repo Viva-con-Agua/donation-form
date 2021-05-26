@@ -1,28 +1,15 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <notifications position="top center" width="100%"/>
+    <PaymentWidget id="app-content" type="membership" slider="" campaign_id=26 campaign_name="Online-Becherspende für Test" campaign_description="Das ist ein Test für eine Online-Becherspende" country="DE" currency="EUR" product="prod_HZW4PLYJeuxnyC" req_newsletter></PaymentWidget>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PaymentWidget from '@/PaymentWidget.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { PaymentWidget }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

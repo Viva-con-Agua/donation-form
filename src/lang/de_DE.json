@@ -1,0 +1,63 @@
+{
+  "locale": {
+    "dateFormat": "DD.MM.YYYY",
+    "monthDateFormat": "MM.YYYY",
+    "de": {
+      "locale": "de-DE",
+      "name": "Deutsch",
+      "label": "DE"
+    },
+    "ch": {
+      "locale": "de-CH",
+      "name": "Schweizerdeutsch",
+      "label": "CH"
+    },
+    "za": {
+      "locale": "en-ZA",
+      "name": "Südafrikanisches English",
+      "label": "ZA"
+    },
+    "gb": {
+      "locale": "en-GB",
+      "name": "Britisches English",
+      "label": "GB"
+    }
+  },
+  "language": {
+    "title": "Sprache"
+  },
+  "messages": {
+    "title": {
+      "success": "Super!",
+      "error": "Uuuups",
+      "warn": "Hmmm",
+      "welcome": "Moin!",
+      "bye": "Tschüss!",
+      "thanks": "Danke schön!"
+    },
+    "defaults": {
+      "error": {
+        "unknown": "Es ist ein unbekannter Fehler aufgetreten.",
+        "unauth": "Du bist gerade nicht richtig eingeloggt!"
+      }
+    }
+  },
+  "interval": {
+    "monthly": " Montasbeitrag"
+  },
+  "navigation": {
+    "tabs": {
+      "home": "Start",
+      "logout": "Logout",
+      "signin": "Login"
+    }
+  },
+  "footer": {
+    "legal": {
+      "dataSecurity": "Datenschutz",
+      "imprint": "Impressum",
+      "language": "Sprache",
+      "contact": "Kontakt"
+    }
+  }
+}

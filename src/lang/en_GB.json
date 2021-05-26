@@ -1,0 +1,912 @@
+{
+  "locale": {
+    "dateFormat": "YYYY/MM/DD",
+    "monthDateFormat": "YYYY/MM",
+    "de": {
+      "locale": "de-DE",
+      "name": "Standard German",
+      "label": "DE"
+    },
+    "ch": {
+      "locale": "de-CH",
+      "name": "Swiss German",
+      "label": "CH"
+    },
+    "za": {
+      "locale": "en-ZA",
+      "name": "South African English",
+      "label": "ZA"
+    },
+    "gb": {
+      "locale": "en-GB",
+      "name": "British English",
+      "label": "GB"
+    }
+  },
+  "language": {
+    "title": "Language"
+  },
+  "currency": {
+    "title": "Currency"
+  },
+  "messages": {
+    "title": {
+      "success": "Super!",
+      "error": "Uuuups",
+      "warn": "Hmmm",
+      "welcome": "Welcome!",
+      "bye": "Bye!",
+      "thanks": "Thank you!"
+    },
+    "defaults": {
+      "error": {
+        "unknown": "An unknown error has occurred. Please write an email to support@move4water.org",
+        "unauth": "You are not logged in correctly! Please log in again!"
+      }
+    },
+    "files": {
+      "success": {
+        "created": "The file was uploaded successfully"
+      },
+      "error": {
+        "extension": "The file type is not allowed, please choose one of the following types: {0}",
+        "size": "Die file size is too large"
+      }
+    },
+    "donation": {
+      "success": "Your donation has been successfully received!"
+    },
+    "event": {
+      "joined": {
+        "success": "",
+        "conflict": "Du bist dem Event bereits beigetreten"
+      }
+    },
+    "team": {
+      "success": {
+        "created": "Your team has been successfully created. You can now invite others to join.",
+        "join": "You have successfully joined the team.",
+        "deleted": "You have successfully resigned from the team.",
+        "permission": "The permissions have been saved successfully.",
+        "updated": "You have successfully updated your team information.",
+        "kick": "You have successfully removed the team member from your team."
+      },
+      "error": {
+        "join": "You are already on a team. Leave this one first to join the new team",
+        "deleted": "You could not resign from the team.",
+        "permission": "The permissions could not be saved.",
+        "updated": "The team information could not be updated.",
+        "kick": "You could not remove the team member from the team.",
+        "conflict": "There is already a team with that name."
+      }
+    },
+    "profile":{
+        "success": {
+            "updated": "You have successfully updated your profile."
+        }
+    },
+    "move": {
+      "success": {
+        "updated": "Your run has been successfully updated.",
+        "deleted": "Your run has been successfully deleted.",
+        "created": "Your run was successfully saved."
+      },
+      "error": {
+        "updated": "Your run could not be updated.",
+        "created": "Your run could not be saved."
+      }
+    }
+  },
+  "navigation": {
+    "tabs": {
+      "home": "Home",
+      "profile": "Profile",
+      "run": "Move",
+      "events": "Events",
+      "donate": "Donate",
+      "leaderboard": "Ranking",
+      "faqs": "FAQs",
+      "logout": "Logout",
+      "signin": "Login"
+    },
+    "sofa": "Couch donation",
+    "donation": "To donation."
+  },
+  "footer": {
+    "sponsors": "the run4water is supported by:",
+    "health_partner": "Health partner",
+    "community_partner": "Our community partners",
+    "legal": {
+      "dataSecurity": "Privacy policy",
+      "imprint": "Imprint",
+      "language": "Language",
+      "currency": "Currency",
+      "contact": "Contact"
+    }
+  },
+  "table": {
+    "header": {
+      "name": "Name",
+      "title": "Title",
+      "start": "Start",
+      "end": "End",
+      "type": "Type"
+    },
+    "page": {
+      "label": "Page",
+      "size": "Entries",
+      "first": "First entries",
+      "back": "Previous entries",
+      "next": "Next entries",
+      "last": "Last entries"
+    }
+  },
+  "landing": {
+    "title": "Register here",
+    "events": "To the events",
+    "info": {
+      "title": "LET'S MOVE TOGETHER",
+      "subtitle": "All together - for clean drinking water",
+      "date": "",
+      "headline": "",
+      "headlineStrong": "We use sport as a universal language to connect with people. Be it here with us in Europe or in the project areas worldwide. Sport brings people together and offers the opportunity to engage joyfully. With our Move4WATER platform, we want to raise awareness for the global drinking water situation on the one hand, and generate donations for our WASH (Water, Sanitation, Hygiene) projects on the other.",
+      "first": "Move4WATER is YOUR sports campaign for drinking water projects worldwide. Whether on the bike, with your running buddy or during your yoga session - sport connects, is fun and, by the way, promotes your health!",
+      "second": "Move4WATER is possible at any time, even in times of Covid19. Become a part of our Move4WATER community. Let's go!",
+      "third": ""
+    },
+    "why": {
+      "we": {
+        "title": "THIS IS WHY WE DO THIS:",
+        "first": "To give communities in Uganda access to clean drinking water & sanitation.",
+        "second": "Because we enjoy sporting commitment - also and especially in times of pandemic.",
+        "third": "Because clean water is a human right.",
+        "fourth": "To get active together - no matter where you are and what your fitness level is."
+      },
+      "you": {
+        "title": "THIS IS WHAT YOU DO",
+        "first": "You are part of the Viva con Agua Family and connect with like-minded people in our Move4WATER community",
+        "second": "You are doing something good for yourself and your body",
+        "third": "You can compare your performance with others in our community"
+      }
+    },
+    "instructions": {
+      "title": "IT'S SO EASY:",
+      "first": "<span class='bold'>Register</span> here & connect your profile with the sports community app STRAVA",
+      "second": "<span class='bold'>Donate</span> an amount of your choice for drinking water projects & hygiene workshops",
+      "third": "<span class='bold'>Activate</span> friends and colleagues and share the action!",
+      "fourth": "<span class='bold'>Hashtag</span> #Move4WATER, feel free to link VcA (@Viva con Agua)",
+      "fifth":"<span class='bold'>Track</span>, if you like, your route and enter the result in your personal Ride4WATER profile",
+      "sixth": "<span class='bold'>Share</span> your run on your favourite channels"
+    },
+    "promo": {
+      "title": "GET READY FOR:",
+      "date": "5-11 July 2021",
+      "first":"<span class='bold'>Register</span> here & feel free to connect your profile to the sports community app STRAVA",
+      "second": "<span class='bold'>Donate</span> an amount of your choice for drinking water projects & hygiene workshops in Uganda",
+      "third": "<span class='bold'>Activate</span> friends and colleagues and share the action!",
+      "fourth": "<span class='bold'>Hashtag</span> #Ride4WATER, feel free to link VcA (@Viva con Agua)",
+      "fifth":"<span class='bold'>Ride:</span> From 5-11 July 2021, - Whether alone, as team captain, with your colleagues or friends",
+      "sixth": "<span class='bold'>Track</span>, if you like, your route and enter the result in your personal Ride4WATER profile",
+      "seventh": "<span class='bold'>Share</span> your run on your favourite channels"
+    },
+    "currentcounter": {
+      "title": "Our current results",
+      "runners": "participants",
+      "donations": "donations already collected",
+      "distance": "km covered together"
+    }
+  },
+  "ride": {
+    "title": "Register here",
+    "info": {
+      "title": "LET'S RIDE TOGETHER",
+      "subtitle": "All together - for clean drinking water in Uganda",
+      "date": "5-11 July 2021",
+      "headline": "You, Viva con Agua and thousands of cyclists - for clean drinking water and the shared experience.",
+      "headlineStrong": "After the Run is before the Ride: In March, more than 5,000 runners cycled around the world one and a half times. In the process, an incredible 110,000 Euros/CHF were raised for clean drinking water in South Africa. Now we're getting on the bike with you: whether on the way to work or on a bike tour with friends, whether on a mountain bike up the mountain or on a racing bike for a while - we'll ride together for clean drinking water for one week. Each on their own route, but virtually connected through the campaign. Take part in the #ride4water 2021!",
+      "first": "The goal: to draw attention to the global drinking water situation and to raise funds for drinking water and hygiene projects in Uganda. With just 30 Euros/CHF we can give a school child access to drinking water, with 50 Euros/CHF we can finance a creative hygiene workshop.",
+      "second": "So grab your bike gang or start your own team and invite friends and colleagues and cover as many kilometres as possible together",
+      "third": "We're already in the saddle - are you at the start too?"
+    },
+    "why": {
+      "we": {
+        "title": "THIS IS WHY WE DO THIS:",
+        "first": "To give communities in Uganda access to clean drinking water & sanitation.",
+        "second": "Because we enjoy sporting commitment - also and especially in times of pandemic.",
+        "third": "Because clean water is a human right.",
+        "fourth": "To get active together - no matter where you are and what your fitness level is."
+      },
+      "you": {
+        "title": "THIS IS WHAT YOU DO",
+        "first": "You are committed to Viva con Agua's One WASH Uganda programme and clean drinking water.",
+        "second": "You are part of the Viva con Agua Family and connect with like-minded people from our Move4WATER community.",
+        "third": "You are doing something good for yourself and your body.",
+        "fourth": "You can compare your achievements with others in our community."
+      }
+    },
+    "instructions": {
+      "title": "IT'S SO EASY:",
+      "first":"<span class='bold'>Register</span> here & feel free to connect your profile to the sports community app STRAVA",
+      "second": "<span class='bold'>Donate</span> an amount of your choice for drinking water projects & hygiene workshops in Uganda",
+      "third": "<span class='bold'>Activate</span> friends and colleagues and share the action!",
+      "fourth": "<span class='bold'>Hashtag</span> #Ride4WATER, feel free to link VcA (@Viva con Agua)",
+      "fifth":"<span class='bold'>Ride:</span> From 5-11 July 2021, - Whether alone, as team captain, with your colleagues or friends",
+      "sixth": "<span class='bold'>Track</span>, if you like, your route and enter the result in your personal Ride4WATER profile",
+      "seventh": "<span class='bold'>Share</span> your run on your favourite channels"
+    },
+    "currentcounter": {
+      "title": "currentcounter",
+      "runners": "participants",
+      "donations": "donations already collected",
+      "distance": "km covered together"
+    }
+  },
+  "login": {
+    "redirect": "One moment, you get redirected to the login..."
+  },
+  "countdown": {
+    "starts": "",
+    "days": "DAYS LEFT",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds",
+    "until": "until",
+    "event": "LET’S RUN TOGETHER - IT STARTS ON 22. MARCH"
+  },
+  "event": {
+    "404": "We could not find a event with the given ID",
+    "goto": "To the events",
+    "table": {
+      "header": {
+        "type": "Type",
+        "search": "Search event"
+      },
+      "goto": "To the {0} event"
+    },
+    "header": {
+      "register": "Register and join the event",
+      "no_infos": "Register now",
+      "join": "Join event",
+      "before": "This event has not started yet",
+      "thanks": "Thank you for your participation",
+      "donation": "Donate for this event",
+      "overview": "Show overview"
+    },
+    "description": {
+      "overview": "Overview",
+      "donation": "Donation",
+      "data": "Your data",
+      "results": "Results",
+      "register": "Register and join event",
+      "join": "Join event"
+    },
+    "counter": {
+      "title": "The result of the event",
+      "member_count": "Participants",
+      "donations": "raised donations",
+      "distance": "km covered together"
+    },
+    "share": {
+      "title": "Share event:",
+      "run": {
+        "text": "Run with me at the {0} von Viva con Agua!"
+      },
+      "ride": {
+        "text": "Ride with me at the {0} von Viva con Agua!"
+      }
+    },
+    "move": {
+      "state": {
+        "register": {
+          "title": "Register and join",
+          "description": "Here you can enter your distance covered and the time taken for the event. Register on the platform and take part in the event to be able to enter your results. Your results will then appear in the results and you can compare yourself with the other participants.",
+          "button": "Register and join the event"
+        },
+        "finished": {
+          "title": "You are not logged in",
+          "description": "If you took part in the event, you can enter your distance and time here. Log in and then enter your data here. Your results will then appear in the results and you can compare yourself with the other participants.",
+          "button": "To the login"
+        },
+        "not_started": {
+          "title": "The event has not yet started",
+          "description": "Unfortunately, the event has not yet started. As soon as the event starts you can enter your data here and track your times and distances. In the meantime, take a look at our other events.",
+          "button": "To the events"
+        },
+        "closed": {
+          "title": "The event is already over",
+          "description": "Unfortunately, the event is already over. In our event overview you can find more events in which you can participate.",
+          "button": "To the events"
+        },
+        "join": {
+          "title": "Participate in the event",
+          "description": "Here you can enter your distance covered and the time needed for the event. All you have to do is participate in the event.",
+          "button": "Join the event"
+        }
+      }
+    },
+    "results": {
+      "register": {
+        "active": {
+          "title": "Register and join",
+          "description": "Here you can view the results entered and compare yourself with other participants. To do so, register on the platform and take part in the event in order to be able to enter your results, after which your results will appear here in the list.",
+          "button": "Register and join the event"
+        },
+        "finished": {
+          "title": "You are not logged in",
+          "description": "If you took part in the event, you can see your results here and compare yourself with other participants. Log in to view the results.",
+          "button": "To the login"
+        },
+        "not_started": {
+          "title": "The event has not yet started",
+          "description": "Unfortunately, the event has not yet started. As soon as the event starts you can enter your data here and track your times and distances. In the meantime, take a look at our other events.",
+          "button": "To the events"
+        },
+        "closed": {
+          "title": "The event is already over",
+          "description": "Unfortunately, the event is already over. In our event overview you can find more events in which you can participate.",
+          "button": "To the events"
+        }
+      }
+    },
+    "promo": {
+      "closed": "Registration to the event begins at the 7th of june",
+      "goto": "To the Ride4WATER event"
+    }
+  },
+  "eventlist": {
+    "header": {
+      "subtitle": "Our Move4WATER events",
+      "promo": {
+        "title": "Ride4WATER 5.-11. July 2021",
+        "subtitle": "More information",
+        "goto": "To the event page"
+      }
+    },
+    "list": {
+      "search": "Search event",
+      "filter": {
+        "type": "Filter event type",
+        "date": "Filter month"
+      }
+    },
+    "preview": {
+      "start": "Start:",
+      "end": "End:",
+      "member_count": "Participants:",
+      "goto": "To the event"
+    },
+    "counter": {
+      "title": "The result of all events",
+      "member_count": "participants",
+      "donations": "donations raised",
+      "distance": "km covered together"
+    }
+  },
+  "donation": {
+    "header": "Donate now for this event!",
+    "thanks": "Thank you for your support!",
+    "event_overview": "To the event overview",
+    "paymenttype": {
+      "sepa": "SEPA",
+      "creditcard": "CREDIT CARD",
+      "paypal": "PAYPAL",
+      "twingt": "TWINT"
+    },
+    "input": {
+      "topText": "Enter amount",
+      "errorMsg": "Please enter an amount"
+    },
+    "selection": {
+      "amount": {
+        "de": {
+          "15": "15 Euro",
+          "25": "25 Euro",
+          "50": "50 Euro"
+        },
+        "ch": {
+          "15": "15 CHF",
+          "25": "25 CHF",
+          "50": "50 CHF"
+        }
+      },
+      "example": "Examples",
+      "description": {
+        "15": "Hand washing soap for a school",
+        "25": "Permanent access to water and sanitation for a student",
+        "50": "A door for the toilet"
+      }
+    },
+    "label": "Donate",
+    "email": {
+      "placeholder": "Email address",
+      "error": "Please enter a valid email address"
+    },
+    "firstname": {
+      "placeholder": "Your first name",
+      "error": "Please enter your first name"
+    },
+    "lastname": {
+      "placeholder": "Your last name",
+      "error": "Please enter your last name"
+    },
+    "street": {
+      "placeholder": "Your street",
+      "error": "Please enter your street"
+    },
+    "number": {
+      "placeholder": "Your house number",
+      "error": "Please enter your house number"
+    },
+    "zip": {
+      "placeholder": "Your postcode",
+      "error": "Please enter your postcode"
+    },
+    "city": {
+      "placeholder": "Your place of residence",
+      "error": "Please enter your place of residence"
+    },
+    "country": {
+      "placeholder": "Your country",
+      "error": "Please enter your country"
+    },
+    "selectCountry": {
+      "label": "Please select the currency",
+      "placeholder": "Please select organisation",
+      "de": {
+        "title": "Viva con Agua de Sankt Pauli e.V.",
+        "subtitle": "Our association in Germany",
+        "currency": "Euro"
+      },
+      "ch": {
+        "title": "Viva con Agua Switzerland",
+        "subtitle": "Our association in Switzerland",
+        "currency": "CHF"
+      }
+    },
+    "selectAmount": {
+      "label": "Please select an amount"
+    },
+    "userData": {
+      "label": "Please enter your information"
+    },
+    "paymentMethod": {
+      "label": "Select a payment method"
+    }
+  },
+  "campaign": {
+    "list": {
+      "placeholder_run": "Name of the run",
+      "placeholder_start": "Start-Date",
+      "placeholder_end": "End-Date",
+      "search": "Search"
+    },
+    "form": {
+      "placeholder_run": "Name of the run",
+      "placeholder_text": "Previewtext",
+      "placeholder_start": "Start-Date",
+      "placeholder_end": "End-Date",
+      "distance": "Final distance (run)",
+      "amount": "Donationgoal (run)",
+      "private": "<span class='highlight'>Private run:</span> Your run won't be shown public. You can invite other runners by an invite-link!",
+      "save": "Create run"
+
+    },
+    "preview": {
+      "recent": "Current registered: ",
+      "runners": "Runners",
+      "placeholder_mit": "Join us!",
+      "subtitle_km": "kilometers",
+      "subtitle_donate": "Donate"
+    }
+  },
+  "goals": {
+    "user_count": {
+      "label": "Overview",
+      "text": "All in all, {0} runners are with us!"
+    },
+    "team_stats": {
+      "label1": "Total kilometers run",
+      "label2": "Donate",
+      "text": "Together with your team you were running {0} run for clean drinking water!"
+    }
+  },
+  "move": {
+    "run": {
+      "title": "Your runs",
+      "countdown": "Here you can enter and track your kilometers and times. Your runs will be displayed in the results table. You can also make all your runs private to hide your name in the results table",
+      "strava": "You can also link your Run4WATER account to your Strava account to import your run data",
+      "finish": {
+        "new": "Enter new run result",
+        "private": "<div class='highlight'>Private run:</div> The run will be shown in the evaluation overview list, but your name will not be displayed. Your team members will still be able to see your run!"
+      }
+    },
+    "ride": {
+      "title": "Your tours",
+      "countdown": "Here you can enter and track your kilometers and times. Your tours will be displayed in the results table. You can also make all your tours private to hide your name in the results table",
+      "strava": "You can also link your Move4WATER account to your Strava account to import your data",
+      "finish": {
+        "new": "Enter new tour",
+        "private": "<div class='highlight'>Private tour:</div> The tour will be shown in the evaluation overview list, but your name will not be displayed. Your team members will still be able to see your tour!"
+      }
+    },
+    "finish": {
+      "placeholder_save": "Save",
+      "placeholder_update": "Update",
+      "placeholder_delete": "Delete",
+      "team_update": "<div class='highlight'>Update team:</div> Your selected data is currently added to the team \"{0}\" in the results. Check if you want to transfer it to your current team \"{1}\"!",
+      "current_team": "Selected team: "
+    },
+    "goal": {
+      "span": "Here you have the opportunity to set a goal for your run. You want to run your favorite route faster than ever before? You want to contribute as many kilometers as possible and cover the longest distance you have ever run? The Run4WATER is now your chance. Enter your goals here.",
+      "placeholder_distance": "Your running goal distance in km",
+      "placeholder_time": "Your running goal time",
+      "placeholder_save": "Save",
+      "placeholder_update": "Update",
+      "newGoal": "Enter new running goal"
+    },
+    "results": {
+      "run": "Run",
+      "distance": "Distance",
+      "time": "Time",
+      "team": "Team",
+      "public": "Run is visible",
+      "edit": "Edit",
+      "average": "&Oslash; speed",
+      "average_unit": " km/h",
+      "pace": "Pace",
+      "pace_unit": " min/km",
+      "no_results": "No run data found",
+      "strava": {
+        "import": "Import Strava run",
+        "confirm": "Do you want to import your run from Strava?"
+      }
+    }
+  },
+  "payments": {
+    "sepa": {
+      "label_further": "More details",
+      "errorMsg": "Please confirm the authorization",
+      "legal": "I authorize Viva con Agua de Sankt Pauli e.V. to collect payments from my account by direct debit. At the same time, I instruct my credit institution to honor the direct debit drawn on my account by Viva con Agua de Sankt Pauli e.V..<br/><strong>Note:</strong> I may request reimbursement of the debited amount within eight weeks, beginning with the debit date. The conditions agreed with my credit institution apply."
+    }
+  },
+  "pdfs": {
+    "ride": {
+      "cert": {
+        "download": "Download certificate of attendance"
+      },
+      "number": {
+        "download": "Download race number"
+      }
+    },
+    "runCert": {
+      "download": "Download certificate",
+      "disabled": "You have not entered any data yet.",
+      "success": "has successfully participated at the {0}.",
+      "distance": "Distance: {0}",
+      "distance_total": "Distance total: {0}",
+      "team": "Team \"{0}\"",
+      "time": "Time: {0}",
+      "time_total": "Time total: {0} in {1} runs",
+      "thanks": "THANK YOU for your engagement!",
+      "filename": "Run4WATER_Run_Certificate.pdf"
+    },
+    "teamQr": {
+      "download": "Download QR Code as PDF",
+      "inviteText": "Run with us at the Run4WATER and join the team '{0}'!",
+      "scanCode": "Scan the code, log in and run with us!"
+    },
+    "teamCert": {
+      "download": "Download team certificate",
+      "disabled": "No runs have been entered for your team yet.",
+      "team": "Team \"{0}\"",
+      "success": "has successfully participated as a team at the Run4WATER.",
+      "thanks": "THANK YOU for your engagement!"
+    }
+  },
+  "user": {
+    "infomation": {
+      "placeholder_first": "First name",
+      "errorMsgFirst": "Please enter first name",
+      "placeholder_last": "Last name",
+      "errorMsgLast": "Please enter last name",
+      "submit": "Save"
+    },
+    "signin": {
+      "placeholder_email": "E-mail address",
+      "errorMsgEmail": "Please, enter e-mail address",
+      "placeholder_password": "Password",
+      "errorMsgPassword": "Please, enter password",
+      "signIn": "Sign-In",
+      "resetPW": "reset password",
+      "resetToken": "Send confirmation again",
+      "back": "back",
+      "sendEmail": "send e-mail"
+    },
+    "signup": {
+      "placeholder_email": "E-mail address",
+      "errorMsgEmail": "Please enter your e-mail address",
+      "placeholder_first": "First name",
+      "errorMsgFirst": "Please enter first name",
+      "placeholder_last": "Last name",
+      "errorMsgLast": "Please enter last name",
+      "placeholder_password": "Password",
+      "errorMsgPassword": "Please enter password",
+      "errorMsgPrivacy": "Please confirm the privacy policy and the GTC",
+      "errorMsgPrivacyText1": "I have read the",
+      "errorMsgPrivacyDSGVO": "Privacy policy ",
+      "errorMsgPrivacyText2": "and the",
+      "errorMsgPrivacyAGB": "AGB",
+      "errorMsgPrivacyText3": " ",
+      "newsletter_highlight": "NEWSLETTER:",
+      "newsletterText1": "Click here if you would like to receive news and project updates by email.",
+      "newsletterText2": "Comes about 1. a month and you can unsubscribe in each newsletter again. :)",
+      "register": "Register"
+    }
+  },
+  "team": {
+    "create": {
+      "new": "Create new team",
+      "placeholder_name": "insert Team-name",
+      "placeholder_description": "Enter team description",
+      "private": "<div class='highlight'>Private Team:</div> The team cannot be found via search. It can only be joined via an invitation link.<br/>The link will be sent to you by email and displayed here.",
+      "placeholder_submit": "Create"
+    },
+    "join": {
+      "join": "Join team",
+      "placeholder_input": "Search team",
+      "placeholder_button": "Join",
+      "existing_team": "You are already on team '{0}'<br/>Do you want to leave the team and join the new team?",
+      "still_join": "Switch team"
+    },
+    "overview": {
+      "teamlabel": "Your team",
+      "private": " (private)",
+      "public": " (public)",
+      "label": "Your team members",
+      "text": "Let's run together! Let your team grow! With the following link / QR code you can invite more runners directly into your team:",
+      "qr": "QR code for scanning or printing",
+      "qrText": "You can also have your team members scan the QR code to invite them directly to your team ",
+      "shareText": "Run with my team at the Run4WATER of Viva con Agua!",
+      "kick": {
+        "label": "Remove from team",
+        "confirm": "Are you sure you want to remove {0} from you team?"
+      },
+      "leave": {
+        "label": "Leave team",
+        "confirm": "Are you sure you want to leave your team? You can join everytime again with the link."
+      },
+      "admin": {
+        "add": "Grant admin rights",
+        "remove": "Remove admin rights"
+      }
+    },
+    "update": {
+      "update": "Update your Team",
+      "placeholder_name": "insert Team-name",
+      "placeholder_description": "Enter team description",
+      "private": "<div class='highlight'>Private Team:</div> The team cannot be found via search. It can only be joined via an invitation link.",
+      "placeholder_submit": "Update"
+    }
+  },
+  "donationView": {
+    "donateLabel": "Donate",
+    "span": "Thank you for your donation!",
+    "button": "Donate again?",
+    "next": "I want to move on without a donation",
+    "profile": "To my profile",
+    "close": "Close"
+  },
+  "campaign-add": {
+    "label": "Create new donation run"
+  },
+  "campaigns": {
+    "button": "Create your own fundraising run",
+    "label": "Current fundraising runs",
+    "past": "Past events",
+    "promo": "Current event"
+  },
+  "passwordReset": {
+    "errorMsgPassword": "Please enter password",
+    "placeholder_password": "Password",
+    "button": "Confirm"
+  },
+  "runView": {
+    "goal": "What is your running goal",
+    "result": "What was your running result?"
+  },
+  "avatar": {
+    "select": "Select avatar (max. 1MB)",
+    "upload": "Upload"
+  },
+  "profile": {
+    "header": "Your profile",
+    "profile": "Your data",
+    "display_name": "Username",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "cardSpan1": "Whooopsie!",
+    "cardSpan2": "We could not automatically assign you to the run.",
+    "cardSpan3": "The reason is a technical problem on our side!",
+    "cardSpan4": "Just click on the button and it goes ...",
+    "button": "Next ... ",
+    "team": "Team",
+    "move": "Your run data",
+    "eventlist": "Your events",
+    "div": "You don't want to run alone? Then you can create a team here and invite others to join, or simply search for public teams.",
+    "createTeam": "Create your own team",
+    "joinTeam": "Join an existing team",
+    "searchTeam": "Search for a team",
+    "running": {
+      "title": "Your running number:",
+      "download": "Download running number"
+    },
+    "campaigns": {
+      "list": "Your event participation"
+    },
+    "updateTeam": {
+      "open": "Update your Team",
+      "close": "Close"
+    },
+    "strava": {
+      "header": "Your Strava activities",
+      "msg": "Due to the large number of registrations, there are currently technical challenges with Strava. We are on it. Until we resolve the issue, please enter your KM manually!",
+      "account": "Your Strava account",
+      "connect": "Connect",
+      "reconnect": "Connect another account",
+      "howto": "Here you can connect your Run4WATER account with your Strava account to import your running activities.",
+      "activities": "Your STRAVA activities during the Run4WATER in the week of 22-28 March. <strong>Click on an activitiy to import it!</strong>"
+    }
+  },
+  "ranking": {
+    "header": "Leaderboard",
+    "place": "Rank",
+    "distance": "Distance",
+    "time": "Time",
+    "average": "&Oslash; speed",
+    "average_unit": " km/h",
+    "pace": "Pace",
+    "pace_unit": " min/km",
+    "team": {
+      "header": "Team evaluation",
+      "label": "Overview of all teams",
+      "description": "All runs per team are listed here. All your runs per team will be added up!<br/>When sorting by distance, time or pace, values from 0 are sorted to the end of the table!",
+      "name": "Team-Name",
+      "members": "Team-Member",
+      "search": "Search for a team name",
+      "no_results": "No teams found"
+    },
+    "runner": {
+      "header": "Runners evaluation",
+      "label": "Overview of the individual runners",
+      "description": "All runs per runner are listed here. All your runs will be added up!<br/>When sorting by distance, time or pace, values from 0 are sorted to the end of the table!",
+      "name": "Runner",
+      "search": "Search for a runner",
+      "no_results": "No runners found"
+    },
+    "team_runner": {
+      "header": "Evaluation of your team",
+      "label": "Overview of the individual runners in your team '{0}'",
+      "description": "All runs per runner are listed here. All your runs will be added up!<br/>When sorting by distance, time or pace, values from 0 are sorted to the end of the table!",
+      "name": "Runner",
+      "search": "Search for a runner",
+      "no_results": "No runners found"
+    },
+    "runs": {
+      "header": "Run evaluation",
+      "hide_anonymous": "Hide anonymous",
+      "label": "Overview of the individual runs",
+      "description": "All runs are listed here. The more runs you have entered, the more often you can find yourself in the list!<br/>When sorting by distance, time or pace, values from 0 are sorted to the end of the table!",
+      "name": "Runner",
+      "search": "Search for a runner",
+      "no_results": "No runners found"
+    },
+    "mobile": {
+      "team": "Team",
+      "name": "Name",
+      "distance": "Distance",
+      "time": "Time",
+      "pace": "Pace",
+      "average": "Average",
+      "member": "Members"
+    }
+  },
+  "supported": {
+    "title": "The run4water is supported by",
+    "first": {
+      "title": "Barmer (Health partner)",
+      "subtitle":"Strong, when you need us",
+      "desc1": "BARMER is there for the whole of life. Because everyone has their own recipe for life. We help people live healthier lives and get the best possible care when they're sick. We also provide support with preventive courses, health apps and health knowledge. In this, we are more than a health insurance company in the background. We are a coach, companion and strong partner who is always there for the insured. With transparency, a strong customer focus and little bureaucracy.",
+      "desc2": "BARMER is one of the largest statutory health insurers in Germany and is committed to the health of millions of customers every day. Regular sport and the fun of exercise make a very important contribution to our health - which is why BARMER supports Viva con Agua's #run4water campaign."
+    },
+    "second": {
+      "title": "Pushing Limits (Community partner)"
+    },
+    "third": {
+      "title": "Fräulein Triathlon (Community-Partner*in)",
+      "desc1": "<strong>INSPIRE. MOTIVATE. MOTRATE.</strong>",
+      "desc2": "We are Miss Triathlon. We motivate women to be or become active in sports, to try triathlon, to participate in competitions or to set ambitious goals. We create protected spaces where women can exchange ideas, bring up important topics and completely redefine \"Misses\".",
+      "desc3": "With us, ANY woman can be a Miss who wants to be and with her own self-image. As an independent woman (or girl) who pursues her sport with her own goals, but in a community or feels encouraged to start. Without pressure to perform, without doggedness. Everything can, but nothing must. That's how we roll!",
+      "desc4": "Together with our community, we are thrilled to support Run4Water and the work of Viva con Agua this year. Let's collect water and kilometers together and painfully whisper a „My dear Miss“ as we cross the finish line."
+    }
+  },
+  "faqs":{
+    "title": "Questions & Answers",
+    "run4w": {
+      "title": "faq run4water",
+      "0": {
+        "header": "WHAT DO I NEED TO KNOW ABOUT RUN4WATER?",
+        "body": "#run4water is a virtual charity running event that will take place from 22nd to 28th March 2021. The run is organized by the non-profit association Viva con Agua de Sankt Pauli e.V., Viva con Agua Switzerland and Viva con Agua Austria with the aim of collecting more than EUR/CHF 50,000 in donations to support at least five schools in the Eastern Cape Province in South Africa. You can register until 28th March at 9 PM. The chosen route should be completed between 22nd and 28th March – it is up to the runner to decide when and where. In order to compare your results with those of other participants, it is required to enter the kilometers completed into your profile after the run. However, it is possible to participate in the run without this proof. Participation is free of charge, but donations are welcome."
+      },
+      "1": {
+        "header": "HOW CAN I DONATE WITHIN THE FRAMEWORK OF THIS RUN?",
+        "body": "Upon registration you have the opportunity to support the Viva con Agua project SA WINS (WINS = WASH in schools / WASH = water, sanitation, hygiene) with a voluntary donation. It’s your decision how much you want to donate – we are happy about every single donation. If you donate EUR/CHF 25, one student in the Eastern Cape Province will get permanent access to clean drinking water."
+      },
+      "2": {
+        "header": "HOW DOES A TEAM REGISTRATION WORK?",
+        "body": "You don't want to run alone? Visit the website move4water.org to register for #run4water with your team. You have two options: You can either build your own team and invite your fellow runners to join this team via an invitation link, or you can join an already existing team."
+      },
+      "3": {
+        "header": "WHERE CAN I CHECK WHETHER MY TEAM IS ALREADY REGISTERED?",
+        "body": "After you have registered at move4water.org, you can select the \"Run4WATER\" event. There you will find a tab called \"Team\" and have the possibility to either enter the name of your team into the search bar or to search for your team in the dropdown menu."
+      },
+      "4": {
+        "header": "DO I GET A DONATION RECEIPT FOR MY DONATION?",
+        "body": "Yes, if the amount is EUR/CHF 50 or higher. You will receive your digital donation receipt by e-mail at the beginning of next year. Please fill in your address details correctly."
+      },
+      "5": {
+        "header": "CAN I SUPPORT THE VIVA CON AGUA PROJECT WITHOUT PARTICIPATING IN THE RUN?",
+        "body": "Absolutely! As a sofa donor, you can make yourself comfortable on your couch during the running week and still do good. Just click on the sofa donation button and support Viva con Agua’s project and, in addition to that, motivate all runners with your donation."
+      },
+      "6": {
+        "header": "HOW CAN COMPANIES ENGAGE IN THE RUN?",
+        "body": "As a company, you can participate in the event as a \"classic sponsor\". If you want to do so, send an email to support@move4water.org and we will clarify the details with you as soon as possible. Moreover, the Run4WATER charity run is a great opportunity to get your colleagues enthusiastic about a team event and join the run as a team. For example, your company can match the kilometers run and therefore double the corresponding number of kilometers in EUR/CHF."
+      }
+    },
+    "ride4w": {
+      "title": "faq ride4water",
+      "0": {
+        "header": "What do I need to know about the Ride4WATER?",
+        "body": "The #ride4water is a virtual cycling event that will take place from 05-11 July 2021. The event is organised by the non-profit association Viva con Agua de Sankt Pauli e.V. and Viva con Agua Switzerland with the aim of raising 50,000 €/CHF in donations for our project 'One WASH Uganda'. Water, sanitation and hygiene projects will be implemented for schools and communities in the West Nile and Karamoja regions of Uganda. Registration starts on 7 July at 12 am. The chosen route should be completed between 5 and 11 July - each cyclist decides when and where. In order to compare your results with those of other participants, it is necessary to enter the kilometres completed in your profile after the ride. Participation in the event is also possible without this proof. Participation is basically free of charge, but a donation is welcome."
+      },
+      "1": {
+        "header": "How can I donate to the event?",
+        "body": "When registering, you have the opportunity to support Viva con Agua's 'One WASH Uganda' project with a voluntary donation. You decide how much you want to donate - we are happy about every single donation. With 30 Euros/CHF we can give a school child access to drinking water, with 50 Euros/CHF we can finance a creative hygiene workshop."
+      },
+      "2": {
+        "header": "How does a team registration work?",
+        "body": "Don't feel like doing it alone? On the site (move4water.org) there is also the possibility to register for the #ride4water with your team. You have two options: You can either create your own team and invite your fellow riders to join the team via an invitation link, or you can join an already existing team."
+      },
+      "3": {
+        "header": "Where can I see if my team is already registered?",
+        "body": "After you have registered at move4water.org, you can select the event 'Ride4WATER'. There you will find the tab 'Team' and the possibility to either enter the name of your team via the search bar or to search for your corresponding team in the dropdown bar."
+      },
+      "4": {
+        "header": "Will I get a receipt for my donation?",
+        "body": "Yes, from an amount of 50€ or CHF onwards. At the beginning of next year, your digital donation receipt will be sent to you by e-mail. Please fill in your address details correctly."
+      },
+      "5": {
+        "header": "Can I support the One WASH Uganda project without riding myself?",
+        "body": "Absolutely! As a sofa donor, you can make yourself comfortable on your couch during the event week and still do good. Click on the sofa donation button at the top right of move4water.org and support the Viva con Agua project and motivate all cyclists with your donation."
+      },
+      "6": {
+        "header": "How can you get involved as a company in the event?",
+        "body": "As a company, you have the option of participating in the event as a 'classic sponsor'. Please send an email to support@move4water.org and we will clarify everything with you as soon as possible. On the other hand, the Ride4WATER event is a welcome opportunity to inspire your colleagues for a team event and to start together as a team. For example, your company can match the kilometres ridden and donate the corresponding number of kilometres in €/CHF."
+      }
+    },
+    "donation": {
+      "title": "donate faq",
+      "0": {
+        "header": "WHERE DO THE DONATIONS GO?",
+        "body": "The donations will be used for the project 'One WASH Uganda'. Further information about the project can be found on the Viva con Agua homepage at: "
+      },
+      "1": {
+        "header": "WHAT WILL MY DONATION MAKE POSSIBLE?",
+        "body": "Our goal is to provide access to clean drinking water & sanitation to schools and communities in Uganda."
+      },
+      "2": {
+        "header": "WHO BENEFITS FROM DONATIONS?",
+        "body": "If we collectively manage to raise €50,000/CHF, then we can build six wells and train appropriate water user committees in the respective communities."
+      }
+    }
+  }
+}
