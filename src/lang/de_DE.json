@@ -42,8 +42,38 @@
       }
     }
   },
+  "header": {
+    "amount": "Dein Betrag",
+    "contact": "Deine Kontaktdaten",
+    "payment": "Zahlungsart",
+    "thanks": "Danke!"
+  },
+  "example": {
+    "default": "",
+    "soap": "Damit untestützt du uns z.B. mit 20 l Seife für Schulen",
+    "filter": "Damit untestützt du uns z.B. mit einem Wasserfilter für eine Familie",
+    "trees": "Damit untestützt du uns z.B. mit 50 Bäumen",
+    "workshop": "Damit untestützt du uns z.B. mit einem Hygieneworkshop an einer Schule"
+  },
+  "amount": {
+    "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
+    "toptext": "anderer Betrag",
+    "error": {
+      "default": "Bitte wähle einen Betrag aus",
+      "minAmount": "Bitte wähle mindestens einen Betrag von {0} {1} aus"
+    }
+  },
+  "abo": {
+    "label": " Wie häufig willst du spenden?",
+    "no": "einmalig",
+    "yes": "regelmäßig"
+  },
   "interval": {
-    "monthly": " Montasbeitrag"
+    "label": "Wähle dein Spendenintervall",
+    "monthly": " monatlich",
+    "half": "2x im Jahr",
+    "thrice": "3x im Jahr",
+    "quarterly": "4x im Jahr"
   },
   "navigation": {
     "tabs": {

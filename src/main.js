@@ -40,6 +40,10 @@ Vue.mixin({
                 duration: 6000
             });
         }
+    },    
+    formatDate(val) {
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(val * 1000).toLocaleDateString(this.$i18n.locale, options)
     }
   },
 })

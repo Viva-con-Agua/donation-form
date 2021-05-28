@@ -133,7 +133,7 @@ export default {
     font-size: 2.2vw;
     text-align: center;
     
-    background-image: url("~@/assets/icon_drop_white.png");
+    background-image: url("~@/assets/icons/drop_white.png");
     background-size: contain;
     background-position: center; 
     background-repeat: no-repeat;
@@ -200,7 +200,7 @@ export default {
 
 .steps li.is-inactive div.step-content div.step-id {
     color: white;
-    background-image: url("~@/assets/icon_drop.png");
+    background-image: url("~@/assets/icons/drop.png");
     background-size: contain;
     background-position: center center; 
     background-repeat: no-repeat;

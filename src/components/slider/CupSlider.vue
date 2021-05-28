@@ -3,44 +3,50 @@
         <div class="images-container">
         <div class="images">
             <div  v-for="index in all" :key="index" class="images_empty">
-                <img v-if="index > full" src="@/assets/leeres_Glas.svg"/>
-                <img v-if="index <= full" src="@/assets/volles_Glas.svg"/>
+                <img v-if="index > full" src="@/assets/img/slider/cups/leeres_Glas.svg"/>
+                <img v-if="index <= full" src="@/assets/img/slider/cups/volles_Glas.svg"/>
             </div>
         </div>
     </div>
     <div class="count">
-    <img class="count" src="@/assets/Einheiten.svg"/>
-    <input type="range" min="0" max="1000" :value="value" step="100" @input="setAmount">
+    <img class="count" src="@/assets/img/slider/cups/Einheiten.svg"/>
+    <input type="range" min="500" max="10000" :value="money.amount" step="500" @input="setAmount">
     </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'CupSlide',
+    name: 'CupSlider',
     data () {
         return {
             value: 0,
-            empty: 10,
+            empty: 0,
             all: 10,
             full: 0
         }
     },
+    computed: {
+        money: {
+            get () {
+                return this.$store.state.payment.money
+            },
+            set(value) {
+                this.$store.commit('payment/money', value)
+            }
+        }
+    },
+    created() {
+        var mask = parseInt(this.money.amount / 1000)
+        this.full = mask
+        this.empty = 10 - mask
+    },
     methods: {
         setAmount (e) {
-            var mask = parseInt(e.target.value /100)
+            var mask = parseInt(e.target.value / 1000)
             this.full = mask
             this.empty = 10 - mask
-            this.$emit("amount", parseInt(e.target.value))
-        },
-        replyAmount (value) {
-            this.value = value
-            if (value <= 1000) {
-                this.full = Math.floor(value / 100)
-                this.empty = 10 - Math.floor(value / 100)
-            } else {
-                this.full = 10
-                this.empty = 0
-            }
+
+            this.money = { amount: parseInt(e.target.value), currency: this.money.currency }
         }
     }
 }

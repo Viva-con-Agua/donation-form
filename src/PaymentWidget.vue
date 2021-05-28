@@ -1,25 +1,23 @@
 <template>
     <div id=payment-widget class="payment-widget">
-        <div class="widget" v-if="donation && slider == 'cupslide'">
-            <CupSlide ref="amount_widget" @amount="setAmount"/>
+        <div class="widget" v-if="slider == 'cupslide'">
+            <CupSlider/>
         </div>
-        <div style="display: flex" v-if="donation">
-            <DonationForm ref="donation_form" v-on:success="success" :currency="currency" :campaign="campaign" :country="country" @replyAmount="replyAmount" :reqNewsletter="req_newsletter"/>
+        <div class="widget" v-if="slider == 'faucet'">
+            <FaucetSlider/>
         </div>
-        <div v-if="membership">
-            <MembershipForm v-on:success="success" :campaign="campaign" :country="country" :product="product"/>
-        </div>
+        <MembershipForm v-on:success="success" :campaign="campaign" :country="country" :product="product"/>
     </div>
 </template>
 <script>
 
 import axios from 'axios'
 import MembershipForm from './MembershipForm'
-import DonationForm from './DonationForm'
-import CupSlide from './components/cups/CupSlide'
+import CupSlider from './components/slider/CupSlider'
+import FaucetSlider from './components/slider/FaucetSlider'
 export default {
     name: 'PaymentWidget',
-    components:{DonationForm, MembershipForm, CupSlide},
+    components:{ MembershipForm, FaucetSlider, CupSlider},
     props: {
         type: {
             type: String,
@@ -75,13 +73,6 @@ export default {
                 return false
             }
         },
-        membership () {
-            if (this.type === 'membership') {
-                return true
-            } else {
-                return false
-            }
-        },
         isCH() {
             return this.country == 'CH'
         },
@@ -94,30 +85,10 @@ export default {
     },
     methods: {
         success(e) {
-            var url = this.getURL()
-            if (url != false) {
-                axios.post(url, JSON.stringify(e))
-                .then(response => (
-                    console.log(response.data)
-                ))
-            }
-        },
-        setAmount(value) {
-            this.$refs.donation_form.setAmount(value)
-        },
-        replyAmount(value) {
-            if (this.$refs.amount_widget) {
-                this.$refs.amount_widget.replyAmount(value)
-            }
-        },
-        getURL() {
-            var url = false
-            if(this.isDE) {
-                url = (this.membership) ? process.env.VUE_APP_IROBERT_MEMBERSHIP : process.env.VUE_APP_IROBERT_DONATION
-            } else if (this.isAT) {
-                url = process.env.VUE_APP_IROBERT_DONATION_AT
-            }
-            return url
+            axios.post(process.env.VUE_APP_IROBERT, JSON.stringify(e))
+            .then(response => (
+                console.log(response.data)
+            ))
         }
     }
 }

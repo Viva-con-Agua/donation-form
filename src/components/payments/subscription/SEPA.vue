@@ -3,14 +3,14 @@
         <div class="vca-input-border"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
 
         <vca-field  v-if="isDE" label="Weitere Angaben">
-            <CheckBox
+            <vca-checkbox
                 :rules="$v.accept"
                 ref="accept"
                 v-model="accept"
                 errorMsg="Bitte bestätige die Ermächtigung">
                         Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br>
                         <strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
-            </CheckBox>
+            </vca-checkbox>
         </vca-field>
         <button type="button" v-on:click.prevent="purchase" :disabled="$v.$invalid" class="stripe-donation-button"> {{ label }} </button>
     </div>
@@ -19,7 +19,6 @@
 <script>
 
 import axios from 'axios'
-import CheckBox from '../../utils/CheckBox'
 const style = {
     base: {
         color: '#32325d',
@@ -61,7 +60,6 @@ let stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY),
 export default {
     name: 'SEPA',
     props: ['payment', 'valid', 'label', 'product', 'country'],
-    components: {CheckBox},
     data() {
         return {
             accept: false

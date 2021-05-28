@@ -1,16 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import user from './user'
-import navigation from './navigation.js'
+import anonymous from './anonymous.js'
+import payment from './payment.js'
+import transaction from './transaction.js'
+
 Vue.use(Vuex)
 export default new Vuex.Store({
     modules: {
-        navigation: navigation,
-        user: user
+        user: anonymous,
+        payment: payment,
+        transaction: transaction
     },
     state: {
         loading: false,
-        currentMsg: null
+        currentMsg: null,
+        offset: {
+            known_from: null,
+            comment: null,
+        }
     },
     mutations: {
         currentMsg (state, value) {
@@ -18,27 +25,29 @@ export default new Vuex.Store({
         },
         loadingFlow(state) {
             state.loading = !state.loading
+        },
+        offset(state, value) {
+            state.offset = value
         }
     },
     getters: {
-        session(state) {
-            console.log(state.user)
-            if ( state.user.current !== null ) {
-                return true
-            } 
-            return false
-        },
         currentMsg (state) {
             return state.currentMsg
         },
         loadingFlow (state) {
             return state.loading
-        }
-    },
-    actions: {
-        logout({commit}) {
-            //dispatch('user/signout')
-            commit('user/session/logout')  
+        },
+        offset(state) {
+            return state.offset
+        },
+        user(state) {
+            return state.user
+        },
+        payment(state) {
+            return state.payment
+        },
+        transaction(state) {
+            return state.transaction
         }
     }
 })

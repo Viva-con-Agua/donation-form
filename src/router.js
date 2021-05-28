@@ -10,12 +10,6 @@ function loadView(view) {
 
 const routes = [
     {
-        path: '/home',
-        name: 'Home',
-        component: loadView('HomeView'),
-        meta: { requiresAuth: true }
-    },
-    {
         path: '/login',
         name: 'Login',
         component: loadView('Login'),

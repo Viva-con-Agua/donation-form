@@ -5,7 +5,7 @@
                 <vca-form>
                     <HeaderSteps :currentStep=step :steps=steps />
                     <div class="membership-form-content">
-                        <StepOne v-if="step === 1" @submit="submitStepOne" :moneyprop="payment.money"/>
+                        <StepOne v-if="step === 1" @submit="submitStepOne"/>
                         <StepTwo v-if="step === 2" @submit="submitStepTwo" @back="backStepOne" :supp="payment.supporter" :off="payment.offset"/>
                         <StepThree v-if="step === 3" :product="product" :payment="payment" :country="country" :label="getLabel" :valid="$v.payment" @back="backStepTwo" @success="success"/>
                         <StepThanks v-if="step === 4" :payment="payment"/>
@@ -62,10 +62,10 @@ export default {
             step: 1,
             steps: 
             [
-                {id: 1, label: 'Mitgliedsbeitrag' },
-                {id: 2, label: 'Meine Kontaktdaten' },
-                {id: 3, label: 'Zahlungsart' },
-                {id: 4, label: 'Danke!' }
+                {id: 1, label: this.$t('header.amount') },
+                {id: 2, label: this.$t('header.contact') },
+                {id: 3, label: this.$t('header.payment') },
+                {id: 4, label: this.$t('header.tanks') }
             ],
             companey: false,
             successView: false,
@@ -156,9 +156,7 @@ export default {
                 this.unit.amount = value
             }
         },
-        submitStepOne(interval, money) {
-            this.payment.transaction.interval = interval
-            this.payment.money = money
+        submitStepOne() {
             this.step = 2
         },
         backStepOne() {
@@ -205,11 +203,12 @@ export default {
 
 .btn-flex-container {
     display: flex;
+    flex-wrap: nowrap;
 }
 
 .btn-flex-box {
     flex: auto;
-    flex-basis: 100%;
+    flex-basis: 25% !important;
 }
 
 .btn-center-container .selected {
@@ -238,12 +237,12 @@ export default {
 }
 
 .btn-drop:hover {
-    background-image: url("~@/assets/icon_drop_white_outline.png");
+    background-image: url("~@/assets/icons/drop_white_outline.png");
 }
 .btn-drop-selected,
 .btn-drop-selected:hover {
     color: #fff;
-    background-image: url("~@/assets/icon_drop.png");
+    background-image: url("~@/assets/icons/drop.png");
 }
 
 .btn-drop div img {
@@ -336,11 +335,11 @@ export default {
     }
     .btn-drop {
         max-width: 170px;
-        background-image: url("~@/assets/icon_drop_white_outline.png");
+        background-image: url("~@/assets/icons/drop_white_outline.png");
     }
 
     .btn-drop-selected {
-        background-image: url("~@/assets/icon_drop.png");
+        background-image: url("~@/assets/icons/drop.png");
     }
 
 }
