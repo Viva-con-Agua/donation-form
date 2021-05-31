@@ -1,41 +1,35 @@
 <template>
     <div class="steptwo">
-        <vca-field label="Ich spende via">
-            <div class="paymentview">
-                <PaymentButtons :product="product" v-on:success="success" v-on:paymentType="setPaymentType" :payment="payment" :label="label" :country="country" :valid="valid" @notValid="notValid"/>
-            </div>
-        </vca-field>
-        <div class="nav-btn-container">
-            <div class="nav-back">
-                <button class="submit nav-btn-back>" @click.prevent="back"> Zurück zu Schritt 2 </button>
-            </div>
-        </div>
+        <PaymentSelection :product="product" v-on:success="success" :payment="payment" @isInvalid="validate" :label="label" :country="country" :valid="valid" @notValid="notValid"/>
+
+        <ArrowNavigation @next="success" @back="back" :nextEnabled="!isInvalid"/>
     </div>
 </template>
 <script>
-import PaymentButtons from '../PaymentButtons'
+import PaymentSelection from '@/components/stepthree/PaymentSelection'
+import ArrowNavigation from '@/components/layout/ArrowNavigation.vue'
 export default {
     name: 'StepThree',
-
     props: ['payment', 'country', 'valid', 'label', 'product'],
-    components: {PaymentButtons},
+    components: {PaymentSelection, ArrowNavigation},
     data() {
         return {
-            paymentType: 'sepa'
+            isInvalid: true
         }
     },
     methods: {
         success(e) {
             this.$emit("success", e)
         },
+        validate(e) {
+            console.log(e)
+            this.isInvalid = e
+        },
         notValid() {
             this.$emit("notValid")
         },
         back() {
             this.$emit("back")
-        },
-        setPaymentType(val) {
-            this.paymentType = val
         }
     }
 

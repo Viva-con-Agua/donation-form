@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from './store'
 
 Vue.use(Router)
 
@@ -50,20 +49,5 @@ var router = new Router({
         }
         return { x: 0, y: 0 };
     },
-})
-router.beforeEach(( to, from, next ) => {
-    console.log(to)
-    store.dispatch('user/session/loadSession')
-        .then(()=> {
-            next()
-        })
-        .catch (() => {
-            if (!to.meta.requiresAuth) {
-                next()
-            }else{
-                next()
-                //window.location = process.env.VUE_APP_AUTH_URL + "login?scope=" + process.env.VUE_APP_SCOPE + "&language=" + localStorage.language + "&callback=" + btoa(to.fullPath)
-            }
-        })
 })
 export default router

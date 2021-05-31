@@ -77,6 +77,9 @@ export default {
 }
 </script>
 <style>
+    .paypal-button-label-container {
+        color: green;
+    }
     .paypal-payment-container {
         text-align: center;
     }

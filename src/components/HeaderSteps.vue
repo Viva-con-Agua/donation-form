@@ -105,10 +105,7 @@ export default {
 .steps li.is-active {
     background-color: #008fc3;
     border-color: #008fc3 #008fc3 #008fc3;
-
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px 5px 0 0;
+    line-height: 1.2;
 }
 
 .steps li.is-active div.step-content {

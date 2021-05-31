@@ -1,5 +1,5 @@
 <template>
-    <div id=payment-widget class="payment-widget">
+    <div id="payment-widget" class="payment-widget">
         <div class="widget" v-if="slider == 'cupslide'">
             <CupSlider/>
         </div>
@@ -93,13 +93,12 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="scss">
 .payment-widget {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    width: auto;
     max-width: 1600px;
-    position: center;
-    margin: 0 auto;
+    min-width: 80%;
+    margin: auto;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;

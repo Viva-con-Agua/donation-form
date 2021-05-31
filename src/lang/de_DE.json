@@ -48,6 +48,10 @@
     "payment": "Zahlungsart",
     "thanks": "Danke!"
   },
+  "buttons": {
+    "next": "Weiter",
+    "back": "Zurück"
+  },
   "example": {
     "default": "",
     "soap": "Damit untestützt du uns z.B. mit 20 l Seife für Schulen",
@@ -71,6 +75,7 @@
   "interval": {
     "label": "Wähle dein Spendenintervall",
     "monthly": " monatlich",
+    "once": "1x im Jahr",
     "half": "2x im Jahr",
     "thrice": "3x im Jahr",
     "quarterly": "4x im Jahr"

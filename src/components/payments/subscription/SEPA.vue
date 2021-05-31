@@ -1,8 +1,7 @@
 <template>
     <div class="stripe-payment-container">
+        <vca-field  label="Weitere Angaben">
         <div class="vca-input-border"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
-
-        <vca-field  v-if="isDE" label="Weitere Angaben">
             <vca-checkbox
                 :rules="$v.accept"
                 ref="accept"
@@ -12,7 +11,6 @@
                         <strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
             </vca-checkbox>
         </vca-field>
-        <button type="button" v-on:click.prevent="purchase" :disabled="$v.$invalid" class="stripe-donation-button"> {{ label }} </button>
     </div>
 </template>
 
@@ -57,16 +55,22 @@ let stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY),
     elements = stripe.elements(),
     element = elements.create('iban', options)
 
+import { mapGetters } from 'vuex'
 export default {
     name: 'SEPA',
-    props: ['payment', 'valid', 'label', 'product', 'country'],
+    props: ['valid', 'product'],
     data() {
         return {
-            accept: false
+            accept: false,
+            localPayment: this.payment
         }
     },
     mounted () {
         element.mount(this.$refs.element)
+    },
+    created() {
+        this.$store.commit('transaction/payment_type', 'sepa')
+        this.$store.commit('transaction/provider', 'stripe')
     },
     validations() {
         return {
@@ -76,15 +80,11 @@ export default {
         }
     },
     computed: {
-        isCH() {
-            return this.country == 'CH'
-        },
-        isAT() {
-            return this.country == 'AT'
-        },
-        isDE() {
-            return this.country == 'DE'
-        },
+       ...mapGetters({
+           anonymous: 'anonymous',
+           payment: 'payment',
+           transaction: 'transaction'
+        })
     },
     methods: {
         stripeRequestCard(client_secret) {
@@ -92,8 +92,8 @@ export default {
                 payment_method: {
                     sepa_debit: element,
                     billing_details: {
-                        name: this.payment.supporter.first_name + ' ' + this.payment.supporter.last_name,
-                        email: this.payment.supporter.email
+                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                        email: this.anonymous.email
                     }
                 }
             }).then(result => {
@@ -109,18 +109,18 @@ export default {
                         { 
                             amount: this.payment.money.amount,
                             currency: this.payment.money.currency,
-                            name: this.payment.supporter.first_name + ' ' + this.payment.supporter.last_name,
-                            email: this.payment.supporter.email,
-                            interval: this.payment.transaction.interval,
-                            locale: this.payment.supporter.country,
+                            name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                            email: this.anonymous.email,
+                            interval: this.transaction.interval,
+                            locale: this.anonymous.country,
                             type: 'sepa_debit',
                             product: this.product
                         })
                         .then(response => {
-                            this.payment.transaction.id = response.data.id,
-                            this.payment.transaction.provider = "stripe",
-                            this.payment.transaction.payment_type = 'sepa',
-                            this.$emit('success', this.payment)
+                            this.transaction.id = response.data.id,
+                            this.transaction.provider = "stripe",
+                            this.transaction.payment_type = 'sepa',
+                            this.$emit('success', this.localPayment)
                         })
                     }
                 }
@@ -130,12 +130,12 @@ export default {
             if (this.valid.$invalid === false) {
                 axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default',
                     { 
-                        amount: this.payment.money.amount,
-                        name: this.payment.supporter.first_name + ' ' + this.payment.supporter.last_name,
-                        email: this.payment.supporter.email,
-                        interval: this.payment.transaction.interval,
+                        amount: this.localPayment.money.amount,
+                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                        email: this.anonymous.email,
+                        interval: this.transaction.interval,
                         currency: this.payment.money.currency,
-                        locale: this.payment.supporter.country,
+                        locale: this.anonymous.country,
                         type: 'sepa_debit'
                     })
                     .then(response => (
@@ -147,9 +147,7 @@ export default {
             }
         },
         validate () {
-            if (this.isDE) {
-                this.$refs.accept.validate()
-            }
+            this.$refs.accept.validate()
             this.$emit('validate') 
         }
     }

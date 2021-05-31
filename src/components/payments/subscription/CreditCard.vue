@@ -48,6 +48,10 @@ export default {
     mounted () {
         element.mount(this.$refs.card)
     },
+    created() {
+        this.$store.commit('transaction/payment_type', 'creditcard')
+        this.$store.commit('transaction/provider', 'stripe')
+    },
     data() {
         return {
             localPayment: this.payment

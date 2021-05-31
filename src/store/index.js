@@ -45,9 +45,6 @@ export default new Vuex.Store({
         },
         payment(state) {
             return state.payment
-        },
-        transaction(state) {
-            return state.transaction
         }
     }
 })

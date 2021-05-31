@@ -59,7 +59,7 @@ export default {
     },
     data() {
         return {
-            step: 1,
+            step: 3,
             steps: 
             [
                 {id: 1, label: this.$t('header.amount') },
@@ -203,12 +203,7 @@ export default {
 
 .btn-flex-container {
     display: flex;
-    flex-wrap: nowrap;
-}
-
-.btn-flex-box {
-    flex: auto;
-    flex-basis: 25% !important;
+    flex-wrap: wrap;
 }
 
 .btn-center-container .selected {
@@ -217,95 +212,6 @@ export default {
 }
 
 
-/*
-    CSS DROP BUTTON
-*/
-.btn-drop {
-    cursor: pointer;
-    background-image: none;
-    background-size: contain;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: solid thin transparent;
-    font-weight: bold;
-    text-decoration: none;
-    vertical-align: middle;
-    color: #008fc2;
-    min-height: 200px;
-    margin: 0 auto;
-}
-
-.btn-drop:hover {
-    background-image: url("~@/assets/icons/drop_white_outline.png");
-}
-.btn-drop-selected,
-.btn-drop-selected:hover {
-    color: #fff;
-    background-image: url("~@/assets/icons/drop.png");
-}
-
-.btn-drop div img {
-    width: 35px;
-    position: relative;
-    bottom: 10px;
-}
-
-/*
-    CSS NAVIGATION BUTTON
-*/
-.nav-btn-container {
-    display: flex;
-}
-
-.nav-btn-container .nav-next,
-.nav-btn-container .nav-back {
-    flex: auto;
-    flex-basis: 100%;
-    margin-bottom: 1em;
-}
-
-.nav-btn-container .nav-next {
-    text-align: right;
-}
-
-.nav-btn-container .nav-back {
-    text-align: left;
-}
-
-.nav-btn-container .nav-next button:hover,
-.nav-btn-container .nav-back button:hover {
-    background-color: #0070ba;
-}
-
-.nav-btn-container .nav-next button:disabled,
-.nav-btn-container .nav-back button:disabled {
-    background: #fff;
-    color: #008fc3;
-    opacity: 0.3;
-    cursor: default;
-}
-
-.nav-btn-container .nav-next button,
-.nav-btn-container .nav-back button {
-    cursor: pointer;
-    font-size: 1.2em;
-    height: auto;
-    width: auto;
-    background-color: #008fc3;
-    color: #fff;
-    padding: 0.5em 1.2em;
-    border: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
 
 /*********************
 *** SCREEN 600 PX ***
@@ -317,15 +223,6 @@ export default {
         flex-wrap: wrap;
     }
     
-    /*
-        CSS NAVIGATION BUTTON
-    */
-    .nav-btn-container .nav-next button,
-    .nav-btn-container .nav-back button {
-        white-space: nowrap;
-        font-size: .7em;
-    }
-
     /*
         CSS DROP BUTTON
     */

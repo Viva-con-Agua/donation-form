@@ -1,5 +1,5 @@
 <template>
-    <vca-field  :label="$t('abo.label')">
+    <vca-field class="typo-roboto" :label="$t('abo.label')">
         <vca-selection :selection="abos" v-model="abo"/>
     </vca-field>
 </template>
