@@ -13,7 +13,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import IntervalButton from '@/components/stepone/IntervalButton'
+import IntervalButton from '@/components/steps/one/IntervalButton'
 export default {
     name: 'Interval',
     components: {IntervalButton},

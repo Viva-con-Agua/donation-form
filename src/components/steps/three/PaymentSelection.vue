@@ -1,17 +1,15 @@
 <template>
     <div>
-        
-        <vca-field label="$t('paymenttype.label')">
+        <vca-field :label="$t('paymentselection.label')">
             <div class="btn-center-container">
                 <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button"  @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}</button>
             </div>
         </vca-field>
 
-
-        <SEPA v-if="getPaymentType('sepa')" :product="product" v-on:success="success" :country="country" :valid="valid" @notValid="notValid"/>
-        <CiviSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" :label="$t('payment.civisepa')" />
-        <CreditCard v-if="getPaymentType('creditcard')" :product="product" v-on:success="success" :payment="payment" :label="label" :country="country" :valid="valid" @notValid="notValid"/>
-        <PayPalButton v-if="getPaymentType('paypal')" v-on:success="success" v-on:error="error" :payment="payment" :valid="valid" @notValid="notValid"/>
+        <SEPA v-if="getPaymentType('sepa')" :product="product" @isInvalid="isInvalid"/>
+        <CiviSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
+        <CreditCard v-if="getPaymentType('creditcard')" :product="product" @isInvalid="isInvalid"/>
+        <PayPalButton v-if="getPaymentType('paypal')" v-on:success="success" v-on:error="error"/>
     </div>
 </template>
 <script>
@@ -25,7 +23,7 @@ import { mapGetters } from 'vuex'
 export default {
     name: 'PaymentSelection',
     components: {SEPA, CiviSEPA, CreditCard, PayPalButton},
-    props: ['payment', 'country', 'valid', 'label', 'product'],
+    props: ['product'],
     computed: {
        ...mapGetters({
            paymentTypes: 'payment/paymentTypes'
@@ -52,9 +50,6 @@ export default {
         },
         error(e) {
             this.$emit("error", e)
-        },
-        notValid() {
-            this.$emit("notValid")
         },
         getPaymentType(val) {
             return this.paymentType == val

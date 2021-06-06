@@ -5,6 +5,7 @@ import Vuelidate from 'vuelidate'
 import App from './App.vue'
 import router from './router.js'
 import store from './store'
+import getUserLocale from 'get-user-locale';
 import VueI18n from 'vue-i18n'
 import FlagIcon from 'vue-flag-icon'
 import 'vca-ui/dist/vca-ui.css'
@@ -21,7 +22,7 @@ Vue.config.productionTip = false
 
 //const locale =  navigator.language;
 const i18n = new VueI18n({
-    locale: navigator.language,
+    locale: getUserLocale(),
     fallbackLocale: "de",
     messages: {
         'de-DE': de,
@@ -40,7 +41,10 @@ Vue.mixin({
                 duration: 6000
             });
         }
-    },    
+    },
+    toLocaleString: function (str) {
+        return str.toLocaleString(this.$i18n.locale)
+    },
     formatDate(val) {
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(val * 1000).toLocaleDateString(this.$i18n.locale, options)

@@ -2,10 +2,10 @@ const payment = {
     namespaced: true,
     state: {
         paymentTypes: [
-            { name: 'civisepa', title: 'payment.civisepa', default: true },
-            { name: 'sepa', title: 'payment.sepa' },
-            { name: 'creditcard', title: 'payment.creditcard' },
-            { name: 'paypal', title: 'payment.paypal' }
+            { name: 'civisepa', title: 'payment.type.sepa', default: true },
+            { name: 'sepa', title: 'payment.type.sepa' },
+            { name: 'creditcard', title: 'payment.type.creditcard' },
+            { name: 'paypal', title: 'payment.type.paypal' }
         ],
         minAmount: 500,
         money: {

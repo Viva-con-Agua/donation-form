@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <notifications position="top center" width="100%"/>
-    <PaymentWidget class="app-content" type="membership" slider="" :campaign_id="26" campaign_name="Online-Becherspende für Test" campaign_description="Das ist ein Test für eine Online-Becherspende" country="DE" currency="EUR" product="prod_HZW4PLYJeuxnyC" req_newsletter></PaymentWidget>
+    <PaymentWidget class="app-content" :campaign_id="26"></PaymentWidget>
   </div>
 </template>
 
 <script>
-import PaymentWidget from '@/PaymentWidget.vue'
+import PaymentWidget from '@/views/PaymentWidget.vue'
 
 export default {
   name: 'App',

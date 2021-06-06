@@ -36,7 +36,7 @@ export default {
                 css: "dnt-frm-thresh"
             }
         }
-    },    
+    },
     computed: {
        ...mapGetters({
            minAmount: 'payment/minAmount'
@@ -67,11 +67,6 @@ export default {
                     minValue: minValue(this.minAmount)
                 }
             }
-        }
-    },
-    methods: {
-        validate()  {
-            return this.$refs.money.validate()
         }
     }
 }

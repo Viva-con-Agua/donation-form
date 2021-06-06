@@ -15,9 +15,9 @@
 </template>
 <script>
 import FaucetSlider from '@/components/slider/FaucetSlider'
-import Amount from '@/components/stepone/Amount.vue'
-import Abo from '@/components/stepone/Abo.vue'
-import Interval from '@/components/stepone/Interval.vue'
+import Amount from '@/components/steps/one/Amount.vue'
+import Abo from '@/components/steps/one/Abo.vue'
+import Interval from '@/components/steps/one/Interval.vue'
 import ArrowNavigation from '@/components/layout/ArrowNavigation.vue'
 export default {
     name: 'StepOne',
@@ -28,10 +28,10 @@ export default {
         }
     },
     mounted () {
+        this.isValid = !this.$refs.amount.$v.$invalid
         this.$watch(() => {
                 return this.$refs.amount.$v.$invalid
             },(val) => {
-                console.log(val)
                 this.isValid = !val
             }
         )
@@ -43,7 +43,7 @@ export default {
     },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .slider-box {
         width: 85%;
         margin: auto;

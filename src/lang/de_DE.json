@@ -48,6 +48,13 @@
     "payment": "Zahlungsart",
     "thanks": "Danke!"
   },
+  "information": {
+    "label": "Hinweise:",
+    "info_1": "Monatilche Spenden können jederzeit gekündigt werden.",
+    "info_2": "Deine Spende ist steuerlich absetzbar. Eine Spendenbescheinigung erhälst du im Februar des Folgejahres.",
+    "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
+    "info_4": "Viva con Agua de Sankt Paule e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt.<br/>Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
+  },
   "buttons": {
     "next": "Weiter",
     "back": "Zurück"
@@ -79,6 +86,128 @@
     "half": "2x im Jahr",
     "thrice": "3x im Jahr",
     "quarterly": "4x im Jahr"
+  },
+  "paymentselection": {
+    "label": "Ich spende via"
+  },
+  "contacttypeselection": {
+    "label": "Ich spende als"
+  },
+  "contactform": {
+    "label": "Persönliche Angaben",
+    "required": "* Diese Angaben benötigen wir von dir auf jeden Fall.",
+    "company": {
+      "placeholder": "Name des Unternehmens *",
+      "error": "Bitte gib den Namen deines Unternehmens ein"
+    },
+    "email": {
+      "placeholder": "E-Mail Adresse",
+      "error": "Bitte gib eine gültige E-Mail Adresse ein",
+      "info": "Dies ist kein Pflichtfeld, wir verschicken die Spendenbescheinigungen jedoch ressourcenschonend per E-Mail und fänden es super, wenn du uns deine E-Mail Adresse zur Verfügung stellst."
+    },
+    "firstname": {
+      "placeholder": "Dein Vorname *",
+      "error": "Bitte gib deinen Vornamen ein"
+    },
+    "lastname": {
+      "placeholder": "Dein Nachname *",
+      "error": "Bitte gib deinen Nachnamen ein"
+    },
+    "street": {
+      "placeholder": "Deine Straße *",
+      "error": "Bitte gib deine Straße ein"
+    },
+    "number": {
+      "placeholder": "Deine Hausnummer *",
+      "error": "Bitte gib deine Hausnummer ein"
+    },
+    "zip": {
+      "placeholder": "Deine Postleitzahl *",
+      "error": "Bitte gib deine Postleitzahl ein"
+    },
+    "city": {
+      "placeholder": "Dein Wohnort *",
+      "error": "Bitte gib deinen Wohnort ein"
+    },
+    "country": {
+      "placeholder": "Dein Land *",
+      "error": "Bitte gib dein Land ein"
+    },
+    "selectCountry": {
+      "label": "Bitte wähle aus in welcher Währung du gerne Spenden möchtest",
+      "placeholder": "Bitte Organisation auswählen",
+      "de": {
+        "title": "Viva con Agua de Sankt Pauli e.V.",
+        "subtitle": "Unser Verein in Deutschland",
+        "currency": "Euro"
+      },
+      "ch": {
+        "title": "Viva con Agua Schweiz",
+        "subtitle": "Unser Verein in der Schweiz",
+        "currency": "CHF"
+      }
+    }
+  },
+  "payment": {
+    "type": {
+      "sepa": "SEPA",
+      "creditcard": "Kreditkarte",
+      "paypal": "Paypal"
+    },
+    "more_details": "Weitere Angaben",
+    "sepa": {
+      "placeholder": "DE00 0000 0000 0000 0000 00",
+      "error": "Bitte prüfe deine IBAN"
+    },
+    "terms": {
+      "sepa": {
+        "de": {
+          "single": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
+          "subscription": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
+        },
+        "error": "Bitte bestätige die Einzugsermächtigung"
+      }
+    }
+  },
+  "thanks": {
+    "header": "DANKE",
+    "subheader": "für deinen Support und dein Vertrauen!",
+    "text": "Deine Spende über {0} hat {1}",
+    "example": {
+      "default": "in unserem Projektland Uganda Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
+      "soap": "in unserem Projektland Uganda 20 l Seife für Schulen zur Verfügung gestellt.",
+      "filter": "in unserem Projektland Uganda einer Familie einen Wasserfilter spendiert.",
+      "trees": ")jn unserem Projektland Uganda 50 Bäumen gepflanzt.",
+      "workshop": "in unserem Projektland Uganda einen Hygieneworkshop an einer Schule ermöglicht."
+    }
+  },
+  "next": {
+    "label": "So geht es weiter",
+    "receipt": "Deine Spendenbescheinigungen erhälst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+    "newsletter": {
+      "text": "In der Zwischenzeit melde dich doch bei unserem newsletter an",
+      "button": "Jetzt anmelden"
+    },
+    "yours": "Dein Viva con Agua Team"
+  },
+  "tenseconds": {
+    "label": "Hast du noch 10 Sekunden Zeit?",
+    "knownfrom": {
+      "label": "Verrate uns doch gerne, woher du uns kennst:",
+      "dropdown": {
+        "placeholder": "Daher kenne ich euch",
+        "family_friends": "Familie & Freunde",
+        "festivals_cupdonation": "Festivals & Becherspende",
+        "water": "Wasser",
+        "instagram": "Instagram",
+        "facebook": "Facebook"
+      }
+    },
+    "comment": {
+      "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Tean:",
+      "placeholder": "200 Zeichen",
+      "button": "Absenden"
+    }
   },
   "navigation": {
     "tabs": {

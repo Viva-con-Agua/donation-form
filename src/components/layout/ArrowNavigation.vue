@@ -1,8 +1,8 @@
 <template>
     <div class="nav-btn-box">
         <div class="nav-buttons" :class="{single: !showNext || !showBack}">
-            <button class="nav-btn-back" v-if="showBack" :disabled="!backEnabled" @click.prevent="back">{{ $t('buttons.back') }}</button>
-            <button class="nav-btn-next" v-if="showNext" :disabled="!nextEnabled" @click.prevent="$emit('next')">{{ $t('buttons.next') }}</button>
+            <button class="nav-btn-back" v-if="showBack" :disabled="!backEnabled" @click.prevent="back">{{ getBack }}</button>
+            <button class="nav-btn-next" v-if="showNext" :disabled="!nextEnabled" @click.prevent="$emit('next')">{{ getNext }}</button>
         </div>
     </div>
 </template>
@@ -18,6 +18,10 @@ export default {
             type: Boolean,
             default: true
         },
+        nextLabel: {
+            type: String,
+            default: null
+        },
         showBack: {
             type: Boolean,
             default: true
@@ -25,6 +29,18 @@ export default {
         backEnabled: {
             type: Boolean,
             default: true
+        },
+        backLabel: {
+            type: String,
+            default: null
+        }
+    },
+    computed: {
+        getNext() {
+            return this.nextLabel ? this.nextLabel : this.$t('buttons.next')
+        },
+        getBack() {
+            return this.backLabel ? this.backLabel : this.$t('buttons.back')
         }
     },
     methods: {
@@ -37,12 +53,6 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-    .slider-box {
-        width: 85%;
-        margin: auto;
-    }
-</style>
 <style lang="scss">
     /*
     CSS NAVIGATION BUTTON
@@ -83,9 +93,17 @@ export default {
                 margin-left: 50px;
             }
         }
+        .nav-btn-next:hover {
+            transition: .3s;
+            background-image: url("~@/assets/icons/arrow_right_hover.png");
+        }
+
+        .nav-btn-next:disabled:hover,
         .nav-btn-next:disabled {
+            transition: .3s;
             background-image: url("~@/assets/icons/arrow_right_disabled.png");
         }
+
         .nav-btn-back {
             flex-basis: 50%;
             background-image: url("~@/assets/icons/arrow_left.png");
@@ -93,8 +111,14 @@ export default {
                 margin-right: 50px;
             }
         }
+        .nav-btn-back:disabled:hover,
         .nav-btn-back:disabled {
-            background-image: url("~@/assets/icons/arrow_left.png");
+            transition: .3s;
+            background-image: url("~@/assets/icons/arrow_left_disabled.png");
+        }
+        .nav-btn-back:hover {
+            transition: .3s;
+            background-image: url("~@/assets/icons/arrow_left_hover.png");
         }
 
         button {
@@ -121,6 +145,7 @@ export default {
         }
 
         button:hover {
+            transition: .3s;
             color: $vca-primary-dark;
         }
 

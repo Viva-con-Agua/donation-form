@@ -30,7 +30,7 @@ const routes = [
     },
     {
         path: '/',
-        component: loadView('HomeView'),
+        component: loadView('Sign'),
         meta: { requiresAuth: false, title: "Home" }
     },
     {
