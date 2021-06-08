@@ -12,7 +12,7 @@ import axios from 'axios'
 import { mapGetters } from 'vuex'
 export default {
     name: 'CreditCard',
-    props: ['valid', 'product'],
+    props: ['product'],
     data() {
         return {
             stripe: null,
@@ -96,40 +96,36 @@ export default {
                 } else {
                     // The payment has been processed!
                     if (result.setupIntent.status === 'succeeded') {
-                        axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/subscription',
-                            { 
-                                amount: this.payment.money.amount,
-                                currency: this.payment.money.currency,
-                                name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                                email: this.anonymous.email,
-                                interval: this.transaction.interval,
-                                locale: this.$i18n.locale,
-                                type: 'card',
-                                product: this.product
-                            })
-                            .then(response => {
-                                this.transaction.id = response.data.id,
-                                this.$emit('success', this.transaction)
-                            })
+                        axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/subscription', { 
+                            amount: this.payment.money.amount,
+                            currency: this.payment.money.currency,
+                            name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                            email: this.anonymous.email,
+                            interval: this.transaction.interval,
+                            locale: this.$i18n.locale,
+                            type: 'card',
+                            product: this.product
+                        }).then(response => {
+                            this.transaction.id = response.data.id,
+                            this.$emit('success', this.transaction)
+                        })
                     }
                 }
             });
         },
         purchase () {
             if (!this.isInvalid) {
-                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default',
-                    { 
-                        amount: this.payment.money.amount,
-                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                        email: this.anonymous.email,
-                        interval: this.transaction.interval,
-                        currency: this.payment.money.currency,
-                        locale: this.$i18n.locale,
-                        type: 'card'
-                    })
-                    .then(response => (
-                        this.stripeRequestCard(response.data.client_secret)
-                    ))
+                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default', { 
+                    amount: this.payment.money.amount,
+                    name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                    email: this.anonymous.email,
+                    interval: this.transaction.interval,
+                    currency: this.payment.money.currency,
+                    locale: this.$i18n.locale,
+                    type: 'card'
+                }).then(response => (
+                    this.stripeRequestCard(response.data.client_secret)
+                ))
             }
         }
     }

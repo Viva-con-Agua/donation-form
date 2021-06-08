@@ -21,7 +21,6 @@ export default {
             this.$emit("success", e)
         },
         validate(e) {
-            console.log(e)
             this.isInvalid = e
         },
         back() {

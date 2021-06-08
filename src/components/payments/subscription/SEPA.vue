@@ -147,19 +147,17 @@ export default {
         },
         purchase () {
             if (!this.isInvalid) {
-                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default',
-                    { 
-                        amount: this.payment.money.amount,
-                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                        email: this.anonymous.email,
-                        interval: this.transaction.interval,
-                        currency: this.payment.money.currency,
-                        locale: this.anonymous.country,
-                        type: 'sepa_debit'
-                    })
-                    .then(response => (
-                        this.stripeRequestCard(response.data.client_secret)
-                    ))
+                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default', { 
+                    amount: this.payment.money.amount,
+                    name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                    email: this.anonymous.email,
+                    interval: this.transaction.interval,
+                    currency: this.payment.money.currency,
+                    locale: this.anonymous.country,
+                    type: 'sepa_debit'
+                }).then(response => (
+                    this.stripeRequestCard(response.data.client_secret)
+                ))
             }
         }
     }

@@ -32,35 +32,14 @@ export default {
                 {id: 2, label: this.$t('header.contact') },
                 {id: 3, label: this.$t('header.payment') },
                 {id: 4, label: this.$t('header.thanks') }
-            ],
-            currencies: [
-                {
-                    label: '€',
-                    value: 'EUR'
-                }
             ]
         }
-    },
-    mounted() {
-        //this.getLocation()
     },
     methods: {
         success(e) {
             this.$emit("success", e)
             this.step = 4
-        },
-        /*getLocation() {
-            var that = this
-            axios.get("https://ipinfo.io/json?token=" + process.env.VUE_APP_IPINFO_TOKEN)
-                .then(response => (
-                    that.payment.supporter.country = response.data.country
-                ))
-                .catch(function (error) {
-                    if (error.response) {
-                      console.log(error.response.data.error.message);
-                    }
-                })
-        }*/
+        }
     }
 }
 </script>
