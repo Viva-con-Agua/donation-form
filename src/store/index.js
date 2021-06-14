@@ -9,10 +9,14 @@ export default new Vuex.Store({
         user: user
     },
     state: {
+        campaign: null,
         loading: false,
         currentMsg: null
     },
     mutations: {
+        init(state, value) {
+            state.campaign = value
+        }, 
         currentMsg (state, value) {
             state.currentMsg = value
         },
@@ -36,6 +40,15 @@ export default new Vuex.Store({
         }
     },
     actions: {
+        init({commit}, data) {
+            return new Promise((resolve, reject) => {
+                api.call.get('/v1/donations/campaign/' + data.data)
+                    .then((response) => {commit('init', response.data.payload), resolve()})
+                    .catch((error) => {
+                        reject(error)
+                    })
+            })
+        },
         logout({commit}) {
             //dispatch('user/signout')
             commit('user/session/logout')  
