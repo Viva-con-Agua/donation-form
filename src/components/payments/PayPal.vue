@@ -1,27 +1,43 @@
 <template>
     <div class="paypal-payment-container">
-        <PayPal 
-            ref="paypal"
-            :amount="pAmount"
-            :currency="payment.money.currency"
-            :client="credentials"
-            :items="items"
-            :disabled="this.valid.$invalid"
-            @payment_authorized="purchase"
-            @payment-completed="success"
-            @payment-validation-error="validationError">
-        </PayPal>
+        <vca-field :label="$t('payment.more_details')">
+            <PayPal 
+                ref="paypal"
+                :amount="pAmount"
+                :currency="payment.money.currency"
+                :client="credentials"
+                :items="items"
+                @payment_authorized="purchase"
+                @payment-completed="success"
+                @payment-validation-error="validationError">
+            </PayPal>
+        </vca-field>
     </div>
 </template>
 
 <script>
 import Money from 'vca-ui/src/utils/Money'
 import PayPal from './paypal/PayPalCheckout'
+import { mapGetters } from 'vuex'
 export default {
     name: 'PayPalButton',
     components: {PayPal},
-    props: ['payment', 'valid'],
+    created() {
+        this.$store.commit('transaction/payment_type', 'paypal')
+        this.$store.commit('transaction/provider', 'paypal')
+    },
     computed : {
+        ...mapGetters({
+           payment: 'payment',
+        }),
+        transaction: {
+            get () {
+                return this.$store.state.transaction
+            },
+            set(value) {
+                this.$store.commit('transaction', value)
+            }
+        },
         pAmount () {
             return Money.getPayPalString(this.payment.money.amount)
         },
@@ -40,24 +56,13 @@ export default {
             credentials: {
                 sandbox: process.env.VUE_PAYPAL_PUBLIC_KEY_SANDBOX,
                 production: process.env.VUE_PAYPAL_PUBLIC_KEY_PRDOUCTION
-            },
-            myItems: [
-                {
-                    "name": "test donation",
-                    "description": "for test",
-                    "quantity": "1",
-                    "price": this.pAmount,
-                    "currency": this.payment.money.currency
-                },
-            ],
-            localPayment: this.payment
+            }
         }
     },
     methods: {
         success(e) {
-            this.localPayment.id = e.id,
-            this.localPayment.provider = 'paypal'
-            this.$emit("success", this.localPayment)
+            this.transaction.id = e.id
+            this.$emit("success", this.transaction)
         },
         error(e) {
             this.$emit("error", e)
@@ -66,17 +71,15 @@ export default {
             this.$emit("not-valid")
         },
         purchase () {
-            if (this.valid.$invalid === false ) {
-                this.$refs.paypal 
-            } else {
-                this.$emit('not-valid')
-            }
+            this.$refs.paypal 
         }
-
     }
 }
 </script>
 <style>
+    .paypal-button-label-container {
+        color: green;
+    }
     .paypal-payment-container {
         text-align: center;
     }

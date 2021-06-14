@@ -1,105 +1,87 @@
 <template>
     <div class="sepa-payment-container">
-        <vca-input
-            ref="account.iban"
-            errorMsg="Bitte prüfe deine IBAN"
-            placeholder="IBAN"
-            v-model.trim="account.iban"
-            @input="isValid"
-            :rules="$v.account.iban">
-        </vca-input>
+        <vca-field :label="$t('payment.more_details')">
+            <vca-input
+                ref="iban"
+                :errorMsg="$t('payment.sepa.error')"
+                :placeholder="$t('payment.sepa.placeholder')"
+                v-model.trim="iban"
+                @input="isValid"
+                @blur="isValid"
+                :rules="$v.iban">
+            </vca-input>
 
-        <vca-field  v-if="isDE" label="Weitere Angaben">
-            <CheckBox
-                :rules="$v.accept"
-                ref="accept"
-                v-model="accept"
-                errorMsg="Bitte bestätige die Ermächtigung">
-                        Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br>
-                        <strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
-            </CheckBox>
+            <vca-checkbox
+                :rules="$v.terms"
+                ref="terms"
+                v-model="terms"
+                @change="isValid"
+                :errorMsg="$t('payment.terms.sepa.error')">
+                        <div v-html="$t('payment.terms.sepa.de.single')"></div>
+            </vca-checkbox>
         </vca-field>
-        <button type="button" v-on:click.self.prevent="purchase" :disabled="$v.$invalid" class="sepa-donation-button"> {{ label }} </button>
     </div>
 </template>
 
 <script>
-
 import axios from 'axios'
-import CheckBox from '../../utils/CheckBox'
-
 export default {
     name: 'CiviSEPA',
-    props: ['payment', 'valid', 'label', 'country'],
-    components: {CheckBox},
-    data() {
-        return {
-            accept: false,
-            account: {
-                iban: '',
-                bic: ''
-            },
-            localPayment: this.payment
-        }
-    },
     validations() {
         return {
-            accept: {
+            terms: {
                 watcher: value => value === true
             },
-            account: {
-                iban: {
-                    async isinvalid (value) {
-                        if (value.length < 15) {
-                            return false
-                        }  
-
+            iban: {
+                async isinvalid (value) {
+                    if (value && value.length >= 15) {
                         const response = await axios.get("https://openiban.com/validate/" + value + "?getBIC=true&validateBankCode=true")
-
                         if(response.data.valid) {
-                            this.account.bic = response.data.bankData.bic
-                        } else {
-                            this.account.bic = ''
+                            this.bic = response.data.bankData.bic
                         }
                         return Boolean(await response.data.valid)
                     }
+                    return false
                 }
             }
         }
     },
+    created() {
+        this.$store.commit('transaction/payment_type', 'civisepa')
+        this.$store.commit('transaction/provider', '')
+        this.$emit('isInvalid', this.$v.$invalid)
+    },
     computed: {
-        isCH() {
-            return this.country == 'CH'
+        iban: {
+            get () {
+                return this.$store.state.transaction.account.iban
+            },
+            set(value) {
+                this.$store.commit('transaction/iban', value)
+            }
         },
-        isAT() {
-            return this.country == 'AT'
+        bic: {
+            get () {
+                return this.$store.state.transaction.account.bic
+            },
+            set(value) {
+                this.$store.commit('transaction/bic', value)
+                this.$emit('isInvalid', this.$v.$invalid)
+            }
         },
-        isDE() {
-            return this.country == 'DE'
+        terms: {
+            get () {
+                return this.$store.state.transaction.terms
+            },
+            set(value) {
+                this.$store.commit('transaction/terms', value)
+                this.$emit('isInvalid', this.$v.$invalid)
+            }
         }
     },
     methods: {
-
         isValid() {
-            if (!this.$v.account.iban.$invalid) {
-                this.$refs.account.iban.validate()
-            }
-        },
-        purchase () {
-            if (this.valid.$invalid === false ) {
-                this.localPayment.transaction.id = ""
-                this.localPayment.transaction.provider = ""
-                this.localPayment.transaction.payment_type = "sepa"
-                this.localPayment.transaction.account.iban = this.account.iban
-                this.localPayment.transaction.account.bic = this.account.bic
-                this.$emit('success', this.localPayment)
-            } else {
-                if (this.isDE) {
-                    this.$refs.accept.validate()
-                    this.$refs.account.iban.validate()
-                }
-                this.$emit('notValid')
-            }
+            this.$emit('isInvalid', this.$v.$invalid)
         }
     }
 
