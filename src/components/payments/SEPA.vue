@@ -1,146 +1,148 @@
 <template>
     <div class="stripe-payment-container">
-        <div class="vca-input-border"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
-
-        <vca-field  v-if="isDE" :label="$t('payments.sepa.label_further')">
+        <vca-field :label="$t('payment.more_details')">
+            <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
             <vca-checkbox
-                :rules="$v.accept"
-                ref="accept"
-                v-model="accept"
-                :errorMsg="$t('payments.sepa.errorMsg')">
-                <span v-html="$t('payments.sepa.legal')"></span>
+                :rules="$v.terms"
+                ref="terms"
+                v-model="terms"
+                :errorMsg="$t('payment.terms.sepa.error')">
+                        <div v-html="$t('payment.terms.sepa.de.single')"></div>
             </vca-checkbox>
         </vca-field>
-        <button type="button" v-on:click.prevent="purchase" class="stripe-donation-button"> {{ label }} </button>
     </div>
 </template>
 
 <script>
 
 import axios from 'axios'
-import { mapGetters } from 'vuex'
-const style = {
-    base: {
-        color: '#32325d',
-        '::placeholder': {
-            color: '#aab7c4'
-        },
-        ':-webkit-autofill': {
-            color: '#32325d',
-        },
-    },
-    invalid: {
-        color: '#dc3545',
-        iconColor: '#dc3545',
-        ':-webkit-autofill': {
-            color: '#dc3545',
-        },
-    },
-    empty: {
-        color: '#0a6b91',
-        iconColor: '#0a6b91',
-        ':-webkit-autofill': {
-            color: '#0a6b91',
-        },
-    },
-};
-const options = {
-    style,
-    supportedCountries: ['SEPA'],
-    // Elements can use a placeholder as an example IBAN that reflects
-    // the IBAN format of your customer's country. If you know your
-    // customer's country, we recommend passing it to the Element as the
-    // placeholderCountry.
-    placeholderCountry: 'DE',
-};
-let stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY),
-    elements = stripe.elements(),
-    element = elements.create('iban', options)
 
+import { mapGetters } from 'vuex'
 export default {
     name: 'SEPA',
-    props: ['payment', 'valid', 'label', 'country'],
+    props: ['product'],
     data() {
         return {
-            accept: false,
-            localPayment: this.payment
+            stripe: null,
+            elements: null,
+            element: null,
+            ibanInvalid: true,
+            options: {
+                style: {
+                    base: {
+                        color: '#32325d',
+                        '::placeholder': {
+                            color: '#aab7c4'
+                        },
+                        ':-webkit-autofill': {
+                            color: '#32325d',
+                        },
+                    },
+                    invalid: {
+                        color: '#ff5522',
+                        iconColor: '#ff5522',
+                        ':-webkit-autofill': {
+                            color: '#ff5522',
+                        },
+                    },
+                    empty: {
+                        color: '#0a6b91',
+                        iconColor: '#0a6b91',
+                        ':-webkit-autofill': {
+                            color: '#0a6b91',
+                        },
+                    },
+                },
+                supportedCountries: ['SEPA'],
+                // Elements can use a placeholder as an example IBAN that reflects
+                // the IBAN format of your customer's country. If you know your
+                // customer's country, we recommend passing it to the Element as the
+                // placeholderCountry.
+                placeholderCountry: this.$i18n.locale,
+            }
         }
     },
     mounted () {
-        element.mount(this.$refs.element)
+        this.element.mount(this.$refs.element)
+    },
+    created() {
+        this.$store.commit('transaction/payment_type', 'sepa')
+        this.$store.commit('transaction/provider', 'stripe')
+        this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
+        this.elements = this.stripe.elements()
+        this.element = this.elements.create('iban', this.options)
+        this.element.on('change', (event) => { 
+            if (!event.complete) {
+                this.ibanInvalid = true
+            } else {
+                this.ibanInvalid = false
+            }
+            this.$emit('isInvalid', this.isInvalid)
+        })
+
+        this.$emit('isInvalid', this.isInvalid)
     },
     validations() {
         return {
-            accept: {
+            terms: {
                 watcher: value => value === true
             }
         }
     },
     computed: {
+        isInvalid() {
+            return this.$v.$invalid || this.ibanInvalid
+        },
+        terms: {
+            get () {
+                return this.$store.state.transaction.terms
+            },
+            set(value) {
+                this.$store.commit('transaction/terms', value)
+                this.$refs.terms.validate()
+                this.$emit('isInvalid', this.isInvalid)
+            }
+        },
         ...mapGetters({
-            profile: 'user/profile/current',
-            user: 'user/current',
-            anonymous: 'user/anonymous',
-        }),
-        isCH() {
-            return this.country == 'CH'
-        },
-        isAT() {
-            return this.country == 'AT'
-        },
-        isDE() {
-            return this.country == 'DE'
-        },
+           anonymous: 'anonymous',
+           payment: 'payment',
+           transaction: 'transaction'
+        })
     },
     methods: {
         stripeRequestIBAN (client_secret) {
-            stripe.confirmSepaDebitPayment(
-                client_secret,
-                {
-                    payment_method: {
-                        sepa_debit: element,
-                        billing_details: {
-                            name: (this.profile) ? this.this.profile.full_name : this.anonymous.first_name + " " + this.anonymous.last_name,
-                            email: (this.user) ? this.user.email : this.anonymous.email
-                        }
+            this.stripe.confirmSepaDebitPayment(client_secret, {
+                payment_method: {
+                    sepa_debit: this.element,
+                    billing_details: {
+                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                        email: this.anonymous.email
                     }
-                }).then(result => {
-                    this.$store.commit('loadingFlow')
-                    if (!result.error) {
-                        // The payment is state processing!
-                        if (result.paymentIntent.status === 'processing') {
-                            this.localPayment.id = result.paymentIntent.id
-                            this.localPayment.provider = "stripe"
-                            this.$emit('success', this.localPayment)
-                        }
-                    } else {
+                }}).then(result => {
+                    if (result.error) {
                         // Show error to your customer (e.g., insufficient funds)
                         console.log(result.error.message);
+                    } else {
+                        // The payment is state processing!
+                        if (result.paymentIntent.status === 'processing') {
+                            this.transaction.id = result.paymentIntent.id
+                            this.$emit('success', this.payment)
+                        }
                     }
                 });
         },
         purchase () {
-            this.$store.commit('loadingFlow')
-            if (this.valid.$invalid === false && this.accept) {
-                    axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/iban',
-                    {
-                        amount: parseInt(this.payment.money.amount),
-                        currency: this.payment.money.currency,
-                        name: this.profile.full_name,
-                        email: (this.user) ? this.user.email : this.anonymous.email,
-                        country: (this.user) ? this.user.country : this.anonymous.country
-                    }
-                )
-                .then(response => (
+            if (!this.isInvalid) {
+                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/iban', {
+                    amount: this.payment.money.amount,
+                    name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
+                    email: this.anonymous.email,
+                    currency: this.payment.money.currency,
+                    locale: this.anonymous.country
+                }).then(response => (
                     console.log(response),
                     this.stripeRequestIBAN(response.data.client_secret)
                 ))
-            } else {
-                this.$store.commit('loadingFlow')
-                if (this.isDE) {
-                    this.$refs.accept.validate()
-                }
-                this.$emit('not-valid')
             }
         }
     }

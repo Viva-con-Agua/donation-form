@@ -1,9 +1,9 @@
 <template>
   <div class="language-selection" :title="$t('language.title')">
-    <div class="flag-cont" :class="{flagInactive: (language != lang)}" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang)">
-      <span v-if="language == lang" class="flag-icon" :class="currentFlag"></span>
+    <div class="flag-cont" :class="{flagInactive: (language != lang.lang)}" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang.lang)">
+      <span v-if="language == lang.lang" class="flag-icon" :class="currentFlag"></span>
       <div v-else>
-          <span class="flag-icon" :class="flag(lang)"></span>
+          <span class="flag-icon" :class="flag(lang.flag)"></span>
       </div>
     </div>
   </div>
@@ -13,13 +13,18 @@ export default {
   name: 'LanguageSelection',
   data() {
     return {
-      languages: ['de', 'ch', 'gb'],
+      languages: [ 
+        { "lang": "de-DE", "flag": "de" }, 
+        { "lang": "de-CH", "flag": "ch" }, 
+        { "lang": "en-GB", "flag": "gb" } 
+      ],
       language: localStorage.language
     }
   },
   computed: {
     currentFlag() {
-      return "flag-icon-" + this.$i18n.locale
+      let lang = this.languages.filter(row =>  row.lang == this.$i18n.locale )
+      return "flag-icon-" + lang[0].flag
     }
   },
   created() {
@@ -34,7 +39,6 @@ export default {
       localStorage.language = language
       this.$i18n.locale = language
       this.language = language
-      this.notification({title: "Language Change", body: "Language set to " + language, type: "success"})
     },
     flag(lang) {
       return 'flag-icon-' + lang
