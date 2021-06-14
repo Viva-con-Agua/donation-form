@@ -186,6 +186,7 @@ export default {
         display: inline-block;
     }
     .inline-infobox {
+        flex-basis: 1%;
         display: inline-block;
         margin: 8px auto auto 10px;
     }

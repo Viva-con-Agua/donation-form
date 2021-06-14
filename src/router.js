@@ -9,36 +9,10 @@ function loadView(view) {
 
 const routes = [
     {
-        path: '/login',
-        name: 'Login',
-        component: loadView('Login'),
-        meta: { requiresAuth: false, title: "Login"},
-        props: route => ({code: route.query.code, callback: route.query.callback})
-    },
-    {
-        path: '/logout',
-        name: 'Logout',
-        component: loadView('Logout'),
-        meta: { requiresAuth: false }
-    },
-    {
-        path: '/sign',
-        name: 'Sign',
-        component: loadView('Sign'),
-        meta: { requiresAuth: false, title: "Login" },
-        props: true
-    },
-    {
-        path: '/',
-        component: loadView('Sign'),
-        meta: { requiresAuth: false, title: "Home" }
-    },
-    {
         path: '*',
-        component: loadView('HomeView'),
+        component: loadView('PaymentWidget'),
         meta: { requiresAuth: false, title: "Home" }
     }
-
 ]
 
 var router = new Router({

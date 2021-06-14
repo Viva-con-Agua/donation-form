@@ -42,6 +42,9 @@
       }
     }
   },
+  "headline": {
+    "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER"
+  },
   "header": {
     "amount": "Dein Betrag",
     "contact": "Deine Kontaktdaten",
@@ -91,7 +94,9 @@
     "label": "Ich spende via"
   },
   "contacttypeselection": {
-    "label": "Ich spende als"
+    "label": "Ich spende als",
+    "individual": "Privatperson",
+    "company": "Unternehmen"
   },
   "contactform": {
     "label": "Persönliche Angaben",
@@ -167,7 +172,8 @@
         },
         "error": "Bitte bestätige die Einzugsermächtigung"
       }
-    }
+    },
+    "submit": "Jetzt {0} {1} spenden"
   },
   "thanks": {
     "header": "DANKE",

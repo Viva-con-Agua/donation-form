@@ -9,7 +9,7 @@
         <Abo />
         <Interval />
 
-        <ArrowNavigation @next="submit" :showBack="false" :nextEnabled="isValid"/>
+        <vca-arrow-navigation @next="submit" :showBack="false" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 
 </template>
@@ -18,10 +18,9 @@ import FaucetSlider from '@/components/slider/FaucetSlider'
 import Amount from '@/components/steps/one/Amount.vue'
 import Abo from '@/components/steps/one/Abo.vue'
 import Interval from '@/components/steps/one/Interval.vue'
-import ArrowNavigation from '@/components/layout/ArrowNavigation.vue'
 export default {
     name: 'StepOne',
-    components: {Amount, Abo, Interval, FaucetSlider, ArrowNavigation},
+    components: {Amount, Abo, Interval, FaucetSlider},
     data() {
         return {
             isValid: true 

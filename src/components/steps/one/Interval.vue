@@ -1,7 +1,7 @@
 <template>
     <vca-field v-if="abo" class="typo-roboto" :label="$t('interval.label')">
 
-        <vca-card class="btn-flex-container">
+        <vca-card class="vca-row">
             <IntervalButton interval='monthly' :drops="0" />
             <IntervalButton interval='quarterly' :drops="4" />
             <IntervalButton interval='half' :drops="2" />

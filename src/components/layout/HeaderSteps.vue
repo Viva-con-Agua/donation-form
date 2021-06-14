@@ -160,11 +160,13 @@ export default {
 }
 
 .steps li.is-active div.step-content div.step-id div {
+    text-align: center;
     padding-left: 5px;
 }
 
 .steps li.is-active div.step-content div.step-label div {
     padding-left: 10px;
+    font-size: .8em;
 }
 
 /*
@@ -215,6 +217,7 @@ export default {
 
 .steps li.is-inactive div.step-content div.step-label div {
     padding-top: 5px;
+    text-align: center;
 }
 
 /*********************

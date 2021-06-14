@@ -8,6 +8,7 @@
             <StepThree v-if="step === 3" :product="product" @back="step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
+        <LanguageSelection/>
         <PaymentFooter v-if="step < 4" />
     </vca-form>
 </template>
@@ -19,13 +20,14 @@ import StepThree from '@/components/steps/StepThree'
 import StepThanks from '@/components/steps/StepThanks'
 import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
+import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from '@/components/layout/Headline'
 export default {
     name: 'DonationForm',
-    components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
+    components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline, LanguageSelection },
     data() {
         return {
-            step: 3,
+            step: 1,
             steps: 
             [
                 {id: 1, label: this.$t('header.amount') },
@@ -45,28 +47,8 @@ export default {
 </script>
 
 <style lang="scss">
-    .vca-flexbox {
-        flex-basis: 100% !important;
-    }
-
-
-
 .donation-form-content {
     padding: 10px;
     border: solid 2px $vca-main;
-}
-
-
-.btn-center-container .selected {
-    color: #fff;
-    background-color: #008fc3;
-}
-
-
-</style>
-
-<style type="text/css">
-.vca-input-border {
-    box-sizing: border-box;
 }
 </style>

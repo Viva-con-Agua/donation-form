@@ -2,17 +2,16 @@
     <div class="steptwo">
         <ContactTypeSelect />
         <ContactForm ref="contactdata" />
-        <ArrowNavigation @next="submit" @back="back" :nextEnabled="isValid"/>
+        <vca-arrow-navigation @next="submit" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 </template>
 <script>
 import ContactTypeSelect from '@/components/steps/two/ContactTypeSelect'
 import ContactForm from '@/components/steps/two/ContactForm'
-import ArrowNavigation from '@/components/layout/ArrowNavigation.vue'
 export default {
     name: 'StepTwo',
     components: {
-        ContactTypeSelect, ContactForm, ArrowNavigation
+        ContactTypeSelect, ContactForm
     },
     data () {
         return {

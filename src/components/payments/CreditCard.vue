@@ -1,7 +1,6 @@
 <template>
     <div class="stripe-payment-container">
         <div class="vca-input-border"><div ref="card" class="stripe-payment"></div></div>
-        <button type="button" v-on:click.prevent="purchase" class="stripe-donation-button"> {{ label }} </button>
     </div>
 </template>
 

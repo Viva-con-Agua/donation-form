@@ -11,6 +11,7 @@ import FlagIcon from 'vue-flag-icon'
 import 'vca-ui/dist/vca-ui.css'
 
 import de from '@/lang/de_DE.json';
+import en from '@/lang/en_GB.json';
 
 Vue.use(Notifications)
 Vue.use(VcaUi)
@@ -25,8 +26,13 @@ const i18n = new VueI18n({
     locale: getUserLocale(),
     fallbackLocale: "de",
     messages: {
+        'de': de,
         'de-DE': de,
-        'de': de
+        'de-CH': de,
+        'ch': de,
+        'en': en,
+        'gb': en,
+        'en-GB': en
     }
 });
 

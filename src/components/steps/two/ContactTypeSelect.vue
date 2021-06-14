@@ -1,9 +1,9 @@
 <template>
     <div class="steptwo">
         <vca-field :label="$t('contacttypeselection.label')">
-                <div class="btn-center-container">
-                    <button :class="btnSelected('private')" class="selection-button"  @click.prevent="selectCompany(false)">Privatperson</button>
-                    <button :class="btnSelected('company')" class="selection-button" @click.prevent="selectCompany(true)">Unternehmen</button>
+                <div class="selection-button-box">
+                    <button :class="btnSelected('private')" class="selection-button"  @click.prevent="selectCompany(false)">{{ $t('contacttypeselection.individual') }}</button>
+                    <button :class="btnSelected('company')" class="selection-button" @click.prevent="selectCompany(true)">{{ $t('contacttypeselection.company') }}</button>
                 </div>
         </vca-field>
     </div>

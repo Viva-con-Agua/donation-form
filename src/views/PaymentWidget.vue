@@ -6,7 +6,7 @@
 <script>
 
 import axios from 'axios'
-import DonationForm from '@/DonationForm'
+import DonationForm from '@/components/DonationForm'
 export default {
     name: 'PaymentWidget',
     components:{ DonationForm},
@@ -19,9 +19,7 @@ export default {
     data() {
         return {
             campaign: {
-                id: this.campaign_id,
-                name: this.campaign_name,
-                description: this.campaign_description
+                id: this.campaign_id
             }
         }
     },

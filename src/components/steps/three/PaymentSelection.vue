@@ -1,7 +1,7 @@
 <template>
     <div>
         <vca-field :label="$t('paymentselection.label')">
-            <div class="btn-center-container">
+            <div class="selection-button-box">
                 <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button"  @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}</button>
             </div>
         </vca-field>

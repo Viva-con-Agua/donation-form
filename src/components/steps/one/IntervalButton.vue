@@ -1,13 +1,15 @@
 <template>
-    <button class="btn-drop btn-flex-box" :class="dropSelected(interval)" @click.prevent="transaction.interval = interval">
+    <vca-drop-button :selected="transaction.interval == interval" @click.prevent="transaction.interval = interval">
         <div v-if="transaction.interval != interval" class="vca-row vca-center btn-icon">
             <div v-for="(drop, index) in drops" :key="index" class="icon-box"><img src="~@/assets/icons/icon_vca.png" /></div>
         </div>
         <div v-else class="vca-row vca-center btn-icon">
-            <img v-for="index in drops" :key="index" src="~@/assets/icons/icon_vca_white.png"/>
+            <div v-for="(drop, index) in drops" :key="index" class="icon-box"><img src="~@/assets/icons/icon_vca_white.png" /></div>
         </div>
         <span class="btn-amount">{{ $t('interval.' + interval ) }}</span>
-    </button>
+    </vca-drop-button>
+
+
 </template>
 <script>
 export default {
@@ -34,7 +36,7 @@ export default {
     },
     methods: {
         dropSelected(val) {
-            return (this.transaction.interval == val) ? 'btn-drop-selected' : ''
+            return (this.transaction.interval == val) ? 'selected' : ''
         },
         modulo(index, mod) {
             return ((index + 1) % mod) == 1 
@@ -50,11 +52,12 @@ export default {
 */
 .btn-drop {
     cursor: pointer;
-    background-image: none;
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 4442 720"><g transform="translate(0.000000,210.000000) scale(0.100000,-0.100000)"><path d="M566 2081 c-18 -19 -17 -22 12 -73 17 -29 36 -74 42 -100 11 -44 10 -52 -13 -100 -16 -33 -74 -104 -153 -188 -179 -191 -240 -263 -301 -356 -161 -248 -192 -499 -91 -742 123 -295 387 -471 773 -513 201 -22 448 23 644 117 439 210 622 641 461 1086 -163 450 -678 797 -1311 883 -37 5 -48 2 -63 -14z"/></g></svg>');
+    
     background-size: contain;
-    background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
+    fill: #008fc3;
     border: solid thin transparent;
     font-weight: bold;
     width: 50%;
@@ -95,26 +98,19 @@ export default {
         top: 10px;
         font-size: 1.25em;
     }
-
-}
-
-.btn-drop:hover {
-    background-image: url("~@/assets/icons/drop_white_outline.png");
-}
-.btn-flex-box {
-    flex: auto;
-    flex-basis: 50% !important;
-
-    @include media(large) {
-        flex-basis: 25% !important;
+    &.selected, &.selected:hover {
+        color: #fff;
+        fill: #008fc3;
     }
 
+    &:hover {
+        fill: green;
+    }
+
+
 }
 
-.btn-drop-selected,
-.btn-drop-selected:hover {
-    color: #fff;
-    background-image: url("~@/assets/icons/drop.png");
-}
+
+
 
 </style>

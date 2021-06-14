@@ -1,8 +1,8 @@
 <template>
-    <div class="nav-btn-box">
-        <div class="nav-buttons" :class="{single: !showNext || !showBack}">
-            <button class="nav-btn-back" v-if="showBack" :disabled="!backEnabled" @click.prevent="back">{{ getBack }}</button>
-            <button class="nav-btn-next" v-if="showNext" :disabled="!nextEnabled" @click.prevent="$emit('next')">{{ getNext }}</button>
+    <div class="arr-btn-box">
+        <div class="arr-buttons" :class="{single: !showNext || !showBack}">
+            <button class="arr-btn-back" v-if="showBack" :disabled="!backEnabled" @click.prevent="back">{{ getBack }}</button>
+            <button class="arr-btn-next" v-if="showNext" :disabled="!nextEnabled" @click.prevent="$emit('next')">{{ getNext }}</button>
         </div>
     </div>
 </template>
@@ -57,7 +57,7 @@ export default {
     /*
     CSS NAVIGATION BUTTON
 */
-.nav-btn-box {
+.arr-btn-box {
     width: 85%;
     margin: auto;
     display: flex;
@@ -66,7 +66,7 @@ export default {
     .single {
         display: block !important;
 
-        .nav-btn-back {
+        .arr-btn-back {
             float: left;
             @include media(large) {
                 float: none;
@@ -75,7 +75,7 @@ export default {
 
     }
 
-    .nav-buttons {
+    .arr-buttons {
         flex: auto;
         flex-basis: 100%;
         margin-bottom: 1em;
@@ -86,37 +86,37 @@ export default {
             display: block;
         }
 
-        .nav-btn-next {
+        .arr-btn-next {
             flex-basis: 50%;
             background-image: url("~@/assets/icons/arrow_right.png");
             @include media(large) {
                 margin-left: 50px;
             }
         }
-        .nav-btn-next:hover {
+        .arr-btn-next:hover {
             transition: .3s;
             background-image: url("~@/assets/icons/arrow_right_hover.png");
         }
 
-        .nav-btn-next:disabled:hover,
-        .nav-btn-next:disabled {
+        .arr-btn-next:disabled:hover,
+        .arr-btn-next:disabled {
             transition: .3s;
             background-image: url("~@/assets/icons/arrow_right_disabled.png");
         }
 
-        .nav-btn-back {
+        .arr-btn-back {
             flex-basis: 50%;
             background-image: url("~@/assets/icons/arrow_left.png");
             @include media(large) {
                 margin-right: 50px;
             }
         }
-        .nav-btn-back:disabled:hover,
-        .nav-btn-back:disabled {
+        .arr-btn-back:disabled:hover,
+        .arr-btn-back:disabled {
             transition: .3s;
             background-image: url("~@/assets/icons/arrow_left_disabled.png");
         }
-        .nav-btn-back:hover {
+        .arr-btn-back:hover {
             transition: .3s;
             background-image: url("~@/assets/icons/arrow_left_hover.png");
         }
