@@ -52,6 +52,15 @@ export default new Vuex.Store({
         },
         loadingFlow (state) {
             return state.loading
+        },
+        offset(state) {
+            return state.offset
+        },
+        anonymous(state) {
+            return state.anonymous
+        },
+        payment(state) {
+            return state.payment
         }
     },
     actions: {
@@ -63,19 +72,6 @@ export default new Vuex.Store({
                         reject(error)
                     })
             })
-        },
-        logout({commit}) {
-            //dispatch('user/signout')
-            commit('user/session/logout')  
-        },
-        offset(state) {
-            return state.offset
-        },
-        anonymous(state) {
-            return state.anonymous
-        },
-        payment(state) {
-            return state.payment
         }
     }
 })
