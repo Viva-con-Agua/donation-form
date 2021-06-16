@@ -12,7 +12,7 @@ import VueI18n from 'vue-i18n'
 import de from '@/lang/de_DE.json';
 import en from '@/lang/en_GB.json';
 import getUserLocale from 'get-user-locale';
-import 'vca-ui/dist/vca-ui.css'
+import vuecss from 'vca-ui/dist/vca-ui.css'
 const   i18n = new VueI18n({
     locale: getUserLocale(),
     fallbackLocale: "de",
@@ -30,6 +30,7 @@ export default {
     store,
     router,
     i18n, 
+    vuecss,
     name: 'App',
     props: {
         campaign_id: {

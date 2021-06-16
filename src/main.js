@@ -61,7 +61,7 @@ Vue.mixin({
   },
 })
 
-const CustomElement = wrap(Vue, App);
+const CustomElement = wrap(Vue, App, VcaUi);
 
 window.customElements.define('donation-form', CustomElement);
 /*
