@@ -4,6 +4,7 @@ import anonymous from './anonymous.js'
 import payment from './payment.js'
 import transaction from './transaction.js'
 import knownfrom from './knownfrom.js'
+import api from './api.js'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -14,6 +15,7 @@ export default new Vuex.Store({
         transaction: transaction
     },
     state: {
+        campaign: null,
         loading: false,
         currentMsg: null,
         product: 'prod_HZW4PLYJeuxnyC',
@@ -25,6 +27,9 @@ export default new Vuex.Store({
         }
     },
     mutations: {
+        init(state, value) {
+            state.campaign = value
+        }, 
         currentMsg (state, value) {
             state.currentMsg = value
         },
@@ -56,6 +61,17 @@ export default new Vuex.Store({
         },
         payment(state) {
             return state.payment
+        }
+    },
+    actions: {
+        init({commit}, data) {
+            return new Promise((resolve, reject) => {
+                api.call.get('/v1/donations/campaign/' + data.data)
+                    .then((response) => {commit('init', response.data.payload), resolve()})
+                    .catch((error) => {
+                        reject(error)
+                    })
+            })
         }
     }
 })
