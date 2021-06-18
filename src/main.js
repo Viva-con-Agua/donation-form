@@ -3,15 +3,18 @@ import Notifications from 'vue-notification'
 import VcaUi from 'vca-ui'
 import Vuelidate from 'vuelidate'
 import App from './App.vue'
-import router from './router.js'
-import store from './store'
-import getUserLocale from 'get-user-locale';
+//import router from './router.js'
+//import store from './store'
+//import getUserLocale from 'get-user-locale';
 import VueI18n from 'vue-i18n'
 import FlagIcon from 'vue-flag-icon'
 import 'vca-ui/dist/vca-ui.css'
 
-import de from '@/lang/de_DE.json';
-import en from '@/lang/en_GB.json';
+import wrap from '@vue/web-component-wrapper';
+
+//import de from '@/lang/de_DE.json';
+//import en from '@/lang/en_GB.json';
+
 
 Vue.use(Notifications)
 Vue.use(VcaUi)
@@ -22,7 +25,7 @@ Vue.config.productionTip = false
 
 
 //const locale =  navigator.language;
-const i18n = new VueI18n({
+/*const i18n = new VueI18n({
     locale: getUserLocale(),
     fallbackLocale: "de",
     messages: {
@@ -34,7 +37,7 @@ const i18n = new VueI18n({
         'gb': en,
         'en-GB': en
     }
-});
+});*/
 
 Vue.mixin({
   methods: {
@@ -58,10 +61,13 @@ Vue.mixin({
   },
 })
 
+const CustomElement = wrap(Vue, App, VcaUi);
 
+window.customElements.define('donation-form', CustomElement);
+/*
 new Vue({
     i18n,
     router,
     store: store,
     render: h => h(App),
-}).$mount('#app')
+}).$mount('#app')*/

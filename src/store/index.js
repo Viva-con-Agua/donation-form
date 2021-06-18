@@ -4,6 +4,7 @@ import anonymous from './anonymous.js'
 import payment from './payment.js'
 import transaction from './transaction.js'
 import knownfrom from './knownfrom.js'
+import api from './api.js'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -51,6 +52,15 @@ export default new Vuex.Store({
         },
         loadingFlow (state) {
             return state.loading
+        },
+        offset(state) {
+            return state.offset
+        },
+        anonymous(state) {
+            return state.anonymous
+        },
+        payment(state) {
+            return state.payment
         }
     },
     actions: {
@@ -62,19 +72,6 @@ export default new Vuex.Store({
                         reject(error)
                     })
             })
-        },
-        logout({commit}) {
-            //dispatch('user/signout')
-            commit('user/session/logout')  
-        },
-        offset(state) {
-            return state.offset
-        },
-        anonymous(state) {
-            return state.anonymous
-        },
-        payment(state) {
-            return state.payment
         }
     }
 })

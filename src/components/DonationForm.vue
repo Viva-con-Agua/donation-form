@@ -1,5 +1,5 @@
 <template>
-    <vca-form>
+    <div>
         <Headline />
         <HeaderSteps :currentStep=step :steps=steps />
         <div class="donation-form-content">
@@ -10,7 +10,7 @@
         </div>
         <LanguageSelection/>
         <PaymentFooter v-if="step < 4" />
-    </vca-form>
+    </div>
 </template>
 <script>
 //import axios from 'axios'
