@@ -1,6 +1,6 @@
 <template>
     <div class="stripe-payment-container">
-        <div class="vca-input-border"><div ref="card" class="stripe-payment"></div></div>
+        <div class="vca-input-border"><div id="card" ref="card" class="stripe-payment"></div></div>
     </div>
 </template>
 
@@ -47,7 +47,7 @@ export default {
         }
     },
     mounted () {
-        this.element.mount(this.$refs.card)
+        this.element.mount("#card")
     },
     created() {
         this.$store.commit('transaction/payment_type', 'creditcard')
@@ -102,15 +102,18 @@ export default {
         },
         purchase () {
             if (!this.isInvalid) {
-                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/card', { 
+                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/donations/intent', { 
                     amount: this.payment.money.amount,
                     name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
                     email: this.anonymous.email,
                     currency: this.payment.money.currency,
+                    payment_type: "card",
                     locale: this.$i18n.locale
                 }).then(response => (
                     this.stripeRequestCard(response.data.client_secret)
                 ))
+            } else {
+                console.log("isInvalid == true")
             }
         }
     }
