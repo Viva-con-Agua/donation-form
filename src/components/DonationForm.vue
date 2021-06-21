@@ -22,9 +22,21 @@ import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
 import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from '@/components/layout/Headline'
+import { mapGetters } from 'vuex'
 export default {
     name: 'DonationForm',
     components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline, LanguageSelection },
+    props: {
+        campaign_id: {
+            type: String,
+            default: ""
+        }
+    },
+    created() {
+        this.$store.dispatch({type: 'init', data: this.campaign_id})
+            .then(resp => console.log(resp))
+            .catch(error => console.log(error))
+    },
     data() {
         return {
             step: 1,
@@ -36,6 +48,11 @@ export default {
                 {id: 4, label: this.$t('header.thanks') }
             ]
         }
+    },
+    computed: {
+        ...mapGetters({
+            product: 'campaign/product'
+        })
     },
     methods: {
         success(e) {

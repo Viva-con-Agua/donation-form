@@ -4,14 +4,14 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 function loadView(view) {
-    return () => import(`@/views/${view}.vue`)
+    return () => import(`@/components/${view}.vue`)
 }
 
 const routes = [
     {
-        path: '*',
-        component: loadView('PaymentWidget'),
-        meta: { requiresAuth: false, title: "Home" }
+        path: '/',
+        component: loadView('DonationForm'),
+        props: route => ({ campaign_id: route.query.campaign_id })
     }
 ]
 

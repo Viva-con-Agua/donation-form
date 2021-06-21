@@ -1,37 +1,52 @@
 <template>
-    <div>
-        <stripe-element-card
-            ref="elementRef"
-            :pk="pulishableKey"
-            @token="tokenCreated"
-        />
-        <button @click="submit">Generate token</button>
+    <div class="stripe-payment-container">
+        <div class="vca-input-border"><div id="card-element" ref="card" class="stripe-payment"></div></div>
     </div>
 </template>
 
 <script>
-import { StripeElementCard } from '@vue-stripe/vue-stripe';
 export default {
-    components: {
-        StripeElementCard,
-    },
-    data () {
-        this.pulishableKey = process.env.VUE_APP_STRIPE_PUBLIC_KEY;
+    data(){
         return {
-            token: null,
-        };
-    },
-    method: {
-        submit () {
-            // this will trigger the process
-            this.$refs.elementRef.submit();
-        },
-        tokenCreated (token) {
+            stripeAPIToken: process.env.VUE_APP_STRIPE_PUBLIC_KEY,
 
-            console.log(token);
-            // handle the token
-            // send it to your server
-        },
+            stripe: '',
+            elements: '',
+            card: ''
+        }
+    },
+
+    mounted(){
+        this.includeStripe('js.stripe.com/v3/', function(){
+            this.configureStripe();
+        }.bind(this) );
+    },
+
+    methods: {
+        /*
+           Includes Stripe.js dynamically
+         */
+                 includeStripe( URL, callback ){
+                     let documentTag = document, tag = 'script',
+                     object = documentTag.createElement(tag),
+                     scriptTag = documentTag.getElementsByTagName(tag)[0];
+                     object.src = '//' + URL;
+                     if (callback) { object.addEventListener('load', function (e) { callback(null, e); }, false); }
+                     scriptTag.parentNode.insertBefore(object, scriptTag);
+                 },
+
+        /*
+           Configures Stripe by setting up the elements and 
+           creating the card element.
+         */
+                 configureStripe(){
+                     this.stripe = window.Stripe( this.stripeAPIToken );
+
+        this.elements = this.stripe.elements();
+        this.card = this.elements.create('card');
+
+        this.card.mount(this.$refs.card);
+    },
+}
     }
-};
 </script>

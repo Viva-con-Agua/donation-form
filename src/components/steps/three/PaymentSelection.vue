@@ -16,7 +16,7 @@
 import CiviSEPA from '@/components/payments/subscription/CiviSEPA'
 import SEPA from '@/components/payments/SEPA'
 import PayPalButton from '@/components/payments/PayPal'
-import CreditCard from '@/components/payments/subscription/CreditCard'
+import CreditCard from '@/components/payments/CreditCard'
 
 import { mapGetters } from 'vuex'
 

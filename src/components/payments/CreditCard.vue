@@ -8,6 +8,9 @@
 import axios from 'axios'
 
 import { mapGetters } from 'vuex'
+
+import {loadStripe} from '@stripe/stripe-js';
+
 export default {
     name: 'CreditCard',
     props: ['product'],
@@ -46,35 +49,39 @@ export default {
             }
         }
     },
-    mounted () {
-        this.element.mount("#card")
-    },
     created() {
-        this.$store.commit('transaction/payment_type', 'creditcard')
-        this.$store.commit('transaction/provider', 'stripe')
-        this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
-        this.elements = this.stripe.elements()
-        this.element = this.elements.create('card', this.options)
+        loadStripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY).
+            then ( (result) =>
+                  { 
+                      console.log(result)
+                      this.element = result.elements().create("card", this.options)
+                      // do stuff with card if you have too...
+                      this.$store.commit('transaction/payment_type', 'creditcard')
+                      this.$store.commit('transaction/provider', 'stripe')
+                      //this.element = this.elements.create('card', this.options)
 
-        this.element.on('change', (event) => { 
-            if (!event.complete) {
-                this.cardInvalid = true
-            } else {
-                this.cardInvalid = false
-            }
-            this.$emit('isInvalid', this.isInvalid)
-        })
+                      this.element.on('change', (event) => { 
+                          if (!event.complete) {
+                              this.cardInvalid = true
+                          } else {
+                              this.cardInvalid = false
+                          }
+                          this.$emit('isInvalid', this.isInvalid)
+                      })
+                      this.$emit('isInvalid', this.isInvalid)
+                    this.element.mount("#card")
+                  },
+                 )
 
-        this.$emit('isInvalid', this.isInvalid)
     },
     computed: {
         isInvalid() {
             return this.cardInvalid
         },
         ...mapGetters({
-           anonymous: 'anonymous',
-           payment: 'payment',
-           transaction: 'transaction'
+            anonymous: 'anonymous',
+            payment: 'payment',
+            transaction: 'transaction'
         })
     },
     methods: {
@@ -102,6 +109,7 @@ export default {
         },
         purchase () {
             if (!this.isInvalid) {
+                console.log("purchase")
                 axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/donations/intent', { 
                     amount: this.payment.money.amount,
                     name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
