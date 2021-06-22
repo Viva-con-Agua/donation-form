@@ -4,4 +4,4 @@ build:
 	docker-compose build --force-rm --no-cache
 
 push:
-	docker push vivaconagua/factory
+	docker push vivaconagua/donation-form
