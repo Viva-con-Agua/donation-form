@@ -1,17 +1,19 @@
 <template>
     <div class="steptwo">
-        <PaymentSelection :product="product" v-on:success="success" @isInvalid="validate"/>
-        <vca-arrow-navigation @next="success" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="getLabel" :nextEnabled="!isInvalid"/>
+        <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" @isInvalid="validate"/>
+        <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" @isInvalid="validate"/>
+        <vca-arrow-navigation @next="commit" @success="success" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="getLabel" :nextEnabled="!isInvalid"/>
     </div>
 </template>
 <script>
 import PaymentSelection from '@/components/steps/three/PaymentSelection'
+import SubscribeSelection from '@/components/steps/three/SubscribeSelection'
 import Money from 'vca-ui/src/utils/Money'
 import { mapGetters } from 'vuex'
 export default {
     name: 'StepThree',
     props: ['product'],
-    components: {PaymentSelection},
+    components: {PaymentSelection, SubscribeSelection},
     data() {
         return {
             isInvalid: true
@@ -19,7 +21,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-           money: 'payment/money'
+            money: 'payment/money',
+            abo: 'transaction/abo'
         }),
         getLabel() {
             return this.$t('payment.submit', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
@@ -31,6 +34,9 @@ export default {
         },
         validate(e) {
             this.isInvalid = e
+        },
+        commit() {
+            this.$refs.selection.commit()
         },
         back() {
             this.$emit("back")

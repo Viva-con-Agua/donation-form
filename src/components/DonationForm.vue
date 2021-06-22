@@ -5,7 +5,7 @@
         <div class="donation-form-content">
             <StepOne v-if="step === 1" @submit="step++"/>
             <StepTwo v-if="step === 2" @submit="step++" @back="step--"/>
-            <StepThree v-if="step === 3" :product="product" @back="step--" @success="success"/>
+            <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
         <LanguageSelection/>
@@ -57,6 +57,7 @@ export default {
     methods: {
         success(e) {
             this.$emit("success", e)
+            this.$refs.stepthree.commit()
             this.step = 4
         }
     }

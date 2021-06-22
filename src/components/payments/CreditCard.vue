@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 
 import { mapGetters } from 'vuex'
 
@@ -54,6 +54,7 @@ export default {
             then ( (result) =>
                   { 
                       console.log(result)
+                      this.stripe = result
                       this.element = result.elements().create("card", this.options)
                       // do stuff with card if you have too...
                       this.$store.commit('transaction/payment_type', 'creditcard')
@@ -69,7 +70,7 @@ export default {
                           this.$emit('isInvalid', this.isInvalid)
                       })
                       this.$emit('isInvalid', this.isInvalid)
-                    this.element.mount("#card")
+                    this.element.mount(this.$refs.card)
                   },
                  )
 
@@ -79,10 +80,9 @@ export default {
             return this.cardInvalid
         },
         ...mapGetters({
-            anonymous: 'anonymous',
-            payment: 'payment',
-            transaction: 'transaction'
+            contact: 'payment/contact'
         })
+
     },
     methods: {
         stripeRequestCard(client_secret) {
@@ -90,8 +90,8 @@ export default {
                 payment_method: {
                     card: this.element,
                     billing_details: {
-                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                        email: this.anonymous.email
+                        name: this.contact.first_name + ' ' + this.contact.last_name,
+                        email: this.contact.email
                     }
                 }
             }).then(result => {
@@ -101,8 +101,9 @@ export default {
                 } else {
                     // The payment has been processed!
                     if (result.paymentIntent.status === 'succeeded') {
-                        this.transaction.id = result.paymentIntent.id
-                        this.$emit('success', this.payment)
+                        console.log(result)
+                        this.$store.commit("transaction/id", result.paymentIntent.id)
+                        this.$emit('success')
                     }
                 }
             });
@@ -110,16 +111,21 @@ export default {
         purchase () {
             if (!this.isInvalid) {
                 console.log("purchase")
-                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/donations/intent', { 
+                this.$store.dispatch('payment/stripe/payment_intent')
+                /*axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/donations/intent', { 
                     amount: this.payment.money.amount,
                     name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
                     email: this.anonymous.email,
                     currency: this.payment.money.currency,
                     payment_type: "card",
                     locale: this.$i18n.locale
-                }).then(response => (
-                    this.stripeRequestCard(response.data.client_secret)
+                })*/
+                .then(response => (
+                    this.stripeRequestCard(response.data.payload.client_secret)
                 ))
+                .catch(error => {
+                    console.log(error)
+                })
             } else {
                 console.log("isInvalid == true")
             }

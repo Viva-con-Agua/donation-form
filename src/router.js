@@ -9,7 +9,7 @@ function loadView(view) {
 
 const routes = [
     {
-        path: '/',
+        path: '*',
         component: loadView('DonationForm'),
         props: route => ({ campaign_id: route.query.campaign_id })
     }

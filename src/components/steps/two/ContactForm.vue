@@ -101,12 +101,21 @@ export default {
         }),
         anonymous: {
             get () {
-                return this.$store.state.anonymous
+                return this.$store.state.payment.contact
             },
             set(value) {
-                this.$store.commit('anonymous', value)
+                this.$store.commit('payment/contact', value)
             }
-        }
+        },
+        email: {
+            get () {
+                return this.$store.state.payment.contact.email
+            },
+            set(value) {
+                this.$store.commit('payment/email', value)
+            }
+        },
+        
     },
     validations() {
         if (this.offset.company) {
