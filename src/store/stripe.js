@@ -65,7 +65,7 @@ const stripe = {
                 interval: rootState.transaction.interval,
                 locale: rootState.payment.contact.country[0].value,
                 payment_type: rootState.transaction.payment_type,
-                product_id: rootState.campaign.current.product.paypal_id,
+                product_id: rootState.campaign.current.product.stripe_id,
                 payment_methode: data.data,
             }
             return new Promise((resolve, reject) => {

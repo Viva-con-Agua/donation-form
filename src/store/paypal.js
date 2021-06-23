@@ -32,15 +32,15 @@ namespaced: true,
     actions: {
         billing_plan({rootState, commit}) {
             var data = {
-                name: rootState.campaign.name,
-                description: rootState.campaign.description,
+                name: rootState.campaign.current.name,
+                description: rootState.campaign.current.description,
                 interval: rootState.transaction.interval,
                 amount: Money.getPayPalString(rootState.payment.money.amount),
                 currency: rootState.payment.money.currency,
                 product_id: rootState.campaign.current.product.paypal_id
             }
             return new Promise((resolve, reject) => {
-                api.call.post('/donations/subscribe/paypal', data)
+                api.call.post('/v1/donations/subscribe/paypal', data)
                     .then((response) => {
                         commit('current', response.data)
                         resolve(response)

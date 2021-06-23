@@ -3,7 +3,7 @@
         <PayPal 
             ref="paypal"
             :client="credentials"
-            plan_id="P-5P895937CV479845WL66TOZA"
+            :plan_id="plan_id"
             vault="true"
             @payment_authorized="purchase"
             @payment-completed="success"
