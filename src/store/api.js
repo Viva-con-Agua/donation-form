@@ -6,7 +6,7 @@ var call = axios.create({
     headers: {
         'Content-Type': 'application/json'
     },
-    withCredentials: true
+    //withCredentials: true
 })
 call.interceptors.response.use((response) => {
     return response;
