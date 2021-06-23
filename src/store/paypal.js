@@ -13,13 +13,18 @@ namespaced: true,
             currency: '',
             product_id: ''
         },
-        current: null
+        current: {
+            plan_id: null
+        }
 
     }),
     getters: {
         current(state) {
            return state.current
-        } 
+        },
+        plan_id(state) {
+            return state.current.plan_id
+        }
     },
     mutations: {
         product(state, value) {

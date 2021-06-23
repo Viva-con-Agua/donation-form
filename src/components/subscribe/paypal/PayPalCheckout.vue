@@ -5,18 +5,12 @@
 
 let paypal = window.paypal;
 let ppActions;
-import { mapGetters } from 'vuex'
 export default {
     props: {
         plan_id: {
             type: String,
             default: ""
         }
-    },
-    computed: {
-        ...mapGetters({
-            current: 'paypal/current'
-        })
     },
     methods: {
         onApprove: function(data, actions) {
@@ -30,7 +24,7 @@ export default {
         createSubscription: function(data, actions) {
             var that = this
             return actions.subscription.create({
-                'plan_id': that.current.plan_id
+                'plan_id': that.plan_id
             });
         },
         onCancel(data) {
