@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --inline-vue --name donation-form ./src/main.wc.js",
+    "build-wc": "vue-cli-service build --target wc --inline-vue --name donation-form ./src/main.wc.js",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
