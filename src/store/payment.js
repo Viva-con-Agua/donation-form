@@ -1,8 +1,10 @@
 import stripe from './stripe.js'
+import paypal from './paypal.js'
 const payment = {
     namespaced: true,
     modules: {
-        stripe: stripe
+        stripe: stripe,
+        paypal: paypal
     },
     state: {
         paymentTypes: [
