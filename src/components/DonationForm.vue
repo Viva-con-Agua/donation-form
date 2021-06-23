@@ -5,7 +5,7 @@
         <div class="donation-form-content">
             <StepOne v-if="step === 1" @submit="step++"/>
             <StepTwo v-if="step === 2" @submit="step++" @back="step--"/>
-            <StepThree v-if="step === 3" :product="product" @back="step--" @success="success"/>
+            <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
         <LanguageSelection/>
@@ -22,9 +22,21 @@ import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
 import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from '@/components/layout/Headline'
+import { mapGetters } from 'vuex'
 export default {
     name: 'DonationForm',
     components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline, LanguageSelection },
+    props: {
+        campaign_id: {
+            type: String,
+            default: ""
+        }
+    },
+    created() {
+        this.$store.dispatch({type: 'init', data: this.campaign_id})
+            .then(resp => console.log(resp))
+            .catch(error => console.log(error))
+    },
     data() {
         return {
             step: 1,
@@ -37,9 +49,15 @@ export default {
             ]
         }
     },
+    computed: {
+        ...mapGetters({
+            product: 'campaign/product'
+        })
+    },
     methods: {
         success(e) {
             this.$emit("success", e)
+            this.$refs.stepthree.commit()
             this.step = 4
         }
     }

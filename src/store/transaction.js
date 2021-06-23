@@ -30,6 +30,9 @@ const transaction = {
         },
         bic(state, val) {
             state.account.bic = val
+        },
+        id(state, val) {
+            state.id = val
         }
     },
     getters: {

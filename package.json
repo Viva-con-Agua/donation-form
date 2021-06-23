@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name donation-form ./src/main.js",
+    "build": "vue-cli-service build --target wc --inline-vue --name donation-form ./src/main.wc.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "get-user-locale": "^1.4.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.2.0",
+    "stripe": "^8.156.0",
     "style-loader": "^2.0.0",
     "vca-ui": "^0.4.14",
     "vue": "^2.6.14",

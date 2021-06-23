@@ -13,15 +13,15 @@
     </div>
 </template>
 <script>
-import CiviSEPA from '@/components/payments/subscription/CiviSEPA'
-import SEPA from '@/components/payments/SEPA'
-import PayPalButton from '@/components/payments/PayPal'
-import CreditCard from '@/components/payments/CreditCard'
+import CiviSEPA from '@/components/subscribe/CiviSEPA'
+import SEPA from '@/components/subscribe/SEPA'
+import PayPalButton from '@/components/subscribe/PayPal'
+import CreditCard from '@/components/subscribe/CreditCard'
 
 import { mapGetters } from 'vuex'
 
 export default {
-    name: 'PaymentSelection',
+    name: 'SubscribeSelection',
     components: {SEPA, CiviSEPA, CreditCard, PayPalButton},
     props: ['product'],
     computed: {
