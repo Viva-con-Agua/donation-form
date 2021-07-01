@@ -85,7 +85,7 @@ export default new Vuex.Store({
             let content = {}
             content['gid'] = state.crm_nl_profile
             content['email-Primary'] = state.anonymous.email
-//            content['email-Primary'] = 'tk_testeroni3@vivaconagua.org'
+            content['email-Primary'] = 'tk_testeroni3@vivaconagua.org'
 
             console.log(content)
             console.log(state)
