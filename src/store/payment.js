@@ -13,9 +13,9 @@ const payment = {
             { name: 'creditcard', title: 'payment.type.creditcard' },
             { name: 'paypal', title: 'payment.type.paypal' }
         ],
-        minAmount: 500,
+        minAmount: 100,
         money: {
-            amount: 3000,
+            amount: 500,
             currency: 'EUR'
         },
         contact: {

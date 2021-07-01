@@ -34,7 +34,7 @@ Typo
 h1, h2 {
   font-family: Veneer, "Veneer", sans-serif;
   text-transform: uppercase;
-  color: $dark_blue;
+  color: $primary-dark;
 }
 
 h1, {
@@ -72,7 +72,7 @@ li {
 }
 
 .strong {
-  background-color: $dark_blue;
+  background-color: $primary-dark;
   text-transform: uppercase;
   color: $white;
 }

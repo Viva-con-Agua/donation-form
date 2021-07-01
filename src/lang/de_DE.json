@@ -175,6 +175,17 @@
     },
     "submit": "Jetzt {0} {1} spenden"
   },
+  "policies": {
+    "label": "Mit deiner Spende bestätigst du, die {0} und die {1} gelesen zu haben und zu akzeptieren.",
+    "data": {
+      "label": "Datenschutzerklärung",
+      "url": "https://www.vivaconagua.org/datenschutzerklaerung"
+    },
+    "tos": {
+      "label": "AGB",
+      "url": "https://www.vivaconagua.org/agb"
+    }
+  },
   "thanks": {
     "header": "DANKE",
     "subheader": "für deinen Support und dein Vertrauen!",
@@ -191,13 +202,15 @@
     "label": "So geht es weiter",
     "receipt": "Deine Spendenbescheinigungen erhälst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
     "newsletter": {
-      "text": "In der Zwischenzeit melde dich doch bei unserem newsletter an",
-      "button": "Jetzt anmelden"
+      "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
+      "button": "Jetzt anmelden",
+      "success": "Danke für die Anmeldung in unserem Newsletter!"
     },
     "yours": "Dein Viva con Agua Team"
   },
   "tenseconds": {
     "label": "Hast du noch 10 Sekunden Zeit?",
+    "success": "Vielen Dank für dein Feedback!",
     "knownfrom": {
       "label": "Verrate uns doch gerne, woher du uns kennst:",
       "dropdown": {
@@ -210,7 +223,7 @@
       }
     },
     "comment": {
-      "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Tean:",
+      "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
       "placeholder": "200 Zeichen",
       "button": "Absenden"
     }

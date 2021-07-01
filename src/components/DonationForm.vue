@@ -2,13 +2,12 @@
     <div>
         <Headline />
         <HeaderSteps :currentStep=step :steps=steps />
-        <div class="donation-form-content">
+        <div class="vca-card vca-border">
             <StepOne v-if="step === 1" @submit="step++"/>
             <StepTwo v-if="step === 2" @submit="step++" @back="step--"/>
             <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
-        <LanguageSelection/>
         <PaymentFooter v-if="step < 4" />
     </div>
 </template>
@@ -20,12 +19,12 @@ import StepThree from '@/components/steps/StepThree'
 import StepThanks from '@/components/steps/StepThanks'
 import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
-import LanguageSelection from "@/components/utils/LanguageSelection"
+//import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from '@/components/layout/Headline'
 import { mapGetters } from 'vuex'
 export default {
     name: 'DonationForm',
-    components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline, LanguageSelection },
+    components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
     props: {
         campaign_id: {
             type: String,
@@ -39,7 +38,7 @@ export default {
     },
     data() {
         return {
-            step: 1,
+            step: 4,
             steps: 
             [
                 {id: 1, label: this.$t('header.amount') },
@@ -63,10 +62,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-.donation-form-content {
-    padding: 10px;
-    border: solid 2px $vca-main;
-}
-</style>

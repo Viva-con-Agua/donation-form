@@ -35,7 +35,7 @@ export default {
             li:before {
                 margin-right: 5px;
                 padding: 0;
-                color: $vca-main;
+                color: $main-color;
                 content: '✓';
             }
 

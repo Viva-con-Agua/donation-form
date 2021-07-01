@@ -3,7 +3,11 @@
         <vca-field :label="$t('next.label')">
             <p class="text-center" v-html="$t('next.receipt')"></p><br/>
             <p class="text-center">{{ $t('next.newsletter.text') }}</p>
-            <button class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
+            <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
+            <div class="vca-column" v-else>
+                <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
+                <div class="primary-dark bold tenseconds-success vca-border text-center quarter">{{ $t('next.newsletter.success') }}</div>
+            </div>
             <p class="text-center">{{ $t('next.yours') }}</p>
         </vca-field>
     </vca-card>
@@ -11,11 +15,30 @@
 
 <script>
 export default {
-    name: 'Next',
+    name: 'Next',    
+    data() {
+        return {
+            flow: true
+        }
+    },
     methods: {
         submit() {
-            console.error("NOT IMPLEMENTED YET")
+            this.$store.dispatch({type: 'newsletter'})
+            .then((resp) => {
+                this.flow = false
+                console.log(resp)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
         }
     }
 }
 </script>
+<style lang="scss" scoped>
+    .quarter {
+        @include media(small) {
+            width: 100% !important;
+        }
+    }
+</style>

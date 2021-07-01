@@ -2,18 +2,20 @@
     <div class="steptwo">
         <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" @isInvalid="validate"/>
         <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" @isInvalid="validate"/>
+        <Policies />
         <vca-arrow-navigation @next="commit" @success="success" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="getLabel" :nextEnabled="!isInvalid"/>
     </div>
 </template>
 <script>
 import PaymentSelection from '@/components/steps/three/PaymentSelection'
 import SubscribeSelection from '@/components/steps/three/SubscribeSelection'
+import Policies from '@/components/steps/three/Policies'
 import Money from 'vca-ui/src/utils/Money'
 import { mapGetters } from 'vuex'
 export default {
     name: 'StepThree',
     props: ['product'],
-    components: {PaymentSelection, SubscribeSelection},
+    components: {PaymentSelection, SubscribeSelection, Policies},
     data() {
         return {
             isInvalid: true

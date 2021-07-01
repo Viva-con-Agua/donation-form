@@ -190,30 +190,8 @@ export default {
 </script>
 <style lang="scss">
 .steptwo {
-
-    .inline-input {
-        display: inline-block;
-    }
-    .inline-infobox {
-        flex-basis: 1%;
-        display: inline-block;
-        margin: 8px auto auto 10px;
-    }
     .color-grey {
         color: #ccc;
-    }
-
-    .long {
-        flex-basis: 100%;
-        @include media(large) {
-            flex-basis: 75%;
-        }
-    }
-    .short {
-        flex-basis: 100%;
-        @include media(large) {
-            flex-basis: 25%;
-        }
     }
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-    <vca-card>
+    <div>
 
         <Thanks/>
         <Next/>
         <TenSeconds/>
 
-    </vca-card>
+    </div>
  </template> 
 <script>
 import Thanks from '@/components/steps/four/Thanks'

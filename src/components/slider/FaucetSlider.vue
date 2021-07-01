@@ -8,12 +8,12 @@
       </div>
     </vca-card>
     <div class="count">
-      <input type="range" class="slider" :min="amountMin" :max="amountMax" :value="money.amount" step="500" @input="setAmount">
+      <input type="range" class="slider" :min="amountMin" :max="amountMax" :value="money.amount" step="100" @input="setAmount">
     </div>
     <div class="amount">
       <h2>{{ currentAmount }} {{ money.currency }}</h2>
     </div>
-    <h3 class="example">
+    <h3 class="main-color">
       {{ getExample }}
     </h3>
   </div>
@@ -136,10 +136,6 @@ export default {
       margin: 15px;
     }
 
-    .example {
-      color: $vca-main;
-    }
-
     .count {
       width: 100%;
 
@@ -148,7 +144,7 @@ export default {
         width: 100%;
         height: 15px;
         background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%);
-        background: $vca-primary-light;
+        background: $primary-light;
         border-radius: 8px;
         outline: none;
         opacity: 0.7;
@@ -163,22 +159,22 @@ export default {
       /* IE
       */
       .slider::-ms-fill-lower {
-        background-color: $vca-main; 
+        background-color: $main-color; 
       }
       .slider::-ms-fill-upper {  
-        background-color: $vca-primary-light;
+        background-color: $primary-light;
       }
 
 
       /* Firefox
       */
       .slider::-moz-range-progress {
-        background-color: $vca-main; 
+        background-color: $main-color; 
         height: 15px;
         border-radius: 8px;
       }
       .slider::-moz-range-track {  
-        background-color: $vca-primary-light;
+        background-color: $primary-light;
       }
       .slider::-moz-range-thumb {
         width: 50px;

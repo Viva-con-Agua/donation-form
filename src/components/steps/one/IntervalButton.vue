@@ -8,8 +8,6 @@
         </div>
         <span class="btn-amount">{{ $t('interval.' + interval ) }}</span>
     </vca-drop-button>
-
-
 </template>
 <script>
 export default {

@@ -30,10 +30,10 @@ export default {
     },
     data() {
         return {
-            css: "dnt-frm-amount",
+            css: "primary-light",
             threshold: {
                 amount: 10000,
-                css: "dnt-frm-thresh"
+                css: "main-color"
             }
         }
     },
@@ -71,11 +71,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-    .dnt-frm-amount {
-        color: $vca-primary-light;
-    }
-    .dnt-frm-thresh {
-        color: $vca-main;
-    }
-</style>
