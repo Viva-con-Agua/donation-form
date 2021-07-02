@@ -23,8 +23,8 @@ export default new Vuex.Store({
         product: 'prod_HZW4PLYJeuxnyC',
         crm_campaign_id: 148,
         crm_nl_profile: 22,
+        company: false,
         offset: {
-            company: false,
             known_from: null,
             comment: null,
         }
@@ -42,6 +42,9 @@ export default new Vuex.Store({
         anonymous(state, value) {
             state.anonymous = value
         },
+        company(state, value) {
+            state.company = value
+        }
     },
     getters: {
         currentMsg (state) {
@@ -59,6 +62,9 @@ export default new Vuex.Store({
         anonymous(state) {
             return state.anonymous
         },
+        company(state) {
+            return state.company
+        },
         payment(state) {
             return state.payment
         }
@@ -67,16 +73,18 @@ export default new Vuex.Store({
         async init({dispatch}, data) {
             await dispatch({type: 'campaign/get', data: data.data})
         },
-        feedback({state}, data) {
-            console.log(data.data)
-            let content = {}
-            content['comment'] = data.data.comment ? data.data.comment : ''
-            content['known_from'] = data.data.known_from ? data.data.known_from[0].title : ''
+        feedback({state}) {
 
-            console.log(content)
-            console.log(state)
+            let data = {
+                'first_name': state.payment.contact.first_name ? state.payment.contact.first_name : '',
+                'last_name': state.payment.contact.last_name ? state.payment.contact.last_name : '',
+                'email': state.payment.contact.email ? state.payment.contact.email : 't.kaestle@vivaconagua.org',
+                'message': state.offset.comment ? state.offset.comment : 'Jupp das ist das neue Testformular',
+                'known_from': state.offset.known_from ? state.offset.known_from[0].title : 'Dragonball Folge 216 Minute 13'
+            }
+
             return new Promise((resolve, reject) => {
-                api.call.post('/v1/mailplupp', data.data)
+                api.call.post('/v1/email/contact', data)
                     .then(response => { resolve(response)})
                     .catch(error => { reject(error) })
             })

@@ -2,8 +2,8 @@
     <div class="steptwo">
         <vca-field :label="$t('contacttypeselection.label')">
                 <div class="selection-button-box">
-                    <button :class="btnSelected('private')" class="selection-button"  @click.prevent="selectCompany(false)">{{ $t('contacttypeselection.individual') }}</button>
-                    <button :class="btnSelected('company')" class="selection-button" @click.prevent="selectCompany(true)">{{ $t('contacttypeselection.company') }}</button>
+                    <button :class="btnSelected('private')" class="selection-button"  @click.prevent="company = false">{{ $t('contacttypeselection.individual') }}</button>
+                    <button :class="btnSelected('company')" class="selection-button" @click.prevent="company = true">{{ $t('contacttypeselection.company') }}</button>
                 </div>
         </vca-field>
     </div>
@@ -13,21 +13,18 @@
 export default {
     name: 'ContactTypeSelect',
     computed: {
-        offset: {
+        company: {
             get () {
-                return this.$store.state.offset
+                return this.$store.state.company
             },
             set(value) {
-                this.$store.commit('offset', value)
+                this.$store.commit('company', value)
             }
         }
     },
     methods: {
-        selectCompany(company) {
-            this.offset.company = company
-        },
         btnSelected(val) {
-            if (this.offset.company) {
+            if (this.company) {
                 return (val == 'company') ? 'selected' : '';
             } else {
                 return (val != 'company') ? 'selected' : '';

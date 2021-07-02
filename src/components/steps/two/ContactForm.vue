@@ -4,7 +4,7 @@
                 
 
                 <vca-input 
-                   v-if="offset.company"
+                   v-if="company"
                    ref="company"
                    :errorMsg="$t('contactform.company.error')"
                    :placeholder="$t('contactform.company.placeholder')"
@@ -97,7 +97,7 @@ export default {
     name: 'ContactForm',
     computed: {
        ...mapGetters({
-           offset: 'offset'
+           company: 'company'
         }),
         anonymous: {
             get () {
@@ -118,7 +118,7 @@ export default {
         
     },
     validations() {
-        if (this.offset.company) {
+        if (this.company) {
             return {
                 anonymous: {
                     email: {
