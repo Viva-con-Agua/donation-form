@@ -8,7 +8,7 @@
                     </vca-card>
                 </div>
                 <div class="vca-flexbox">
-                    <vca-dropdown v-model="offset.known_from" @input="select" :options="knownfrom.dropdown" :placeholder="$t('tenseconds.knownfrom.dropdown.placeholder')" title="Dropdown" label=""/>
+                    <vca-dropdown v-model="offset.known_from" :options="knownfrom.dropdown" :placeholder="$t('tenseconds.knownfrom.dropdown.placeholder')" title="Dropdown" label=""/>
                 </div>
             </div>
             <div class="vca-row">
@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         submit() {
-            this.$store.dispatch({type: 'feedback', data: this.offset})
+            this.$store.dispatch({type: 'feedback'})
             .then((resp) => {
                 this.flow = false
                 console.log(resp)
@@ -66,9 +66,6 @@ export default {
             .catch((error) => {
                 console.log(error)
             })
-        },
-        select() {
-            console.log("todo?")
         }
     }
 }
