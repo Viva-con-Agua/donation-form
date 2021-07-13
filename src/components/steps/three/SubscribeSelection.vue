@@ -26,14 +26,14 @@ export default {
     props: ['product'],
     computed: {
        ...mapGetters({
-           paymentTypes: 'payment/paymentTypes'
+           paymentTypes: 'campaign/paymentTypes'
         }),
         paymentType: {
             get () {
-                return this.$store.state.transaction.payment_type
+                return this.$store.state.payment.payment_type
             },
             set(value) {
-                this.$store.commit('transaction/payment_type', value)
+                this.$store.commit('payment/payment_type', value)
             }
         }
     },

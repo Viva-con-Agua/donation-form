@@ -2,7 +2,6 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import api from './api.js'
-import anonymous from './anonymous.js'
 import payment from './payment.js'
 import transaction from './transaction.js'
 import knownfrom from './knownfrom.js'
@@ -11,7 +10,6 @@ import campaign from './campaign.js'
 Vue.use(Vuex)
 export default new Vuex.Store({
     modules: {
-        anonymous: anonymous,
         payment: payment,
         knownfrom: knownfrom,
         transaction: transaction,

@@ -93,8 +93,9 @@ export default {
                 }
             }).then(result => {
                 if (result.error) {
-                    // Show error to your customer (e.g., insufficient funds)
-                    console.log(result.error.message);
+                    this.$store.commit("payment/intent/status", result.error.message)
+                    this.$store.dispatch("payment/intent/update").catch(err => {console.log(err)})
+                    this.$emit("failed")
                 } else {
                     // The payment has been processed!
                     if (result.paymentIntent.status === 'succeeded') {

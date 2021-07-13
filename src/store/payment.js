@@ -1,12 +1,14 @@
 import stripe from './stripe.js'
 import paypal from './paypal.js'
 import intent from './intent.js'
+import subscription from './subscription.js'
 const payment = {
     namespaced: true,
     modules: {
         stripe: stripe,
         paypal: paypal,
         intent: intent,
+        subscription: subscription
     },
     state: {
         money: {
