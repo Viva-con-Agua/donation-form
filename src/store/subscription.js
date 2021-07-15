@@ -5,7 +5,10 @@ const subscription = {
     state: () => ({
         current: {
             status:"open",
-            payment_method: ""
+            payment_method: "",
+            provider_model: {
+                id:""
+            }
         }
     }),
     mutations: {
@@ -17,17 +20,28 @@ const subscription = {
         },
         payment_method(state, value) {
             state.current.payment_method = value
+        },
+    },
+    getters: {
+        plan_id (state) {
+            return state.current.provider_model.id
         }
     },
     actions:{
         create({rootState, commit}) {
+            var product_id = ""
+            if (rootState.payment.payment_type === "paypal") {
+                product_id = rootState.campaign.current.product.paypal_id
+            } else {
+                product_id = rootState.campaign.current.product.stripe_id
+            }
            var country = rootState.payment.contact.country[0].value
             var data = {
                 money: rootState.payment.money,
                 contact: rootState.payment.contact,
                 payment_type: rootState.payment.payment_type,
                 interval: rootState.transaction.interval,
-                product_id: rootState.campaign.current.product.stripe_id,
+                product_id: product_id,
                 campaign_id: rootState.campaign.current.id
             }
             data.contact.country = country

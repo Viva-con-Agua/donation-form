@@ -44,7 +44,13 @@ export default {
             this.$emit("not-valid")
         },
         purchase () {
-            if (this.valid.$invalid === false ) {
+            this.$store.dispatch('payment/subscription/create')
+            .then( (response) => {
+                    console.log(response)
+            })
+            .catch(error => {console.log(error)})
+
+        if (this.valid.$invalid === false ) {
                     this.$refs.paypal 
             } else {
                 this.$emit('not-valid')
