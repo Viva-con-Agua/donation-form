@@ -23,7 +23,7 @@ namespaced: true,
            return state.current
         },
         plan_id(state) {
-            return state.current.plan_id
+            return state.current.provider_model.plan_id
         }
     },
     mutations: {
@@ -47,7 +47,7 @@ namespaced: true,
             return new Promise((resolve, reject) => {
                 api.call.post('/v1/donations/subscribe/paypal', data)
                     .then((response) => {
-                        commit('current', response.data)
+                        commit('current', response.data.payload)
                         resolve(response)
                     })
                     .catch(error => {

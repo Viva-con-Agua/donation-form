@@ -95,7 +95,8 @@ export default {
                 } else {
                     // The payment has been processed!
                     if (result.setupIntent.status === 'succeeded') {
-                        this.$store.dispatch({type: "payment/stripe/subscribe_success", data:result.payment_method})
+                        this.$store.commit("payment/subscription/payment_method", result.setupIntent.payment_method)
+                        this.$store.dispatch({type: "payment/subscription/success"})
                             .then(response => {
                             this.$store.commit("transaction/id", response.paymentIntent.id)
                             this.$emit('success')
@@ -107,7 +108,7 @@ export default {
          purchase () {
             if (!this.isInvalid) {
                 console.log("purchase")
-                this.$store.dispatch('payment/stripe/subscribe_intent')
+                this.$store.dispatch('payment/subscription/create')
                     .then(response => (
                         this.stripeRequestCard(response.data.payload.client_secret)
                     ))

@@ -8,6 +8,7 @@ var call = axios.create({
     },
     //withCredentials: true
 })
+/*
 call.interceptors.response.use((response) => {
     return response;
     }, (error) => {
@@ -37,7 +38,7 @@ call.interceptors.response.use((response) => {
                     reject(error)
                 })
         )
-    })
+    })*/
 
 function parseJwt (token) {
     var base64Url = token.split('.')[1];

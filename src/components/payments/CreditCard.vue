@@ -9,8 +9,6 @@
 
 import { mapGetters } from 'vuex'
 
-import {loadStripe} from '@stripe/stripe-js';
-
 export default {
     name: 'CreditCard',
     props: ['product'],
@@ -49,31 +47,22 @@ export default {
             }
         }
     },
+    mounted () {
+        this.element.mount(this.$refs.card)
+    },
     created() {
-        loadStripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY).
-            then ( (result) =>
-                  { 
-                      console.log(result)
-                      this.stripe = result
-                      this.element = result.elements().create("card", this.options)
-                      // do stuff with card if you have too...
-                      this.$store.commit('transaction/payment_type', 'creditcard')
-                      this.$store.commit('transaction/provider', 'stripe')
-                      //this.element = this.elements.create('card', this.options)
-
-                      this.element.on('change', (event) => { 
-                          if (!event.complete) {
-                              this.cardInvalid = true
-                          } else {
-                              this.cardInvalid = false
-                          }
-                          this.$emit('isInvalid', this.isInvalid)
-                      })
-                      this.$emit('isInvalid', this.isInvalid)
-                    this.element.mount(this.$refs.card)
-                  },
-                 )
-
+        this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
+        this.elements = this.stripe.elements()
+        this.element = this.elements.create('card', this.options)
+        this.element.on('change', (event) => { 
+            if (!event.complete) {
+                this.cardInvalid = true
+            } else {
+                this.cardInvalid = false
+            }
+            this.$emit('isInvalid', this.isInvalid)
+        })
+        this.$emit('isInvalid', this.isInvalid)
     },
     computed: {
         isInvalid() {
@@ -86,23 +75,32 @@ export default {
     },
     methods: {
         stripeRequestCard(client_secret) {
-            this.stripe.confirmCardPayment(client_secret, {
-                payment_method: {
-                    card: this.element,
-                    billing_details: {
+            var billing_details = ""
+            if (this.contact.email === "") {
+                billing_details = {
+                        name: this.contact.first_name + ' ' + this.contact.last_name,
+                }
+            }else{
+                    billing_details ={
                         name: this.contact.first_name + ' ' + this.contact.last_name,
                         email: this.contact.email
                     }
+            }
+            this.stripe.confirmCardPayment(client_secret, {
+                payment_method: {
+                    card: this.element,
+                    billing_details: billing_details
                 }
             }).then(result => {
                 if (result.error) {
-                    // Show error to your customer (e.g., insufficient funds)
-                    console.log(result.error.message);
+                    this.$store.commit("payment/intent/status", result.error.message)
+                    this.$store.dispatch("payment/intent/update").catch(err => {console.log(err)})
+                    this.$emit("failed")
                 } else {
                     // The payment has been processed!
                     if (result.paymentIntent.status === 'succeeded') {
-                        console.log(result)
-                        this.$store.commit("transaction/id", result.paymentIntent.id)
+                        this.$store.commit("payment/intent/status", "success")
+                        this.$store.dispatch("payment/intent/update").catch(err => {console.log(err)})
                         this.$emit('success')
                     }
                 }
@@ -111,15 +109,7 @@ export default {
         purchase () {
             if (!this.isInvalid) {
                 console.log("purchase")
-                this.$store.dispatch('payment/stripe/payment_intent')
-                /*axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/donations/intent', { 
-                    amount: this.payment.money.amount,
-                    name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                    email: this.anonymous.email,
-                    currency: this.payment.money.currency,
-                    payment_type: "card",
-                    locale: this.$i18n.locale
-                })*/
+                this.$store.dispatch('payment/intent/create')
                 .then(response => (
                     this.stripeRequestCard(response.data.payload.client_secret)
                 ))

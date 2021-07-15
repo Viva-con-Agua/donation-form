@@ -9,7 +9,7 @@
         <SEPA v-if="getPaymentType('sepa')" :product="product" @isInvalid="isInvalid"/>
         <CiviSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
         <CreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid"/>
-        <PayPalButton v-if="getPaymentType('paypal')" v-on:success="success" v-on:error="error"/>
+        <PayPalButton v-if="getPaymentType('paypal')" ref="paypal" v-on:success="success" v-on:error="error"/>
     </div>
 </template>
 <script>
@@ -26,14 +26,14 @@ export default {
     props: ['product'],
     computed: {
        ...mapGetters({
-           paymentTypes: 'payment/paymentTypes'
+           paymentTypes: 'campaign/paymentTypes'
         }),
         paymentType: {
             get () {
-                return this.$store.state.transaction.payment_type
+                return this.$store.state.payment.payment_type
             },
             set(value) {
-                this.$store.commit('transaction/payment_type', value)
+                this.$store.commit('payment/payment_type', value)
             }
         }
     },
@@ -62,6 +62,8 @@ export default {
         commit() {
             if (this.getPaymentType("creditcard")) {
                 this.$refs.creditcard.purchase()
+            } else if (this.getPaymentType("paypal")){
+                this.$refs.paypal.purchase()
             }
         }
     },

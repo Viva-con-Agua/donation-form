@@ -111,13 +111,21 @@ export default {
     },
     methods: {
         stripeRequestIBAN (client_secret) {
+            var billing_details = ""
+            if (this.contact.email === "") {
+                billing_details = {
+                        name: this.contact.first_name + ' ' + this.contact.last_name,
+                }
+            }else{
+                    billing_details ={
+                        name: this.contact.first_name + ' ' + this.contact.last_name,
+                        email: this.contact.email
+                    }
+            }
             this.stripe.confirmSepaDebitPayment(client_secret, {
                 payment_method: {
                     sepa_debit: this.element,
-                    billing_details: {
-                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                        email: this.anonymous.email
-                    }
+                    billing_details: billing_details
                 }}).then(result => {
                     if (result.error) {
                         // Show error to your customer (e.g., insufficient funds)
