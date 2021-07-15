@@ -5,11 +5,24 @@ const campaign = {
     state: () => ({
         current: {
             product: null,
+            min_amount: 100,
+            payment_types: [
+                { name: 'civisepa', title: 'payment.type.sepa', default: true },
+                { name: 'sepa', title: 'payment.type.sepa' },
+                { name: 'creditcard', title: 'payment.type.creditcard' },
+                { name: 'paypal', title: 'payment.type.paypal' }
+            ],
         }
     }),
     getters: {
         product(state) {
             return state.current.product
+        },
+        minAmount(state) {
+            return state.current.min_amount
+        },
+        paymentTypes(state) {
+            return state.current.payment_types
         }
     },
     mutations: {

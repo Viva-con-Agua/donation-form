@@ -33,7 +33,7 @@ export default {
     },
     computed: {       
         ...mapGetters({
-           minAmount: 'payment/minAmount'
+           minAmount: 'campaign/minAmount'
         }),
         currentAmount() {
           return (this.money.amount / 100).toLocaleString(this.$i18n.locale)

@@ -3,25 +3,22 @@ const stripe = {
     namespaced: true,
     state: () => ({  
         payment_intent: {
-            amount: 0,
-            currency: "",
-            email: "",
-            name: "",
-            locale: "",
-            payment_type: ""
-        },
+            status: "",
+        }
     }),
     mutations: {
-        payment_intent(state, value) {
-            state.payment_intent.amount = value.amount
-            state.payment_intent.currency = value.currency
-            state.payment_intent.email = value.email
-            state.payment_intent.name = value.name
-            state.payment_intent.payment_type = value.payment_type
+        create(state, value) {
+            state.payment_intent = value
+        },
+        success(state) {
+            state.payment_intent.status = "success"
+        },
+        error(state, value) {
+            state.payment_intent.status = value
         }
     },
     actions: {
-        payment_intent({rootState}) {
+        payment_intent({rootState, commit}) {
             var data = {
                 amount: rootState.payment.money.amount,
                 currency: rootState.payment.money.currency,
@@ -32,11 +29,21 @@ const stripe = {
             }
             return new Promise((resolve, reject) => {
                 api.call.post('/v1/donations/payment/intent', data)
+                    .then((response) => {commit("create", response.data.payload), resolve(response)})
+                    .catch((error) => {
+                        reject(error)
+                    })
+            })
+        },
+        payment_intent_update({state}) {
+            return new Promise((resolve, reject) => {
+                api.call.put('/v1/donations/payment/intent', state.payment_intent)
                     .then((response) => {resolve(response)})
                     .catch((error) => {
                         reject(error)
                     })
             })
+
         },
         subscribe_intent({rootState}) {
             var data = {

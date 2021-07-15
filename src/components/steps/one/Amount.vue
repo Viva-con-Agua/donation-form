@@ -39,7 +39,7 @@ export default {
     },
     computed: {
        ...mapGetters({
-           minAmount: 'payment/minAmount'
+           minAmount: 'campaign/minAmount'
         }),
         getCSS() {
             if (this.threshold && this.threshold.amount <= this.money.amount) {

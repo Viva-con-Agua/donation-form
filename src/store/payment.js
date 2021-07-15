@@ -1,19 +1,16 @@
 import stripe from './stripe.js'
 import paypal from './paypal.js'
+import intent from './intent.js'
+import subscription from './subscription.js'
 const payment = {
     namespaced: true,
     modules: {
         stripe: stripe,
-        paypal: paypal
+        paypal: paypal,
+        intent: intent,
+        subscription: subscription
     },
     state: {
-        paymentTypes: [
-            { name: 'civisepa', title: 'payment.type.sepa', default: true },
-            { name: 'sepa', title: 'payment.type.sepa' },
-            { name: 'creditcard', title: 'payment.type.creditcard' },
-            { name: 'paypal', title: 'payment.type.paypal' }
-        ],
-        minAmount: 100,
         money: {
             amount: 500,
             currency: 'EUR'
@@ -53,9 +50,6 @@ const payment = {
         },
         interval(state) {
             return state.interval
-        },
-        minAmount(state) {
-            return state.minAmount
         },
         paymentTypes(state) {
             return state.paymentTypes
