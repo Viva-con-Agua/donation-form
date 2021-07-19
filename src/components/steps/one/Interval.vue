@@ -19,7 +19,7 @@ export default {
     components: {IntervalButton},
     computed: {
         ...mapGetters({
-            abo: 'transaction/abo'
+            abo: 'payment/abo'
         })
     }
 }

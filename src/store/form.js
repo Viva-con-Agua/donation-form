@@ -1,6 +1,6 @@
 import api from './api.js'
 
-const campaign = {
+const form = {
     namespaced: true,
     state: () => ({
         current: {
@@ -33,7 +33,7 @@ const campaign = {
     actions: {
         get({commit}, data) {
             return new Promise((resolve, reject) => {
-                api.call.get('/v1/donations/campaign/' + data.data)
+                api.call.get('/v1/donations/form/' + data.data)
                     .then((response) => {commit('get', response.data.payload), resolve()})
                     .catch((error) => {
                         reject(error)
@@ -43,4 +43,4 @@ const campaign = {
     },
 }
 
-export default campaign
+export default form
