@@ -84,7 +84,7 @@
                     </vca-input>
                 </vca-field-row>
 
-                    <vca-country preselection="DE" countryCode="DE" :rules="$v.anonymous.country" ref="country" v-model="anonymous.country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
+                    <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
                     <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
                 </vca-field>
     </div>
@@ -115,6 +115,15 @@ export default {
                 this.$store.commit('payment/email', value)
             }
         },
+        country: {
+            get () {
+                return this.$store.state.payment.country
+            },
+            set(value) {
+                this.$store.commit('payment/country', value)
+            }
+
+        }
         
     },
     validations() {
@@ -142,13 +151,13 @@ export default {
                     city: {
                         required
                     },
-                    country: {
-                        required
-                    },
                     company_name: {
                         required
                     }
-                }
+                },
+                    country: {
+                        required
+                    },
             }
         } else {
             return {
@@ -174,10 +183,11 @@ export default {
                     city: {
                         required
                     },
+
+                },
                     country: {
                         required
                     }
-                }
             }
         }
     },

@@ -6,23 +6,23 @@
             </div>
         </vca-field>
 
-        <SEPA v-if="getPaymentType('sepa')" :product="product" @isInvalid="isInvalid"/>
-        <CiviSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
-        <CreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid"/>
+        <StripeSubscriptionSepa v-if="getPaymentType('sepa')" :product="product" @isInvalid="isInvalid"/>
+        <CiviSubsciptionSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
+        <StripeSubscriptionCreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid"/>
         <PayPalButton v-if="getPaymentType('paypal')" ref="paypal" v-on:success="success" v-on:error="error"/>
     </div>
 </template>
 <script>
-import CiviSEPA from '@/components/subscribe/CiviSEPA'
-import SEPA from '@/components/subscribe/SEPA'
-import PayPalButton from '@/components/subscribe/PayPal'
-import CreditCard from '@/components/subscribe/CreditCard'
+import CiviSubsciptionSEPA from '@/components/payment/civi/CiviSubscriptionSEPA'
+import StripeSubscriptionSepa from '@/components/payment/stripe/StripeSubscriptionSepa'
+import PayPalButton from '@/components/payment/paypal/PayPalSubscriptionButton'
+import StripeSubscriptionCreditCard from '@/components/payment/stripe/StripeSubscriptionCreditCard'
 
 import { mapGetters } from 'vuex'
 
 export default {
     name: 'SubscribeSelection',
-    components: {SEPA, CiviSEPA, CreditCard, PayPalButton},
+    components: {StripeSubscriptionSepa, CiviSubsciptionSEPA, StripeSubscriptionCreditCard, PayPalButton},
     props: ['product'],
     computed: {
        ...mapGetters({

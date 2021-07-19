@@ -3,8 +3,8 @@
         <vca-field :label="$t('payment.more_details')">
             <PayPal 
                 ref="paypal"
-                :amount="pAmount"
-                :currency="payment.money.currency"
+                :amount="amount"
+                :currency="currency"
                 :client="credentials"
                 :items="items"
                 @payment_authorized="purchase"
@@ -16,40 +16,17 @@
 </template>
 
 <script>
-import Money from 'vca-ui/src/utils/Money'
-import PayPal from './paypal/PayPalCheckout'
+import PayPal from './PayPalCheckout'
 import { mapGetters } from 'vuex'
 export default {
     name: 'PayPalButton',
     components: {PayPal},
-    created() {
-        this.$store.commit('transaction/payment_type', 'paypal')
-        this.$store.commit('transaction/provider', 'paypal')
-    },
     computed : {
         ...mapGetters({
-           payment: 'payment',
+            items: 'payment/paypal/items',
+            amount: 'payment/paypal/amount',
+            currency: 'payment/paypal/currency',
         }),
-        transaction: {
-            get () {
-                return this.$store.state.transaction
-            },
-            set(value) {
-                this.$store.commit('transaction', value)
-            }
-        },
-        pAmount () {
-            return Money.getPayPalString(this.payment.money.amount)
-        },
-        items () {
-            return [{
-                name: "test donation",
-                description: "for test",
-                quantity: "1",
-                price: Money.getPayPalString(this.payment.money.amount),
-                currency: this.payment.money.currency
-            }]
-        }
     },
     data () {
         return {
@@ -61,10 +38,14 @@ export default {
     },
     methods: {
         success(e) {
-            this.transaction.id = e.id
-            this.$emit("success", this.transaction)
+            this.$store.commit("payment/paypal/checkout_id", e.id)
+            this.$store.commit("payment/paypal/status", "done")
+            this.$store.dispatch("payment/paypal/checkout").then(() => {
+                this.$emit("success")
+            }).catch(error => console.log(error))
         },
         error(e) {
+            this.$store.commit("payment/paypal/status", e)
             this.$emit("error", e)
         },
         validationError() {
