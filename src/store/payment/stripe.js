@@ -62,7 +62,7 @@ const stripe = {
                 payment_type: rootState.payment.payment_type,
                 terms: state.terms,
                 interval: rootState.payment.interval,
-                product_id: rootState.campaign.current.product.stripe_id
+                product_id: rootState.form.current.product.stripe_id
             }
             return new Promise((resolve, reject) => {
                 api.call.post('/v1/donations/payment/stripe/setupintent', data)

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import api from './api.js'
 import payment from './payment'
 import knownfrom from './knownfrom.js'
-import campaign from './campaign.js'
+import form from './form.js'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -12,7 +12,7 @@ export default new Vuex.Store({
     modules: {
         payment: payment,
         knownfrom: knownfrom,
-        campaign: campaign
+        form: form
     },
     state: {
         loading: false,
@@ -68,7 +68,7 @@ export default new Vuex.Store({
     },
     actions: {
         async init({dispatch}, data) {
-            await dispatch({type: 'campaign/get', data: data.data})
+            await dispatch({type: 'form/get', data: data.data})
         },
         feedback({state}) {
 

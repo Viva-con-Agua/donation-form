@@ -17,10 +17,10 @@ export default {
     computed: {
         abo: {
             get () {
-                return (this.$store.state.transaction.abo) ? 'yes' : 'no'
+                return (this.$store.state.payment.abo) ? 'yes' : 'no'
             },
             set(value) {
-                this.$store.commit('transaction/abo', value == 'yes')
+                this.$store.commit('payment/abo', value == 'yes')
             }
         }
     }

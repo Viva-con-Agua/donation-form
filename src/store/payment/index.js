@@ -30,6 +30,7 @@ const payment = {
         },
         payment_type: "",
         country: [],
+        abo: false
     },
     mutations: {
         create(state, val) {
@@ -50,6 +51,9 @@ const payment = {
         },
         country(state, val) {
             state.country = val
+        },
+        abo(state, val) {
+            state.abo = val
         }
 
 
@@ -67,6 +71,9 @@ const payment = {
         },
         contact(state) {
             return state.contact
+        },
+        abo(state) {
+            return state.abo
         }
     },
     actions: {
@@ -83,7 +90,7 @@ const payment = {
             var data = {
                 money: state.money,
                 contact: state.contact,
-                campaign_id: rootState.campaign.current.id
+                donation_form_id: rootState.form.current.id
             }
             data.contact.country = country
             return new Promise((resolve, reject) => {
@@ -100,7 +107,7 @@ const payment = {
                 id: state.payment_id,
                 money: state.money,
                 contact: state.contact,
-                campaign_id: rootState.campaign.current.id
+                donation_form_id: rootState.form.current.id
             }
             data.contact.country = country
             return new Promise((resolve, reject) => {

@@ -26,13 +26,13 @@ export default {
     name: 'DonationForm',
     components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
     props: {
-        campaign_id: {
+        donation_form_id: {
             type: String,
             default: ""
         }
     },
     created() {
-        this.$store.dispatch({type: 'init', data: this.campaign_id})
+        this.$store.dispatch({type: 'init', data: this.donation_form_id})
             .then(resp => console.log(resp))
             .catch(error => console.log(error))
     },
@@ -50,7 +50,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            product: 'campaign/product'
+            product: 'form/product'
         })
     },
     methods: {

@@ -33,8 +33,8 @@ const paypal = {
         items(state, commit, rootState) {
             return [
                 {
-                    name: rootState.campaign.current.name,
-                    description: rootState.campaign.current.description,
+                    name: rootState.form.current.name,
+                    description: rootState.form.current.description,
                     quantity: "1",
                     price: Money.getPayPalString(rootState.payment.money.amount),
                     currency: rootState.payment.money.currency,
@@ -85,7 +85,7 @@ const paypal = {
             var data = {
                 payment_id: rootState.payment.payment_id,
                 interval: rootState.payment.interval,
-                product_id: rootState.campaign.current.product.paypal_id
+                product_id: rootState.form.current.product.paypal_id
             }
             return new Promise((resolve, reject) => {
                     api.call.post('/v1/donations/payment/paypal/subscription', data)

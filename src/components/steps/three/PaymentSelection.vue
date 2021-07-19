@@ -7,7 +7,7 @@
         </vca-field>
 
         <StripePaymentSepa v-if="getPaymentType('sepa')" ref="sepa" :product="product" @isInvalid="isInvalid"/>
-        <CiviSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
+        <CiviPaymentSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
         <StripePaymentCreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid"/>
         <PayPalButton v-if="getPaymentType('paypal')" v-on:success="success" v-on:error="error"/>
     </div>
@@ -26,7 +26,7 @@ export default {
     props: ['product'],
     computed: {
        ...mapGetters({
-           paymentTypes: 'campaign/paymentTypes'
+           paymentTypes: 'form/paymentTypes'
         }),
         paymentType: {
             get () {
