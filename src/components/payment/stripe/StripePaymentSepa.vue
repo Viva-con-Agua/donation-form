@@ -1,7 +1,7 @@
 <template>
     <div class="stripe-payment-container">
         <vca-field :label="$t('payment.more_details')">
-        <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
+            <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
             <vca-checkbox
                 :rules="$v.terms"
                 ref="terms"
@@ -15,11 +15,9 @@
 
 <script>
 
-import axios from 'axios'
-
 import { mapGetters } from 'vuex'
 export default {
-    name: 'SEPA',
+    name: 'StripePaymentSepa',
     props: ['product'],
     data() {
         return {
@@ -66,8 +64,6 @@ export default {
         this.element.mount(this.$refs.element)
     },
     created() {
-        this.$store.commit('transaction/payment_type', 'sepa')
-        this.$store.commit('transaction/provider', 'stripe')
         this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('iban', this.options)
@@ -95,69 +91,55 @@ export default {
         },
         terms: {
             get () {
-                return this.$store.state.transaction.terms
+                return this.$store.state.payment.stripe.terms
             },
             set(value) {
-                this.$store.commit('transaction/terms', value)
+                this.$store.commit('payment/stripe/terms', value)
                 this.$refs.terms.validate()
                 this.$emit('isInvalid', this.isInvalid)
             }
         },
         ...mapGetters({
-           anonymous: 'anonymous',
-           payment: 'payment',
-           transaction: 'transaction'
-        })
+            billing_details: 'payment/stripe/billing_details'
+        })    
     },
     methods: {
-        stripeRequestCard(client_secret) {
-            this.stripe.confirmSepaDebitSetup(client_secret, {
+        stripeRequestIBAN (client_secret) {
+            this.stripe.confirmSepaDebitPayment(client_secret, {
                 payment_method: {
                     sepa_debit: this.element,
-                    billing_details: {
-                        name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                        email: this.anonymous.email
-                    }
+                    billing_details: this.billing_details
                 }
             }).then(result => {
-                if (result.error) {
-                    // Show error to your customer (e.g., insufficient funds)
-                    console.log(result.error.message);
-                } else {
-                    // The payment has been processed!
-                    if (result.setupIntent.status === 'succeeded') {
-                        axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/subscription',
-                        { 
-                            amount: this.payment.money.amount,
-                            currency: this.payment.money.currency,
-                            name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                            email: this.anonymous.email,
-                            interval: this.transaction.interval,
-                            locale: this.anonymous.country,
-                            type: 'sepa_debit',
-                            product: this.product
-                        })
-                        .then(response => {
-                            this.transaction.id = response.data.id,
-                            this.$emit('success', this.payment)
-                        })
-                    }
-                }
+                this.result(result)
             });
         },
         purchase () {
             if (!this.isInvalid) {
-                axios.post(process.env.VUE_APP_BACKEND_URL + '/v1/payment/default', { 
-                    amount: this.payment.money.amount,
-                    name: this.anonymous.first_name + ' ' + this.anonymous.last_name,
-                    email: this.anonymous.email,
-                    interval: this.transaction.interval,
-                    currency: this.payment.money.currency,
-                    locale: this.anonymous.country,
-                    type: 'sepa_debit'
-                }).then(response => (
-                    this.stripeRequestCard(response.data.client_secret)
-                ))
+                this.$store.dispatch('payment/stripe/payment_intent_create')
+                    .then(response => (
+                    this.stripeRequestIBAN(response.data.payload.payment_intent.client_secret)
+                    ))
+                    .catch(error => {
+                        console.log(error)
+                    })
+            } else {
+                console.log("isInvalid == true")
+            }
+        },
+        result(result) {
+            console.log(result)
+            if (result.error) {
+                this.$store.commit("payment/stripe/status", result.error.message)
+                this.$store.dispatch("payment/stripe/payment_intent_finish").catch(err => {console.log(err)})
+                this.$emit("failed")
+            } else {
+                // The payment has been processed!
+                if (result.paymentIntent.status === 'processing') {
+                    this.$store.commit("payment/stripe/status", "done")
+                    this.$store.dispatch("payment/stripe/payment_intent_finish").catch(err => {console.log(err)})
+                    this.$emit('success')
+                }
             }
         }
     }

@@ -32,7 +32,10 @@ export default {
             this.$emit("back")
         },
         submit() {
-            this.$emit("submit")
+            this.$store.dispatch("payment/process").then(() => {
+                this.$emit("submit")
+            })
+            .catch((err) => console.log(err))
         }
     }
 }

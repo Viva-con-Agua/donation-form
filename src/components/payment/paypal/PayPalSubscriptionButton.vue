@@ -1,5 +1,5 @@
 <template>
-    <div class="paypal-payment-container">
+    <div v-if="show" class="paypal-payment-container">
         <PayPal 
             ref="paypal"
             :client="credentials"
@@ -14,28 +14,33 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PayPal from './paypal/PayPalCheckout'
+import PayPal from './PayPalSubscription'
 export default {
     name: 'PayPalButton',
     components: {PayPal},
     props: ['valid'],
     computed : {
         ...mapGetters({
-            payment: 'payment',
-            plan_id: 'payment/subscription/plan_id'
+            plan_id: 'payment/paypal/plan_id'
         }),
     },
     data () {
         return {
+            show: false,
             credentials: {
-                sandbox: process.env.VUE_PAYPAL_PUBLIC_KEY_SANDBOX,
-                production: process.env.VUE_PAYPAL_PUBLIC_KEY_PRDOUCTION
+                sandbox: process.env.VUE_APP_PAYPAL_PUBLIC_KEY,
+                production: process.env.VUE_PAYPAL_PUBLIC_KEY,
             },
         }
     },
     methods: {
-        success() {
-            this.$emit("success")
+        success(e) {
+            this.$store.commit("payment/paypal/checkout_id", e.id)
+            console.log(e)
+            this.$store.commit("payment/paypal/status", "done")
+            this.$store.dispatch("payment/paypal/subscription_finish").then(() => {
+                this.$emit("success")
+            }).catch(error => console.log(error))
         },
         error(e) {
             this.$emit("error", e)
@@ -44,12 +49,6 @@ export default {
             this.$emit("not-valid")
         },
         purchase () {
-            this.$store.dispatch('payment/subscription/create')
-            .then( (response) => {
-                    console.log(response)
-            })
-            .catch(error => {console.log(error)})
-
         if (this.valid.$invalid === false ) {
                     this.$refs.paypal 
             } else {
@@ -58,9 +57,9 @@ export default {
         }
     },
     created() {
-        this.$store.dispatch('payment/subscription/create')
-            .then( (response) => {
-                    console.log(response)
+        this.$store.dispatch('payment/paypal/subscription_create')
+            .then( () => {
+                this.show = true
             })
             .catch(error => {console.log(error)})
     }

@@ -2,17 +2,16 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import api from './api.js'
-import payment from './payment.js'
-import transaction from './transaction.js'
+import payment from './payment'
 import knownfrom from './knownfrom.js'
 import campaign from './campaign.js'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
+    namespaced: true,
     modules: {
         payment: payment,
         knownfrom: knownfrom,
-        transaction: transaction,
         campaign: campaign
     },
     state: {

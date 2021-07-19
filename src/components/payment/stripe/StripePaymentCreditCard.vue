@@ -5,12 +5,9 @@
 </template>
 
 <script>
-//import axios from 'axios'
-
 import { mapGetters } from 'vuex'
-
 export default {
-    name: 'CreditCard',
+    name: 'StripePaymentCreditCard',
     props: ['product'],
     data() {
         return {
@@ -69,55 +66,47 @@ export default {
             return this.cardInvalid
         },
         ...mapGetters({
-            contact: 'payment/contact'
+            billing_details: 'payment/stripe/billing_details'
         })
 
     },
     methods: {
         stripeRequestCard(client_secret) {
-            var billing_details = ""
-            if (this.contact.email === "") {
-                billing_details = {
-                        name: this.contact.first_name + ' ' + this.contact.last_name,
-                }
-            }else{
-                    billing_details ={
-                        name: this.contact.first_name + ' ' + this.contact.last_name,
-                        email: this.contact.email
-                    }
-            }
             this.stripe.confirmCardPayment(client_secret, {
                 payment_method: {
                     card: this.element,
-                    billing_details: billing_details
+                    billing_details: this.billing_details
                 }
             }).then(result => {
-                if (result.error) {
-                    this.$store.commit("payment/intent/status", result.error.message)
-                    this.$store.dispatch("payment/intent/update").catch(err => {console.log(err)})
-                    this.$emit("failed")
-                } else {
-                    // The payment has been processed!
-                    if (result.paymentIntent.status === 'succeeded') {
-                        this.$store.commit("payment/intent/status", "success")
-                        this.$store.dispatch("payment/intent/update").catch(err => {console.log(err)})
-                        this.$emit('success')
-                    }
-                }
+                this.result(result)
             });
         },
         purchase () {
             if (!this.isInvalid) {
                 console.log("purchase")
-                this.$store.dispatch('payment/intent/create')
-                .then(response => (
-                    this.stripeRequestCard(response.data.payload.client_secret)
-                ))
-                .catch(error => {
-                    console.log(error)
-                })
+                this.$store.dispatch('payment/stripe/payment_intent_create')
+                    .then(response => (
+                        this.stripeRequestCard(response.data.payload.payment_intent.client_secret)
+                    ))
+                    .catch(error => {
+                        console.log(error)
+                    })
             } else {
                 console.log("isInvalid == true")
+            }
+        },
+        result(result) {
+            if (result.error) {
+                this.$store.commit("payment/stripe/status", result.error.message)
+                this.$store.dispatch("payment/stripe/payment_intent_finish").catch(err => {console.log(err)})
+                this.$emit("failed")
+            } else {
+                // The payment has been processed!
+                if (result.paymentIntent.status === 'succeeded') {
+                    this.$store.commit("payment/stripe/status", "done")
+                    this.$store.dispatch("payment/stripe/payment_intent_finish").catch(err => {console.log(err)})
+                    this.$emit('success')
+                }
             }
         }
     }

@@ -54,9 +54,9 @@ export default {
         })
     },
     methods: {
-        success(e) {
-            this.$emit("success", e)
-            this.$refs.stepthree.commit()
+        success() {
+            this.$emit("success")
+            //this.$refs.stepthree.commit()
             this.step = 4
         }
     }
