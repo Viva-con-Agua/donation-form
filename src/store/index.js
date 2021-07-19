@@ -3,7 +3,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import api from './api.js'
 import payment from './payment'
-import transaction from './transaction.js'
 import knownfrom from './knownfrom.js'
 import campaign from './campaign.js'
 
@@ -13,7 +12,6 @@ export default new Vuex.Store({
     modules: {
         payment: payment,
         knownfrom: knownfrom,
-        transaction: transaction,
         campaign: campaign
     },
     state: {
