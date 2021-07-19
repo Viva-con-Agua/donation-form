@@ -53,10 +53,10 @@
   },
   "information": {
     "label": "Hinweise:",
-    "info_1": "Monatilche Spenden können jederzeit gekündigt werden.",
-    "info_2": "Deine Spende ist steuerlich absetzbar. Eine Spendenbescheinigung erhälst du im Februar des Folgejahres.",
+    "info_1": "Monatliche Spenden können jederzeit gekündigt werden.",
+    "info_2": "Deine Spende ist steuerlich absetzbar. Eine Spendenbescheinigung erhältst du im Februar des Folgejahres.",
     "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
-    "info_4": "Viva con Agua de Sankt Paule e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt.<br/>Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
+    "info_4": "Viva con Agua de Sankt Pauli e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt. Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
   },
   "buttons": {
     "next": "Weiter",
@@ -64,10 +64,10 @@
   },
   "example": {
     "default": "",
-    "soap": "Damit untestützt du uns z.B. mit 20 l Seife für Schulen",
-    "filter": "Damit untestützt du uns z.B. mit einem Wasserfilter für eine Familie",
-    "trees": "Damit untestützt du uns z.B. mit 50 Bäumen",
-    "workshop": "Damit untestützt du uns z.B. mit einem Hygieneworkshop an einer Schule"
+    "soap": "Damit unterstützt du uns z.B. mit 20 l Seife für Schulen",
+    "filter": "Damit unterstützt du uns z.B. mit einem Wasserfilter für eine Familie",
+    "trees": "Damit unterstützt du uns z.B. mit 50 Bäumen",
+    "workshop": "Damit unterstützt du uns z.B. mit einem Hygieneworkshop an einer Schule"
   },
   "amount": {
     "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
@@ -187,7 +187,7 @@
   },
   "next": {
     "label": "So geht es weiter",
-    "receipt": "Deine Spendenbescheinigungen erhälst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+    "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem newsletter an",
       "button": "Jetzt anmelden"
