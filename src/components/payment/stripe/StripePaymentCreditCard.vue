@@ -1,7 +1,9 @@
 <template>
-    <div class="stripe-payment-container">
-        <div class="vca-input-border"><div id="card" ref="card" class="stripe-payment"></div></div>
-    </div>
+    <vca-field :label="$t('payment.more_details')">
+        <div class="stripe-payment-container">
+            <div class="vca-input-border"><div id="card" ref="card" class="stripe-payment"></div></div>
+        </div>
+    </vca-field>
 </template>
 
 <script>

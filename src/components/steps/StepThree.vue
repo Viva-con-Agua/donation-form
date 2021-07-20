@@ -24,7 +24,7 @@ export default {
     computed: {
         ...mapGetters({
             money: 'payment/money',
-            abo: 'transaction/abo'
+            abo: 'payment/abo'
         }),
         getLabel() {
             return this.$t('payment.submit', {0: Money.convertDE(this.money.amount), 1: this.money.currency})

@@ -1,7 +1,20 @@
 <template>
     <div class="stripe-payment-container">
         <vca-field :label="$t('payment.more_details')">
-        <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
+            <div class="vca-center" v-if="!anonymous.email">        
+                <div class="vca-row quarter">
+                    <vca-input
+                        ref="email"
+                        :errorMsg="$t('contactform.email.error')"
+                        @input="lower"
+                        :placeholder="$t('contactform.email.placeholder')"
+                        v-model.trim="anonymous.email" 
+                        :rules="$v.anonymous.email">
+                    </vca-input>
+                    <div class="inline-infobox"><vca-info-box>{{ $t('payment.email') }}</vca-info-box></div>
+                </div>
+            </div>
+            <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
             <vca-checkbox
                 :rules="$v.terms"
                 ref="terms"
@@ -14,6 +27,7 @@
 </template>
 
 <script>
+import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'StripeSubscriptionSepa',
@@ -81,12 +95,23 @@ export default {
         return {
             terms: {
                 watcher: value => value === true
+            },
+            anonymous: {
+                email: {
+                    email,
+                    required
+                }
             }
         }
     },
     computed: {
         isInvalid() {
             return this.$v.$invalid || this.ibanInvalid
+        },
+        anonymous: {
+            get () {
+                return this.$store.state.payment.contact
+            }
         },
         terms: {
             get () {
@@ -102,7 +127,19 @@ export default {
             billing_details: 'payment/stripe/billing_details'
         })    
     },
+    watch: {
+        anonymous: {
+            handler(val) {
+                this.$store.commit('payment/contact', val)
+                this.$emit('isInvalid', this.isInvalid)
+            },
+            deep: true
+        }
+    },
     methods: {
+        lower() {
+            this.anonymous.email = this.anonymous.email.toLowerCase()
+        },
         stripeRequestIBAN(client_secret) {
             this.stripe.confirmSepaDebitSetup(client_secret, {
                 payment_method: {

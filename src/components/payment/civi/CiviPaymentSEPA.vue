@@ -5,10 +5,10 @@
                 ref="iban"
                 :errorMsg="$t('payment.sepa.error')"
                 :placeholder="$t('payment.sepa.placeholder')"
-                v-model.trim="iban"
+                v-model.trim="account.iban"
                 @input="isValid"
                 @blur="isValid"
-                :rules="$v.iban">
+                :rules="$v.account.iban">
             </vca-input>
 
             <vca-checkbox
@@ -32,49 +32,45 @@ export default {
             terms: {
                 watcher: value => value === true
             },
-            iban: {
-                async isinvalid (value) {
-                    if (value && value.length >= 15) {
-                        const response = await axios.get("https://openiban.com/validate/" + value + "?getBIC=true&validateBankCode=true")
-                        if(response.data.valid) {
-                            this.bic = response.data.bankData.bic
+            account: {
+                iban: {
+                    async isinvalid (value) {
+                        if (value && value.length >= 15) {
+                            const response = await axios.get("https://openiban.com/validate/" + value + "?getBIC=true&validateBankCode=true")
+                            if(response.data.valid) {
+                                this.account.bic = response.data.bankData.bic
+                            }
+                            return Boolean(await response.data.valid)
                         }
-                        return Boolean(await response.data.valid)
+                        return false
                     }
-                    return false
                 }
             }
         }
     },
     created() {
-        this.$store.commit('transaction/payment_type', 'civisepa')
-        this.$store.commit('transaction/provider', '')
         this.$emit('isInvalid', this.$v.$invalid)
     },
+    watch: {
+        account: {
+            handler(val) {
+                this.$store.commit('payment/civisepa/account', val)
+            },
+            deep: true
+        }
+    },
     computed: {
-        iban: {
+        account: {
             get () {
-                return this.$store.state.transaction.account.iban
-            },
-            set(value) {
-                this.$store.commit('transaction/iban', value)
-            }
-        },
-        bic: {
-            get () {
-                return this.$store.state.transaction.account.bic
-            },
-            set(value) {
-                this.$store.commit('transaction/bic', value)
-                this.$emit('isInvalid', this.$v.$invalid)
+                return this.$store.state.payment.civisepa.account
             }
         },
         terms: {
             get () {
-                return this.$store.state.transaction.terms
+                return this.$store.state.payment.civisepa.terms
             },
             set(value) {
-                this.$store.commit('transaction/terms', value)
+                this.$store.commit('payment/civisepa/terms', value)
                 this.$emit('isInvalid', this.$v.$invalid)
             }
         }
