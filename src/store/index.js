@@ -90,7 +90,10 @@ export default new Vuex.Store({
 
             let data = {
                 'payment_id': rootState.payment.payment_id,
-                'offset': state.offset
+                'offset': {
+                    'comment': state.offset.comment,
+                    'known_from': state.offset.known_from ? state.offset.known_from[0].title : ''
+                }
             }
 
             return new Promise((resolve, reject) => {

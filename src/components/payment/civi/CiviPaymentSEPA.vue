@@ -30,7 +30,9 @@ export default {
     validations() {
         return {
             terms: {
-                watcher: value => value === true
+                checked(val) {
+                    return val
+                }
             },
             account: {
                 iban: {
@@ -77,6 +79,7 @@ export default {
     },
     methods: {
         isValid() {
+            this.$v.terms.touch()
             this.$emit('isInvalid', this.$v.$invalid)
         }
     }

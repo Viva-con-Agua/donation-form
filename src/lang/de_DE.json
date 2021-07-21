@@ -226,6 +226,7 @@
     "comment": {
       "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
       "placeholder": "200 Zeichen",
+      "error": "Bitte gib eine kurze Nachricht ein",
       "button": "Absenden"
     }
   },

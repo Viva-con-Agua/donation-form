@@ -1,7 +1,7 @@
 <template>
     <div class="stripe-payment-container">
         <vca-field :label="$t('payment.more_details')">
-            <div class="vca-center" v-if="!anonymous.email">        
+            <div class="vca-center" v-if="showEmail">
                 <div class="vca-row quarter">
                     <vca-input
                         ref="email"
@@ -34,6 +34,7 @@ export default {
     props: ['product'],
     data() {
         return {
+            showEmail: false,
             stripe: null,
             elements: null,
             element: null,
@@ -77,6 +78,7 @@ export default {
         this.element.mount(this.$refs.element)
     },
     created() {
+        this.showEmail = !this.anonymous.email
         this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('iban', this.options)

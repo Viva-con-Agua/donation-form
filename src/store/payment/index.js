@@ -31,6 +31,7 @@ const payment = {
             company_name:""
         },
         payment_type: "",
+        interval: "monthly",
         country: [],
         abo: false
     },

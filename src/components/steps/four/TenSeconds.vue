@@ -17,7 +17,7 @@
                         <p v-html="$t('tenseconds.comment.label')"></p>
                     </vca-card>
                 </div>
-                <div class="vca-flexbox"><vca-textarea ref="comment" v-model="offset.comment" :maxlength="200" :placeholder="$t('tenseconds.comment.placeholder')" label=""/></div>
+                <div class="vca-flexbox"><vca-textarea ref="comment" :rules="$v.offset.comment" :errorMsg="$t('tenseconds.comment.error')" v-model="offset.comment" :maxlength="200" :placeholder="$t('tenseconds.comment.placeholder')" label=""/></div>
             </div>
             <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('tenseconds.comment.button') }}</button>
             <div class="vca-column" v-else>
@@ -51,16 +51,23 @@ export default {
         offset: {
             get () {
                 return this.$store.state.offset
-            },
-            set(value) {
-                this.$store.commit('offset', value)
             }
+        }
+    },
+    watch: {
+        offset: {
+            handler(val) {
+                this.$store.commit('offset', val)
+            },
+            deep: true
         }
     },
     validations() {
         return {
-            comment: {
-                required
+            offset: {
+                comment: {
+                    required
+                }
             }
         }
     },

@@ -1,7 +1,7 @@
 <template>
     <div class="stripe-payment-container">
         <vca-field :label="$t('payment.more_details')">
-            <div class="vca-center" v-if="showEmail">        
+            <div class="vca-center" v-if="showEmail">
                 <div class="vca-row quarter">
                     <vca-input
                         ref="email"

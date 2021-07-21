@@ -1,6 +1,6 @@
 <template>
-    <vca-drop-button :selected="transaction.interval == interval" @click.prevent="transaction.interval = interval">
-        <div v-if="transaction.interval != interval" class="vca-row vca-center btn-icon">
+    <vca-drop-button :selected="paymentInterval == interval" @click.prevent="paymentInterval = interval">
+        <div v-if="paymentInterval != interval" class="vca-row vca-center btn-icon">
             <div v-for="(drop, index) in drops" :key="index" class="icon-box"><img src="~@/assets/icons/icon_vca.png" /></div>
         </div>
         <div v-else class="vca-row vca-center btn-icon">
@@ -23,18 +23,18 @@ export default {
         }
     },
     computed: {
-        transaction: {
+        paymentInterval: {
             get () {
-                return this.$store.state.transaction
+                return this.$store.state.payment.interval
             },
             set(value) {
-                this.$store.commit('transaction', value)
+                this.$store.commit('payment/interval', value)
             }
         }
     },
     methods: {
         dropSelected(val) {
-            return (this.transaction.interval == val) ? 'selected' : ''
+            return (this.paymentInterval == val) ? 'selected' : ''
         },
         modulo(index, mod) {
             return ((index + 1) % mod) == 1 
