@@ -69,6 +69,9 @@ const payment = {
         paymentTypes(state) {
             return state.paymentTypes
         },
+        payment_type(state) {
+            return state.payment_type
+        },
         contact(state) {
             return state.contact
         },
