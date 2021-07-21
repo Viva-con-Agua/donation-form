@@ -86,7 +86,7 @@ const payment = {
             }
         },
         create({rootState, state, commit}) {
-            var country = state.country[0].value
+            var country = state.country.length > 0 ? state.country[0].value : 'DE'
             var data = {
                 money: state.money,
                 contact: state.contact,
@@ -102,7 +102,7 @@ const payment = {
             })
         },
         update({rootState, state}) {
-            var country = state.country[0].value
+            var country = state.country.length > 0 ? state.country[0].value : 'DE'
             var data = {
                 id: state.payment_id,
                 money: state.money,
