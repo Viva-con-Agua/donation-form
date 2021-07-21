@@ -104,8 +104,7 @@ export default new Vuex.Store({
         },
         newsletter({state}) {
             let content = {}
-            content['gid'] = state.crm_nl_profile
-            content['email-Primary'] = state.payment.contact.email
+            content['email'] = state.payment.contact.email
 
             return new Promise((resolve, reject) => {
 

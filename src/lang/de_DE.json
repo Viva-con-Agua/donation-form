@@ -100,6 +100,7 @@
   },
   "contactform": {
     "label": "Persönliche Angaben",
+    "additional": "Ich möchte eine Spendenquittung erhalten",
     "required": "* Diese Angaben benötigen wir von dir auf jeden Fall.",
     "company": {
       "placeholder": "Name des Unternehmens *",
