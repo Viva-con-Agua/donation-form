@@ -24,8 +24,6 @@ export default {
         this.$watch(() => {
                 return this.$refs.contactdata.$v.$invalid
             },(val) => {
-                console.log(val)
-                console.log(this.$refs.contactdata.$v)
                 this.isValid = !val
             }
         )
