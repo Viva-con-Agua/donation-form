@@ -70,14 +70,14 @@ export default new Vuex.Store({
         async init({dispatch}, data) {
             await dispatch({type: 'form/get', data: data.data})
         },
-        feedback({state}) {
+        contact({state}) {
 
             let data = {
                 'first_name': state.payment.contact.first_name ? state.payment.contact.first_name : '',
                 'last_name': state.payment.contact.last_name ? state.payment.contact.last_name : '',
-                'email': state.payment.contact.email ? state.payment.contact.email : 't.kaestle@vivaconagua.org',
-                'message': state.offset.comment ? state.offset.comment : 'Jupp das ist das neue Testformular',
-                'known_from': state.offset.known_from ? state.offset.known_from[0].title : 'Dragonball Folge 216 Minute 13'
+                'email': state.payment.contact.email ? state.payment.contact.email : '',
+                'message': state.offset.comment ? state.offset.comment : '',
+                'known_from': state.offset.known_from ? state.offset.known_from[0].title : ''
             }
 
             return new Promise((resolve, reject) => {
@@ -86,15 +86,26 @@ export default new Vuex.Store({
                     .catch(error => { reject(error) })
             })
         },
+        feedback({state, rootState}) {
+
+            let data = {
+                'payment_id': rootState.payment.payment_id,
+                'offset': {
+                    'comment': state.offset.comment,
+                    'known_from': state.offset.known_from ? state.offset.known_from[0].title : ''
+                }
+            }
+
+            return new Promise((resolve, reject) => {
+                api.call.post('/v1/donations/feedback', data)
+                    .then(response => { resolve(response)})
+                    .catch(error => { reject(error) })
+            })
+        },
         newsletter({state}) {
             let content = {}
             content['gid'] = state.crm_nl_profile
-            content['email-Primary'] = state.anonymous.email
-            content['email-Primary'] = 'tk_testeroni3@vivaconagua.org'
-
-            console.log(content)
-            console.log(state)
-
+            content['email-Primary'] = state.payment.contact.email
 
             return new Promise((resolve, reject) => {
 

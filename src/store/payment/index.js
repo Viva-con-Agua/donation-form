@@ -1,4 +1,5 @@
 import stripe from './stripe.js'
+import civisepa from './civisepa.js'
 import paypal from './paypal.js'
 //import intent from './intent.js'
 //import subscription from './subscription.js'
@@ -8,6 +9,7 @@ const payment = {
     modules: {
         stripe: stripe,
         paypal: paypal,
+        civisepa: civisepa
         //intent: intent,
         //subscription: subscription
     },
@@ -29,6 +31,7 @@ const payment = {
             company_name:""
         },
         payment_type: "",
+        interval: "monthly",
         country: [],
         abo: false
     },
@@ -37,7 +40,6 @@ const payment = {
             state.payment_id = val.id  
         },
         money(state, val) {
-            console.log(val)
             state.money = val
         },
         interval(state, val) {
@@ -55,9 +57,6 @@ const payment = {
         abo(state, val) {
             state.abo = val
         }
-
-
-
     },
     getters: {
         money (state) {

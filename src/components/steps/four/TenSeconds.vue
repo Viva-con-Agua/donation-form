@@ -17,7 +17,7 @@
                         <p v-html="$t('tenseconds.comment.label')"></p>
                     </vca-card>
                 </div>
-                <div class="vca-flexbox"><vca-textarea v-model="offset.comment" :maxlength="200" :placeholder="$t('tenseconds.comment.placeholder')" label=""/></div>
+                <div class="vca-flexbox"><vca-textarea ref="comment" :rules="$v.offset.comment" :errorMsg="$t('tenseconds.comment.error')" v-model="offset.comment" :maxlength="200" :placeholder="$t('tenseconds.comment.placeholder')" label=""/></div>
             </div>
             <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('tenseconds.comment.button') }}</button>
             <div class="vca-column" v-else>
@@ -28,6 +28,7 @@
     </vca-card>
  </template> 
 <script>
+import { required } from 'vuelidate/lib/validators'
 export default {
     name: 'TenSeconds',
     data() {
@@ -50,15 +51,37 @@ export default {
         offset: {
             get () {
                 return this.$store.state.offset
+            }
+        }
+    },
+    watch: {
+        offset: {
+            handler(val) {
+                this.$store.commit('offset', val)
             },
-            set(value) {
-                this.$store.commit('offset', value)
+            deep: true
+        }
+    },
+    validations() {
+        return {
+            offset: {
+                comment: {
+                    required
+                }
             }
         }
     },
     methods: {
         submit() {
+            this.$refs.comment.validate()
+
+            if(this.$v.$invalid) {
+                return
+            }
+
             this.$store.dispatch({type: 'feedback'})
+            
+            this.$store.dispatch({type: 'contact'})
             .then((resp) => {
                 this.flow = false
                 console.log(resp)

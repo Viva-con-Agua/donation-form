@@ -160,6 +160,7 @@
       "paypal": "Paypal"
     },
     "more_details": "Weitere Angaben",
+    "email": "Wir benötigen deine E-Mail Adresse an dieser Stelle, um die Spende bei diesem Zahlungsanbieter durführen zu können.",
     "sepa": {
       "placeholder": "DE00 0000 0000 0000 0000 00",
       "error": "Bitte prüfe deine IBAN"
@@ -225,6 +226,7 @@
     "comment": {
       "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
       "placeholder": "200 Zeichen",
+      "error": "Bitte gib eine kurze Nachricht ein",
       "button": "Absenden"
     }
   },
