@@ -1,5 +1,6 @@
 <template>
     <div>
+        <vca-loading v-if="loadingFlow"/>
         <Headline />
         <HeaderSteps :currentStep=step :steps=steps />
         <div class="vca-card vca-border">
@@ -50,7 +51,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-            product: 'form/product'
+            product: 'form/product',
+            loadingFlow: 'loadingFlow'
         })
     },
     methods: {
