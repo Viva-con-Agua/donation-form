@@ -39,7 +39,7 @@ export default {
     data() {
         return {
             step: 1,
-            steps: 
+            steps:
             [
                 {id: 1, label: this.$t('header.amount') },
                 {id: 2, label: this.$t('header.contact') },

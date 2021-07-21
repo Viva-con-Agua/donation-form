@@ -80,6 +80,13 @@ export default {
             }
 
             this.$store.dispatch({type: 'feedback'})
+            .then((resp) => {
+                this.flow = false
+                console.log(resp)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
             
             this.$store.dispatch({type: 'contact'})
             .then((resp) => {

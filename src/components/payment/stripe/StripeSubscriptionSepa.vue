@@ -1,19 +1,6 @@
 <template>
     <div class="stripe-payment-container">
         <vca-field :label="$t('payment.more_details')">
-            <div class="vca-center" v-if="showEmail">
-                <div class="vca-row quarter">
-                    <vca-input
-                        ref="email"
-                        :errorMsg="$t('contactform.email.error')"
-                        @input="lower"
-                        :placeholder="$t('contactform.email.placeholder')"
-                        v-model.trim="anonymous.email" 
-                        :rules="$v.anonymous.email">
-                    </vca-input>
-                    <div class="inline-infobox"><vca-info-box>{{ $t('payment.email') }}</vca-info-box></div>
-                </div>
-            </div>
             <div class="vca-input-border vca-input"><div ref="element" label="IBAN" class="stripe-payment"></div></div>
             <vca-checkbox
                 :rules="$v.terms"
@@ -27,14 +14,12 @@
 </template>
 
 <script>
-import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'StripeSubscriptionSepa',
     props: ['product'],
     data() {
         return {
-            showEmail: false,
             stripe: null,
             elements: null,
             element: null,
@@ -78,7 +63,6 @@ export default {
         this.element.mount(this.$refs.element)
     },
     created() {
-        this.showEmail = !this.anonymous.email
         this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('iban', this.options)
@@ -97,12 +81,6 @@ export default {
         return {
             terms: {
                 watcher: value => value === true
-            },
-            anonymous: {
-                email: {
-                    email,
-                    required
-                }
             }
         }
     },
@@ -139,9 +117,6 @@ export default {
         }
     },
     methods: {
-        lower() {
-            this.anonymous.email = this.anonymous.email.toLowerCase()
-        },
         stripeRequestIBAN(client_secret) {
             this.stripe.confirmSepaDebitSetup(client_secret, {
                 payment_method: {

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import api from './api.js'
@@ -18,8 +17,6 @@ export default new Vuex.Store({
         loading: false,
         currentMsg: null,
         product: 'prod_HZW4PLYJeuxnyC',
-        crm_campaign_id: 148,
-        crm_nl_profile: 22,
         company: false,
         offset: {
             known_from: null,
@@ -103,13 +100,14 @@ export default new Vuex.Store({
             })
         },
         newsletter({state}) {
-            let content = {}
-            content['gid'] = state.crm_nl_profile
-            content['email-Primary'] = state.payment.contact.email
+
+            let data = {
+                'id': state.form.current.id,
+                'email': state.payment.contact.email
+            }
 
             return new Promise((resolve, reject) => {
-
-                axios.post('https://testcrm.vivaconagua.org/civicrm/profile/create?gid=22&reset=1', content)
+                api.call.post('/v1/newsletters/subscription', data)
                     .then(response => { resolve(response)})
                     .catch(error => { reject(error) })
             })

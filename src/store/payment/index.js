@@ -41,6 +41,7 @@ const payment = {
         },
         money(state, val) {
             state.money = val
+            state.money.amount = parseInt(state.money.amount)
         },
         interval(state, val) {
             state.interval = val

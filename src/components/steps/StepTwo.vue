@@ -2,6 +2,7 @@
     <div class="steptwo">
         <ContactTypeSelect />
         <ContactForm ref="contactdata" />
+        {{isValid}}
         <vca-arrow-navigation @next="submit" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 </template>
