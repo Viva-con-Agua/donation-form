@@ -77,6 +77,9 @@ const payment = {
         },
         abo(state) {
             return state.abo
+        },
+        payment_id(state) {
+            return state.payment_id
         }
     },
     actions: {

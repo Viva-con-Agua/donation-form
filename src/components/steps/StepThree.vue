@@ -1,5 +1,9 @@
 <template>
     <div class="steptwo">
+        <div v-if="errorMSG">
+            <h2> Payment_id: {{payment}} </h2>
+            <span> Bitte im Test mit angeben</span>
+        </div>
         <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <Policies />
@@ -18,11 +22,13 @@ export default {
     components: {PaymentSelection, SubscribeSelection, Policies},
     data() {
         return {
-            isInvalid: true
+            isInvalid: true,
+            errorMSG: false
         }
     },
     computed: {
         ...mapGetters({
+            payment: 'payment/payment_id',
             money: 'payment/money',
             abo: 'payment/abo',
             paymentType: 'payment/payment_type'
@@ -38,6 +44,8 @@ export default {
         },
         error(e) {
             this.$store.commit('loadingFlow')
+            this.notification({title: "Error", body:"Spende nicht möglich. Danke fürs Testen! Schreib uns bitte die PaymentID", type:"error"})
+            this.errorMSG = true
             this.$emit("error", e)
         },
         validate(e) {
