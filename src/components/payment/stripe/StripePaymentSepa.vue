@@ -145,15 +145,16 @@ export default {
             console.log(result)
             if (result.error) {
                 this.$store.commit("payment/stripe/status", result.error.message)
-                this.$store.dispatch("payment/stripe/payment_intent_finish").catch(err => {console.log(err)})
-                this.$emit("failed")
+                this.$store.dispatch("payment/stripe/payment_intent_finish")
+                        .then(()=>{this.$emit('error', result.error)})
+                        .catch((err) => {console.log(err), this.$emit("error", err)})
             } else {
                 // The payment has been processed!
                 if (result.paymentIntent.status === 'processing') {
                     this.$store.commit("payment/stripe/status", "done")
                     this.$store.dispatch("payment/stripe/payment_intent_finish")
                         .then(()=>{this.$emit('success')})
-                        .catch((err) => {console.log(err), this.$emit("failed")})
+                        .catch((err) => { this.$emit("error", err)})
 
                 }
             }

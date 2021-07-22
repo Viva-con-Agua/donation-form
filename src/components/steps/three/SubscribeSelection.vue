@@ -6,9 +6,9 @@
             </div>
         </vca-field>
 
-        <StripeSubscriptionSepa v-if="getPaymentType('sepa')" ref="sepa" :product="product" @isInvalid="isInvalid"/>
-        <CiviSubsciptionSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" />
-        <StripeSubscriptionCreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid"/>
+        <StripeSubscriptionSepa v-if="getPaymentType('sepa')" ref="sepa" :product="product" v-on:error="error" @isInvalid="isInvalid"/>
+        <CiviSubsciptionSEPA v-if="getPaymentType('civisepa')" v-on:error="error" @isInvalid="isInvalid" />
+        <StripeSubscriptionCreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" v-on:error="error" @isInvalid="isInvalid"/>
         <PayPalButton v-if="getPaymentType('paypal')" ref="paypal" v-on:success="success" v-on:error="error"/>
     </div>
 </template>

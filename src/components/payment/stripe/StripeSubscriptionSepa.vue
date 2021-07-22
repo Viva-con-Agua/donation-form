@@ -143,15 +143,16 @@ export default {
         result(result) {
             if (result.error) {
                 this.$store.commit("payment/stripe/status", result.error.message)
-                this.$store.dispatch("payment/stripe/setup_intent_finish").catch(err => {console.log(err)})
-                this.$emit("failed")
+                this.$store.dispatch("payment/stripe/setup_intent_finish")
+                        .then(()=>{this.$emit('error', result.error)})
+                        .catch((err) => {console.log(err), this.$emit("error", err)})
             } else {
                 // The payment has been processed!
                 if (result.setupIntent.status === 'succeeded') {
                     this.$store.commit("payment/stripe/status", "done")
                     this.$store.dispatch("payment/stripe/setup_intent_finish")
                         .then(()=>{this.$emit('success')})
-                        .catch((err) => {console.log(err), this.$emit("failed")})
+                        .catch((err) => { this.$emit("error", err)})
                 }
             }
         }
