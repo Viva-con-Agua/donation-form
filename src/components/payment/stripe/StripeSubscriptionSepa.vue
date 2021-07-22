@@ -147,7 +147,7 @@ export default {
                 this.$emit("failed")
             } else {
                 // The payment has been processed!
-                if (result.paymentIntent.status === 'succeeded') {
+                if (result.setupIntent.status === 'succeeded') {
                     this.$store.commit("payment/stripe/status", "done")
                     this.$store.dispatch("payment/stripe/setup_intent_finish").catch(err => {console.log(err)})
                     this.$emit('success')
