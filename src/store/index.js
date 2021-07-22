@@ -102,7 +102,10 @@ export default new Vuex.Store({
         newsletter({state}) {
 
             let data = {
-                'm_id': state.form.current.id,
+                'm_id': {
+                    'id': state.form.current.id,
+                    'type': 'donation_form'
+                },
                 'email': state.payment.contact.email
             }
 
