@@ -70,8 +70,8 @@ const paypal = {
             }
             return new Promise((resolve, reject) => {
                     api.call.post('/v1/donations/payment/paypal/checkout', data)
-                .then((response) => {
-                        if (response.status == 200) {
+                    .then((response) => {
+                        if (response.status == 201) {
                             resolve()
                         }
                         resolve()

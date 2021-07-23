@@ -38,9 +38,11 @@ export default {
         }
     },
     methods: {
-        success(e) {
-            this.$store.commit('loadingFlow')
-            this.$emit("success", e)
+        success() {
+            if (this.paymentType != "paypal") {
+                this.$store.commit('loadingFlow')
+            }
+            this.$emit("success")
         },
         error(e) {
             this.$store.commit('loadingFlow')
