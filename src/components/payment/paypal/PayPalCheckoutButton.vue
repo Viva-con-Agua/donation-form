@@ -46,6 +46,7 @@ export default {
         },
         error(e) {
             this.$store.commit("payment/paypal/status", e)
+            this.$store.dispatch("payment/paypal/subscription_finish")
             this.$emit("error", e)
         },
         validationError() {

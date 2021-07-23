@@ -7,7 +7,8 @@
             vault="true"
             @payment_authorized="purchase"
             @payment-completed="success"
-            @payment-validation-error="validationError">
+            @payment-validation-error="validationError"
+            @payment-error="error">
         </PayPal>
     </div>
 </template>
@@ -43,6 +44,8 @@ export default {
             }).catch(error => console.log(error))
         },
         error(e) {
+            this.$store.commit("payment/paypal/status", e)
+            this.$store.dispatch("payment/paypal/subscription_finish")
             this.$emit("error", e)
         },
         validationError() {

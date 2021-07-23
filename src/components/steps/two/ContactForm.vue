@@ -41,6 +41,7 @@
                 </vca-field-row>
 
                 <vca-checkbox
+                    :disabled="company"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
@@ -110,7 +111,7 @@ export default {
     computed: {
        ...mapGetters({
            company: 'company'
-        }),
+       }),
         anonymous: {
             get () {
                 return this.$store.state.payment.contact
@@ -129,6 +130,15 @@ export default {
 
         }
         
+    },
+    watch:{
+        company: function(val) {
+            if (val) {
+                this.additional = true
+            } else {
+                this.additional = false
+            }
+        }
     },
     validations() {
         if (this.company) {

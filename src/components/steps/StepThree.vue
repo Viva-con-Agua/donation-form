@@ -38,12 +38,16 @@ export default {
         }
     },
     methods: {
-        success(e) {
-            this.$store.commit('loadingFlow')
-            this.$emit("success", e)
+        success() {
+            if (this.paymentType != "paypal") {
+                this.$store.commit('loadingFlow')
+            }
+            this.$emit("success")
         },
         error(e) {
-            this.$store.commit('loadingFlow')
+            if (this.paymentType != "paypal") {
+                this.$store.commit('loadingFlow')
+            }
             this.notification({title: "Error", body:"Spende nicht möglich. Danke fürs Testen! Schreib uns bitte die PaymentID", type:"error"})
             this.errorMSG = true
             this.$emit("error", e)
