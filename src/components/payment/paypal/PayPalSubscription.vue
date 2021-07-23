@@ -16,10 +16,8 @@ export default {
         onApprove: function(data, actions) {
             var that = this
             // This function captures the funds from the transaction.
-            return actions.order.capture().then(function(details) {
-                // This function shows a transaction success message to your buyer.
-                that.$emit('payment-completed', details);
-            });
+            // This function shows a transaction success message to your buyer.
+            this.$emit('payment-completed', data.subscriptionID);
         },
         createSubscription: function(data, actions) {
             var that = this

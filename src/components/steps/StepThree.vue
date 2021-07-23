@@ -45,7 +45,9 @@ export default {
             this.$emit("success")
         },
         error(e) {
-            this.$store.commit('loadingFlow')
+            if (this.paymentType != "paypal") {
+                this.$store.commit('loadingFlow')
+            }
             this.notification({title: "Error", body:"Spende nicht möglich. Danke fürs Testen! Schreib uns bitte die PaymentID", type:"error"})
             this.errorMSG = true
             this.$emit("error", e)
