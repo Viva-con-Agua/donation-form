@@ -41,7 +41,7 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    :disabled="company"
+                    v-if="!company"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>

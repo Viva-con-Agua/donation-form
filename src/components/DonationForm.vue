@@ -64,3 +64,8 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    .arr-btn-box {
+        width: max-content;
+    }
+</style>

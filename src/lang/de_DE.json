@@ -178,7 +178,7 @@
     "submit": "Jetzt {0} {1} spenden"
   },
   "policies": {
-    "label": "Mit deiner Spende bestätigst du, die {0} und die {1} gelesen zu haben und zu akzeptieren.",
+    "label": "Mit deiner Spende bestätigst du, die {0} gelesen zu haben.",
     "data": {
       "label": "Datenschutzerklärung",
       "url": "https://www.vivaconagua.org/datenschutzerklaerung"
@@ -193,15 +193,16 @@
     "subheader": "für deinen Support und dein Vertrauen!",
     "text": "Deine Spende über {0} hat {1}",
     "example": {
-      "default": "in unserem Projektland Uganda Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
-      "soap": "in unserem Projektland Uganda 20 l Seife für Schulen zur Verfügung gestellt.",
-      "filter": "in unserem Projektland Uganda einer Familie einen Wasserfilter spendiert.",
-      "trees": ")jn unserem Projektland Uganda 50 Bäumen gepflanzt.",
-      "workshop": "in unserem Projektland Uganda einen Hygieneworkshop an einer Schule ermöglicht."
+      "default": "in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
+      "soap": "in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
+      "filter": "in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
+      "trees": "jn unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
+      "workshop": "in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
     }
   },
   "next": {
     "label": "So geht es weiter",
+    "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
     "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
@@ -217,11 +218,17 @@
       "label": "Verrate uns doch gerne, woher du uns kennst:",
       "dropdown": {
         "placeholder": "Daher kenne ich euch",
-        "family_friends": "Familie & Freunde",
-        "festivals_cupdonation": "Festivals & Becherspende",
-        "water": "Wasser",
+        "family_friends": "Empfehlung von Freunden & Familie",
+        "festivals_cupdonation": "Festivals und Becherspende",
+        "water": "Euer Wasser",
+        "toiletpaper": "Euer Klopapier von Goldeimer",
+        "arts": "Viva con Agua Arts",
         "instagram": "Instagram",
-        "facebook": "Facebook"
+        "facebook": "Facebook",
+        "shops": "Shops",
+        "print": "Print Medien",
+        "google": "Google",
+        "none": "Grund ist hier nicht aufgezählt"
       }
     },
     "comment": {
