@@ -1,6 +1,7 @@
 <template>
     <vca-card>
         <vca-field :label="$t('next.label')">
+            <p class="text-center" v-html="$t('next.email')"></p><br/>
             <p class="text-center" v-html="$t('next.receipt')"></p><br/>
             <p class="text-center">{{ $t('next.newsletter.text') }}</p>
 
