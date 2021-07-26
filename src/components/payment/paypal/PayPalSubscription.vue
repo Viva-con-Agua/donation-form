@@ -3,7 +3,6 @@
 </template>
 <script>
 
-let paypal = window.paypal;
 let ppActions;
 export default {
     props: {
@@ -53,33 +52,40 @@ export default {
         }
     },
     mounted() {
-        paypal.Buttons({
+        var paypalLink = 'https://www.paypal.com/sdk/js?client-id='+process.env.VUE_APP_PAYPAL_CLIENT_ID +'&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR&intent=subscription'
+        let paypalScript = document.createElement('script')
+        paypalScript.setAttribute('src', paypalLink)
+        document.head.appendChild(paypalScript)
+        var that = this;
+
+        paypalScript.onload = function () {
+        window.paypal.Buttons({
 
             // Pass in the client ids to use to create your transaction
             // on sandbox and production environments
-            client: this.client,
+            client: that.client,
 
             // Pass the payment details for your transaction
             // See https://developer.paypal.com/docs/api/payments/#payment_create for the expected json parameters
-            createSubscription: this.createSubscription,
+            createSubscription: that.createSubscription,
 
             // Pass a function to be called when the customer completes the payment
-            onApprove: this.onApprove,
+            onApprove: that.onApprove,
 
             // Pass a function to be called when the customer completes the payment
-            onAuthorize: this.onAuthorize,
+            onAuthorize: that.onAuthorize,
 
             // onInit is called when the button first renders
-            onInit: this.onInit,
+            onInit: that.onInit,
 
             // Pass a function to be called when the button is clicked
-            onClick: this.onClick,
+            onClick: that.onClick,
 
             // Pass a function to be called when an error occurs
-            onError: this.onError,
+            onError: that.onError,
 
             // Pass a function to be called when the customer cancels the payment
-            onCancel: this.onCancel,
+            onCancel: that.onCancel,
             style: {
                 color:  'blue',
                 shape:  'rect',
@@ -88,6 +94,8 @@ export default {
             },
 
         }).render('#paypal-button');
+        
+        }
     },
 };
 </script>

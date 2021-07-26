@@ -36,6 +36,16 @@ export default {
             }
         }
     },
+    mounted() {
+      var paypal = document.getElementById('paypalCheckout')
+      if (paypal !== undefined) {
+        let paypalScript = document.createElement('script')
+        paypalScript.setAttribute('id', 'paypalCheckout')
+        paypalScript.async = false
+        paypalScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=<%= VUE_APP_PAYPAL_CLIENT_ID %>&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR')
+        document.head.appendChild(paypalScript)
+      }
+    },
     methods: {
         success(e) {
             this.$store.commit("payment/paypal/checkout_id", e.id)
