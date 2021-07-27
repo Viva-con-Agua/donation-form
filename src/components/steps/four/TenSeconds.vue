@@ -22,7 +22,7 @@
             <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('tenseconds.comment.button') }}</button>
             <div class="vca-column" v-else>
                 <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('tenseconds.comment.button') }}</button>
-                <div class="primary-dark bold tenseconds-success vca-border text-center quarter">{{ $t('tenseconds.success') }}</div>
+                <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('tenseconds.success') }}</div>
             </div>
         </vca-field>
     </vca-card>

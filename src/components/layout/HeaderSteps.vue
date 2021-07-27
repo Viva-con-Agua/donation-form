@@ -96,6 +96,7 @@ export default {
 }
 
 .steps li div.step-content div.step-label {
+    line-height: 1.2em;
     white-space: nowrap;
 }
 

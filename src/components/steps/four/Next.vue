@@ -8,7 +8,7 @@
             <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
             <div class="vca-column" v-else>
                 <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
-                <div class="primary-dark bold tenseconds-success vca-border text-center quarter">{{ $t('next.newsletter.success') }}</div>
+                <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('next.newsletter.success') }}</div>
             </div>
             <p class="text-center">{{ $t('next.yours') }}</p>
         </vca-field>
