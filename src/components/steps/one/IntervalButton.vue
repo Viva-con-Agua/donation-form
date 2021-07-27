@@ -59,6 +59,7 @@ export default {
     border: solid thin transparent;
     font-weight: bold;
     width: 50%;
+    max-width: 160px !important;
     text-decoration: none;
     vertical-align: middle;
     color: #008fc2;
