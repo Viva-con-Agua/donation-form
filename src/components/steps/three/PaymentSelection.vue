@@ -73,6 +73,6 @@ export default {
 </script>
 <style lang="scss">
     .paymenttype-icon {
-        float: right;
+        margin-left: 15px;
     }
 </style>
