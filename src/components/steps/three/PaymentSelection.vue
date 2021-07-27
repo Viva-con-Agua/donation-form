@@ -2,7 +2,9 @@
     <div>
         <vca-field :label="$t('paymentselection.label')">
             <div class="selection-button-box">
-                <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button"  @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}</button>
+                <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button"  @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}
+                    <img src="~@/assets/img/payment/creditcard.png" class="paymenttype-icon" v-if="current.name == 'creditcard'"/>
+                </button>
             </div>
         </vca-field>
 
@@ -69,3 +71,8 @@ export default {
     },
 };
 </script>
+<style lang="scss">
+    .paymenttype-icon {
+        float: right;
+    }
+</style>
