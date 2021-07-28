@@ -6,7 +6,7 @@
             </div>
         </vca-field>
 
-        <StripePaymentSepa v-if="getPaymentType('sepa')" ref="sepa" :product="product" @isInvalid="isInvalid" v-on:error="error"/>
+        <StripePaymentSepa v-if="getPaymentType('sepa')" ref="sepa" :product="product" @success="success" @isInvalid="isInvalid" v-on:error="error"/>
         <CiviPaymentSEPA v-if="getPaymentType('civisepa')" @isInvalid="isInvalid" @success="success" v-on:error="error"/>
         <StripePaymentCreditCard v-if="getPaymentType('creditcard')" @success="success" ref="creditcard" :product="product" @isInvalid="isInvalid" v-on:error="error"/>
         <PayPalButton v-if="getPaymentType('paypal')" @success="success" v-on:error="error"/>
