@@ -3,10 +3,10 @@
         <vca-loading v-if="loadingFlow"/>
         <Headline />
         <HeaderSteps :currentStep=step :steps=steps />
-        <div class="vca-card vca-border">
-            <StepOne v-if="step === 1" @submit="step++"/>
-            <StepTwo v-if="step === 2" @submit="step++" @back="step--"/>
-            <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="step--" @success="success"/>
+        <div class="vca-card vca-border" id="topElement">
+            <StepOne v-if="step === 1" @submit="navigate(), step++"/>
+            <StepTwo v-if="step === 2" @submit="navigate(), step++" @back="navigate(), step--"/>
+            <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="navigate(), step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
         <PaymentFooter v-if="step < 4" />
@@ -56,6 +56,10 @@ export default {
         })
     },
     methods: {
+        navigate() {
+            var top = document.getElementById('topElement').offsetTop;
+            window.scrollTo(0, top);
+        },
         success() {
             this.$emit("success")
             //this.$refs.stepthree.commit()
