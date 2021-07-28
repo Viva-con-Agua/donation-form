@@ -59,6 +59,7 @@ export default {
         navigate() {
             var top = document.getElementById('topElement').offsetTop;
             window.scrollTo(0, top);
+            window.top.postMessage('navigate', '*')
         },
         success() {
             this.$emit("success")
