@@ -2,8 +2,6 @@
   <div class="faucetslide">
       <vca-card>
         <div class="images">
-          <div class="oval"></div>
-          <div class="water"></div>
           <img :src="getFaucet"/>
       </div>
     </vca-card>
@@ -102,32 +100,13 @@ export default {
       @include media(large) {
         width: auto;
         display: table;
-      }
-
-      .oval {
-        display: none;
-        position: absolute;
-        width: 200px;
-        height: 100px;
-        background: red;
-        border-radius: 100px / 50px;
-      }
-
-      .water {
-        display: none;
-        border-top: 121px solid #b8d8ea;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        height: 0px;
-        width: 34%;
-        position: absolute;
-        bottom: 11%;
-        left: 49%;
+        text-align: center;
       }
 
       img {
         z-index: 100;
-        width: 100%;
+        width: 50%;
+        margin: auto;
         position: relative;
       }
 
