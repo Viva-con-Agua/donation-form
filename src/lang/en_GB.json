@@ -107,7 +107,7 @@
       "error": "Bitte gib den Namen deines Unternehmens ein"
     },
     "email": {
-      "placeholder": "E-Mail Adresse",
+      "placeholder": "E-Mail Adresse *",
       "error": "Bitte gib eine gültige E-Mail Adresse ein",
       "info": "Dies ist kein Pflichtfeld, wir verschicken die Spendenbescheinigungen jedoch ressourcenschonend per E-Mail und fänden es super, wenn du uns deine E-Mail Adresse zur Verfügung stellst."
     },

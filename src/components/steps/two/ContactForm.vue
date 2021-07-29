@@ -91,8 +91,8 @@
                     </vca-field-row>
 
                         <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
-                        <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
                 </div>
+                <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
             </vca-field>
 
     </div>
