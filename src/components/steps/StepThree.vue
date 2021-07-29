@@ -7,7 +7,7 @@
         <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <Policies />
-        <vca-arrow-navigation @next="commit" @success="success" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="getLabel" :showNext="paymentType != 'paypal'" :nextEnabled="!isInvalid"/>
+        <vca-arrow-navigation @next="commit" @success="success" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="getLabel" :showNext="paymentType != 'paypal'" :nextLong="true" :nextEnabled="!isInvalid"/>
     </div>
 </template>
 <script>

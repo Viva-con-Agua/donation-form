@@ -62,8 +62,8 @@ export default {
 
 .step-background {
     background-image: linear-gradient(to bottom, #008fc3 0%, #008fc3 51%, transparent 51%);
-    background-size: 100% 1px;
-    background-repeat: repeat-x;
+    background-size: 95% 1px;
+    background-repeat: no-repeat;
     background-position: center 42%;
 
     height: 100%;
@@ -98,6 +98,9 @@ export default {
 .steps li div.step-content div.step-label {
     line-height: 1.2em;
     white-space: nowrap;
+}
+.steps li div.step-content div.step-label:hover {
+    font-weight: bold;
 }
 
 /* 
@@ -265,11 +268,11 @@ export default {
     }
 
     .steps li.is-active div.step-content div.step-label {
-        font-size: 2.1vw;
+        font-size: 16px;
     }
 
     .steps li.is-inactive div.step-content div.step-label {
-        font-size: 1.7vw;
+        font-size: 15px;
     }
 
     .steps li.is-active div.step-content div.step-label div {
