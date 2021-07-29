@@ -170,7 +170,6 @@ export default {
 
 .steps li.is-active div.step-content div.step-label div {
     padding-left: 10px;
-    font-size: .8em;
 }
 
 /*
