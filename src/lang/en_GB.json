@@ -79,8 +79,8 @@
   },
   "abo": {
     "label": " Wie häufig willst du spenden?",
-    "no": "einmalig",
-    "yes": "regelmäßig"
+    "no": "Einmalig",
+    "yes": "Regelmäßig"
   },
   "interval": {
     "label": "Wähle dein Spendenintervall",

@@ -2,8 +2,9 @@
     <div>
         <vca-field :label="$t('paymentselection.label')">
             <div class="selection-button-box">
-                <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button"  @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}
+                <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button" @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}
                     <img src="~@/assets/img/payment/creditcard.png" class="paymenttype-icon" v-if="current.name == 'creditcard'"/>
+                    <img src="~@/assets/img/payment/creditcard_white.png" class="paymenttype-icon-white" v-if="current.name == 'creditcard'"/>
                 </button>
             </div>
         </vca-field>
@@ -72,7 +73,28 @@ export default {
 };
 </script>
 <style lang="scss">
+
+.selection-button {
+
     .paymenttype-icon {
+        display: inline-block;
         margin-left: 15px;
     }
+    .paymenttype-icon-white {
+        display: none;
+        margin-left: 15px;
+    }
+
+    &.selected:hover {
+        .paymenttype-icon {
+            display: none;
+        }
+        .paymenttype-icon-white {
+            display: inline-block;
+        }
+    }
+
+
+
+}
 </style>
