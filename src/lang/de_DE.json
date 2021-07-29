@@ -47,8 +47,8 @@
   },
   "header": {
     "amount": "Dein Betrag",
-    "contact": "Deine Kontaktdaten",
-    "payment": "Zahlungsart",
+    "contact": "Dein Kontakt",
+    "payment": "Zahlung",
     "thanks": "Danke!"
   },
   "information": {
