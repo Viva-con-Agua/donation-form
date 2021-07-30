@@ -1,7 +1,8 @@
 <template>
     <div>
         <vca-loading v-if="loadingFlow"/>
-        <Headline />
+        <Headline :text="getText" />
+        <Slider v-if="step === 4"/>
         <HeaderSteps :currentStep=step :steps=steps />
         <div class="vca-card vca-border" id="topElement">
             <StepOne v-if="step === 1" @submit="navigate(), step++"/>
@@ -18,6 +19,7 @@ import StepOne from '@/components/steps/StepOne'
 import StepTwo from '@/components/steps/StepTwo'
 import StepThree from '@/components/steps/StepThree'
 import StepThanks from '@/components/steps/StepThanks'
+import Slider from '@/components/steps/four/Slider'
 import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
 //import LanguageSelection from "@/components/utils/LanguageSelection"
@@ -25,7 +27,7 @@ import Headline from '@/components/layout/Headline'
 import { mapGetters } from 'vuex'
 export default {
     name: 'DonationForm',
-    components: {StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
+    components: {Slider, StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
     props: {
         donation_form_id: {
             type: String,
@@ -39,7 +41,7 @@ export default {
     },
     data() {
         return {
-            step: 1,
+            step: 4,
             steps:
             [
                 {id: 1, label: this.$t('header.amount') },
@@ -53,7 +55,10 @@ export default {
         ...mapGetters({
             product: 'form/product',
             loadingFlow: 'loadingFlow'
-        })
+        }),
+        getText() {
+            return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
+        }
     },
     methods: {
         navigate() {

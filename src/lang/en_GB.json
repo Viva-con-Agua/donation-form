@@ -43,7 +43,8 @@
     }
   },
   "headline": {
-    "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER"
+    "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
+    "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
   },
   "header": {
     "amount": "Dein Betrag",
