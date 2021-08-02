@@ -33,7 +33,8 @@ const payment = {
         payment_type: "",
         interval: "monthly",
         country: [],
-        abo: false
+        abo: false,
+        donation_receipt: false
     },
     mutations: {
         create(state, val) {
@@ -57,6 +58,9 @@ const payment = {
         },
         abo(state, val) {
             state.abo = val
+        },
+        donation_receipt(state, val) {
+            state.donation_receipt = val
         }
     },
     getters: {
@@ -80,6 +84,9 @@ const payment = {
         },
         payment_id(state) {
             return state.payment_id
+        },
+        donation_receipt(state) {
+            return state.donation_receipt
         }
     },
     actions: {

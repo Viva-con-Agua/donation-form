@@ -10,7 +10,7 @@
             <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="navigate(), step--" @success="success"/>
             <StepThanks v-if="step === 4"/>
         </div>
-        <PaymentFooter v-if="step < 4" />
+        <PaymentFooter/>
     </div>
 </template>
 <script>
