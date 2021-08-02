@@ -103,15 +103,10 @@ import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
-    data() {
-        return {
-            additional: false,
-        }
-    },
     computed: {
        ...mapGetters({
            company: 'company'
-       }),
+        }),
         anonymous: {
             get () {
                 return this.$store.state.payment.contact
@@ -127,7 +122,14 @@ export default {
             set(value) {
                 this.$store.commit('payment/country', value)
             }
-
+        },
+        additional: {
+            get () {
+                return this.$store.state.payment.donation_receipt
+            },
+            set(value) {
+                this.$store.commit('payment/donation_receipt', value)
+            }
         }
         
     },

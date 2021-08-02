@@ -20,26 +20,23 @@ export default {
 </script>
 <style lang="scss">
 .payment-footer {
-    display: none;
+    
+    display: block;
+    ul {
+        padding-left: 0;
+        margin-top: 0;
 
-    @include media(large) {
-        display: block;
-        ul {
-            padding-left: 0;
-            margin-top: 0;
-
-            li {
-                padding: 0;
-            }
-
-            li:before {
-                margin-right: 5px;
-                padding: 0;
-                color: $main-color;
-                content: '✓';
-            }
-
+        li {
+            padding: 0;
         }
+
+        li:before {
+            margin-right: 5px;
+            padding: 0;
+            color: $main-color;
+            content: '✓';
+        }
+
     }
 }
 </style>

@@ -194,11 +194,11 @@
     "subheader": "für deinen Support und dein Vertrauen!",
     "text": "Deine Spende über {0} hat {1}",
     "example": {
-      "default": "in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
-      "soap": "in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
-      "filter": "in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
-      "trees": "jn unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
-      "workshop": "in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
+      "default": "unter anderem in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
+      "soap": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
+      "filter": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
+      "trees": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
+      "workshop": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
     }
   },
   "next": {
