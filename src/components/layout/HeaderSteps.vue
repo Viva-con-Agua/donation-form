@@ -90,7 +90,7 @@ export default {
     list-style: none;
     display: table-cell;
     position: relative;
-    padding: 14px 16px;
+    padding: 6px 16px;
     transition: 0.3s;
     font-size: 1.1em;
 }
