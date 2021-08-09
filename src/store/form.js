@@ -12,6 +12,14 @@ const form = {
                 { name: 'creditcard', title: 'payment.type.creditcard' },
                 { name: 'paypal', title: 'payment.type.paypal' }
             ],
+            subscription_types: [
+                { name: 'civisepa', title: 'payment.type.sepa', default: true },
+                { name: 'sepa', title: 'payment.type.sepa' },
+                { name: 'creditcard', title: 'payment.type.creditcard' },
+                { name: 'paypal', title: 'payment.type.paypal' }
+            ]
+
+
         }
     }),
     getters: {
@@ -23,6 +31,9 @@ const form = {
         },
         paymentTypes(state) {
             return state.current.payment_types
+        },
+        subscriptionTypes(state) {
+            return state.current.subscription_types
         }
     },
     mutations: {
