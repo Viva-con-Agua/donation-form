@@ -37,7 +37,6 @@ const i18n = new VueI18n({
         'en-GB': en
     }
 });
-
 Vue.mixin({
   methods: {
     notification: function (msg) {
@@ -56,8 +55,20 @@ Vue.mixin({
     formatDate(val) {
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(val * 1000).toLocaleDateString(this.$i18n.locale, options)
+    },
+    gtmTrack (action, label, value) {
+    window.top.postMessage({
+        event: "gtm-trigger",
+        data: {
+            event: "gtm-trigger-" + action, 
+            target: "DonationForm",
+            action: action,
+            label: label,
+            value: value
+            }
+        }, "*")
     }
-  },
+  }
 })
 
 //const CustomElement = wrap(Vue, App);

@@ -23,28 +23,29 @@ export default {
     components: {Amount, Abo, Interval, FaucetSlider},
     data() {
         return {
-            isValid: true 
+            isValid: true,
         }
     },
     mounted () {
         this.isValid = !this.$refs.amount.$v.$invalid
         this.$watch(() => {
-                return this.$refs.amount.$v.$invalid
-            },(val) => {
-                this.isValid = !val
-            }
-        )
+            return this.$refs.amount.$v.$invalid
+        },(val) => {
+            this.isValid = !val
+        }
+                   )
     },
     methods: {
         submit() {
+            this.gtmTrack("click", "StepOne Next donation-form", 5000)
             this.$emit("submit")
         }
     },
 }
 </script>
 <style lang="scss" scoped>
-    .slider-box {
-        width: 85%;
-        margin: auto;
-    }
+.slider-box {
+    width: 85%;
+    margin: auto;
+}
 </style>

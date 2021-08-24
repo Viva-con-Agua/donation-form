@@ -73,15 +73,17 @@ export default {
     },
     methods: {
         submit() {
+            this.gtmTrack("click", "StepFour Feedback-Contact-Us donation-form", 5000)
             this.$refs.comment.validate()
 
             if(this.$v.$invalid) {
+                this.gtmTrack("invalid", "StepFour Feedback-Contact-Us donation-form", 5000)
                 return
             }
-
             this.$store.dispatch({type: 'feedback'})
             .then((resp) => {
                 this.flow = false
+                this.gtmTrack("success", "StepFour Feedback donation-form", 5000)
                 console.log(resp)
             })
             .catch((error) => {
@@ -91,6 +93,7 @@ export default {
             this.$store.dispatch({type: 'contact'})
             .then((resp) => {
                 this.flow = false
+                this.gtmTrack("success", "StepFour Contact-Us donation-form", 5000)
                 console.log(resp)
             })
             .catch((error) => {

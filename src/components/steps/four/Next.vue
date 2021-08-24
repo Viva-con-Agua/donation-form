@@ -46,11 +46,12 @@ export default {
     },
     methods: {
         submit() {
-
+            this.gtmTrack("click", "StepFour Newsletter-Subscription donation-form", 5000)
             this.$store.dispatch({type: 'newsletter'})
             .then((resp) => {
-                this.flow = false
                 console.log(resp)
+                this.flow = false
+                this.gtmTrack("success", "StepFour Newsletter-Subscription donation-form", 5000)
             })
             .catch((error) => {
                 console.log(error)
