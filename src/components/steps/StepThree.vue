@@ -42,6 +42,7 @@ export default {
             if (this.paymentType != "paypal") {
                 this.$store.commit('loadingFlow')
             }
+            this.gtmTrack("success", "StepTree Donation donation-form", 5000)
             this.$emit("success")
         },
         error(e) {
@@ -57,6 +58,7 @@ export default {
         },
         commit() {
             this.$store.commit('loadingFlow')
+            this.gtmTrack("click", "StepTree Donation donation-form", 5000)
             this.$refs.selection.commit()
         },
         back() {

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Notifications from 'vue-notification'
 import VcaUi from 'vca-ui'
 import Vuelidate from 'vuelidate'
-import App from './App.vue'
+import DonationForm from './components/DonationForm.vue'
 //import router from './router.js'
 //import store from './store'
 //import getUserLocale from 'get-user-locale';
@@ -61,7 +61,7 @@ Vue.mixin({
   },
 })
 
-const CustomElement = wrap(Vue, App);
+const CustomElement = wrap(Vue, DonationForm);
 
 window.customElements.define('donation-form', CustomElement);
 /*
