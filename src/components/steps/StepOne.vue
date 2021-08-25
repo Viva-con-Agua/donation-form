@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         submit() {
-            this.gtmTrack("click", "StepOne Next donation-form", 5000)
+            this.gtmTrack("click", "StepOne Next donation-form", 0)
             this.$emit("submit")
         }
     },

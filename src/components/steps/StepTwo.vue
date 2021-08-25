@@ -32,9 +32,8 @@ export default {
             this.$emit("back")
         },
         submit() {
-            this.gtmTrack("click", "StepTwo Next donation-form", 5000)
+            this.gtmTrack("click", "StepTwo Next donation-form", 0)
             this.$store.dispatch("payment/process").then(() => {
-                this.gtmTrack("success", "StepTwo Next donation-form", 5000)
                 this.$emit("submit")
             })
             .catch((err) => console.log(err))
