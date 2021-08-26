@@ -2,7 +2,7 @@
     <div class="steptwo">
         <div v-if="errorMSG">
             <h2> Payment_id: {{payment}} </h2>
-            <span> Bitte im Test mit angeben</span>
+            <span>{{ $t('error.payment') }}</span>
         </div>
         <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
