@@ -5,7 +5,7 @@
             <IntervalButton interval='monthly' :drops="0" />
             <IntervalButton interval='quarterly' :drops="4" />
             <IntervalButton interval='half' :drops="2" />
-            <IntervalButton interval='once' :drops="1" />
+            <IntervalButton interval='yearly' :drops="1" />
         </vca-card>
 
 
