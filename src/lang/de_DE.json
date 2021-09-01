@@ -89,7 +89,7 @@
   "interval": {
     "label": "Wähle dein Spendenintervall",
     "monthly": " monatlich",
-    "once": "1x im Jahr",
+    "yearly": "1x im Jahr",
     "half": "2x im Jahr",
     "thrice": "3x im Jahr",
     "quarterly": "4x im Jahr"
