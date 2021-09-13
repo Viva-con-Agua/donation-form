@@ -27,9 +27,6 @@ const form = {
         minAmount(state) {
             return state.current.min_amount
         },
-        defaultAmount(state) {
-            return state.current.min_amount
-        },
         paymentTypes(state) {
             return state.current.payment_types
         },
