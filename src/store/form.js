@@ -18,8 +18,6 @@ const form = {
                 { name: 'creditcard', title: 'payment.type.creditcard' },
                 { name: 'paypal', title: 'payment.type.paypal' }
             ]
-
-
         }
     }),
     getters: {
@@ -45,7 +43,9 @@ const form = {
         get({commit}, data) {
             return new Promise((resolve, reject) => {
                 api.call.get('/v1/donations/form/' + data.data)
-                    .then((response) => {commit('get', response.data.payload), resolve()})
+                    .then((response) => {
+                        commit('get', response.data.payload), commit('payment/default_amount', response.data.payload.default_amount, {root: true}), resolve()
+                    })
                     .catch((error) => {
                         reject(error)
                     })

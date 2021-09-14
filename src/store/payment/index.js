@@ -50,6 +50,11 @@ const payment = {
         payment_type(state, val) {
             state.payment_type = val
         },
+        default_amount(state, val) {
+            if (val > 0) {
+                state.money.amount = val
+            }
+        },
         contact(state, val) {
             state.contact = val
         },
@@ -69,9 +74,6 @@ const payment = {
         },
         interval(state) {
             return state.interval
-        },
-        paymentTypes(state) {
-            return state.paymentTypes
         },
         payment_type(state) {
             return state.payment_type
