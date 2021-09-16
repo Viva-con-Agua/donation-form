@@ -52,7 +52,11 @@ const payment = {
         },
         default_amount(state, val) {
             if (val > 0) {
-                state.money.amount = val
+                var nVal = {
+                    amount: val,
+                    currency: state.money.currency
+                }
+                state.money = nVal
             }
         },
         contact(state, val) {
