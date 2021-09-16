@@ -6,8 +6,11 @@
         </div>
 
         <Amount ref="amount" />
-        <Abo />
-        <Interval />
+
+        <div v-if="hasSubscription">
+            <Abo />
+            <Interval />
+        </div>
 
         <vca-arrow-navigation @next="submit" :showBack="false" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
@@ -34,6 +37,11 @@ export default {
             this.isValid = !val
         }
                    )
+    },
+    computed: {
+        hasSubscription() {
+            return this.$store.state.form.current.subscription_types != null
+        }
     },
     methods: {
         submit() {

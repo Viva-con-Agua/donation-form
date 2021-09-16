@@ -26,7 +26,7 @@ export default {
     props: ['product'],
     computed: {
        ...mapGetters({
-           paymentTypes: 'form/paymentTypes'
+           paymentTypes: 'form/subscriptionTypes'
         }),
         paymentType: {
             get () {
