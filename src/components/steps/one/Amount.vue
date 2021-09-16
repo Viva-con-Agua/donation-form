@@ -3,7 +3,6 @@
         <vca-money-input 
             ref="money"
             v-model="money"
-            :money="money"
             :css="getCSS"
             :min="minAmount / 100"
             :threshold="threshold"
