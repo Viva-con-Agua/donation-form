@@ -39,6 +39,7 @@ export default {
             this.$store.commit("payment/paypal/checkout_id", e.id)
             console.log(e)
             this.$store.commit("payment/paypal/status", "done")
+            this.$store.commit("payment/paypal/invoice_id", e)
             this.$store.dispatch("payment/paypal/subscription_finish").then(() => {
                 this.$emit("success")
             }).catch(error => console.log(error))
