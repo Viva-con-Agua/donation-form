@@ -106,9 +106,11 @@ export default {
                         .then(()=>{this.$emit('error', result.error)})
                         .catch((err) => {console.log(err), this.$emit("error", err)})
             } else {
+                console.log(result)
                 // The payment has been processed!
                 if (result.setupIntent.status === 'succeeded') {
                     this.$store.commit("payment/stripe/status", "done")
+                    this.$store.commit("payment/stripe/payment_method", result.setupIntent.payment_method)
                     this.$store.dispatch("payment/stripe/setup_intent_finish").catch(err => {console.log(err)})
                         .then(()=>{this.$emit('success')})
                         .catch((err) => { this.$emit("error", err)})

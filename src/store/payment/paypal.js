@@ -14,7 +14,8 @@ const paypal = {
         },
         plan_id:null,
         status: null,
-        checkout_id: null
+        checkout_id: null,
+        invoice_id: null
 
     }),
     getters: {
@@ -58,6 +59,9 @@ const paypal = {
         },
         plan_id(state, val) {
             state.plan_id = val
+        },
+        invoice_id(state, val) {
+            state.invoice_id = val
         }
 
     },
@@ -101,6 +105,7 @@ const paypal = {
         subscription_finish({rootState, state}) {
             var data = {
                 payment_id: rootState.payment.payment_id,
+                invoice_id: state.invoice_id,
                 status: state.status
             }
             return new Promise((resolve, reject) => {
