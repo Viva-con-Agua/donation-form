@@ -150,6 +150,7 @@ export default {
                 // The payment has been processed!
                 if (result.setupIntent.status === 'succeeded') {
                     this.$store.commit("payment/stripe/status", "done")
+                    this.$store.commit("payment/stripe/payment_method", result.setupIntent.payment_method)
                     this.$store.dispatch("payment/stripe/setup_intent_finish")
                         .then(()=>{this.$emit('success')})
                         .catch((err) => { this.$emit("error", err)})
@@ -157,7 +158,5 @@ export default {
             }
         }
     }
-
-
 }
 </script>
