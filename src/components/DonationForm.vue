@@ -1,16 +1,22 @@
 <template>
     <div>
         <vca-loading v-if="loadingFlow"/>
-        <Headline :text="getText" />
-        <Slider v-if="step === 4"/>
-        <HeaderSteps :currentStep=step :steps=steps />
-        <div class="vca-card vca-border" id="topElement">
-            <StepOne v-if="step === 1" @submit="navigate(), step++"/>
-            <StepTwo v-if="step === 2" @submit="navigate(), step++" @back="navigate(), step--"/>
-            <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="navigate(), step--" @success="success"/>
-            <StepThanks v-if="step === 4"/>
+        <div v-if="iserror">
+            <Headline :text="$t('error.not_found.headline')" />
+            <vca-card v-html="$t('error.not_found.text')"></vca-card>
         </div>
-        <PaymentFooter v-if="step < 4" />
+        <div v-else>
+            <Headline :text="getText" />
+            <Slider v-if="step === 4"/>
+            <HeaderSteps :currentStep=step :steps=steps />
+            <div class="vca-card vca-border" id="topElement">
+                <StepOne v-if="step === 1" @submit="navigate(), step++"/>
+                <StepTwo v-if="step === 2" @submit="navigate(), step++" @back="navigate(), step--"/>
+                <StepThree v-if="step === 3" ref="stepthree" :product="product" @back="navigate(), step--" @success="success"/>
+                <StepThanks v-if="step === 4"/>
+            </div>
+            <PaymentFooter v-if="step < 4" />
+        </div>
     </div>
 </template>
 <script>
@@ -32,15 +38,24 @@ export default {
         donation_form_id: {
             type: String,
             default: ""
+        },
+        lang: {
+            type: String,
+            default: "de"
         }
     },
     created() {
+        this.$store.commit('loadingFlow')
         this.$store.dispatch({type: 'init', data: this.donation_form_id})
-            .then(resp => console.log(resp))
-            .catch(error => console.log(error))
+            .then(resp => {console.log(resp)})
+            .catch(error => {console.log(error), this.iserror = true})
+            .finally(this.$store.commit('loadingFlow'))
+
+        this.defaultLanguage(this.lang)
     },
     data() {
         return {
+            iserror: false,
             step: 1,
             steps:
             [
@@ -61,6 +76,11 @@ export default {
         }
     },
     methods: {
+        defaultLanguage(language)  {
+          localStorage.language = language
+          this.$i18n.locale = language
+          this.language = language
+        },
         navigate() {
             var top = document.getElementById('topElement').offsetTop;
             window.scrollTo(0, top);

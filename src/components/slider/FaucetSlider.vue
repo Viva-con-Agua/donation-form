@@ -104,7 +104,7 @@ export default {
       }
 
       img {
-        z-index: 100;
+        z-index: 10;
         width: 30%;
         margin: auto;
         position: relative;
