@@ -3,5 +3,5 @@
 build:
 	docker-compose build --force-rm --no-cache
 
-push:
-	docker push vivaconagua/donation-form
+dev_docker:
+	docker-compose -f docker-compose.dev.yml up -d
