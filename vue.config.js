@@ -18,6 +18,7 @@ module.exports = {
     ? process.env.VUE_APP_CONTEXT
     : '/',
     devServer: {
+        public: 'spenden.localhost',
         disableHostCheck: true
     },
     css: {
