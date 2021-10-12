@@ -93,7 +93,7 @@
   "interval": { 
     "label": " Choose your donation interval ", 
     "monthly": " monthly", 
-    "once": "1x a year", 
+    "yearly": "1x a year",
     "half": "2x a year", 
     "thrice": "3x a year", 
     "quarterly": "4x a year" 
