@@ -43,7 +43,11 @@
     }
   },
   "error": {
-    "payment": "Oh je, da ist leider ein Fehler passiert. Das tut uns leid. Wende dich bitte an kontakt@vivaconagua.org und gib diese Payment ID mit an"
+    "payment": "Oh je, da ist leider ein Fehler passiert. Das tut uns leid. Wende dich bitte an kontakt@vivaconagua.org und gib diese Payment ID mit an",
+    "not_found": {
+      "headline": "Uuuups, es wurde leider kein passendes Formular gefunden",
+      "text": "Leider haben wir kein passendes Spendenformular gefunden.<br/>Bitte schicke uns doch kurz eine Nachricht wo der Fehler aufgetreten ist an <strong>kontakt@vivaconagua.org</strong>, dass wir das Problem beheben können."
+    }
   },
   "headline": {
     "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
@@ -68,7 +72,7 @@
   },
   "example": {
     "default": "",
-    "soap": "Damit unterstützt du uns z.B. mit mindestens 20 l Seife für Schulen",
+    "soap": "Damit unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
     "filter": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
     "trees": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
     "workshop": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
