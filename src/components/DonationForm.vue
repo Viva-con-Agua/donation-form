@@ -52,18 +52,19 @@ export default {
             .finally(this.$store.commit('loadingFlow'))
 
         this.defaultLanguage(this.lang)
-    },
-    data() {
-        return {
-            iserror: false,
-            step: 1,
-            steps:
-            [
+
+        this.steps = [
                 {id: 1, label: this.$t('header.amount') },
                 {id: 2, label: this.$t('header.contact') },
                 {id: 3, label: this.$t('header.payment') },
                 {id: 4, label: this.$t('header.thanks') }
             ]
+    },
+    data() {
+        return {
+            iserror: false,
+            step: 1,
+            steps: []
         }
     },
     computed: {
