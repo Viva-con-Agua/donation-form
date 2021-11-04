@@ -32,7 +32,7 @@ export default {
     computed: {       
         ...mapGetters({
            minAmount: 'form/minAmount',
-           examples: 'organisation/examples'
+           examples: 'company/examples'
         }),
         currentAmount() {
           return (this.money.amount / 100).toLocaleString(this.$i18n.locale)

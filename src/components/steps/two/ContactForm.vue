@@ -14,7 +14,7 @@
                 </div>
 
                 <vca-input 
-                   v-if="company"
+                   v-if="isCompany"
                    ref="company"
                    :errorMsg="$t('contactform.company.error')"
                    :placeholder="$t('contactform.company.placeholder')"
@@ -41,7 +41,7 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    v-if="!company"
+                    v-if="!isCompany"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
@@ -117,8 +117,8 @@ export default {
     name: 'ContactForm',
     computed: {
        ...mapGetters({
-           company: 'company',
-           settings: 'organisation/settings'
+           isCompany: 'isCompany',
+           settings: 'company/settings'
         }),
         anonymous: {
             get () {
@@ -147,7 +147,7 @@ export default {
         
     },
     watch:{
-        company: function(val) {
+        isCompany: function(val) {
             if (val) {
                 this.additional = true
             } else {
@@ -156,7 +156,7 @@ export default {
         }
     },
     validations() {
-        if (this.company) {
+        if (this.isCompany) {
             return {
                 anonymous: {
                     email: {

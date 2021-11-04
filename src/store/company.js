@@ -1,11 +1,9 @@
-import api from './api.js'
-
-const organisation = {
+const company = {
     namespaced: true,
     state: () => ({
         current: {
-            paypal_key: process.env.VUE_APP_PAYPAL_CLIENT_ID,
-            stripe_key: process.env.VUE_APP_STRIPE_PUBLIC_KEY
+            paypal_client_id: process.env.VUE_APP_PAYPAL_CLIENT_ID,
+            stripe_public_key: process.env.VUE_APP_STRIPE_PUBLIC_KEY
         },
         examples: {
                 'de': [
@@ -35,26 +33,11 @@ const organisation = {
     },
     mutations: {
         current(state, value) {
-            state.current =  { 
-                'paypal_key': process.env.VUE_APP_PAYPAL_CLIENT_ID,
-                'stripe_key': process.env.VUE_APP_STRIPE_PUBLIC_KEY,
-                'value': value
+            if (value.company) {
+                state.current = value.company
             }
-        }
-    },
-    actions: {
-        get({commit}, data) {
-            return new Promise((resolve, reject) => {
-                api.call.get('/v1/organisation/' + data.data)
-                    .then((response) => {
-                        commit('current', response.data.payload), resolve()
-                    })
-                    .catch((error) => {
-                        reject(error)
-                    })
-            })
         }
     }
 }
 
-export default organisation
+export default company

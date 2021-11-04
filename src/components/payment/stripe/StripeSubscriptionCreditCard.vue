@@ -51,7 +51,7 @@ export default {
         this.element.mount(this.$refs.card)
     },
     created() {
-        this.stripe = window.Stripe(this.organisation.stripe_key)
+        this.stripe = window.Stripe(this.company.stripe_public_key)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('card', this.options)
 
@@ -72,7 +72,7 @@ export default {
         },
         ...mapGetters({
             billing_details: 'payment/stripe/billing_details',
-            organisation: 'organisation/current'
+            company: 'company/current'
         })
     },
     methods: {

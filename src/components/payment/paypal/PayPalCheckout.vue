@@ -62,11 +62,11 @@ export default {
     },
     computed: {
         ...mapGetters({
-            organisation: 'organisation/current'
+            company: 'company/current'
         })
     },
     mounted() {
-        var paypalLink = 'https://www.paypal.com/sdk/js?client-id='+ this.organisation.paypal_key +'&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR'
+        var paypalLink = 'https://www.paypal.com/sdk/js?client-id='+ this.company.paypal_client_id +'&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR'
         let paypalScript = document.createElement('script')
         paypalScript.setAttribute('src', paypalLink)
         document.head.appendChild(paypalScript)
