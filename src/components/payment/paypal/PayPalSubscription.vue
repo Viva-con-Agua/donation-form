@@ -6,12 +6,6 @@ import { mapGetters } from 'vuex'
 
 let ppActions;
 export default {
-    props: {
-        plan_id: {
-            type: String,
-            default: ""
-        }
-    },
     methods: {
         onApprove: function(data) {
             // This function captures the funds from the transaction.
@@ -54,7 +48,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-            company: 'company/current'
+            company: 'form/company',
+ plan_id: 'payment/paypal/plan_id'
         })
     },
     mounted() {

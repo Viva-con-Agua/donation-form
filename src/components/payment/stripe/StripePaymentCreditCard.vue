@@ -69,7 +69,7 @@ export default {
         },
         ...mapGetters({
             billing_details: 'payment/stripe/billing_details',
-            company: 'company/current'
+            company: 'form/company'
         })
 
     },

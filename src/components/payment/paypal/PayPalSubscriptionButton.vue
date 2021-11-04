@@ -22,7 +22,8 @@ export default {
     props: ['valid'],
     computed : {
         ...mapGetters({
-            plan_id: 'payment/paypal/plan_id'
+            plan_id: 'payment/paypal/plan_id',
+            company: 'form/company'
         }),
     },
     data () {
@@ -33,6 +34,16 @@ export default {
                 production: process.env.VUE_PAYPAL_PUBLIC_KEY,
             },
         }
+    },
+    mounted() {
+      var paypal = document.getElementById('paypalSubscription')
+      if (paypal !== undefined) {
+        let paypalScript = document.createElement('script')
+        paypalScript.setAttribute('id', 'paypalSubscription')
+        paypalScript.async = false
+        paypalScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=' + this.company.paypal_client_id + '&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR&intent=subscription')
+        document.head.appendChild(paypalScript)
+      }
     },
     methods: {
         success(e) {

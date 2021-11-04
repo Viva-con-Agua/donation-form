@@ -26,7 +26,7 @@ export default {
             items: 'payment/paypal/items',
             amount: 'payment/paypal/amount',
             currency: 'payment/paypal/currency',
-            company: 'company/current'
+            company: 'form/company'
         }),
     },
     data () {

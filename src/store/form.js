@@ -32,6 +32,9 @@ const form = {
         },
         subscriptionTypes(state) {
             return state.current.subscription_types
+        },
+        company(state) {
+            return state.current.company
         }
     },
     mutations: {

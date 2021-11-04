@@ -2,8 +2,8 @@ const company = {
     namespaced: true,
     state: () => ({
         current: {
-            paypal_client_id: process.env.VUE_APP_PAYPAL_CLIENT_ID,
-            stripe_public_key: process.env.VUE_APP_STRIPE_PUBLIC_KEY
+            paypal_client_id: "",
+            stripe_public_key: "",
         },
         examples: {
                 'de': [
