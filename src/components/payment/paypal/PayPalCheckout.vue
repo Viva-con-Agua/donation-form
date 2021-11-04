@@ -62,7 +62,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            company: 'company/current'
+            company: 'form/company'
         })
     },
     mounted() {
