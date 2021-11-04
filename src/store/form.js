@@ -44,9 +44,13 @@ const form = {
             return new Promise((resolve, reject) => {
                 api.call.get('/v1/donations/form/' + data.data)
                     .then((response) => {
-                        commit('get', response.data.payload), commit('payment/default_amount', response.data.payload.default_amount, {root: true}), resolve()
+                        commit('get', response.data.payload), 
+                        commit('organisation/current', response.data.payload),
+                        commit('payment/default_amount', response.data.payload.default_amount, {root: true}), 
+                        resolve()
                     })
                     .catch((error) => {
+                        commit('organisation/current', {}),
                         reject(error)
                     })
             })

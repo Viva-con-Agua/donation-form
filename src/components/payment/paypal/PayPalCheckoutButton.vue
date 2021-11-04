@@ -26,6 +26,7 @@ export default {
             items: 'payment/paypal/items',
             amount: 'payment/paypal/amount',
             currency: 'payment/paypal/currency',
+            organisation: 'organisation/current'
         }),
     },
     data () {
@@ -42,7 +43,7 @@ export default {
         let paypalScript = document.createElement('script')
         paypalScript.setAttribute('id', 'paypalCheckout')
         paypalScript.async = false
-        paypalScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=<%= VUE_APP_PAYPAL_CLIENT_ID %>&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR')
+        paypalScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=<%= ' + this.organisation.paypal_key + ' %>&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR')
         document.head.appendChild(paypalScript)
       }
     },

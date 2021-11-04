@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import api from './api.js'
 import payment from './payment'
 import knownfrom from './knownfrom.js'
+import organisation from './organisation.js'
 import form from './form.js'
 
 Vue.use(Vuex)
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     modules: {
         payment: payment,
         knownfrom: knownfrom,
+        organisation: organisation,
         form: form
     },
     state: {

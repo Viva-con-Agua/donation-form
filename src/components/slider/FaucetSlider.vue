@@ -31,22 +31,20 @@ export default {
     },
     computed: {       
         ...mapGetters({
-           minAmount: 'form/minAmount'
+           minAmount: 'form/minAmount',
+           examples: 'organisation/examples'
         }),
         currentAmount() {
           return (this.money.amount / 100).toLocaleString(this.$i18n.locale)
         },
         getExample() {
-            if (this.money.amount >= 8000) {
-                return this.$t('example.workshop')
-            } else if (this.money.amount >= 5000) {
-                return this.$t('example.trees')
-            } else if (this.money.amount >= 2000) {
-                return this.$t('example.filter')
-            } else if (this.money.amount >= 1500) {
-                return this.$t('example.soap')
+            if (!this.examples) {
+              return this.$t('example.default')
             }
-            return this.$t('example.default')
+
+            let res = this.examples.filter(t => this.money.amount >= t.value)
+            return (res.length > 0) ? this.$t(res[0].message) : this.$t('example.default')
+
         },
         amountMin() {
             return this.minAmount

@@ -48,7 +48,7 @@ export default {
         this.$store.commit('loadingFlow')
         this.$store.dispatch({type: 'init', data: this.donation_form_id})
             .then(resp => {console.log(resp)})
-            .catch(error => {console.log(error), this.iserror = true})
+            .catch(error => {console.log(error)})
             .finally(this.$store.commit('loadingFlow'))
 
         this.defaultLanguage(this.lang)
@@ -63,7 +63,7 @@ export default {
     data() {
         return {
             iserror: false,
-            step: 1,
+            step: 2,
             steps: []
         }
     },

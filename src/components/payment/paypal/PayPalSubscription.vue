@@ -2,6 +2,7 @@
     <div id="paypal-button" class="paypal-button"></div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 
 let ppActions;
 export default {
@@ -51,8 +52,13 @@ export default {
             }
         }
     },
+    computed: {
+        ...mapGetters({
+            organisation: 'organisation/current'
+        })
+    },
     mounted() {
-        var paypalLink = 'https://www.paypal.com/sdk/js?client-id='+process.env.VUE_APP_PAYPAL_CLIENT_ID +'&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR&intent=subscription'
+        var paypalLink = 'https://www.paypal.com/sdk/js?client-id='+ this.organisation.paypal_key +'&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR&intent=subscription'
         let paypalScript = document.createElement('script')
         paypalScript.setAttribute('src', paypalLink)
         document.head.appendChild(paypalScript)
