@@ -26,7 +26,7 @@ export default {
     components: {Amount, Abo, Interval, FaucetSlider},
     data() {
         return {
-            isValid: true,
+            isValid: true
         }
     },
     mounted () {
@@ -35,8 +35,7 @@ export default {
             return this.$refs.amount.$v.$invalid
         },(val) => {
             this.isValid = !val
-        }
-                   )
+        })
     },
     computed: {
         hasSubscription() {

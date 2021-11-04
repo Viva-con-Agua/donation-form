@@ -14,7 +14,7 @@
                 </div>
 
                 <vca-input 
-                   v-if="company"
+                   v-if="isCompany"
                    ref="company"
                    :errorMsg="$t('contactform.company.error')"
                    :placeholder="$t('contactform.company.placeholder')"
@@ -41,12 +41,24 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    v-if="!company"
+                    v-if="!isCompany"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
 
                 <div v-if="additional">
+
+                    <vca-field-row>
+                        
+                        <VcaInputDate
+                            v-if="settings == 'at'"
+                            ref="birthdate"
+                            :errorMsg="$t('contactform.birthdate.error')"
+                            :placeholder="$t('contactform.birthdate.placeholder')"
+                            v-model.trim="anonymous.birthdate" 
+                            :rules="$v.anonymous.birthdate">
+                        </VcaInputDate>
+                    </vca-field-row>
 
                     <vca-field-row>
                         <vca-input 
@@ -90,7 +102,7 @@
                         </vca-input>
                     </vca-field-row>
 
-                        <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
+                   <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
                 </div>
                 <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
             </vca-field>
@@ -105,7 +117,8 @@ export default {
     name: 'ContactForm',
     computed: {
        ...mapGetters({
-           company: 'company'
+           isCompany: 'isCompany',
+           settings: 'company/settings'
         }),
         anonymous: {
             get () {
@@ -134,7 +147,7 @@ export default {
         
     },
     watch:{
-        company: function(val) {
+        isCompany: function(val) {
             if (val) {
                 this.additional = true
             } else {
@@ -143,7 +156,7 @@ export default {
         }
     },
     validations() {
-        if (this.company) {
+        if (this.isCompany) {
             return {
                 anonymous: {
                     email: {
@@ -178,33 +191,68 @@ export default {
             }
         } else {
             if (this.additional) {
-                return {
-                    anonymous: {
-                        email: {
-                            email,
-                            required
+                if (this.settings == 'at') {
+                    return {
+                        anonymous: {
+                            email: {
+                                email,
+                                required
+                            },
+                            first_name: {
+                                required
+                            },
+                            last_name: {
+                                required
+                            },
+                            street: {
+                                required
+                            },
+                            number: {
+                                required
+                            },
+                            birthdate: {
+                                required
+                            },
+                            zip: {
+                                required
+                            },
+                            city: {
+                                required
+                            }
                         },
-                        first_name: {
-                            required
-                        },
-                        last_name: {
-                            required
-                        },
-                        street: {
-                            required
-                        },
-                        number: {
-                            required
-                        },
-                        zip: {
-                            required
-                        },
-                        city: {
+                        country: {
                             required
                         }
-                    },
-                    country: {
-                        required
+                    }
+                } else {
+                    return {
+                        anonymous: {
+                            email: {
+                                email,
+                                required
+                            },
+                            first_name: {
+                                required
+                            },
+                            last_name: {
+                                required
+                            },
+                            street: {
+                                required
+                            },
+                            number: {
+                                required
+                            },
+                            zip: {
+                                required
+                            },
+                            city: {
+                                required
+                            }
+                        },
+                        country: {
+                            required
+                        }
                     }
                 }
             } else {

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import api from './api.js'
 import payment from './payment'
 import knownfrom from './knownfrom.js'
+import company from './company.js'
 import form from './form.js'
 
 Vue.use(Vuex)
@@ -11,13 +12,14 @@ export default new Vuex.Store({
     modules: {
         payment: payment,
         knownfrom: knownfrom,
+        company: company,
         form: form
     },
     state: {
         loading: false,
         currentMsg: null,
         product: 'prod_HZW4PLYJeuxnyC',
-        company: false,
+        isCompany: false,
         offset: {
             known_from: null,
             comment: null,
@@ -36,8 +38,8 @@ export default new Vuex.Store({
         anonymous(state, value) {
             state.anonymous = value
         },
-        company(state, value) {
-            state.company = value
+        isCompany(state, value) {
+            state.isCompany = value
         }
     },
     getters: {
@@ -56,8 +58,8 @@ export default new Vuex.Store({
         anonymous(state) {
             return state.anonymous
         },
-        company(state) {
-            return state.company
+        isCompany(state) {
+            return state.isCompany
         },
         payment(state) {
             return state.payment
