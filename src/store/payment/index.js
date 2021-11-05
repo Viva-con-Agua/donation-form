@@ -24,6 +24,7 @@ const payment = {
             first_name: "",
             last_name: "",
             street: "",
+            birthdate: 0,
             number: "",
             zip: "",
             city: "",

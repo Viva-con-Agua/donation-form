@@ -13,6 +13,7 @@ import 'vca-ui/dist/vca-ui.css'
 //import wrap from '@vue/web-component-wrapper';
 import de from '@/lang/de_DE.json';
 import en from '@/lang/en_GB.json';
+import at from '@/lang/de_AT.json';
 
 
 Vue.use(Notifications)
@@ -32,6 +33,8 @@ const i18n = new VueI18n({
         'de-DE': de,
         'de-CH': de,
         'ch': de,
+        'at': at,
+        'de-AT': at,
         'en': en,
         'gb': en,
         'en-GB': en
