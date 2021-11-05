@@ -2,7 +2,7 @@
     <vca-card>
         <h1 class="text-center">{{ $t('thanks.header') }}</h1>
         <h2 class="text-center">{{ $t('thanks.subheader') }}</h2>
-        <p class="text-center">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
+        <p class="text-center" v-if="getExample">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
     </vca-card>
  </template> 
 
@@ -12,22 +12,20 @@ export default {
     name: 'Thanks',
     computed: {
        ...mapGetters({
-           money: 'payment/money'
+           money: 'payment/money',
+           examples: 'company/examples'
         }),
         getAmount() {
           return this.toLocaleString(this.money.amount / 100) + ' ' + this.money.currency
         },
         getExample() {
-          if (this.money.amount >= 8000) {
-                return this.$t('thanks.example.workshop')
-            } else if (this.money.amount >= 5000) {
-                return this.$t('thanks.example.trees')
-            } else if (this.money.amount >= 2000) {
-                return this.$t('thanks.example.filter')
-            } else if (this.money.amount >= 1500) {
-                return this.$t('thanks.example.soap')
+            if (!this.examples) {
+              return this.$t('example.default')
             }
-            return this.$t('thanks.example.default')
+
+            let res = this.examples.filter(t => this.money.amount >= t.value)
+            return (res.length > 0) ? this.$t('thanks.' + res[0].message) : this.$t('example.default')
+
         }
    }
 }
