@@ -48,16 +48,15 @@
 
                 <div v-if="additional">
 
-                    <vca-field-row>
-                        
-                        <VcaInputDate
-                            v-if="settings == 'at'"
+                    <vca-field-row v-if="settings == 'at'">
+                        <vca-input-date
                             ref="birthdate"
                             :errorMsg="$t('contactform.birthdate.error')"
                             :placeholder="$t('contactform.birthdate.placeholder')"
                             v-model.trim="anonymous.birthdate" 
                             :rules="$v.anonymous.birthdate">
-                        </VcaInputDate>
+                        </vca-input-date>
+                        <div class="inline-infobox"><vca-info-box>{{ $t('contactform.birthdate.infobox') }}</vca-info-box></div>
                     </vca-field-row>
 
                     <vca-field-row>
@@ -74,6 +73,7 @@
                             ref="number"
                             class="short"
                             last
+                            :typeable="true"
                             :errorMsg="$t('contactform.number.error')"
                             :placeholder="$t('contactform.number.placeholder')"
                             v-model="anonymous.number" 
@@ -110,7 +110,6 @@
     </div>
 </template>
 <script>
-
 import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
