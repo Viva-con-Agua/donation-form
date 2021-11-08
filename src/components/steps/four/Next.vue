@@ -10,7 +10,7 @@
                 <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
                 <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('next.newsletter.success') }}</div>
             </div>
-            <p class="text-center">{{ $t('next.yours') }}</p>
+            <p class="text-center" v-html="$t('next.yours')"></p>
         </vca-field>
     </vca-card>
  </template> 

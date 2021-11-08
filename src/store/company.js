@@ -13,10 +13,16 @@ const company = {
                   {'value': 1500, 'message': 'example.soap'}
                 ],
                 'at': [
-                  {'value': 25000, 'message':'example.workshop'},
-                  {'value': 10000, 'message':'example.trees'},
-                  {'value': 5000, 'message': 'example.filter'},
-                  {'value': 1000, 'message': 'example.soap'}
+                  {'value': 10000, 'message':'example.10kid'},
+                  {'value': 9000, 'message':'example.9kid'},
+                  {'value': 8000, 'message':'example.8kid'},
+                  {'value': 7000, 'message':'example.7kid'},
+                  {'value': 6000, 'message':'example.6kid'},
+                  {'value': 5000, 'message':'example.5kid'},
+                  {'value': 4000, 'message': 'example.4kid'},
+                  {'value': 3000, 'message': 'example.3kid'},
+                  {'value': 2000, 'message': 'example.2kid'},
+                  {'value': 1000, 'message': 'example.1kid'}
                 ]
             }
     }),

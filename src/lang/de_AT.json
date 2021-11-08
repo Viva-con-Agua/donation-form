@@ -72,10 +72,16 @@
   },
   "example": {
     "default": "",
-    "soap": "Damit ermöglichst du einem Schulkind sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "filter": "Damit ermöglichst du fünf Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "trees": "Damit ermöglichst du zehn Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "workshop": "Damit ermöglichst du einer Schulkklasse sauberes Trinkwasser für die gesamte Schullaufbahn"
+    "1kid": "Damit ermöglichst du einem Schulkind sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "2kid": "Damit ermöglichst du zwei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "3kid": "Damit ermöglichst du drei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "4kid": "Damit ermöglichst du vier Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "5kid": "Damit ermöglichst du fünf Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "6kid": "Damit ermöglichst du sechs Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "7kid": "Damit ermöglichst du sieben Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "8kid": "Damit ermöglichst du acht Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "9kid": "Damit ermöglichst du neun Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "10kid": "Damit ermöglichst du zehn Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn"
   },
   "amount": {
     "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
@@ -150,6 +156,7 @@
     "birthdate": {
       "label": "Gib hier dein Geburtsdatum ein, wenn wir deine Spende automatisch zur Absetzung ans Finanzamt melden sollen",
       "placeholder": "Dein Geburtsdatum *",
+      "infobox": "Du kannst bei der Auswahl deines Geburtsdatums durch die Monate, Jahre und Jahrzehnte navigieren, indem du oben in der Mitte auf den Monat und das Jahr klickst.",
       "error": "Bitte gib dein Geburtsdatum ein"
     },
     "selectCountry": {
@@ -204,25 +211,30 @@
   "thanks": {
     "header": "DANKE",
     "subheader": "für deinen Support und dein Vertrauen!",
-    "text": "Deine Spende über {0} hat {1}",
+    "text": "Deine Spende über {0} ermöglicht in Malawi sauberes Trinkwasser für {1} Kinder",
     "example": {
-      "default": "unter anderem in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
-      "soap": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
-      "filter": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
-      "trees": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
-      "workshop": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
+      "1kid": "1",
+      "2kid": "2",
+      "3kid": "3",
+      "4kid": "4",
+      "5kid": "5",
+      "6kid": "6",
+      "7kid": "7",
+      "8kid": "8",
+      "9kid": "9",
+      "10kid": "10"
     }
   },
   "next": {
     "label": "So geht es weiter",
     "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
-    "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+    "receipt": "Für Privatpersonen: Falls du dein Geburtsdatum angegeben hast melden wir deine Spende ans Finanzamt und sie wird automatisch bei deinem Steuerausgleich für dieses Jahr berücksichtigt. Falls du dein Geburtsdatum nachreichen willst schreib uns gern an <strong>kontakt@vivaconagua.at</strong>.<br/><br/>Für Unternehmen: Ihr könnt eure Spende bei eurem Jahresabschluss geltend machen. Falls ihr dazu eine Spendenbestätigung braucht, meldet euch gern unter <strong>kontakt@vivaconagua.at</strong>.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
       "button": "Jetzt anmelden",
       "success": "Danke für die Anmeldung in unserem Newsletter!"
     },
-    "yours": "Dein Viva con Agua Team"
+    "yours": "Danke für eure Unterstützung!<br/><br/>Euer Viva con Agua Team"
   },
   "tenseconds": {
     "label": "Hast du noch 10 Sekunden Zeit?",
