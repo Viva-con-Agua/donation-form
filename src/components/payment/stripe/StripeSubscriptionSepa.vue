@@ -66,7 +66,7 @@ export default {
         this.stripe = window.Stripe(this.company.stripe_public_key)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('iban', this.options)
-        this.element.on('change', (event) => { 
+        this.element.on('change', (event) => {
             if (!event.complete) {
                 this.ibanInvalid = true
             } else {

@@ -41,14 +41,14 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    v-if="!isCompany"
+                    v-if="!isCompany && settings != 'at'"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
 
                 <div v-if="additional">
 
-                    <vca-field-row v-if="settings == 'at'">
+                    <vca-field-row v-if="settings == 'at' && !isCompany">
                         <vca-input-date
                             ref="birthdate"
                             :errorMsg="$t('contactform.birthdate.error')"
@@ -102,7 +102,7 @@
                         </vca-input>
                     </vca-field-row>
 
-                   <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
+                   <vca-country :preselection="countryCode" :countryCode="countryCode" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
                 </div>
                 <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
             </vca-field>
@@ -114,6 +114,11 @@ import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
+    created() {
+        if (this.settings == 'at') {
+            this.additional = true
+        }
+    },
     computed: {
        ...mapGetters({
            isCompany: 'isCompany',
@@ -142,12 +147,14 @@ export default {
             set(value) {
                 this.$store.commit('payment/donation_receipt', value)
             }
+        },
+        countryCode() {
+            return this.settings == 'at' ? 'AT' : 'DE'
         }
-        
     },
     watch:{
         isCompany: function(val) {
-            if (val) {
+            if (val || this.settings == 'at') {
                 this.additional = true
             } else {
                 this.additional = false

@@ -62,7 +62,7 @@
   "information": {
     "label": "Hinweise:",
     "info_1": "Monatliche Spenden können jederzeit gekündigt werden.",
-    "info_2": "Deine Spende ist steuerlich absetzbar. Bei Angabe deines Geburt Datums melden wir deine Spende direkt ans Finanzamt.",
+    "info_2": "Deine Spende ist steuerlich absetzbar. Bei Angabe deines Geburtsdatums melden wir deine Spende direkt ans Finanzamt.",
     "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
     "info_4": "Viva con Agua Österreich ist beim Bundesministerium für Finanzen als spendenbegünstigte Organisation registriert. Unsere Registrierungsnummer: SO-16323"
   },
@@ -189,8 +189,8 @@
     "terms": {
       "sepa": {
         "de": {
-          "single": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
-          "subscription": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
+          "single": "Ich ermächtige Viva con Agua Österreich, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Österreich auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
+          "subscription": "Ich ermächtige Viva con Agua Österreich, Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Österreich auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
         },
         "error": "Bitte bestätige die Einzugsermächtigung"
       }
