@@ -2,7 +2,7 @@
   <div class="faucetslide">
       <vca-card>
         <div class="images">
-          <img :src="getFaucet"/>
+          <rive :src="riveFileSrc" fit="contain" :input="money.amount/100" alignment="center" width="300" height="300"/>
       </div>
     </vca-card>
     <div class="count">
@@ -18,10 +18,17 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Rive from '@/components/utils/Rive.vue'
+import riveFile from '@/assets/img/slider/faucet/vca_cup.riv'
+
 export default {
     name: 'FaucetSlider',
+    components: {
+      Rive
+    },
     data () {
         return {
+            riveFileSrc: riveFile,
             current: 1,
             steps: 5,
         }
@@ -67,9 +74,9 @@ export default {
         getFaucet() {
           //return require('@/assets/img/slider/faucet/glas_empty.svg')
           return require('@/assets/img/slider/faucet/glas_' + this.current + '.png')
-        }
+        },
     },
-    methods: {
+    methods: {    
         setFaucet(value) {
             var parts = this.amountMax / this.steps
             let current = Math.max(1, Math.round(value.amount / parts))
