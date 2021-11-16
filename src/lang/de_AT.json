@@ -134,28 +134,28 @@
       "error": "Bitte gib deinen Nachnamen ein"
     },
     "street": {
-      "placeholder": "Deine Straße *",
+      "placeholder": "Deine Straße",
       "error": "Bitte gib deine Straße ein"
     },
     "number": {
-      "placeholder": "Deine Hausnummer *",
+      "placeholder": "Deine Hausnummer",
       "error": "Bitte gib deine Hausnummer ein"
     },
     "zip": {
-      "placeholder": "Deine Postleitzahl *",
+      "placeholder": "Deine Postleitzahl",
       "error": "Bitte gib deine Postleitzahl ein"
     },
     "city": {
-      "placeholder": "Dein Wohnort *",
+      "placeholder": "Dein Wohnort",
       "error": "Bitte gib deinen Wohnort ein"
     },
     "country": {
-      "placeholder": "Dein Land *",
+      "placeholder": "Dein Land",
       "error": "Bitte gib dein Land ein"
     },
     "birthdate": {
-      "label": "Gib hier dein Geburtsdatum ein, wenn wir deine Spende automatisch zur Absetzung ans Finanzamt melden sollen",
-      "placeholder": "Dein Geburtsdatum *",
+      "label": "Wähle hier dein Geburtsdatum aus, wenn wir deine Spende automatisch zur Absetzung ans Finanzamt melden sollen:",
+      "placeholder": "Dein Geburtsdatum",
       "infobox": "Du kannst bei der Auswahl deines Geburtsdatums durch die Monate, Jahre und Jahrzehnte navigieren, indem du oben in der Mitte auf den Monat und das Jahr klickst.",
       "error": "Bitte gib dein Geburtsdatum ein"
     },

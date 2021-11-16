@@ -48,16 +48,19 @@
 
                 <div v-if="additional">
 
-                    <vca-field-row v-if="settings == 'at' && !isCompany">
-                        <vca-input-date
-                            ref="birthdate"
-                            :errorMsg="$t('contactform.birthdate.error')"
-                            :placeholder="$t('contactform.birthdate.placeholder')"
-                            v-model.trim="anonymous.birthdate" 
-                            :rules="$v.anonymous.birthdate">
-                        </vca-input-date>
-                        <div class="inline-infobox"><vca-info-box>{{ $t('contactform.birthdate.infobox') }}</vca-info-box></div>
-                    </vca-field-row>
+                    <div v-if="settings == 'at' && !isCompany">
+                        <span>{{ $t('contactform.birthdate.label') }}</span>
+                        <vca-row>
+                            <vca-input-date
+                                ref="birthdate"
+                                :errorMsg="$t('contactform.birthdate.error')"
+                                :placeholder="$t('contactform.birthdate.placeholder')"
+                                v-model.trim="anonymous.birthdate" 
+                                :rules="$v.anonymous.birthdate">
+                            </vca-input-date>
+                            <div class="inline-infobox"><vca-info-box>{{ $t('contactform.birthdate.infobox') }}</vca-info-box></div>
+                        </vca-row>
+                    </div>
 
                     <vca-field-row>
                         <vca-input 
@@ -110,10 +113,12 @@
     </div>
 </template>
 <script>
+import VcaInputDate from '@/../../vca-ui/src/form/VcaDate.vue'
 import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
+    components: { VcaInputDate },
     created() {
         if (this.settings == 'at') {
             this.additional = true
@@ -209,25 +214,7 @@ export default {
                             },
                             last_name: {
                                 required
-                            },
-                            street: {
-                                required
-                            },
-                            number: {
-                                required
-                            },
-                            birthdate: {
-                                required
-                            },
-                            zip: {
-                                required
-                            },
-                            city: {
-                                required
                             }
-                        },
-                        country: {
-                            required
                         }
                     }
                 } else {
