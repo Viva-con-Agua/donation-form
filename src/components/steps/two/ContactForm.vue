@@ -113,12 +113,10 @@
     </div>
 </template>
 <script>
-import VcaInputDate from '@/../../vca-ui/src/form/VcaDate.vue'
 import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
-    components: { VcaInputDate },
     created() {
         if (this.settings == 'at') {
             this.additional = true
