@@ -72,10 +72,10 @@
   },
   "example": {
     "default": "",
-    "soap": "Damit unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
-    "filter": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
-    "trees": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
-    "workshop": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
+    "1500": "Damit unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
+    "2000": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
+    "5000": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
+    "8000": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
   },
   "amount": {
     "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
@@ -202,10 +202,10 @@
     "text": "Deine Spende über {0} hat {1}",
     "example": {
       "default": "unter anderem in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
-      "soap": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
-      "filter": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
-      "trees": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
-      "workshop": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
+      "1500": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
+      "2000": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
+      "5000": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
+      "8000": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
     }
   },
   "next": {
