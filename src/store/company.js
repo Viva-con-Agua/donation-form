@@ -7,22 +7,27 @@ const company = {
         },
         examples: {
                 'de': [
-                  {'value': 8000, 'message': 'example.workshop'},
-                  {'value': 5000, 'message': 'example.trees'},
-                  {'value': 2000, 'message': 'example.filter'},
-                  {'value': 1500, 'message': 'example.soap'}
+                  {'value': 8000, 'message': 'example.8000'},
+                  {'value': 5000, 'message': 'example.5000'},
+                  {'value': 2000, 'message': 'example.2000'},
+                  {'value': 1500, 'message': 'example.1500'}
                 ],
                 'at': [
-                  {'value': 10000, 'message':'example.10kid'},
-                  {'value': 9000, 'message':'example.9kid'},
-                  {'value': 8000, 'message':'example.8kid'},
-                  {'value': 7000, 'message':'example.7kid'},
-                  {'value': 6000, 'message':'example.6kid'},
-                  {'value': 5000, 'message':'example.5kid'},
-                  {'value': 4000, 'message': 'example.4kid'},
-                  {'value': 3000, 'message': 'example.3kid'},
-                  {'value': 2000, 'message': 'example.2kid'},
-                  {'value': 1000, 'message': 'example.1kid'}
+                  {'value': 100000, 'message': 'example.100000'},
+                  {'value': 50000, 'message': 'example.50000'},
+                  {'value': 35000, 'message': 'example.35000'},
+                  {'value': 25000, 'message': 'example.25000'},
+                  {'value': 15000, 'message': 'example.15000'},
+                  {'value': 10000, 'message': 'example.10000'},
+                  {'value': 9000, 'message': 'example.9000'},
+                  {'value': 8000, 'message': 'example.8000'},
+                  {'value': 7000, 'message': 'example.7000'},
+                  {'value': 6000, 'message': 'example.6000'},
+                  {'value': 5000, 'message': 'example.5000'},
+                  {'value': 4000, 'message': 'example.4000'},
+                  {'value': 3000, 'message': 'example.3000'},
+                  {'value': 2000, 'message': 'example.2000'},
+                  {'value': 1000, 'message': 'example.1000'}
                 ]
             }
     }),

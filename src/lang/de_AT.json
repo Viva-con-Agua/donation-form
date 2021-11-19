@@ -62,7 +62,7 @@
   "information": {
     "label": "Hinweise:",
     "info_1": "Monatliche Spenden können jederzeit gekündigt werden.",
-    "info_2": "Deine Spende ist steuerlich absetzbar. Bei Angabe deines Geburt Datums melden wir deine Spende direkt ans Finanzamt.",
+    "info_2": "Deine Spende ist steuerlich absetzbar. Bei Angabe deines Geburtsdatums melden wir deine Spende direkt ans Finanzamt.",
     "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
     "info_4": "Viva con Agua Österreich ist beim Bundesministerium für Finanzen als spendenbegünstigte Organisation registriert. Unsere Registrierungsnummer: SO-16323"
   },
@@ -72,16 +72,21 @@
   },
   "example": {
     "default": "",
-    "1kid": "Damit ermöglichst du einem Schulkind sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "2kid": "Damit ermöglichst du zwei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "3kid": "Damit ermöglichst du drei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "4kid": "Damit ermöglichst du vier Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "5kid": "Damit ermöglichst du fünf Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "6kid": "Damit ermöglichst du sechs Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "7kid": "Damit ermöglichst du sieben Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "8kid": "Damit ermöglichst du acht Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "9kid": "Damit ermöglichst du neun Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
-    "10kid": "Damit ermöglichst du zehn Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn"
+    "1000": "Damit ermöglichst du einem Schulkind sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "2000": "Damit ermöglichst du zwei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "3000": "Damit ermöglichst du drei Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "4000": "Damit ermöglichst du vier Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "5000": "Damit ermöglichst du fünf Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "6000": "Damit ermöglichst du sechs Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "7000": "Damit ermöglichst du sieben Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "8000": "Damit ermöglichst du acht Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "9000": "Damit ermöglichst du neun Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "10000": "Damit ermöglichst du zehn Schulkindern sauberes Trinkwasser für die gesamte Schullaufbahn",
+    "15000": "Damit ermöglichst du Hygieneworkshops für eine Schule",
+    "25000": "Damit ermöglichst du sauberes Trinkwasser für eine Schulklasse",
+    "35000": "Damit ermöglichst du den Austausch defekter Brunnenteile",
+    "50000": "Damit ermöglichst du den Bau eines Wasserkiosks",
+    "100000": "Damit ermöglichst du die Sanierung eines defekten Brunnens"
   },
   "amount": {
     "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
@@ -134,28 +139,28 @@
       "error": "Bitte gib deinen Nachnamen ein"
     },
     "street": {
-      "placeholder": "Deine Straße *",
+      "placeholder": "Deine Straße",
       "error": "Bitte gib deine Straße ein"
     },
     "number": {
-      "placeholder": "Deine Hausnummer *",
+      "placeholder": "Deine Hausnummer",
       "error": "Bitte gib deine Hausnummer ein"
     },
     "zip": {
-      "placeholder": "Deine Postleitzahl *",
+      "placeholder": "Deine Postleitzahl",
       "error": "Bitte gib deine Postleitzahl ein"
     },
     "city": {
-      "placeholder": "Dein Wohnort *",
+      "placeholder": "Dein Wohnort",
       "error": "Bitte gib deinen Wohnort ein"
     },
     "country": {
-      "placeholder": "Dein Land *",
+      "placeholder": "Dein Land",
       "error": "Bitte gib dein Land ein"
     },
     "birthdate": {
-      "label": "Gib hier dein Geburtsdatum ein, wenn wir deine Spende automatisch zur Absetzung ans Finanzamt melden sollen",
-      "placeholder": "Dein Geburtsdatum *",
+      "label": "Wähle hier dein Geburtsdatum aus, wenn wir deine Spende automatisch zur Absetzung ans Finanzamt melden sollen:",
+      "placeholder": "Dein Geburtsdatum",
       "infobox": "Du kannst bei der Auswahl deines Geburtsdatums durch die Monate, Jahre und Jahrzehnte navigieren, indem du oben in der Mitte auf den Monat und das Jahr klickst.",
       "error": "Bitte gib dein Geburtsdatum ein"
     },
@@ -189,8 +194,8 @@
     "terms": {
       "sepa": {
         "de": {
-          "single": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
-          "subscription": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
+          "single": "Ich ermächtige Viva con Agua Österreich, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Österreich auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
+          "subscription": "Ich ermächtige Viva con Agua Österreich, Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Österreich auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
         },
         "error": "Bitte bestätige die Einzugsermächtigung"
       }
@@ -211,18 +216,23 @@
   "thanks": {
     "header": "DANKE",
     "subheader": "für deinen Support und dein Vertrauen!",
-    "text": "Deine Spende über {0} ermöglicht in Malawi sauberes Trinkwasser für {1} Kinder",
+    "text": "Deine Spende über {0} ermöglicht in Malawi {1}",
     "example": {
-      "1kid": "1",
-      "2kid": "2",
-      "3kid": "3",
-      "4kid": "4",
-      "5kid": "5",
-      "6kid": "6",
-      "7kid": "7",
-      "8kid": "8",
-      "9kid": "9",
-      "10kid": "10"
+      "1000": "sauberes Trinkwasser für 1 Kind",
+      "2000": "sauberes Trinkwasser für 2 Kinder",
+      "3000": "sauberes Trinkwasser für 3 Kinder",
+      "4000": "sauberes Trinkwasser für 4 Kinder",
+      "5000": "sauberes Trinkwasser für 5 Kinder",
+      "6000": "sauberes Trinkwasser für 6 Kinder",
+      "7000": "sauberes Trinkwasser für 7 Kinder",
+      "8000": "sauberes Trinkwasser für 8 Kinder",
+      "9000": "sauberes Trinkwasser für 9 Kinder",
+      "10000": "sauberes Trinkwasser für 10 Kinder",
+      "15000": "Hygieneworkshops für eine Schule",
+      "25000": "sauberes Trinkwasser für eine Schulklasse",
+      "35000": "den Austausch defekter Brunnenteile",
+      "50000": "den Bau eines Wasserkiosks",
+      "100000": "die Sanierung eines defekten Brunnens"
     }
   },
   "next": {

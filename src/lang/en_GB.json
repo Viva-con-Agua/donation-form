@@ -72,10 +72,10 @@
   }, 
   "example": { 
     "default": "", 
-    "soap": "With this amount you will support us e.g. with at least 20 liters of soap for schools", 
-    "filter": " With this amount you will support us e.g. with at least one water filter for a family ", 
-    "trees": " With this amount you will support us e.g. with at least 50 trees ", 
-    "workshop": " With this amount you will support us e.g. with at least one hygiene workshop at a school " 
+    "1500": "With this amount you will support us e.g. with at least 20 liters of soap for schools", 
+    "2000": " With this amount you will support us e.g. with at least one water filter for a family ", 
+    "5000": " With this amount you will support us e.g. with at least 50 trees ", 
+    "8000": " With this amount you will support us e.g. with at least one hygiene workshop at a school " 
   }, 
   "amount": { 
     "label": " You want to donate a different amount? No problem!", 
@@ -202,10 +202,10 @@
     "text": " Your donation of {0}{1}", 
     "example": { 
       "default": " enables for example in our project country Uganda, even more people to get access to clean drinking water", 
-      "soap": " among other things, provided at least 20 liters of soap for schools in our project country Uganda.", 
-      "filter": " donated among other things, a water filter to another family in our project country Uganda.", 
-      "trees": " planted among others things, in our project country Uganda at least 50 trees.", 
-      "workshop": " facilitated among other things, another hygiene workshop at a school in our project country Uganda." 
+      "1500": " among other things, provided at least 20 liters of soap for schools in our project country Uganda.", 
+      "2000": " donated among other things, a water filter to another family in our project country Uganda.", 
+      "5000": " planted among others things, in our project country Uganda at least 50 trees.", 
+      "8000": " facilitated among other things, another hygiene workshop at a school in our project country Uganda." 
     } 
   }, 
   "next": { 
