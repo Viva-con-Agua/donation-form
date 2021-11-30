@@ -2,8 +2,8 @@
     <div class="stepone">
 
         <div class="slider-box">
-            <CupSlider v-if="slider && slider.name == 'faucet'" />
-            <FaucetSlider v-if="slider && slider.name == 'cups'"/>
+            <CupSlider v-if="slider && slider.name == 'cups'" />
+            <FaucetSlider v-if="slider && slider.name == 'faucet'"/>
         </div>
 
         <Amount ref="amount" />
