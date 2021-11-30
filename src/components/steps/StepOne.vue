@@ -2,7 +2,8 @@
     <div class="stepone">
 
         <div class="slider-box">
-            <FaucetSlider />
+            <CupSlider v-if="slider && slider.name == 'faucet'" />
+            <FaucetSlider v-if="slider && slider.name == 'cups'"/>
         </div>
 
         <Amount ref="amount" />
@@ -18,12 +19,14 @@
 </template>
 <script>
 import FaucetSlider from '@/components/slider/FaucetSlider'
+import CupSlider from '@/components/slider/CupSlider'
 import Amount from '@/components/steps/one/Amount.vue'
 import Abo from '@/components/steps/one/Abo.vue'
 import Interval from '@/components/steps/one/Interval.vue'
+import { mapGetters } from 'vuex'
 export default {
     name: 'StepOne',
-    components: {Amount, Abo, Interval, FaucetSlider},
+    components: {Amount, Abo, Interval, FaucetSlider, CupSlider},
     data() {
         return {
             isValid: true
@@ -38,6 +41,9 @@ export default {
         })
     },
     computed: {
+        ...mapGetters({
+           slider: 'form/slider'
+        }),
         hasSubscription() {
             return this.$store.state.form.current.subscription_types != null
         }
