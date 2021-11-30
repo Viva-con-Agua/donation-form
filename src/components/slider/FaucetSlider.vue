@@ -6,7 +6,7 @@
       </div>
     </vca-card>
     <div class="count">
-      <input type="range" class="slider" :min="amountMin" :max="amountMax" :value="money.amount" step="100" @input="setAmount">
+      <input type="range" class="slider" :min="slider.min" :max="slider.max" :value="money.amount" step="100" @input="setAmount">
     </div>
     <div class="amount">
       <h2>{{ currentAmount }} {{ money.currency }}</h2>
@@ -31,7 +31,7 @@ export default {
     },
     computed: {       
         ...mapGetters({
-           minAmount: 'form/minAmount',
+           slider: 'form/slider',
            examples: 'company/examples'
         }),
         currentAmount() {
@@ -45,12 +45,6 @@ export default {
             let res = this.examples.filter(t => this.money.amount >= t.value)
             return (res.length > 0) ? this.$t(res[0].message) : this.$t('example.default')
 
-        },
-        amountMin() {
-            return this.minAmount
-        },
-        amountMax() {
-            return 10000
         },
         money: {
             get () {
@@ -69,7 +63,7 @@ export default {
     },
     methods: {
         setFaucet(value) {
-            var parts = this.amountMax / this.steps
+            var parts = this.slider.max / this.steps
             let current = Math.max(1, Math.round(value.amount / parts))
             current = Math.min(5, current)
             this.current = current
