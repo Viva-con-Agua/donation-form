@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="count">
-    <input type="range" :min="min_slider" :max="max_slider" :value="money.amount" step="500" @input="setAmount">
+    <input type="range" :min="min_slider" :max="max_slider" :value="money.amount" :step="steps" @input="setAmount">
     </div>
     </div>
 </template>
@@ -28,20 +28,17 @@ export default {
         ...mapGetters({
            slider: 'form/slider'
         }),
-        min_slider: {
-            get () {
-                return this.slider ? this.slider.min : 100
-            }
+        steps() {
+            return this.slider ? this.slider.steps : 100
         },
-        max_slider: {
-            get () {
-                return this.slider ? this.slider.max : 50000
-            }
+        min_slider() {
+            return this.slider ? this.slider.min : 100
         },
-        max_cups: {
-            get () {
-                return this.slider ? this.slider.max / 1000 : 10
-            }
+        max_slider() {
+            return this.slider ? this.slider.max : 50000
+        },
+        max_cups() {
+            return this.slider ? this.slider.max / 1000 : 10
         },
         money: {
             get () {

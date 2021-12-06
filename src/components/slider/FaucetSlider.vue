@@ -6,7 +6,7 @@
       </div>
     </vca-card>
     <div class="count">
-      <input type="range" class="slider" :min="slider.min" :max="slider.max" :value="money.amount" step="100" @input="setAmount">
+      <input type="range" class="slider" :min="slider.min" :max="slider.max" :value="money.amount" :step="steps" @input="setAmount">
     </div>
     <div class="amount">
       <h2>{{ currentAmount }} {{ money.currency }}</h2>
@@ -22,8 +22,7 @@ export default {
     name: 'FaucetSlider',
     data () {
         return {
-            current: 1,
-            steps: 5,
+            current: 1
         }
     },
     created() {
@@ -36,6 +35,9 @@ export default {
         }),
         currentAmount() {
           return (this.money.amount / 100).toLocaleString(this.$i18n.locale)
+        },
+        steps() {
+          return this.slider ? this.slider.steps : 100
         },
         getExample() {
             if (!this.examples) {
