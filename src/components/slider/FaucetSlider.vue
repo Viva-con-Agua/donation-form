@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         setFaucet(value) {
-            var parts = (this.slider.max / this.steps) * 100 / this.maxParts
+            var parts = (this.slider.max / this.maxParts)
             let current = Math.max(1, Math.round(value.amount / parts))
             current = Math.min(this.maxParts, current)
             this.current = current
