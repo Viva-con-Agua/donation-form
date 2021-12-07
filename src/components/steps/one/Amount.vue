@@ -28,17 +28,19 @@ export default {
     },
     data() {
         return {
-            css: "primary-light",
-            threshold: {
-                amount: 10000,
-                css: "main-color"
-            }
+            css: "primary-light"
         }
     },
     computed: {
        ...mapGetters({
+           slider: 'form/slider',
            minAmount: 'form/minAmount'
         }),
+        threshold() {
+            let cssClass = "main-color"
+            let amount = this.slider ? this.slider.max : 10000
+            return { amount: amount, css: cssClass }
+        },
         getCSS() {
             if (this.threshold && this.threshold.amount <= this.money.amount) {
                 return this.threshold.css

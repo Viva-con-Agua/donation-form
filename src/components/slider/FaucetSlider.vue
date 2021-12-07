@@ -22,7 +22,8 @@ export default {
     name: 'FaucetSlider',
     data () {
         return {
-            current: 1
+            current: 1,
+            maxParts: 5
         }
     },
     created() {
@@ -65,9 +66,9 @@ export default {
     },
     methods: {
         setFaucet(value) {
-            var parts = (this.slider.max / this.steps) * 100
+            var parts = (this.slider.max / this.steps) * 100 / this.maxParts
             let current = Math.max(1, Math.round(value.amount / parts))
-            current = Math.min(5, current)
+            current = Math.min(this.maxParts, current)
             this.current = current
         },
         setAmount (e) {
