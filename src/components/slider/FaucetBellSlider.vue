@@ -1,5 +1,5 @@
 <template>
-  <div class="faucetslide">
+  <div class="faucetbellslide">
       <vca-card>
         <div class="images">
           <img :src="getFaucet"/>
@@ -78,7 +78,7 @@ export default {
 }
 </script>
 <style lang="scss">
-  .faucetslide {
+  .faucetbellslide {
 
     input {
       width: 100%;
