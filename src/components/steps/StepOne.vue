@@ -4,6 +4,8 @@
         <div class="slider-box">
             <CupSlider v-if="slider && slider.name == 'cups'" />
             <FaucetSlider v-if="slider && slider.name == 'faucet'"/>
+            <FaucetBellSlider v-if="slider && slider.name == 'faucetbells'"/>
+            <MulledWineSlider v-if="slider && slider.name == 'mulled'" />
         </div>
 
         <Amount ref="amount" />
@@ -19,6 +21,8 @@
 </template>
 <script>
 import FaucetSlider from '@/components/slider/FaucetSlider'
+import FaucetBellSlider from '@/components/slider/FaucetBellSlider'
+import MulledWineSlider from '@/components/slider/MulledWineSlider'
 import CupSlider from '@/components/slider/CupSlider'
 import Amount from '@/components/steps/one/Amount.vue'
 import Abo from '@/components/steps/one/Abo.vue'
@@ -26,7 +30,7 @@ import Interval from '@/components/steps/one/Interval.vue'
 import { mapGetters } from 'vuex'
 export default {
     name: 'StepOne',
-    components: {Amount, Abo, Interval, FaucetSlider, CupSlider},
+    components: {Amount, Abo, Interval, FaucetSlider, CupSlider, MulledWineSlider, FaucetBellSlider},
     data() {
         return {
             isValid: true
