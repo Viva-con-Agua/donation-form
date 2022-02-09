@@ -1,12 +1,7 @@
 <template>
     <div class="stepone">
 
-        <div class="slider-box">
-            <CupSlider v-if="slider && slider.name == 'cups'" />
-            <FaucetSlider v-if="slider && slider.name == 'faucet'"/>
-            <FaucetBellSlider v-if="slider && slider.name == 'faucetbells'"/>
-            <MulledWineSlider v-if="slider && slider.name == 'mulled'" />
-        </div>
+        <Slider/>
 
         <Amount ref="amount" />
 
@@ -20,17 +15,13 @@
 
 </template>
 <script>
-import FaucetSlider from '@/components/slider/FaucetSlider'
-import FaucetBellSlider from '@/components/slider/FaucetBellSlider'
-import MulledWineSlider from '@/components/slider/MulledWineSlider'
-import CupSlider from '@/components/slider/CupSlider'
+import Slider from '@/components/slider/Slider'
 import Amount from '@/components/steps/one/Amount.vue'
 import Abo from '@/components/steps/one/Abo.vue'
 import Interval from '@/components/steps/one/Interval.vue'
-import { mapGetters } from 'vuex'
 export default {
     name: 'StepOne',
-    components: {Amount, Abo, Interval, FaucetSlider, CupSlider, MulledWineSlider, FaucetBellSlider},
+    components: {Amount, Abo, Interval, Slider},
     data() {
         return {
             isValid: true
@@ -45,9 +36,6 @@ export default {
         })
     },
     computed: {
-        ...mapGetters({
-           slider: 'form/slider'
-        }),
         hasSubscription() {
             return this.$store.state.form.current.subscription_types != null
         }
@@ -60,9 +48,3 @@ export default {
     },
 }
 </script>
-<style lang="scss" scoped>
-.slider-box {
-    width: 85%;
-    margin: auto;
-}
-</style>
