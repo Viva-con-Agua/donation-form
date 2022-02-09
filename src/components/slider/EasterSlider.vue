@@ -1,5 +1,5 @@
 <template>
-  <div class="faucetslide donation-slider">
+  <div class="easterslide donation-slider">
       <vca-card>
         <div class="images">
           <img :src="getFaucet"/>
@@ -19,7 +19,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-    name: 'FaucetSlider',
+    name: 'EasterSlider',
     data () {
         return {
             current: 1,
@@ -78,13 +78,14 @@ export default {
 }
 </script>
 <style lang="scss">
-  .faucetslide {
+  .easterslide {
 
     .count {
+      
       .slider::-moz-range-thumb {
         width: 50px;
         height: 50px;
-        background-image: url("~@/assets/img/slider/faucet/drop.png");
+        background-image: url("~@/assets/img/slider/easter/drop.png");
         background-position: center;
         background-size: cover;
         background-color: transparent;
@@ -99,11 +100,12 @@ export default {
         appearance: none;
         width: 50px;
         height: 50px;
-        background-image: url("~@/assets/img/slider/faucet/drop.png");
+        background-image: url("~@/assets/img/slider/easter/drop.png");
         background-position: center;
         background-size: cover;
         cursor: pointer;
       }
     }
+
   }
 </style>
