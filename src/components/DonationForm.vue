@@ -98,7 +98,7 @@ export default {
 <style lang="scss">
     .desktop-view {
         display: block;
-        @include media(small) {
+        @include media(500px) {
             display: none;
         }
     }
