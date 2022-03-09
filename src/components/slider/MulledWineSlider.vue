@@ -1,6 +1,6 @@
 <template>
   <div class="mulledslide donation-slider">
-      <vca-card>
+      <vca-card class="desktop-view">
         <div class="images">
           <img :src="getMulled"/>
       </div>

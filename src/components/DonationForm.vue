@@ -96,6 +96,34 @@ export default {
 }
 </script>
 <style lang="scss">
+    .desktop-view {
+        display: block;
+        @include media(small) {
+            display: none;
+        }
+    }
+    .checkbox-text {
+        @include media(small) {
+            font-size: 0.85em;
+        }
+    }
+    .vca-field .vca-field-label label {
+        font-size: 1em !important;
+        @include media(large) {
+            font-size: 1.25em !important;
+        }
+    }
+    .mobile-view {
+        display: none;
+        @include media(small) {
+            display: contents;
+        }
+    }
+    .vca-card, .vca-field {
+        @include media(small) {
+            padding: 0.3em !important;
+        }
+    }
     .arr-btn-box {
         width: max-content;
     }
