@@ -275,6 +275,9 @@ export default {
 .steptwo {
     .color-grey {
         color: #ccc;
+        @include media(small) {
+            font-size: 0.95em;
+        }
     }
 }
 </style>
