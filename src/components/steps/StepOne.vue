@@ -43,7 +43,7 @@ export default {
     },
     computed: {
         hasSubscription() {
-            return this.$store.state.form.current.subscription_types != null
+            return this.$store.state.form.current.subscription_types != null && this.$store.state.form.current.subscription_types.length > 0
         },
         ...mapGetters({
             setting: 'setting'
