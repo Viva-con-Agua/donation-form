@@ -1,5 +1,5 @@
 <template>
-    <vca-card class="payment-footer">
+    <div class="payment-footer">
         <p>
             {{ $t('information.label') }}
             <ul v-if="setting == 'nwt'">
@@ -13,7 +13,7 @@
                 <li>{{ $t('information.info_4') }}</li>
             </ul>
         </p>
-    </vca-card>
+    </div>
 
 </template>
 <script>
@@ -29,6 +29,8 @@ export default {
 </script>
 <style lang="scss">
 .payment-footer {
+
+    padding: 10px;
     
     display: block;
     ul {
@@ -37,6 +39,9 @@ export default {
 
         li {
             padding: 0;
+            @include media(small) {
+                font-size: .95em;
+            }
         }
 
         li:before {

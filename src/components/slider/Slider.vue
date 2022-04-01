@@ -34,8 +34,12 @@ export default {
 </script>
 <style lang="scss">
     .slider-box {
-        width: 85%;
+        width: 95%;
+        padding: 20px 0 0 0;
         margin: auto;
+        @include media(large) {
+            width: 85%;
+        }
     }
 
     .donation-slider {
