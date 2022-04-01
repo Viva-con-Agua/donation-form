@@ -17,6 +17,7 @@ export default new Vuex.Store({
     },
     state: {
         loading: false,
+        setting: "",
         currentMsg: null,
         product: 'prod_HZW4PLYJeuxnyC',
         isCompany: false,
@@ -40,6 +41,9 @@ export default new Vuex.Store({
         },
         isCompany(state, value) {
             state.isCompany = value
+        },
+        setting(state, value) {
+            state.setting = value
         }
     },
     getters: {
@@ -63,6 +67,9 @@ export default new Vuex.Store({
         },
         payment(state) {
             return state.payment
+        },
+        setting(state) {
+            return state.setting
         }
     },
     actions: {

@@ -1,6 +1,6 @@
 <template>
   <div class="wwdslide donation-slider">
-      <vca-card>
+      <vca-card class="desktop-view">
         <div class="images">
           <img :src="getFaucet"/>
       </div>
@@ -11,7 +11,7 @@
     <div class="amount">
       <h2>{{ currentAmount }} {{ money.currency }}</h2>
     </div>
-    <h3 class="main-color">
+    <h3 v-if="setting != 'nwt'" class="main-color">
       {{ getExample }}
     </h3>
   </div>
@@ -32,6 +32,7 @@ export default {
     computed: {       
         ...mapGetters({
            slider: 'form/slider',
+           setting: 'setting',
            examples: 'company/examples'
         }),
         currentAmount() {

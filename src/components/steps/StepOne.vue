@@ -1,6 +1,11 @@
 <template>
     <div class="stepone">
 
+        <div v-if="setting == 'nwt'" class="highlight vca-center vca-column" >
+            <h2 class="text-center">{{ $t('nwt.header') }}</h2>
+            <h3 class="text-center" v-html="$t('nwt.infotext')"></h3>
+        </div>
+
         <Slider/>
 
         <Amount ref="amount" />
@@ -15,6 +20,7 @@
 
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import Slider from '@/components/slider/Slider'
 import Amount from '@/components/steps/one/Amount.vue'
 import Abo from '@/components/steps/one/Abo.vue'
@@ -37,8 +43,11 @@ export default {
     },
     computed: {
         hasSubscription() {
-            return this.$store.state.form.current.subscription_types != null
-        }
+            return this.$store.state.form.current.subscription_types != null && this.$store.state.form.current.subscription_types.length > 0
+        },
+        ...mapGetters({
+            setting: 'setting'
+        })
     },
     methods: {
         submit() {

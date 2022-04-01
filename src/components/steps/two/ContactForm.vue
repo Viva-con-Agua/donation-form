@@ -41,14 +41,14 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    v-if="!isCompany && settings != 'at'"
+                    v-if="!isCompany && language != 'at' && setting != 'nwt'"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
 
                 <div v-if="additional">
 
-                    <div v-if="settings == 'at' && !isCompany">
+                    <div v-if="language == 'at' && !isCompany">
                         <span>{{ $t('contactform.birthdate.label') }}</span>
                         <vca-row>
                             <vca-input-date
@@ -118,14 +118,15 @@ import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
     created() {
-        if (this.settings == 'at') {
+        if (this.language == 'at' || this.setting == 'nwt') {
             this.additional = true
         }
     },
     computed: {
        ...mapGetters({
            isCompany: 'isCompany',
-           settings: 'company/settings'
+           setting: 'setting',
+           language: 'company/settings'
         }),
         anonymous: {
             get () {
@@ -152,12 +153,12 @@ export default {
             }
         },
         countryCode() {
-            return this.settings == 'at' ? 'AT' : 'DE'
+            return this.language == 'at' ? 'AT' : 'DE'
         }
     },
     watch:{
         isCompany: function(val) {
-            if (val || this.settings == 'at') {
+            if (val || this.language == 'at') {
                 this.additional = true
             } else {
                 this.additional = false
@@ -200,7 +201,7 @@ export default {
             }
         } else {
             if (this.additional) {
-                if (this.settings == 'at') {
+                if (this.language == 'at') {
                     return {
                         anonymous: {
                             email: {
@@ -275,6 +276,9 @@ export default {
 .steptwo {
     .color-grey {
         color: #ccc;
+        @include media(small) {
+            font-size: 0.95em;
+        }
     }
 }
 </style>

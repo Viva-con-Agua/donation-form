@@ -1,5 +1,5 @@
 <template>
-    <vca-field class="typo-roboto" :label="$t('amount.label')">
+    <vca-field class="typo-roboto" :label="getLabel">
         <vca-money-input 
             ref="money"
             v-model="money"
@@ -34,8 +34,16 @@ export default {
     computed: {
        ...mapGetters({
            slider: 'form/slider',
+           setting: 'setting',
            minAmount: 'form/minAmount'
         }),
+        getLabel() {
+            if (this.setting == 'nwt') {
+                return this.$t('amount.label.pay')
+            } else {
+                return this.$t('amount.label.donate')
+            }
+        },
         threshold() {
             let cssClass = "main-color"
             let amount = this.slider ? this.slider.max : 10000

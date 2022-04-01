@@ -2,7 +2,7 @@
     <vca-card>
         <h1 class="text-center">{{ $t('thanks.header') }}</h1>
         <h2 class="text-center">{{ $t('thanks.subheader') }}</h2>
-        <p class="text-center" v-if="getExample">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
+        <p class="text-center" v-if="getExample && setting != 'nwt'">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
     </vca-card>
  </template> 
 
@@ -13,6 +13,7 @@ export default {
     computed: {
        ...mapGetters({
            money: 'payment/money',
+           setting: 'setting',
            examples: 'company/examples'
         }),
         getAmount() {

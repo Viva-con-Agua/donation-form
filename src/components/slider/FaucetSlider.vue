@@ -1,20 +1,20 @@
 <template>
-  <div class="faucetslide donation-slider">
-      <vca-card>
-        <div class="images">
-          <img :src="getFaucet"/>
-      </div>
-    </vca-card>
-    <div class="count">
-      <input type="range" class="slider" :min="slider.min" :max="slider.max" :value="money.amount" :step="steps" @input="setAmount">
+    <div class="faucetslide donation-slider">
+        <vca-card class="desktop-view">
+            <div class="images">
+                <img :src="getFaucet"/>
+            </div>
+        </vca-card>
+        <div class="count">
+            <input type="range" class="slider" :min="slider.min" :max="slider.max" :value="money.amount" :step="steps" @input="setAmount">
+        </div>
+        <div class="amount">
+            <h2>{{ currentAmount }} {{ money.currency }}</h2>
+        </div>
+        <h3 v-if="setting != 'nwt'" class="main-color">
+            {{ getExample }}
+        </h3>
     </div>
-    <div class="amount">
-      <h2>{{ currentAmount }} {{ money.currency }}</h2>
-    </div>
-    <h3 class="main-color">
-      {{ getExample }}
-    </h3>
-  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -32,6 +32,7 @@ export default {
     computed: {       
         ...mapGetters({
            slider: 'form/slider',
+           setting: 'setting',
            examples: 'company/examples'
         }),
         currentAmount() {

@@ -42,10 +42,15 @@ export default {
         lang: {
             type: String,
             default: "de"
+        },
+        setting: {
+            type: String,
+            default: "de"
         }
     },
     created() {
         this.$store.commit('loadingFlow')
+        this.$store.commit('setting', this.setting)
         this.$store.dispatch({type: 'init', data: this.donation_form_id})
             .then(resp => {console.log(resp)})
             .catch(error => {console.log(error)})
@@ -73,7 +78,11 @@ export default {
             loadingFlow: 'loadingFlow'
         }),
         getText() {
-            return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
+            if(this.setting == 'nwt') {
+                return this.$t('headline.nwt')
+            } else {
+                return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
+            }
         }
     },
     methods: {
@@ -96,6 +105,34 @@ export default {
 }
 </script>
 <style lang="scss">
+    .desktop-view {
+        display: block;
+        @include media(500px) {
+            display: none;
+        }
+    }
+    .checkbox-text {
+        @include media(small) {
+            font-size: 0.85em;
+        }
+    }
+    .vca-field .vca-field-label label {
+        font-size: 1em !important;
+        @include media(large) {
+            font-size: 1.25em !important;
+        }
+    }
+    .mobile-view {
+        display: none;
+        @include media(small) {
+            display: contents;
+        }
+    }
+    .vca-card, .vca-field {
+        @include media(small) {
+            padding: 0.3em !important;
+        }
+    }
     .arr-btn-box {
         width: max-content;
     }

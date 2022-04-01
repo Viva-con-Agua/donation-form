@@ -1,25 +1,36 @@
 <template>
-    <vca-card class="payment-footer">
+    <div class="payment-footer">
         <p>
             {{ $t('information.label') }}
-            <ul>
+            <ul v-if="setting == 'nwt'">
+                <li>{{ $t('information_nwt.info_1') }}</li>
+                <li>{{ $t('information_nwt.info_2') }}</li>
+            </ul>
+            <ul v-else>
                 <li>{{ $t('information.info_1') }}</li>
                 <li>{{ $t('information.info_2') }}</li>
                 <li>{{ $t('information.info_3') }}</li>
                 <li>{{ $t('information.info_4') }}</li>
             </ul>
         </p>
-    </vca-card>
+    </div>
 
 </template>
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    computed: {
+        ...mapGetters({
+            setting: 'setting'
+        })
+    }
 }
 </script>
 <style lang="scss">
 .payment-footer {
+
+    padding: 10px;
     
     display: block;
     ul {
@@ -28,6 +39,9 @@ export default {
 
         li {
             padding: 0;
+            @include media(small) {
+                font-size: .95em;
+            }
         }
 
         li:before {
