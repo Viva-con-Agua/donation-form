@@ -28,13 +28,18 @@ export default {
     },
     computed: {
         ...mapGetters({
+            setting: 'setting',
             payment: 'payment/payment_id',
             money: 'payment/money',
             abo: 'payment/abo',
             paymentType: 'payment/payment_type'
         }),
         getLabel() {
-            return this.$t('payment.submit', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
+            if (this.setting == 'nwt') {
+                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})   
+            } else {
+                return this.$t('payment.submit.donate', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
+            }
         }
     },
     methods: {

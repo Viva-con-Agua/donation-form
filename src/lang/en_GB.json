@@ -49,7 +49,10 @@
       "text": "Unfortunately, we have not found a suitable donation form.<br/>Please send us a short message where the error occurred to <strong>kontakt@vivaconagua.org</strong> so that we can fix the problem."
     }
   },
-  "headline": { 
+  "headline": {
+    "pay": "PAYMENT FOR VIVA CON AGUA",
+    "paid": "THANK YOU FOR YOUR PAYMENT FOR VIVA CON AGUA",
+    "nwt": "PARTICIPATE AT OUR NETWORK GATHERING", 
     "donate": "DONATE NOW FOR CLEAN DRINKING WATER", 
     "thanks": "THANK YOU FOR YOUR DONATION FOR CLEAN DRINKING WATER" 
   }, 
@@ -59,6 +62,11 @@
     "payment": "Payment", 
     "thanks": "Thank you!" 
   }, 
+  "information_nwt": { 
+    "label": "Important information:", 
+    "info_1": "For further information you can always contact kontakt@vivaconagua.org", 
+    "info_2": "As this is a participation fee, the amount is not tax deductible"
+  },
   "information": { 
     "label": "Important information:", 
     "info_1": "Monthly donations can be canceled at any time.", 
@@ -85,6 +93,10 @@
       "minAmount": " Please select at least one amount from {0} {1} " 
     } 
   }, 
+  "nwt": {
+    "header": "IMPORTANT INFO",
+    "infotext": "We are thrilled that you have been selected to join us at this year's network meeting.<br/>Now only the last step is missing - the payment.<br/>If you are one of the lucky ones who can come, please select the amount once below and click continue.<br/>Attention: Please use a payment service provider under your name for the payment.<br/><br/><h3 class='vca-center'>If, unfortunately, you were not selected:</h3><br/>This is only the payment system. Selected participants have already been notified. If you are not one of them, we are very sorry. Payment here does not lead to registration."
+  },
   "abo": { 
     "label": " How often do you want to donate?", 
     "no": " One time ", 
@@ -99,7 +111,10 @@
     "quarterly": "4x a year" 
   }, 
   "paymentselection": { 
-    "label": "I will donate via" 
+    "label": {
+      "donate": "I will donate via",
+      "pay": "I will pay via"
+    }
   }, 
   "contacttypeselection": { 
     "label": " I donate as a", 
@@ -186,7 +201,10 @@
     "submit": " Donate {0} {1} now " 
   }, 
   "policies": { 
-    "label": " With your donation you confirm to have read the {0}.", 
+    "label": {
+      "donate": "With your donation you confirm to have read the {0}.",
+      "nwt": "With your payment you confirm to have read the {0}."
+    },
     "data": { 
       "label": " Privacy policy ", 
       "url": "https://www.vivaconagua.org/datenschutzerklaerung" 
@@ -211,6 +229,7 @@
   "next": { 
     "label": " This is how it continues ", 
     "email": " You will receive a confirmation email from us immediately.", 
+    "nwt": "You will receive a payment confirmation from us immediately.<br/>We will reconcile the payments with the guest list and send you a final registration confirmation in the next few days.<br/>Also, feel free to check your spam folder again if you don't receive it.<br/><strong>For more information you can always contact us at kontakt@vivaconagua.org.</strong><br/><br/>We look forward to spending time together!",
     "receipt": " You will receive your donation receipts in February next year. <br/>If you need it sooner, you can always contact us at <strong>spenden@vivaconagua.org</strong>.",     
     "newsletter": { 
       "text": " In the meantime, you can sign up for our newsletter. Note: We currently only send our newsletter in German.", 

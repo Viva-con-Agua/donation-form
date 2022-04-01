@@ -11,10 +11,11 @@
         <div class="amount">
             <h2>{{ currentAmount }} {{ money.currency }}</h2>
         </div>
-        <h3 class="main-color">
+        <h3 v-if="setting != 'nwt'" class="main-color">
             {{ getExample }}
         </h3>
     </div>
+  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -32,6 +33,7 @@ export default {
     computed: {       
         ...mapGetters({
            slider: 'form/slider',
+           setting: 'setting',
            examples: 'company/examples'
         }),
         currentAmount() {

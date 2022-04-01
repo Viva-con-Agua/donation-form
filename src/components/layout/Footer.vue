@@ -2,7 +2,11 @@
     <div class="payment-footer">
         <p>
             {{ $t('information.label') }}
-            <ul>
+            <ul v-if="setting == 'nwt'">
+                <li>{{ $t('information_nwt.info_1') }}</li>
+                <li>{{ $t('information_nwt.info_2') }}</li>
+            </ul>
+            <ul v-else>
                 <li>{{ $t('information.info_1') }}</li>
                 <li>{{ $t('information.info_2') }}</li>
                 <li>{{ $t('information.info_3') }}</li>
@@ -13,9 +17,14 @@
 
 </template>
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    computed: {
+        ...mapGetters({
+            setting: 'setting'
+        })
+    }
 }
 </script>
 <style lang="scss">

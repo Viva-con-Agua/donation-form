@@ -1,11 +1,12 @@
 <template>
     <div class="steptwo">
-        <ContactTypeSelect />
+        <ContactTypeSelect v-if="setting !== 'nwt'" />
         <ContactForm ref="contactdata" />
         <vca-arrow-navigation @next="submit" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import ContactTypeSelect from '@/components/steps/two/ContactTypeSelect'
 import ContactForm from '@/components/steps/two/ContactForm'
 export default {
@@ -26,6 +27,11 @@ export default {
                 this.isValid = !val
             }
         )
+    },
+    computed: {
+        ...mapGetters({
+            setting: 'setting'
+        })
     },
     methods: {
         back() {
