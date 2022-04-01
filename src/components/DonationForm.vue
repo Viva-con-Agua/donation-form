@@ -68,7 +68,7 @@ export default {
     data() {
         return {
             iserror: false,
-            step: 3,
+            step: 1,
             steps: []
         }
     },
