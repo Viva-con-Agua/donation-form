@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vca-field :label="$t('paymentselection.label')">
+        <vca-field :label="getLabel">
             <div class="selection-button-box">
                 <button v-for="(current, index) in paymentTypes" :key="index" :class="{ 'selected': getPaymentType(current.name)}" class="selection-button" @click.prevent="setPaymentType(current.name)">{{ $t(current.title) }}
                     <img src="~@/assets/img/payment/creditcard.png" class="paymenttype-icon" v-if="current.name == 'creditcard'"/>
@@ -31,6 +31,13 @@ export default {
        ...mapGetters({
            paymentTypes: 'form/paymentTypes'
         }),
+        getLabel() {
+            if (this.setting == 'nwt') {
+                return this.$t('paymentselection.label.pay')
+            } else {
+                return this.$t('paymentselection.label.donate')
+            }
+        },
         paymentType: {
             get () {
                 return this.$store.state.payment.payment_type

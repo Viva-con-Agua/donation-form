@@ -50,6 +50,9 @@
     }
   },
   "headline": {
+    "pay": "ZAHLUNG AN VIVA CON AGUA",
+    "nwt": "NIMM JETZT AM NETZWERKTREFFEN TEIL",
+    "paid": "DANKE FÜR DEINE ZAHLUNG AN VIVA CON AGUA",
     "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
     "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
   },
@@ -66,6 +69,11 @@
     "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
     "info_4": "Viva con Agua de Sankt Pauli e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt. Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
   },
+  "information_nwt": {
+    "label": "Hinweise:",
+    "info_1": "Für weitere Infos kannst du dich jederzeit an kontakt@vivaconagua.org wenden",
+    "info_2": "Da dies eine Teilnahmegebühr ist, ist der Betrag nicht steuerlich absetzbar"
+  },
   "buttons": {
     "next": "Weiter",
     "back": "Zurück"
@@ -78,12 +86,19 @@
     "8000": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
   },
   "amount": {
-    "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
+    "label": {
+      "donate": "Du willst einen anderen Betrag spenden? Kein Problem!",
+      "pay": "Du willst einen anderen Betrag geben? Kein Problem!"
+    },
     "toptext": "anderer Betrag",
     "error": {
       "default": "Bitte wähle einen Betrag aus",
       "minAmount": "Bitte wähle mindestens einen Betrag von {0} {1} aus"
     }
+  },
+  "nwt": {
+    "header": "WICHTIGE INFO",
+    "infotext": "Wir freuen uns riesig, dass du ausgewählt wurdest, beim diesjährigen Netzwerktreffen mit dabei zu sein.<br/>Nun fehlt nur noch der letzte Schritt - die Bezahlung.<br/>Falls du zu den Glücklichen gehörst, die kommen können, dann wähle unten bitte einmal den Betrag aus und klicke auf weiter.<br/>Achtung: Bitte benutze für die Zahlung einen Zahlungsdienstleister unter deinem Namen.<br/><br/><h3 class='vca-center'>Falls du leider nicht ausgewählt wurdest:</h3><br/>Dies ist lediglich das Bezahlsystem. Ausgewählte Teilnehmer*innen wurden bereits benachrichtigt. Falls du nicht dazu gehörst, tut uns das sehr leid. Eine Bezahlung hier führt nicht zu einer Anmeldung."
   },
   "abo": {
     "label": " Wie häufig willst du spenden?",
@@ -99,7 +114,10 @@
     "quarterly": "4x im Jahr"
   },
   "paymentselection": {
-    "label": "Ich spende via"
+    "label": {
+      "donate": "Ich spende via",
+      "pay": "Ich zahle via"
+    }
   },
   "contacttypeselection": {
     "label": "Ich spende als",
@@ -183,10 +201,16 @@
         "error": "Bitte bestätige die Einzugsermächtigung"
       }
     },
-    "submit": "Jetzt {0} {1} spenden"
+    "submit": {
+      "donate": "Jetzt {0} {1} spenden",
+      "pay": "Jetzt {0} {1} zahlen"
+    }
   },
   "policies": {
-    "label": "Mit deiner Spende bestätigst du, die {0} gelesen zu haben.",
+    "label": {
+      "donate": "Mit deiner Spende bestätigst du, die {0} gelesen zu haben.",
+      "nwt": "Mit deiner Zahlung bestätigst du, die {0} gelesen zu haben."
+    },
     "data": {
       "label": "Datenschutzerklärung",
       "url": "https://www.vivaconagua.org/datenschutzerklaerung"
@@ -211,6 +235,7 @@
   "next": {
     "label": "So geht es weiter",
     "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
+    "nwt": "Du erhältst gleich eine Zahlungsbestästigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter kontakt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
     "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",

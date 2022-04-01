@@ -42,10 +42,15 @@ export default {
         lang: {
             type: String,
             default: "de"
+        },
+        setting: {
+            type: String,
+            default: "de"
         }
     },
     created() {
         this.$store.commit('loadingFlow')
+        this.$store.commit('setting', this.setting)
         this.$store.dispatch({type: 'init', data: this.donation_form_id})
             .then(resp => {console.log(resp)})
             .catch(error => {console.log(error)})
@@ -63,7 +68,7 @@ export default {
     data() {
         return {
             iserror: false,
-            step: 1,
+            step: 3,
             steps: []
         }
     },
@@ -73,7 +78,11 @@ export default {
             loadingFlow: 'loadingFlow'
         }),
         getText() {
-            return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
+            if(this.setting == 'nwt') {
+                return this.$t('headline.nwt')
+            } else {
+                return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
+            }
         }
     },
     methods: {
