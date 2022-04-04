@@ -1,8 +1,7 @@
 <template>
     <div class="steptwo">
         <vca-field :label="$t('contactform.label')">
-                
-                <div class="vca-row">
+                <div v-if="!urlEmail" class="vca-row">
                     <vca-input
                         ref="email"
                         :errorMsg="$t('contactform.email.error')"
@@ -128,6 +127,9 @@ export default {
            setting: 'setting',
            language: 'company/settings'
         }),
+        urlEmail() {
+            return (this.$route.query.email != null)
+        },
         anonymous: {
             get () {
                 return this.$store.state.payment.contact
