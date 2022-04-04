@@ -46,11 +46,20 @@ export default {
         setting: {
             type: String,
             default: "de"
+        },
+        email: {
+            type: String,
+            default: null
         }
     },
     created() {
         this.$store.commit('loadingFlow')
         this.$store.commit('setting', this.setting)
+
+        if (this.email) {
+            this.$store.commit('payment/email', this.email)
+        }
+
         this.$store.dispatch({type: 'init', data: this.donation_form_id})
             .then(resp => {console.log(resp)})
             .catch(error => {console.log(error)})

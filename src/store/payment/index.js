@@ -69,6 +69,9 @@ const payment = {
         abo(state, val) {
             state.abo = val
         },
+        email(state, val) {
+            state.contact.email = val
+        },
         donation_receipt(state, val) {
             state.donation_receipt = val
         }
