@@ -51,7 +51,7 @@
   },
   "headline": {
     "pay": "ZAHLUNG AN VIVA CON AGUA",
-    "nwt": "NIMM JETZT AM NETZWERKTREFFEN TEIL",
+    "nwt": "NIMM JETZT AM VIVA CON_festival TEIL",
     "paid": "DANKE FÜR DEINE ZAHLUNG AN VIVA CON AGUA",
     "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
     "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
@@ -71,7 +71,7 @@
   },
   "information_nwt": {
     "label": "Hinweise:",
-    "info_1": "Für weitere Infos kannst du dich jederzeit an kontakt@vivaconagua.org wenden",
+    "info_1": "Für weitere Infos kannst du dich jederzeit an netzwerk@vivaconagua.org wenden",
     "info_2": "Da dies eine Teilnahmegebühr ist, ist der Betrag nicht steuerlich absetzbar"
   },
   "buttons": {
@@ -98,7 +98,11 @@
   },
   "nwt": {
     "header": "WICHTIGE INFO",
-    "infotext": "Wir freuen uns riesig, dass du ausgewählt wurdest, beim diesjährigen Netzwerktreffen mit dabei zu sein.<br/>Nun fehlt nur noch der letzte Schritt - die Bezahlung.<br/>Falls du zu den Glücklichen gehörst, die kommen können, dann wähle unten bitte einmal den Betrag aus und klicke auf weiter.<br/>Achtung: Bitte benutze für die Zahlung einen Zahlungsdienstleister unter deinem Namen.<br/><br/><h3 class='vca-center'>Falls du leider nicht ausgewählt wurdest:</h3><br/>Dies ist lediglich das Bezahlsystem. Ausgewählte Teilnehmer*innen wurden bereits benachrichtigt. Falls du nicht dazu gehörst, tut uns das sehr leid. Eine Bezahlung hier führt nicht zu einer Anmeldung."
+    "sliderinfo": "Info zur Preisgestaltung: 199€ wären Kostendeckend.  Dann lass uns doch z.B. 50/50 machen. 50 Prozent gehen auf uns und 50 % gibst du dazu.", 
+    "infotext": "Cool, dass du bei dem diesjährien VIVA CON_festival dabei bist. Nun trennt dich nur noch die Bezahlung von der Vofreude auf das<br/> VIVA CON_festival<br/> Also, schnell weiter klicken. Der Link ist 14 Tage aktiv. Danach wird dein Platz weitergegeben.<br/><br/>Fall du leider nicht ausgewählt wurdest: <br/> Dies ist lediglich das Bezahlsystem. Ausgewählte Teilnehmer*innen wurden bereits benachrichtigt. Falls du nicht dazu gehörst, tut uns das sehr leid. Eine Bezahlung hier führt nicht zu einer Anmeldung...",
+    "thanks": {
+        "subheader": "COOL, DASS DU DABEI BIST UND DANKE FÜR DEIN VERTRAUEN!"
+    }
   },
   "abo": {
     "label": " Wie häufig willst du spenden?",
@@ -235,7 +239,7 @@
   "next": {
     "label": "So geht es weiter",
     "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
-    "nwt": "Du erhältst gleich eine Zahlungsbestätigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter kontakt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
+    "nwt": "Du erhältst gleich eine Zahlungsbestätigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter netzwerkt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
     "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
