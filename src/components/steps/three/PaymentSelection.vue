@@ -28,7 +28,8 @@ export default {
     components: {StripePaymentSepa, CiviPaymentSEPA, StripePaymentCreditCard, PayPalButton},
     props: ['product'],
     computed: {
-       ...mapGetters({
+        ...mapGetters({
+            setting: 'setting',
            paymentTypes: 'form/paymentTypes'
         }),
         getLabel() {
