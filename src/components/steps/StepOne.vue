@@ -7,7 +7,7 @@
         </div>
 
         <Slider/>
-        <div v-if="setting== 'nwt'" class="text-center"> 
+        <div v-if="setting!='nwt'" class="text-center"> 
             <span class="secondary-light">{{ $t('nwt.sliderinfo') }}</span>       
         </div>
         <Amount ref="amount" />
