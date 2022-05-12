@@ -33,6 +33,7 @@ const payment = {
         },
         payment_type: "",
         interval: "monthly",
+        publish: "none",
         country: [],
         abo: false,
         donation_receipt: false
@@ -74,6 +75,9 @@ const payment = {
         },
         donation_receipt(state, val) {
             state.donation_receipt = val
+        },
+        publish(state, val) {
+            state.publish = val
         }
     },
     getters: {
@@ -114,7 +118,8 @@ const payment = {
             var data = {
                 money: state.money,
                 contact: state.contact,
-                donation_form_id: rootState.form.current.id
+                donation_form_id: rootState.form.current.id,
+                publish: state.publish
             }
             data.contact.country = country
             return new Promise((resolve, reject) => {
