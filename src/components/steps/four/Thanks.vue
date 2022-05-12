@@ -4,7 +4,7 @@
             <h1 class="text-center">{{ $t('thanks.header') }}</h1>
             <h2 class="text-center">{{ $t('thanks.subheader') }}</h2>
         </div>
-        <div vif="setting == 'nwt'">
+        <div v-if="setting == 'nwt'">
             <h2 class="text-center">{{ $t('nwt.thanks.subheader')}}</h2>
         </div>
         <p class="text-center" v-if="getExample && setting != 'nwt'">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
