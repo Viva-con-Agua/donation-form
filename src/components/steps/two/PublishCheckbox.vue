@@ -3,20 +3,21 @@
         <form>
             <div class="vca-row">
                 <div>
-                <input type="radio" id="anonym" v-model="publish" value="anonym">
-                <label for="anonym"> {{ $t('publish.anonym') }}</label>
-            </div>
-            <div>
-            <input type="radio" id="yes" v-model="publish" value="yes">
-            <label for="yes"> {{ $t('publish.yes') }}</label>
+                    <input type="radio" id="yes" v-model="publish" value="yes">
+                    <label for="yes"> {{ $t('publish.yes') }}</label>
+                </div>
+                <div>
+                    <input type="radio" id="anonym" v-model="publish" value="anonym">
+                    <label for="anonym"> {{ $t('publish.anonym') }}</label>
+                </div>
+
+                <!--div>
+                <input type="radio" id="none" v-model="publish" value="none">
+                <label for="none"> {{ $t('publish.none') }}</label>
+            </div-->
         </div>
-        <div>
-            <input type="radio" id="none" v-model="publish" value="none">
-            <label for="none"> {{ $t('publish.none') }}</label>
-        </div>
-        </div>
-        </form>
-    </vca-field>
+    </form>
+</vca-field>
 </template>
 <script>
 export default {
@@ -30,7 +31,7 @@ export default {
                 this.$store.commit('payment/publish', value)
             }
         }
-        
+
     }
 }
 </script>

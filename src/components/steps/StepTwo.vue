@@ -2,7 +2,7 @@
     <div class="steptwo">
         <ContactTypeSelect v-if="setting !== 'nwt'" />
         <ContactForm ref="contactdata" />
-        <PublishCheckbox/>
+        <PublishCheckbox v-if="setting == 'twitch'"/>
         <vca-arrow-navigation @next="submit" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 </template>

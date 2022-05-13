@@ -33,7 +33,7 @@ const payment = {
         },
         payment_type: "",
         interval: "monthly",
-        publish: "none",
+        publish: "anonym",
         country: [],
         abo: false,
         donation_receipt: false
