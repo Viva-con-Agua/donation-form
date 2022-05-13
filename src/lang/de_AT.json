@@ -287,5 +287,11 @@
       "language": "Sprache",
       "contact": "Kontakt"
     }
+  },
+  "publish":{
+      "label": "Spende auf Twitch",
+      "yes": "Spende mit Namen veröffentlichen",
+      "anonym": "Spende anonym veröffentlichen",
+      "none": "Spende nicht veröffentlichen"
   }
 }
