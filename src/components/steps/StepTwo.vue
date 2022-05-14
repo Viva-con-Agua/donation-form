@@ -2,6 +2,7 @@
     <div class="steptwo">
         <ContactTypeSelect v-if="setting !== 'nwt'" />
         <ContactForm ref="contactdata" />
+        <PublishCheckbox v-if="setting == 'twitch'"/>
         <vca-arrow-navigation @next="submit" @back="back" :backLabel="this.$t('buttons.back')" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
     </div>
 </template>
@@ -9,10 +10,11 @@
 import { mapGetters } from 'vuex'
 import ContactTypeSelect from '@/components/steps/two/ContactTypeSelect'
 import ContactForm from '@/components/steps/two/ContactForm'
+import PublishCheckbox from '@/components/steps/two/PublishCheckbox'
 export default {
     name: 'StepTwo',
     components: {
-        ContactTypeSelect, ContactForm
+        ContactTypeSelect, ContactForm, PublishCheckbox
     },
     data () {
         return {
