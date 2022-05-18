@@ -3,7 +3,7 @@
 
         <Thanks/>
         <Next/>
-        <TenSeconds v-if="setting != 'nwt'"/>
+        <TenSeconds/>
 
     </div>
  </template>

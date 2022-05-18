@@ -111,7 +111,7 @@
   "nwt": {
     "header": "WICHTIGE INFO",
     "sliderinfo": "Info zur Preisgestaltung: 199€ wären Kostendeckend.  Dann lass uns doch z.B. 50/50 machen. 50 Prozent gehen auf uns und 50 % gibst du dazu.", 
-    "infotext": "Cool, dass du bei dem diesjährien VIVA CON_festival dabei bist. Nun trennt dich nur noch die Bezahlung von der Vofreude auf das<br/> VIVA CON_festival<br/> Also, schnell weiter klicken. Der Link ist 14 Tage aktiv. Danach wird dein Platz weitergegeben.<br/><br/>Fall du leider nicht ausgewählt wurdest: <br/> Dies ist lediglich das Bezahlsystem. Ausgewählte Teilnehmer*innen wurden bereits benachrichtigt. Falls du nicht dazu gehörst, tut uns das sehr leid. Eine Bezahlung hier führt nicht zu einer Anmeldung...",
+    "infotext": "Cool, dass du bei dem diesjährien VIVA CON_festival dabei bist. Nun trennt dich nur noch die Bezahlung von der Vofreude auf das<br/> VIVA CON_festival<br/> Also, schnell weiter klicken. Der Link ist 14 Tage aktiv. Danach wird dein Platz weitergegeben.<br/><br/>",
     "thanks": {
         "subheader": "COOL, DASS DU DABEI BIST UND DANKE FÜR DEIN VERTRAUEN!"
     }
@@ -284,6 +284,7 @@
     },
     "comment": {
       "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
+      "label_nwt": "Bitte gib hier an, warum du am NWT teilnimmst z.B. Ehrenamtliches Engagement, Spender*in, interessiert ...",
       "placeholder": "200 Zeichen",
       "error": "Bitte gib eine kurze Nachricht ein",
       "button": "Absenden"
@@ -303,5 +304,11 @@
       "language": "Sprache",
       "contact": "Kontakt"
     }
+  },
+  "publish":{
+      "label": "Spende auf Twitch",
+      "yes": "Spende mit Namen veröffentlichen",
+      "anonym": "Spende anonym veröffentlichen",
+      "none": "Spende nicht veröffentlichen"
   }
 }
