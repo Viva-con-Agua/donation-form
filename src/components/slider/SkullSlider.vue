@@ -117,6 +117,7 @@ export default {
         width: 50px;
         height: 65px;
         background-image: url("~@/assets/img/slider/skull/skull.png");
+        background-color: transparent;
         background-position: center;
         background-size: cover;
         background-color: transparent;
@@ -132,6 +133,7 @@ export default {
         width: 50px;
         height: 65px;
         background-image: url("~@/assets/img/slider/skull/skull.png");
+        background-color: transparent;
         background-position: center;
         background-size: cover;
         cursor: pointer;
