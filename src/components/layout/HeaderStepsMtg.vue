@@ -215,6 +215,7 @@ export default {
                         background-image: url("~@/assets/icons/skull.png");
                         color: #000;
                         background-size: contain;
+                        background-attachment: scroll;
                         background-position: center; 
                         background-repeat: no-repeat;
                         
@@ -295,6 +296,7 @@ export default {
                      
                         font-size: 1.2em;
                         background-image: url("~@/assets/icons/skull.png");
+                        background-attachment: scroll;
                         color: #000;
                         background-size: contain;
                         background-position: center; 
