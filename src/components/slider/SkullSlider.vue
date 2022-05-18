@@ -120,7 +120,6 @@ export default {
         background-color: transparent;
         background-position: center;
         background-size: cover;
-        background-color: transparent;
         border: none;
         cursor: pointer;
       }
