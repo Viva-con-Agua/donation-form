@@ -28,6 +28,13 @@ const company = {
                   {'value': 3000, 'message': 'example.3000'},
                   {'value': 2000, 'message': 'example.2000'},
                   {'value': 1000, 'message': 'example.1000'}
+                ],
+                'mtg': [
+                  {'value': 15000, 'message': 'example.mtg.15000'},
+                  {'value': 5000, 'message': 'example.mtg.5000'},
+                  {'value': 2500, 'message': 'example.mtg.2500'},
+                  {'value': 500, 'message': 'example.mtg.500'},
+                  {'value': 100, 'message': 'example.mtg.100'}
                 ]
             }
     }),

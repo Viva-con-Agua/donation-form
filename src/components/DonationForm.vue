@@ -5,10 +5,11 @@
             <Headline :text="$t('error.not_found.headline')" />
             <vca-card v-html="$t('error.not_found.text')"></vca-card>
         </div>
-        <div v-else>
+        <div v-else :class="{'mtg-theme': setting == 'mtg'}">
             <Headline :text="getText" />
             <Slider v-if="step === 4"/>
-            <HeaderSteps :currentStep=step :steps=steps />
+            <HeaderStepsMtg v-if="setting == 'mtg'" :currentStep=step :steps=steps />
+            <HeaderSteps v-else :currentStep=step :steps=steps />
             <div class="vca-card vca-border" id="topElement">
                 <StepOne v-if="step === 1" @submit="navigate(), step++"/>
                 <StepTwo v-if="step === 2" @submit="navigate(), step++" @back="navigate(), step--"/>
@@ -28,12 +29,13 @@ import StepThanks from '@/components/steps/StepThanks'
 import Slider from '@/components/steps/four/Slider'
 import PaymentFooter from '@/components/layout/Footer'
 import HeaderSteps from '@/components/layout/HeaderSteps'
+import HeaderStepsMtg from '@/components/layout/HeaderStepsMtg'
 //import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from '@/components/layout/Headline'
 import { mapGetters } from 'vuex'
 export default {
     name: 'DonationForm',
-    components: {Slider, StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, Headline },
+    components: {Slider, StepOne, StepTwo, StepThree, StepThanks, PaymentFooter, HeaderSteps, HeaderStepsMtg, Headline },
     props: {
         donation_form_id: {
             type: String,
@@ -89,6 +91,8 @@ export default {
         getText() {
             if(this.setting == 'nwt') {
                 return this.$t('headline.nwt')
+            } else if (this.setting == 'mtg') {
+                return this.$t('headline.mtg')
             } else {
                 return this.step == 4 ? this.$t('headline.thanks'): this.$t('headline.donate')
             }
