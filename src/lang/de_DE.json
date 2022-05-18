@@ -52,6 +52,7 @@
   "headline": {
     "pay": "ZAHLUNG AN VIVA CON AGUA",
     "nwt": "NIMM JETZT AM VIVA CON_festival TEIL",
+    "mtg": "MILLERNTOR GALLERY",
     "paid": "DANKE FÜR DEINE ZAHLUNG AN VIVA CON AGUA",
     "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
     "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
@@ -74,6 +75,10 @@
     "info_1": "Für weitere Infos kannst du dich jederzeit an netzwerk@vivaconagua.org wenden",
     "info_2": "Da dies eine Teilnahmegebühr ist, ist der Betrag nicht steuerlich absetzbar"
   },
+  "information_mtg": {
+    "info_3": "Viva con Agua Arts nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter",
+    "info_4": "Viva con Agua ARTS gGmbH - Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE304637764"
+  },
   "buttons": {
     "next": "Weiter",
     "back": "Zurück"
@@ -83,7 +88,14 @@
     "1500": "Damit unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
     "2000": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
     "5000": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
-    "8000": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
+    "8000": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule",
+    "mtg": {
+      "100": "Damit unterstützt du uns z.B. mit mindestens einem Glas Wasser",
+      "500": "Damit unterstützt du uns z.B. mit mindestens einer Spray Can",
+      "2500": "Damit unterstützt du uns z.B. mit mindestens einer Tagesmiete für ein Mikro",
+      "5000": "Damit unterstützt du uns z.B. mit mindestens einem Eimer Fassadenweiß",
+      "15000": "Damit unterstützt du uns z.B. mit mindestens Farbe und Material für eine komplete Wandfläche"
+    }
   },
   "amount": {
     "label": {
@@ -241,12 +253,14 @@
     "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
     "nwt": "Du erhältst gleich eine Zahlungsbestätigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter netzwerkt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
     "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+    "receipt_mtg": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>contact@millerntorgallery.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
       "button": "Jetzt anmelden",
       "success": "Danke für die Anmeldung in unserem Newsletter!"
     },
-    "yours": "Dein Viva con Agua Team"
+    "yours": "Dein Viva con Agua Team",
+    "yours_mtg": "Dein Viva con Agua Arts Team"
   },
   "tenseconds": {
     "label": "Hast du noch 10 Sekunden Zeit?",

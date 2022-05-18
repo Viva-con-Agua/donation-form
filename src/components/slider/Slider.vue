@@ -8,11 +8,13 @@
         <EasterSlider v-else-if="slider && slider.name == 'easter'" />
         <MhdSlider v-else-if="slider && slider.name == 'mhd'" />
         <WwdSlider v-else-if="slider && slider.name == 'wwd'" />
+        <SkullSlider v-else-if="slider && slider.name == 'skull'" />
         <FaucetSlider v-else/>
     </div>
 </template>
 <script>
 import FaucetSlider from '@/components/slider/FaucetSlider'
+import SkullSlider from '@/components/slider/SkullSlider'
 import FaucetBellSlider from '@/components/slider/FaucetBellSlider'
 import MhdSlider from '@/components/slider/MhdSlider'
 import ValentineSlider from '@/components/slider/ValentineSlider'
@@ -24,7 +26,7 @@ import CupSlider from '@/components/slider/CupSlider'
 import { mapGetters } from 'vuex'
 export default {
     name: 'Slider',
-    components: {FaucetSlider, CupSlider, MulledWineSlider, FaucetBellSlider, ValentineSlider, Run4WaterSlider, EasterSlider, MhdSlider, WwdSlider},
+    components: {FaucetSlider, CupSlider, MulledWineSlider, FaucetBellSlider, ValentineSlider, Run4WaterSlider, EasterSlider, MhdSlider, WwdSlider, SkullSlider},
     computed: {
         ...mapGetters({
            slider: 'form/slider'
