@@ -49,10 +49,13 @@ export default {
 .mtg-theme {
     h1, h2 {
         color: black !important;
+        font-family: 'Poppins', serif !important;
+        font-weight: 600 !important;
     }
 
     h3, h4, h5, a, p, li, div, button, label, input, span {
         font-family: 'Poppins', serif !important;
+        font-weight: 200 !important;
     }
     .vca-border {
         border-color: $mtg-main;
@@ -212,6 +215,7 @@ export default {
                         background-image: url("~@/assets/icons/skull.png");
                         color: #000;
                         background-size: contain;
+                        background-attachment: scroll;
                         background-position: center; 
                         background-repeat: no-repeat;
                         
@@ -225,7 +229,7 @@ export default {
                             padding-left: 5px;
                             text-align: center;
                             @include media(small) {
-                                font-size: 1em;
+                                font-size: .75em;
                             }
                         }
 
@@ -292,6 +296,7 @@ export default {
                      
                         font-size: 1.2em;
                         background-image: url("~@/assets/icons/skull.png");
+                        background-attachment: scroll;
                         color: #000;
                         background-size: contain;
                         background-position: center; 
@@ -307,7 +312,7 @@ export default {
                             padding-left: 5px;
                             text-align: center;
                             @include media(small) {
-                                font-size: 1em;
+                                font-size: .75em;
                             }
                         }
 

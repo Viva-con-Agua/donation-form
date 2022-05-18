@@ -253,7 +253,14 @@
       "1500": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
       "2000": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
       "5000": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
-      "8000": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
+      "8000": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht.",
+      "mtg": {
+        "100": "uns mit mindestens einem Glas Wasser unterstützt",
+        "500": "uns mit mindestens einer Spray Can unterstützt",
+        "2500": "uns mit mindestens einer Tagesmiete für ein Mikro unterstützt",
+        "5000": "uns mit mindestens einem Eimer Fassadenweiß unterstützt",
+        "15000": "uns mit mindestens Farbe und Material für eine komplete Wandfläche unterstützt"
+      }
     }
   },
   "next": {
