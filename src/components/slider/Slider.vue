@@ -8,8 +8,8 @@
         <EasterSlider v-else-if="slider && slider.name == 'easter'" />
         <MhdSlider v-else-if="slider && slider.name == 'mhd'" />
         <WwdSlider v-else-if="slider && slider.name == 'wwd'" />
-        <SkullSlider v-else-if="slider && slider.name == 'skull'" />
-        <FaucetSlider v-else/>
+        <FaucetSlider v-else-if="slider && slider.name == 'skull'" />
+        <SkullSlider v-else/>
     </div>
 </template>
 <script>
