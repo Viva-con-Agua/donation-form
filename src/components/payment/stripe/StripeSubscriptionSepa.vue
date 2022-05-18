@@ -7,7 +7,8 @@
                 ref="terms"
                 v-model="terms"
                 :errorMsg="$t('payment.terms.sepa.error')">
-                        <div v-html="$t('payment.terms.sepa.de.single')"></div>
+                        <div v-if="setting == 'mtg'" v-html="$t('payment.terms.sepa.mtg.single')"></div>
+                        <div v-else v-html="$t('payment.terms.sepa.de.single')"></div>
             </vca-checkbox>
         </vca-field>
     </div>
@@ -105,7 +106,8 @@ export default {
         },
         ...mapGetters({
             billing_details: 'payment/stripe/billing_details',
-            company: 'form/company'
+            company: 'form/company',
+            setting: 'setting'
         })    
     },
     watch: {
