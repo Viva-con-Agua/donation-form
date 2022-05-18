@@ -6,6 +6,12 @@
                 <li>{{ $t('information_nwt.info_1') }}</li>
                 <li>{{ $t('information_nwt.info_2') }}</li>
             </ul>
+            <ul v-else-if="setting == 'mtg'">
+                <li>{{ $t('information.info_1') }}</li>
+                <li>{{ $t('information.info_2') }}</li>
+                <li>{{ $t('information_mtg.info_3') }}</li>
+                <li>{{ $t('information_mtg.info_4') }}</li>
+            </ul>
             <ul v-else>
                 <li>{{ $t('information.info_1') }}</li>
                 <li>{{ $t('information.info_2') }}</li>

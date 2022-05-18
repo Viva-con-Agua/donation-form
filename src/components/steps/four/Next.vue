@@ -6,7 +6,8 @@
             </div>
             <div v-else>
                 <p class="text-center" v-html="$t('next.email')"></p><br/>
-                <p class="text-center" v-html="$t('next.receipt')"></p><br/>
+                <p v-if="setting=='mtg'" class="text-center" v-html="$t('next.receipt_mtg')"></p>
+                <p v-else class="text-center" v-html="$t('next.receipt')"></p><br/>
                 <p class="text-center">{{ $t('next.newsletter.text') }}</p>
 
                 <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
@@ -14,7 +15,8 @@
                     <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
                     <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('next.newsletter.success') }}</div>
                 </div>
-                <p class="text-center" v-html="$t('next.yours')"></p>
+                <p v-if="setting=='mtg'" class="text-center" v-html="$t('next.yours_mtg')"></p>
+                <p v-else class="text-center" v-html="$t('next.yours')"></p>
             </div>
         </vca-field>
     </vca-card>

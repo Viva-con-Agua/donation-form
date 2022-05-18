@@ -3,7 +3,7 @@
             <ul>
                 <li v-for="step in steps" :key="step.id" 
                     :class="{
-                         'is-active': step.id == currentStep, 
+                         'is-active': step.id == currentStep,
                          'is-inactive': step.id != currentStep, 
                          'last-step': step.id == steps.length, 
                          'first-step': step.id == 1,
