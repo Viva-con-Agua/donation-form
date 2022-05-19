@@ -318,6 +318,9 @@ export default {
 
                         @include media(small) {
                             width: 100%;
+                            top: 0;
+                            bottom: 0;
+                            right: 0;
                         }
                         @include media(1000) {
                             font-size: .9em;
