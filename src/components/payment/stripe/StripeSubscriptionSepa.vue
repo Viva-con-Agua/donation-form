@@ -7,7 +7,8 @@
                 ref="terms"
                 v-model="terms"
                 :errorMsg="$t('payment.terms.sepa.error')">
-                        <div v-html="$t('payment.terms.sepa.de.single')"></div>
+                        <div v-if="setting == 'mtg'" v-html="$t('payment.terms.sepa.mtg.single')"></div>
+                        <div v-else v-html="$t('payment.terms.sepa.de.single')"></div>
             </vca-checkbox>
         </vca-field>
     </div>
@@ -63,10 +64,10 @@ export default {
         this.element.mount(this.$refs.element)
     },
     created() {
-        this.stripe = window.Stripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY)
+        this.stripe = window.Stripe(this.company.stripe_public_key)
         this.elements = this.stripe.elements()
         this.element = this.elements.create('iban', this.options)
-        this.element.on('change', (event) => { 
+        this.element.on('change', (event) => {
             if (!event.complete) {
                 this.ibanInvalid = true
             } else {
@@ -104,7 +105,9 @@ export default {
             }
         },
         ...mapGetters({
-            billing_details: 'payment/stripe/billing_details'
+            billing_details: 'payment/stripe/billing_details',
+            company: 'form/company',
+            setting: 'setting'
         })    
     },
     watch: {
@@ -150,6 +153,7 @@ export default {
                 // The payment has been processed!
                 if (result.setupIntent.status === 'succeeded') {
                     this.$store.commit("payment/stripe/status", "done")
+                    this.$store.commit("payment/stripe/payment_method", result.setupIntent.payment_method)
                     this.$store.dispatch("payment/stripe/setup_intent_finish")
                         .then(()=>{this.$emit('success')})
                         .catch((err) => { this.$emit("error", err)})
@@ -157,7 +161,5 @@ export default {
             }
         }
     }
-
-
 }
 </script>

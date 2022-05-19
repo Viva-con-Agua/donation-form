@@ -24,6 +24,7 @@ const payment = {
             first_name: "",
             last_name: "",
             street: "",
+            birthdate: 0,
             number: "",
             zip: "",
             city: "",
@@ -32,6 +33,7 @@ const payment = {
         },
         payment_type: "",
         interval: "monthly",
+        publish: "anonym",
         country: [],
         abo: false,
         donation_receipt: false
@@ -50,6 +52,15 @@ const payment = {
         payment_type(state, val) {
             state.payment_type = val
         },
+        default_amount(state, val) {
+            if (val > 0) {
+                var nVal = {
+                    amount: val,
+                    currency: state.money.currency
+                }
+                state.money = nVal
+            }
+        },
         contact(state, val) {
             state.contact = val
         },
@@ -59,8 +70,14 @@ const payment = {
         abo(state, val) {
             state.abo = val
         },
+        email(state, val) {
+            state.contact.email = val
+        },
         donation_receipt(state, val) {
             state.donation_receipt = val
+        },
+        publish(state, val) {
+            state.publish = val
         }
     },
     getters: {
@@ -69,9 +86,6 @@ const payment = {
         },
         interval(state) {
             return state.interval
-        },
-        paymentTypes(state) {
-            return state.paymentTypes
         },
         payment_type(state) {
             return state.payment_type
@@ -104,7 +118,8 @@ const payment = {
             var data = {
                 money: state.money,
                 contact: state.contact,
-                donation_form_id: rootState.form.current.id
+                donation_form_id: rootState.form.current.id,
+                publish: state.publish
             }
             data.contact.country = country
             return new Promise((resolve, reject) => {

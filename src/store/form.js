@@ -12,6 +12,12 @@ const form = {
                 { name: 'creditcard', title: 'payment.type.creditcard' },
                 { name: 'paypal', title: 'payment.type.paypal' }
             ],
+            subscription_types: [
+                { name: 'civisepa', title: 'payment.type.sepa', default: true },
+                { name: 'sepa', title: 'payment.type.sepa' },
+                { name: 'creditcard', title: 'payment.type.creditcard' },
+                { name: 'paypal', title: 'payment.type.paypal' }
+            ]
         }
     }),
     getters: {
@@ -21,8 +27,17 @@ const form = {
         minAmount(state) {
             return state.current.min_amount
         },
+        slider(state) {
+            return state.current.slider
+        },
         paymentTypes(state) {
             return state.current.payment_types
+        },
+        subscriptionTypes(state) {
+            return state.current.subscription_types
+        },
+        company(state) {
+            return state.current.company
         }
     },
     mutations: {
@@ -34,7 +49,12 @@ const form = {
         get({commit}, data) {
             return new Promise((resolve, reject) => {
                 api.call.get('/v1/donations/form/' + data.data)
-                    .then((response) => {commit('get', response.data.payload), resolve()})
+                    .then((response) => {
+                        commit('get', response.data.payload), 
+                        commit('company/current', response.data.payload),
+                        commit('payment/default_amount', response.data.payload.default_amount, {root: true}), 
+                        resolve()
+                    })
                     .catch((error) => {
                         reject(error)
                     })

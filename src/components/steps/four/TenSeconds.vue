@@ -1,7 +1,7 @@
 <template>
     <vca-card>
         <vca-field :label="$t('tenseconds.label')">
-            <div class="vca-row">
+            <div  v-if="setting != 'nwt'" class="vca-row">
                 <div class="vca-flexbox">
                     <vca-card>
                         <p v-html="$t('tenseconds.knownfrom.label')"></p>
@@ -12,9 +12,14 @@
                 </div>
             </div>
             <div class="vca-row">
-                <div class="vca-flexbox">
+                <div v-if="setting != 'nwt'" class="vca-flexbox">
                     <vca-card>
                         <p v-html="$t('tenseconds.comment.label')"></p>
+                    </vca-card>
+                </div>
+                <div v-if="setting == 'nwt'" class="vca-flexbox">
+                    <vca-card>
+                        <p v-html="$t('tenseconds.comment.label_nwt')"></p>
                     </vca-card>
                 </div>
                 <div class="vca-flexbox"><vca-textarea ref="comment" :rules="$v.offset.comment" :errorMsg="$t('tenseconds.comment.error')" v-model="offset.comment" :maxlength="200" :placeholder="$t('tenseconds.comment.placeholder')" label=""/></div>
@@ -27,7 +32,9 @@
         </vca-field>
     </vca-card>
  </template> 
-<script>
+ <script>
+
+import { mapGetters } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 export default {
     name: 'TenSeconds',
@@ -46,8 +53,11 @@ export default {
                     dropdown.push(temp)
                 })
                 return {dropdown: dropdown}
-            }
+            },
         },
+        ...mapGetters({
+            setting: 'setting'
+        }),
         offset: {
             get () {
                 return this.$store.state.offset
@@ -73,12 +83,12 @@ export default {
     },
     methods: {
         submit() {
+            this.gtmTrack("click", "StepFour Feedback-Contact-Us donation-form", 0)
             this.$refs.comment.validate()
 
             if(this.$v.$invalid) {
                 return
             }
-
             this.$store.dispatch({type: 'feedback'})
             .then((resp) => {
                 this.flow = false

@@ -1,21 +1,29 @@
 <template>
     <vca-card>
         <vca-field :label="$t('next.label')">
-            <p class="text-center" v-html="$t('next.email')"></p><br/>
-            <p class="text-center" v-html="$t('next.receipt')"></p><br/>
-            <p class="text-center">{{ $t('next.newsletter.text') }}</p>
-
-            <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
-            <div class="vca-column" v-else>
-                <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
-                <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('next.newsletter.success') }}</div>
+            <div v-if="setting == 'nwt'">
+                <p class="text-center" v-html="$t('next.nwt')"></p><br/>
             </div>
-            <p class="text-center">{{ $t('next.yours') }}</p>
+            <div v-else>
+                <p class="text-center" v-html="$t('next.email')"></p><br/>
+                <p v-if="setting=='mtg'" class="text-center" v-html="$t('next.receipt_mtg')"></p>
+                <p v-else class="text-center" v-html="$t('next.receipt')"></p><br/>
+                <p class="text-center">{{ $t('next.newsletter.text') }}</p>
+
+                <button v-if="flow" class="vca-button quarter" @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
+                <div class="vca-column" v-else>
+                    <button class="vca-button quarter" disabled @click.prevent="submit">{{ $t('next.newsletter.button') }}</button>
+                    <div class="primary-dark bold tenseconds-success vca-border text-center">{{ $t('next.newsletter.success') }}</div>
+                </div>
+                <p v-if="setting=='mtg'" class="text-center" v-html="$t('next.yours_mtg')"></p>
+                <p v-else class="text-center" v-html="$t('next.yours')"></p>
+            </div>
         </vca-field>
     </vca-card>
  </template> 
 
 <script>
+import { mapGetters } from 'vuex'
 import { required, email} from 'vuelidate/lib/validators'
 export default {
     name: 'Next',    
@@ -32,7 +40,10 @@ export default {
             set(value) {
                 this.$store.commit('payment/contact', value)
             }
-        }
+        },
+       ...mapGetters({
+           setting: 'setting'
+       })
     },
     validations() {
         return {
@@ -46,11 +57,11 @@ export default {
     },
     methods: {
         submit() {
-
+            this.gtmTrack("click", "StepFour Newsletter-Subscription donation-form", 0)
             this.$store.dispatch({type: 'newsletter'})
             .then((resp) => {
-                this.flow = false
                 console.log(resp)
+                this.flow = false
             })
             .catch((error) => {
                 console.log(error)

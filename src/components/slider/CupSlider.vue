@@ -2,30 +2,44 @@
     <div class="cupslide">
         <div class="images-container">
         <div class="images">
-            <div  v-for="index in all" :key="index" class="images_empty">
-                <img v-if="index > full" src="@/assets/img/slider/cups/leeres_Glas.svg"/>
-                <img v-if="index <= full" src="@/assets/img/slider/cups/volles_Glas.svg"/>
+            <div  v-for="index in max_cups" :key="index" class="images_empty">
+                <img v-if="index > full" src="@/assets/img/slider/cups/leeres_Glas.svg" @click="setCupAmount(index)"/>
+                <img v-if="index <= full" src="@/assets/img/slider/cups/volles_Glas.svg" @click="setCupAmount(index)"/>
             </div>
         </div>
     </div>
     <div class="count">
-    <img class="count" src="@/assets/img/slider/cups/Einheiten.svg"/>
-    <input type="range" min="500" max="10000" :value="money.amount" step="500" @input="setAmount">
+    <input type="range" :min="min_slider" :max="max_slider" :value="money.amount" :step="steps" @input="setAmount">
     </div>
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: 'CupSlider',
     data () {
         return {
             value: 0,
             empty: 0,
-            all: 10,
             full: 0
         }
     },
     computed: {
+        ...mapGetters({
+           slider: 'form/slider'
+        }),
+        steps() {
+            return this.slider ? this.slider.steps : 100
+        },
+        min_slider() {
+            return this.slider ? this.slider.min : 100
+        },
+        max_slider() {
+            return this.slider ? this.slider.max : 50000
+        },
+        max_cups() {
+            return this.slider ? this.slider.max / 1000 : 10
+        },
         money: {
             get () {
                 return this.$store.state.payment.money
@@ -47,6 +61,12 @@ export default {
             this.empty = 10 - mask
 
             this.money = { amount: parseInt(e.target.value), currency: this.money.currency }
+        },
+        setCupAmount (val) {
+            var mask = parseInt(val)
+            this.full = mask
+            this.empty = 10 - mask
+            this.money = { amount: parseInt(val * 1000), currency: this.money.currency }
         }
     }
 }

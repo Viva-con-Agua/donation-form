@@ -22,7 +22,8 @@ export default {
     props: ['valid'],
     computed : {
         ...mapGetters({
-            plan_id: 'payment/paypal/plan_id'
+            plan_id: 'payment/paypal/plan_id',
+            company: 'form/company'
         }),
     },
     data () {
@@ -34,11 +35,22 @@ export default {
             },
         }
     },
+    mounted() {
+      var paypal = document.getElementById('paypalSubscription')
+      if (paypal !== undefined) {
+        let paypalScript = document.createElement('script')
+        paypalScript.setAttribute('id', 'paypalSubscription')
+        paypalScript.async = false
+        paypalScript.setAttribute('src', 'https://www.paypal.com/sdk/js?client-id=' + this.company.paypal_client_id + '&vault=true&disable-funding=credit,card,sepa,giropay,sofort&currency=EUR&intent=subscription')
+        document.head.appendChild(paypalScript)
+      }
+    },
     methods: {
         success(e) {
             this.$store.commit("payment/paypal/checkout_id", e.id)
             console.log(e)
             this.$store.commit("payment/paypal/status", "done")
+            this.$store.commit("payment/paypal/invoice_id", e)
             this.$store.dispatch("payment/paypal/subscription_finish").then(() => {
                 this.$emit("success")
             }).catch(error => console.log(error))

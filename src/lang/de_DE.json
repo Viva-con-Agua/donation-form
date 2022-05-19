@@ -42,7 +42,18 @@
       }
     }
   },
+  "error": {
+    "payment": "Oh je, da ist leider ein Fehler passiert. Das tut uns leid. Wende dich bitte an kontakt@vivaconagua.org und gib diese Payment ID mit an",
+    "not_found": {
+      "headline": "Uuuups, es wurde leider kein passendes Formular gefunden",
+      "text": "Leider haben wir kein passendes Spendenformular gefunden.<br/>Bitte schicke uns doch kurz eine Nachricht wo der Fehler aufgetreten ist an <strong>kontakt@vivaconagua.org</strong>, dass wir das Problem beheben können."
+    }
+  },
   "headline": {
+    "pay": "ZAHLUNG AN VIVA CON AGUA",
+    "nwt": "NIMM JETZT AM VIVA CON_festival TEIL",
+    "mtg": "MILLERNTOR GALLERY",
+    "paid": "DANKE FÜR DEINE ZAHLUNG AN VIVA CON AGUA",
     "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
     "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
   },
@@ -59,23 +70,50 @@
     "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
     "info_4": "Viva con Agua de Sankt Pauli e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt. Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
   },
+  "information_nwt": {
+    "label": "Hinweise:",
+    "info_1": "Für weitere Infos kannst du dich jederzeit an netzwerk@vivaconagua.org wenden",
+    "info_2": "Da dies eine Teilnahmegebühr ist, ist der Betrag nicht steuerlich absetzbar"
+  },
+  "information_mtg": {
+    "info_3": "Viva con Agua Arts nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter",
+    "info_4": "Viva con Agua ARTS gGmbH - Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE304637764"
+  },
   "buttons": {
     "next": "Weiter",
     "back": "Zurück"
   },
   "example": {
     "default": "",
-    "soap": "Damit unterstützt du uns z.B. mit mindestens 20 l Seife für Schulen",
-    "filter": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
-    "trees": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
-    "workshop": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
+    "1500": "Damit unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
+    "2000": "Damit unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
+    "5000": "Damit unterstützt du uns z.B. mit mindestens 50 Bäumen",
+    "8000": "Damit unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule",
+    "mtg": {
+      "100": "Damit unterstützt du uns z.B. mit mindestens einem Glas Wasser",
+      "500": "Damit unterstützt du uns z.B. mit mindestens einer Spray Can",
+      "2500": "Damit unterstützt du uns z.B. mit mindestens einer Tagesmiete für ein Mikro",
+      "5000": "Damit unterstützt du uns z.B. mit mindestens einem Eimer Fassadenweiß",
+      "15000": "Damit unterstützt du uns z.B. mit mindestens Farbe und Material für eine komplete Wandfläche"
+    }
   },
   "amount": {
-    "label": "Du willst einen anderen Betrag spenden? Kein Problem!",
+    "label": {
+      "donate": "Du willst einen anderen Betrag spenden? Kein Problem!",
+      "pay": "Du willst einen anderen Betrag geben? Kein Problem!"
+    },
     "toptext": "anderer Betrag",
     "error": {
       "default": "Bitte wähle einen Betrag aus",
       "minAmount": "Bitte wähle mindestens einen Betrag von {0} {1} aus"
+    }
+  },
+  "nwt": {
+    "header": "WICHTIGE INFO",
+    "sliderinfo": "Info zur Preisgestaltung: 199€ wären Kostendeckend.  Dann lass uns doch z.B. 50/50 machen. 50 Prozent gehen auf uns und 50 % gibst du dazu.", 
+    "infotext": "Cool, dass du bei dem diesjährien VIVA CON_festival dabei bist. Nun trennt dich nur noch die Bezahlung von der Vofreude auf das<br/> VIVA CON_festival<br/> Also, schnell weiter klicken. Der Link ist 14 Tage aktiv. Danach wird dein Platz weitergegeben.<br/><br/>",
+    "thanks": {
+        "subheader": "COOL, DASS DU DABEI BIST UND DANKE FÜR DEIN VERTRAUEN!"
     }
   },
   "abo": {
@@ -86,13 +124,16 @@
   "interval": {
     "label": "Wähle dein Spendenintervall",
     "monthly": " monatlich",
-    "once": "1x im Jahr",
+    "yearly": "1x im Jahr",
     "half": "2x im Jahr",
     "thrice": "3x im Jahr",
     "quarterly": "4x im Jahr"
   },
   "paymentselection": {
-    "label": "Ich spende via"
+    "label": {
+      "donate": "Ich spende via",
+      "pay": "Ich zahle via"
+    }
   },
   "contacttypeselection": {
     "label": "Ich spende als",
@@ -173,16 +214,30 @@
           "single": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
           "subscription": "Ich ermächtige Viva con Agua de Sankt Pauli e.V., Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua de Sankt Pauli e.V. auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
         },
+        "mtg": {
+          "single": "Ich ermächtige Viva con Agua Arts gGmbH, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Arts gGmbH auf mein Konto gezogene Lastschrift einzulösen.<br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.",
+          "subscription": "Ich ermächtige Viva con Agua Arts gGmbH, Zahlungen von meinem Konto mittels Lastschrift zum 15. des Folgemonats einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Viva con Agua Arts gGmbH auf mein Konto gezogene Lastschrift einzulösen. <br/><strong>Hinweis:</strong> Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
+        },
         "error": "Bitte bestätige die Einzugsermächtigung"
       }
     },
-    "submit": "Jetzt {0} {1} spenden"
+    "submit": {
+      "donate": "Jetzt {0} {1} spenden",
+      "pay": "Jetzt {0} {1} zahlen"
+    }
   },
   "policies": {
-    "label": "Mit deiner Spende bestätigst du, die {0} gelesen zu haben.",
+    "label": {
+      "donate": "Mit deiner Spende bestätigst du, die {0} gelesen zu haben.",
+      "nwt": "Mit deiner Zahlung bestätigst du, die {0} gelesen zu haben."
+    },
     "data": {
       "label": "Datenschutzerklärung",
       "url": "https://www.vivaconagua.org/datenschutzerklaerung"
+    },
+    "data_mtg": {
+      "label": "Datenschutzerklärung",
+      "url": "https://www.artcreateswater.org/datenschutz/"
     },
     "tos": {
       "label": "AGB",
@@ -195,22 +250,32 @@
     "text": "Deine Spende über {0} hat {1}",
     "example": {
       "default": "unter anderem in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
-      "soap": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
-      "filter": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
-      "trees": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
-      "workshop": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht."
+      "1500": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
+      "2000": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
+      "5000": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
+      "8000": "unter anderem in unserem Projektland Uganda einen weiteren Hygieneworkshop an einer Schule ermöglicht.",
+      "mtg": {
+        "100": "uns mit mindestens einem Glas Wasser unterstützt",
+        "500": "uns mit mindestens einer Spray Can unterstützt",
+        "2500": "uns mit mindestens einer Tagesmiete für ein Mikro unterstützt",
+        "5000": "uns mit mindestens einem Eimer Fassadenweiß unterstützt",
+        "15000": "uns mit mindestens Farbe und Material für eine komplete Wandfläche unterstützt"
+      }
     }
   },
   "next": {
     "label": "So geht es weiter",
     "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
+    "nwt": "Du erhältst gleich eine Zahlungsbestätigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter netzwerkt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
     "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+    "receipt_mtg": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>contact@millerntorgallery.org</strong> melden.",
     "newsletter": {
       "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
       "button": "Jetzt anmelden",
       "success": "Danke für die Anmeldung in unserem Newsletter!"
     },
-    "yours": "Dein Viva con Agua Team"
+    "yours": "Dein Viva con Agua Team",
+    "yours_mtg": "Dein Viva con Agua Arts Team"
   },
   "tenseconds": {
     "label": "Hast du noch 10 Sekunden Zeit?",
@@ -234,6 +299,7 @@
     },
     "comment": {
       "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
+      "label_nwt": "Bitte gib hier an, warum du am NWT teilnimmst z.B. Ehrenamtliches Engagement, Spender*in, interessiert ...",
       "placeholder": "200 Zeichen",
       "error": "Bitte gib eine kurze Nachricht ein",
       "button": "Absenden"
@@ -253,5 +319,11 @@
       "language": "Sprache",
       "contact": "Kontakt"
     }
+  },
+  "publish":{
+      "label": "Spende auf Twitch",
+      "yes": "Spende mit Namen veröffentlichen",
+      "anonym": "Spende anonym veröffentlichen",
+      "none": "Spende nicht veröffentlichen"
   }
 }

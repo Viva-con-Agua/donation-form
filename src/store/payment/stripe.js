@@ -3,7 +3,8 @@ const stripe = {
     namespaced: true,
     state: () => ({  
             status: "",
-            terms: false
+            terms: false,
+            payment_method: null
     }),
     getters: {
         billing_details(state, getters, rootState) {
@@ -25,6 +26,9 @@ const stripe = {
         },
         terms(state, val) {
             state.terms = val
+        },
+        payment_method(state, val) {
+            state.payment_method = val
         }
     },
     actions: {
@@ -32,7 +36,8 @@ const stripe = {
             var data = {
                 payment_id: rootState.payment.payment_id,
                 payment_type: rootState.payment.payment_type,
-                terms: state.terms
+                terms: state.terms,
+                status: "created"
             }
             return new Promise((resolve, reject) => {
                 api.call.post('/v1/donations/payment/stripe/paymentintent', data)
@@ -45,6 +50,9 @@ const stripe = {
         payment_intent_finish({rootState,state}) {
             var data = {
                 payment_id: rootState.payment.payment_id,
+                payment_type: rootState.payment.payment_type,
+                payment_method: state.payment_method,
+                terms: state.terms,
                 status: state.status
             }
             return new Promise((resolve, reject) => {
@@ -75,6 +83,7 @@ const stripe = {
         setup_intent_finish({rootState,state}) {
             var data = {
                 payment_id: rootState.payment.payment_id,
+                payment_method: state.payment_method,
                 status: state.status
             }
             return new Promise((resolve, reject) => {

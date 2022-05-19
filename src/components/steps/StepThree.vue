@@ -2,7 +2,7 @@
     <div class="steptwo">
         <div v-if="errorMSG">
             <h2> Payment_id: {{payment}} </h2>
-            <span> Bitte im Test mit angeben</span>
+            <span>{{ $t('error.payment') }}</span>
         </div>
         <PaymentSelection v-if="!abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
         <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error" @isInvalid="validate"/>
@@ -28,13 +28,18 @@ export default {
     },
     computed: {
         ...mapGetters({
+            setting: 'setting',
             payment: 'payment/payment_id',
             money: 'payment/money',
             abo: 'payment/abo',
             paymentType: 'payment/payment_type'
         }),
         getLabel() {
-            return this.$t('payment.submit', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
+            if (this.setting == 'nwt') {
+                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})   
+            } else {
+                return this.$t('payment.submit.donate', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
+            }
         }
     },
     methods: {
@@ -57,6 +62,7 @@ export default {
         },
         commit() {
             this.$store.commit('loadingFlow')
+            this.gtmTrack("click", "StepTree Donate donation-form", this.money.amount/100)
             this.$refs.selection.commit()
         },
         back() {

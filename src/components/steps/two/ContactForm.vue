@@ -1,8 +1,7 @@
 <template>
     <div class="steptwo">
         <vca-field :label="$t('contactform.label')">
-                
-                <div class="vca-row">
+                <div v-if="!urlEmail" class="vca-row">
                     <vca-input
                         ref="email"
                         :errorMsg="$t('contactform.email.error')"
@@ -14,7 +13,7 @@
                 </div>
 
                 <vca-input 
-                   v-if="company"
+                   v-if="isCompany"
                    ref="company"
                    :errorMsg="$t('contactform.company.error')"
                    :placeholder="$t('contactform.company.placeholder')"
@@ -41,12 +40,26 @@
                 </vca-field-row>
 
                 <vca-checkbox
-                    v-if="!company"
+                    v-if="!isCompany && language != 'at' && setting != 'nwt'"
                     v-model="additional">
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
 
                 <div v-if="additional">
+
+                    <div v-if="language == 'at' && !isCompany">
+                        <span>{{ $t('contactform.birthdate.label') }}</span>
+                        <vca-row>
+                            <vca-input-date
+                                ref="birthdate"
+                                :errorMsg="$t('contactform.birthdate.error')"
+                                :placeholder="$t('contactform.birthdate.placeholder')"
+                                v-model.trim="anonymous.birthdate" 
+                                :rules="$v.anonymous.birthdate">
+                            </vca-input-date>
+                            <div class="inline-infobox"><vca-info-box>{{ $t('contactform.birthdate.infobox') }}</vca-info-box></div>
+                        </vca-row>
+                    </div>
 
                     <vca-field-row>
                         <vca-input 
@@ -62,6 +75,7 @@
                             ref="number"
                             class="short"
                             last
+                            :typeable="true"
                             :errorMsg="$t('contactform.number.error')"
                             :placeholder="$t('contactform.number.placeholder')"
                             v-model="anonymous.number" 
@@ -90,7 +104,7 @@
                         </vca-input>
                     </vca-field-row>
 
-                        <vca-country preselection="DE" countryCode="DE" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
+                   <vca-country :preselection="countryCode" :countryCode="countryCode" :rules="$v.country" ref="country" v-model="country" label="" :placeholder="$t('contactform.country.placeholder')" :errorMsg="$t('contactform.country.error')"/>
                 </div>
                 <div class="color-grey vca-right">{{ $t('contactform.required') }}</div>
             </vca-field>
@@ -98,15 +112,24 @@
     </div>
 </template>
 <script>
-
 import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 export default {
     name: 'ContactForm',
+    created() {
+        if (this.language == 'at' || this.setting == 'nwt') {
+            this.additional = true
+        }
+    },
     computed: {
        ...mapGetters({
-           company: 'company'
+           isCompany: 'isCompany',
+           setting: 'setting',
+           language: 'company/settings'
         }),
+        urlEmail() {
+            return (this.$route.query.email != null)
+        },
         anonymous: {
             get () {
                 return this.$store.state.payment.contact
@@ -130,12 +153,14 @@ export default {
             set(value) {
                 this.$store.commit('payment/donation_receipt', value)
             }
+        },
+        countryCode() {
+            return this.language == 'at' ? 'AT' : 'DE'
         }
-        
     },
     watch:{
-        company: function(val) {
-            if (val) {
+        isCompany: function(val) {
+            if (val || this.language == 'at') {
                 this.additional = true
             } else {
                 this.additional = false
@@ -143,7 +168,7 @@ export default {
         }
     },
     validations() {
-        if (this.company) {
+        if (this.isCompany) {
             return {
                 anonymous: {
                     email: {
@@ -178,33 +203,50 @@ export default {
             }
         } else {
             if (this.additional) {
-                return {
-                    anonymous: {
-                        email: {
-                            email,
-                            required
+                if (this.language == 'at') {
+                    return {
+                        anonymous: {
+                            email: {
+                                email,
+                                required
+                            },
+                            first_name: {
+                                required
+                            },
+                            last_name: {
+                                required
+                            }
+                        }
+                    }
+                } else {
+                    return {
+                        anonymous: {
+                            email: {
+                                email,
+                                required
+                            },
+                            first_name: {
+                                required
+                            },
+                            last_name: {
+                                required
+                            },
+                            street: {
+                                required
+                            },
+                            number: {
+                                required
+                            },
+                            zip: {
+                                required
+                            },
+                            city: {
+                                required
+                            }
                         },
-                        first_name: {
-                            required
-                        },
-                        last_name: {
-                            required
-                        },
-                        street: {
-                            required
-                        },
-                        number: {
-                            required
-                        },
-                        zip: {
-                            required
-                        },
-                        city: {
+                        country: {
                             required
                         }
-                    },
-                    country: {
-                        required
                     }
                 }
             } else {
@@ -236,6 +278,9 @@ export default {
 .steptwo {
     .color-grey {
         color: #ccc;
+        @include media(small) {
+            font-size: 0.95em;
+        }
     }
 }
 </style>
