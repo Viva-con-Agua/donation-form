@@ -153,17 +153,18 @@ export default {
 .steps-mtg {
     ul {
         overflow: hidden;
-        display: table;
-        margin-bottom: 0px;
+        display: flex;
+        margin-bottom: 0;
         padding: 0;
         width: 100%;
 
         li {
             list-style: none;
-            display: table-cell;
+            display: flex;
+            flex-grow: 1;
             position: relative;
             padding: 6px 16px;
-            transition: 0.3s;
+            transition: .3s;
             font-size: 1.1em;
 
             &.is-active {
