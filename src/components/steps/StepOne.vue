@@ -12,7 +12,7 @@
         </div>
         <Amount ref="amount" />
 
-        <div v-if="hasSubscription || true">
+        <div v-if="hasSubscription">
             <Abo />
             <Interval />
         </div>
