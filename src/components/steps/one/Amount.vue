@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            css: "primary-light"
+            css: "grey bold"
         }
     },
     computed: {
@@ -45,7 +45,7 @@ export default {
             }
         },
         threshold() {
-            let cssClass = "main-color"
+            let cssClass = "main-color bold"
             let amount = this.slider ? this.slider.max : 10000
             return { amount: amount, css: cssClass }
         },

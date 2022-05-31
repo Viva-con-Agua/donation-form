@@ -11,8 +11,8 @@
                          'behind': step.id > currentStep
                  }">
                     <div class="step-content">
-                        <div class="step-id"><div>{{ step.id }}.</div></div>
-                        <div class="step-label"><div>{{ step.label }}</div></div>
+                        <div class="step-id"><div></div></div>
+                        <div class="step-label"><div>{{ step.id }}. {{ step.label }}</div></div>
                     </div>
                 </li>
             </ul>
@@ -61,6 +61,14 @@ export default {
         border-color: $mtg-main;
     }
 
+    .grey {
+        color: #aaa;
+    }
+
+    .bold {
+        font-weight: bold !important;
+    }
+
     .arr-btn-back {
         color: $mtg-main !important;
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="73.8095mm" height="19.3122mm" viewBox="0 0 279 73"><path id="Auswahl" fill="#{url-friendly-colour($mtg-main)}" stroke="#{url-friendly-colour($mtg-main)}" stroke-width="1" d="M 39.00,55.00 C 39.00,55.00 41.00,55.00 41.00,55.00 41.65,53.72 42.56,52.38 42.44,50.86 42.07,46.40 31.82,41.41 28.00,40.00 34.16,38.25 46.14,39.00 53.00,39.00 53.00,39.00 99.00,39.00 99.00,39.00 99.00,39.00 251.00,39.00 251.00,39.00 252.62,39.00 256.18,39.14 257.55,38.43 259.82,37.26 259.82,34.21 256.77,33.10 255.60,32.94 252.35,33.00 251.00,33.10 251.00,33.10 28.00,33.10 28.00,33.10 33.79,29.22 41.78,26.38 43.00,19.00 34.38,19.22 27.07,25.15 20.00,29.68 17.47,31.30 12.39,33.88 14.28,37.64 15.28,39.61 20.03,42.35 22.00,43.58 27.44,46.95 34.59,50.50 39.00,55.00 Z" /></svg>') !important;
@@ -92,7 +100,7 @@ export default {
         }
     }
 
-    .main-color { color: $mtg-main !important; } 
+    .main-color { color: black !important; } 
     .primary-light { color: $orange-light !important; }
 
     .vca-field-label {
