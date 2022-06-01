@@ -7,6 +7,7 @@ const knownfrom = {
             { title: 'tenseconds.knownfrom.dropdown.water', label: 'tenseconds.knownfrom.dropdown.water', value: "water" },
             { title: 'tenseconds.knownfrom.dropdown.toiletpaper', label: 'tenseconds.knownfrom.dropdown.toiletpaper', value: "toiletpaper" },
             { title: 'tenseconds.knownfrom.dropdown.arts', label: 'tenseconds.knownfrom.dropdown.arts', value: "arts" },
+            { title: 'tenseconds.knownfrom.dropdown.mtg', label: 'tenseconds.knownfrom.dropdown.mtg', value: "mtg" },
             { title: 'tenseconds.knownfrom.dropdown.instagram', label: 'tenseconds.knownfrom.dropdown.instagram', value: "instagram" },
             { title: 'tenseconds.knownfrom.dropdown.facebook', label: 'tenseconds.knownfrom.dropdown.facebook', value: "facebook" },
             { title: 'tenseconds.knownfrom.dropdown.shops', label: 'tenseconds.knownfrom.dropdown.shops', value: "shops" },
