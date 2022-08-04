@@ -9,7 +9,15 @@
                     class="selection-button"
                     @click.prevent="setPaymentType(current.name)"
                 >
-                    {{ $t(current.title) }}
+                    <div v-if="!getPaymentImage(current.name)">
+                        {{ $t(current.title) }}
+                    </div>
+                    <div v-else>
+                        <img
+                            :src="getPaymentImage(current.name)"
+                            class="paymenttype-icon"
+                        />
+                    </div>
                 </button>
             </div>
         </vca-field>
@@ -78,6 +86,17 @@ export default {
         this.paymentType = filter ? filter.name : this.paymentTypes[0].name;
     },
     methods: {
+        getPaymentImage(type) {
+            if (["creditcard", "paypal", "sepa"].includes(type)) {
+                return require("@/assets/img/payment/" + type + ".png");
+            }
+            return false;
+        },
+        getWhitePaymentImage(type) {
+            if (["creditcard", "paypal", "sepa"].includes(type)) {
+                return require("@/assets/img/payment/" + type + "_white.png");
+            }
+        },
         isInvalid(e) {
             this.$emit("isInvalid", e);
         },
@@ -107,3 +126,22 @@ export default {
     },
 };
 </script>
+<style lang="scss">
+.v2 {
+    .selection-button {
+        .paymenttype-icon {
+            display: inline-block !important;
+            margin-left: 15px;
+        }
+        &.selected {
+            border: solid 2px $primary-dark;
+            background-color: $white;
+            color: $primary-dark;
+        }
+        &:hover {
+            color: $primary-dark !important;
+            background-color: $white !important;
+        }
+    }
+}
+</style>
