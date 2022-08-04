@@ -1,8 +1,8 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
     configureWebpack: {
         optimization: {
-            splitChunks: false
+            splitChunks: false,
         },
         //    plugins: [
         //      new CopyWebpackPlugin([
@@ -14,12 +14,13 @@ module.exports = {
         //      ])
         //    ]
     },
-    publicPath: process.env.NODE_ENV === 'production'
-    ? process.env.VUE_APP_CONTEXT
-    : '/',
+    publicPath:
+        process.env.NODE_ENV === "production"
+            ? process.env.VUE_APP_CONTEXT
+            : "/",
     devServer: {
-        public: 'spenden.localhost',
-        disableHostCheck: true
+        public: "spenden.localhost",
+        disableHostCheck: true,
     },
     css: {
         extract: false,
@@ -29,7 +30,4 @@ module.exports = {
             },
         },
     },
-}
-
-
-
+};
