@@ -1,6 +1,6 @@
 <template>
     <vca-field class="typo-roboto" :label="$t('abo.label')">
-        <vca-row>
+        <vca-row class="button-wrapper">
             <button
                 @click="current = 'single'"
                 class="vca-button selection"
