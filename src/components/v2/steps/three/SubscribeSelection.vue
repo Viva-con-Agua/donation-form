@@ -6,7 +6,7 @@
                     v-for="(current, index) in paymentTypes"
                     :key="index"
                     :class="{ selected: getPaymentType(current.name) }"
-                    class="selection-button"
+                    class="selection-button button-wrapper"
                     @click.prevent="setPaymentType(current.name)"
                 >
                     <div v-if="!getPaymentImage(current.name)">

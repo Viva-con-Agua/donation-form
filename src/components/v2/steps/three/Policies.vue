@@ -1,6 +1,6 @@
 <template>
     <vca-card>
-        <h3 class="button-wrapper">
+        <h3>
             <i18n v-if="setting == 'nwt'" path="policies.label.nwt">
                 <a
                     :href="$t('policies.data.url')"
