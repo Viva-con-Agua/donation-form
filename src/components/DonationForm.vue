@@ -173,7 +173,7 @@ export default {
             showInfo: false,
             next: false,
             iserror: false,
-            step: 3,
+            step: 1,
             steps: [],
             steps_v2: [],
         };

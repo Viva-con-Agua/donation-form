@@ -10,6 +10,16 @@
                     @click.prevent="setPaymentType(current.name)"
                 >
                     {{ $t(current.title) }}
+                    <img
+                        src="~@/assets/img/payment/creditcard_small.png"
+                        class="paymenttype-icon"
+                        v-if="current.name == 'creditcard'"
+                    />
+                    <img
+                        src="~@/assets/img/payment/creditcard_white_small.png"
+                        class="paymenttype-icon-white"
+                        v-if="current.name == 'creditcard'"
+                    />
                 </button>
             </div>
         </vca-field>
