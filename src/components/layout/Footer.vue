@@ -19,6 +19,10 @@
                 <li>{{ $t('information.info_4') }}</li>
             </ul>
         </p>
+        <div v-if="showSSL" class="vca-right ssl-certs">
+            <img class="trans" :alt="$t('ssl.transparent')" :title="$t('ssl.transparent')" src="~@/assets/img/ssl/Transparente_ZivilgesellschaftPNG.png">
+            <img class="ssl" :alt="$t('ssl.ssl')" :title="$t('ssl.ssl')" src="~@/assets/img/ssl/ssl-icon.svg">
+        </div>
     </div>
 
 </template>
@@ -30,6 +34,12 @@ export default {
         ...mapGetters({
             setting: 'setting'
         })
+    },
+    props: {
+        showSSL: {
+            type: Boolean,
+            default: false
+        }
     }
 }
 </script>
@@ -57,6 +67,16 @@ export default {
             content: '✓';
         }
 
+    }
+    .ssl-certs {
+        img.ssl {
+            width: 41px;
+            height: 41px;
+        }
+        img.trans {
+            width: 150px;
+            height: 41px;
+        }
     }
 }
 </style>
