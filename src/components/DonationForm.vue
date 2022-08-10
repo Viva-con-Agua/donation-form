@@ -259,7 +259,7 @@ export default {
     }
     .vca-button {
         &.selection {
-            margin: 0 auto;
+            margin: 5px auto;
             border: solid thin $main-color;
             padding: 5px;
             max-width: 70%;
