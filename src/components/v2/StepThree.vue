@@ -21,8 +21,9 @@
             v-on:error="error"
             @isInvalid="validate"
         />
-        <Policies class="button-wrapper" v-if="paymentType != ''" />
-
+        <div class="button-wrapper">
+            <Policies v-if="paymentType != ''" />
+        </div>
         <button
             v-if="paymentType == 'paypal'"
             class="vca-button navigation"
@@ -31,7 +32,7 @@
             {{ $t("buttons.back") }}
         </button>
 
-        <div v-else class="inline-navigation button-wrapper">
+        <div v-else class="inline-navigation vca-center button-wrapper">
             <div>
                 <button class="vca-button navigation" @click="back">
                     {{ $t("buttons.back") }}

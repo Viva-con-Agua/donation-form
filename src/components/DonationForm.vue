@@ -40,11 +40,6 @@
                     :steps="steps_v2"
                     v-if="step < 3"
                 />
-                <img
-                    src="@/assets/icons/info.png"
-                    @click="showInfo = true"
-                    class="infobox"
-                />
                 <StepOneV2
                     v-if="step === 1"
                     :showButton="!next"
@@ -72,8 +67,14 @@
                     :show="showInfo"
                     @close="showInfo = false"
                     :title="$t('information.label')"
-                    ><PaymentFooter
-                /></vca-popup>
+                    ><PaymentFooter :showSSL="true" />
+                </vca-popup>
+                <img
+                    v-if="step < 3"
+                    src="@/assets/icons/info.png"
+                    @click="showInfo = true"
+                    class="infobox"
+                />
             </div>
         </div>
     </div>
@@ -260,9 +261,11 @@ export default {
         &.selection {
             margin: 0 auto;
             border: solid thin $main-color;
-            padding: 20px;
+            padding: 5px;
+            max-width: 70%;
 
             @include media(large) {
+                padding: 20px;
                 margin: 20px 0;
             }
 
@@ -292,10 +295,10 @@ export default {
     }
     .infobox {
         z-index: +1;
-        position: fixed;
+        position: absolute;
         width: 30px;
         height: 30px;
-        top: 50%;
+        bottom: 5%;
         right: 10px;
         cursor: pointer;
         @include media(large) {
