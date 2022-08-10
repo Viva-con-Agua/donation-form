@@ -176,6 +176,9 @@ export default {
     flex-wrap: nowrap;
     button {
         margin: 5px !important;
+        @include media(large) {
+            margin: 20px 0 !important;
+        }
     }
 }
 
