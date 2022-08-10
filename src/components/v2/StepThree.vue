@@ -131,10 +131,6 @@ export default {
     display: flex;
     flex-wrap: wrap-reverse;
 
-    & > div + div {
-        margin-left: 3em;
-    }
-
     @include media(large) {
         flex-wrap: nowrap;
         div {

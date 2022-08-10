@@ -104,9 +104,10 @@
         }
     },
     "amount": {
-        "custom": "mein Betrag",
+        "custom": "anderer Betrag",
         "label": {
             "donate": "Du willst einen anderen Betrag spenden? Kein Problem!",
+            "donate_2": "Wähle einen Betrag",
             "pay": "Du willst einen anderen Betrag geben? Kein Problem!"
         },
         "toptext": "anderer Betrag",
@@ -164,31 +165,31 @@
             "info": "Dies ist kein Pflichtfeld, wir verschicken die Spendenbescheinigungen jedoch ressourcenschonend per E-Mail und fänden es super, wenn du uns deine E-Mail Adresse zur Verfügung stellst."
         },
         "firstname": {
-            "placeholder": "Dein Vorname *",
+            "placeholder": "Vorname *",
             "error": "Bitte gib deinen Vornamen ein"
         },
         "lastname": {
-            "placeholder": "Dein Nachname *",
+            "placeholder": "Nachname *",
             "error": "Bitte gib deinen Nachnamen ein"
         },
         "street": {
-            "placeholder": "Deine Straße *",
+            "placeholder": "Straße *",
             "error": "Bitte gib deine Straße ein"
         },
         "number": {
-            "placeholder": "Deine Hausnummer *",
+            "placeholder": "Hausnummer *",
             "error": "Bitte gib deine Hausnummer ein"
         },
         "zip": {
-            "placeholder": "Deine Postleitzahl *",
+            "placeholder": "Postleitzahl *",
             "error": "Bitte gib deine Postleitzahl ein"
         },
         "city": {
-            "placeholder": "Dein Wohnort *",
+            "placeholder": "Wohnort *",
             "error": "Bitte gib deinen Wohnort ein"
         },
         "country": {
-            "placeholder": "Dein Land *",
+            "placeholder": "Land *",
             "error": "Bitte gib dein Land ein"
         },
         "selectCountry": {
@@ -310,7 +311,7 @@
             }
         },
         "comment": {
-            "label": "Du wolltest uns schon immer etwas sagen?<br/>Jetzt kommt die Chance - Deine Nachricht an unser Team:",
+            "label": "Du wolltest uns schon immer etwas sagen?<br/>Deine Nachricht an unser Team:",
             "label_nwt": "Bitte gib hier an, warum du am NWT teilnimmst z.B. Ehrenamtliches Engagement, Spender*in, interessiert ...",
             "placeholder": "200 Zeichen",
             "error": "Bitte gib eine kurze Nachricht ein",
@@ -337,5 +338,9 @@
         "yes": "Spende mit Namen veröffentlichen",
         "anonym": "Spende anonym veröffentlichen",
         "none": "Spende nicht veröffentlichen"
+    },
+    "ssl": {
+        "ssl": "SSL verschlüsselt",
+        "transparent": "Transparente Zivilgesellschaft"
     }
 }

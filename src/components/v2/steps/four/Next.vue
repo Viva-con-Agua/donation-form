@@ -126,7 +126,7 @@ export default {
 <style lang="scss" scoped>
 .quarter {
     @include media(small) {
-        width: 100% !important;
+        width: 75% !important;
     }
 }
 </style>

@@ -1,5 +1,9 @@
 <template>
-    <vca-field class="typo-roboto" :label="getLabel">
+    <vca-field
+        class="typo-roboto"
+        id="amount"
+        :label="$t('amount.label.donate_2')"
+    >
         <vca-row>
             <vca-column>
                 <vca-row class="button-wrapper">
@@ -119,9 +123,6 @@ export default {
             setting: "setting",
             minAmount: "form/minAmount",
         }),
-        getLabel() {
-            return this.$t("amount.label.donate");
-        },
         threshold() {
             let cssClass = "main-color bold";
             let amount = this.slider ? this.slider.max : 10000;
@@ -179,6 +180,7 @@ export default {
 
 .amount-field {
     margin: 1em auto;
+    max-width: 90%;
 }
 
 .example-wrapper {
