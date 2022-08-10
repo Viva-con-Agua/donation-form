@@ -145,18 +145,19 @@ export default {
     },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .tenseconds-success {
     margin: auto;
 }
 
-.text-area textarea {
-    height: 150px;
-}
-
 .quarter {
     @include media(small) {
-        width: 100% !important;
+        width: 75% !important;
     }
+}
+</style>
+<style lang="scss">
+.text-area textarea {
+    height: 150px;
 }
 </style>
