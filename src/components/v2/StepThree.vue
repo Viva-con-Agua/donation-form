@@ -4,31 +4,14 @@
             <h2>Payment_id: {{ payment }}</h2>
             <span>{{ $t("error.payment") }}</span>
         </div>
-        <PaymentSelection
-            v-if="!abo"
-            ref="selection"
-            :product="product"
-            class="button-wrapper"
-            v-on:success="success"
-            v-on:error="error"
-            @isInvalid="validate"
-        />
-        <SubscribeSelection
-            v-if="abo"
-            ref="selection"
-            :product="product"
-            v-on:success="success"
-            v-on:error="error"
-            @isInvalid="validate"
-        />
+        <PaymentSelection v-if="!abo" ref="selection" :product="product" class="button-wrapper" v-on:success="success"
+            v-on:error="error" @isInvalid="validate" />
+        <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error"
+            @isInvalid="validate" />
         <div class="button-wrapper">
             <Policies v-if="paymentType != ''" />
         </div>
-        <button
-            v-if="paymentType == 'paypal'"
-            class="vca-button navigation"
-            @click="back"
-        >
+        <button v-if="paymentType == 'paypal'" class="vca-button navigation" @click="back">
             {{ $t("buttons.back") }}
         </button>
 
@@ -39,11 +22,7 @@
                 </button>
             </div>
             <div>
-                <button
-                    class="vca-button navigation"
-                    @click="commit"
-                    :disabled="isInvalid"
-                >
+                <button class="vca-button navigation" @click="commit" :disabled="isInvalid">
                     {{ getLabel }}
                 </button>
             </div>
@@ -131,14 +110,20 @@ export default {
     display: flex;
     flex-wrap: wrap-reverse;
 
+    button {
+        margin: 1em !important;
+    }
     @include media(large) {
         flex-wrap: nowrap;
+
         div {
             display: flex;
             width: 100%;
+
             button {
                 margin: 1em !important;
             }
+
             &:first-of-type {
                 justify-content: flex-end;
             }

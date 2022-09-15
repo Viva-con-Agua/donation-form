@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <notifications position="top center" width="100%" />
-        <div id="payment-widget" class="payment-widget" ref="paymentwidget" @click="interaction">
-            <router-view class="app-content" />
+        <div id="payment-widget" class="payment-widget" ref="paymentwidget" @click="interaction" @input="interaction" >
+            <router-view class="app-content" @intera="interaction" />
         </div>
     </div>
 </template>
@@ -23,6 +23,7 @@
         'en-GB': en
     }
     });*/
+import EventBus from "@/event-bus.js"
 export default {
     name: 'App',
     /*  props: {
@@ -63,6 +64,7 @@ export default {
             },
             false,
         );
+        EventBus.$on('interaction', this.interaction)
     },
 };
 </script>

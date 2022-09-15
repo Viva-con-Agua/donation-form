@@ -48,6 +48,7 @@
                 <StepTwoV2
                     v-if="step === 1 && next == true"
                     @submit="navigate(), step++"
+                    @interaction="interaction"
                     @back="next = false"
                 />
                 <StepThreeV2
@@ -213,6 +214,9 @@ export default {
             //this.$refs.stepthree.commit()
             this.step = 4;
         },
+        interaction(){
+            this.$emit("intera")
+        }
     },
 };
 </script>
@@ -296,8 +300,8 @@ export default {
     .infobox {
         z-index: +1;
         position: absolute;
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
         bottom: 5%;
         right: 10px;
         cursor: pointer;
