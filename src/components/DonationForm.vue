@@ -296,8 +296,8 @@ export default {
     .infobox {
         z-index: +1;
         position: absolute;
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
         bottom: 5%;
         right: 10px;
         cursor: pointer;
