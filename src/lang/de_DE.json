@@ -104,7 +104,7 @@
         }
     },
     "amount": {
-        "custom": "anderer Betrag",
+        "custom": "+",
         "label": {
             "donate": "Du willst einen anderen Betrag spenden? Kein Problem!",
             "donate_2": "Wähle einen Betrag",
