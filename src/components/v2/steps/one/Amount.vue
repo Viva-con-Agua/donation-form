@@ -6,7 +6,7 @@
     >
         <vca-row>
             <vca-column>
-                <vca-row class="button-wrapper">
+                <vca-row class="button-wrapper inline-wrapper">
                     <button
                         @click="setAmount(2500)"
                         class="vca-button selection"
@@ -22,7 +22,7 @@
                         50 €
                     </button>
                 </vca-row>
-                <vca-row class="button-wrapper">
+                <vca-row class="button-wrapper inline-wrapper">
                     <button
                         @click="setAmount(10000)"
                         class="vca-button selection"
@@ -172,6 +172,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.inline-wrapper {
+    flex-wrap: nowrap;
+    button {
+        margin: 5px !important;
+        @include media(large) {
+            margin: 20px 0 !important;
+        }
+    }
+}
+
 .vca-button + .vca-button {
     @include media(large) {
         margin-left: 3em !important;
