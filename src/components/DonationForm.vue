@@ -130,6 +130,14 @@ export default {
             type: String,
             default: null,
         },
+        amount: {
+            type: String,
+            default: "",
+        },
+        interval: {
+            type: String,
+            default: "",
+        },
     },
     created() {
         this.$store.commit("loadingFlow");
@@ -161,6 +169,39 @@ export default {
         this.$store
             .dispatch({ type: "init", data: this.donation_form_id })
             .then((resp) => {
+                if (this.setting != "v2") {
+                    let next = 0;
+                    if (this.amount && this.amount >= this.minAmount) {
+                        this.$store.commit("payment/money", {
+                            amount: this.amount,
+                        });
+                        next++;
+                    }
+
+                    if (
+                        this.interval &&
+                        [
+                            "once",
+                            "monthly",
+                            "quarterly",
+                            "half",
+                            "yearly",
+                        ].includes(this.interval)
+                    ) {
+                        next++;
+
+                        if (this.interval != "once") {
+                            this.$store.commit("payment/abo", true);
+                            this.$store.commit(
+                                "payment/interval",
+                                this.interval
+                            );
+                        }
+                    }
+                    if (next == 2) {
+                        this.step = 2;
+                    }
+                }
                 console.log(resp);
             })
             .catch((error) => {
@@ -182,6 +223,7 @@ export default {
     computed: {
         ...mapGetters({
             product: "form/product",
+            minAmount: "form/minAmount",
             money: "payment/money",
             loadingFlow: "loadingFlow",
         }),
