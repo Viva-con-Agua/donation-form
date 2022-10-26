@@ -51,6 +51,7 @@ export default {
                     this.$store.commit("payment/abo", true);
                     this.$store.commit("payment/interval", value);
                 }
+                this.$emit("interaction");
             },
         },
     },

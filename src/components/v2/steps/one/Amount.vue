@@ -148,6 +148,7 @@ export default {
             },
             set(value) {
                 this.$store.commit("payment/money", value);
+                this.$emit("interaction");
             },
         },
         current: {
