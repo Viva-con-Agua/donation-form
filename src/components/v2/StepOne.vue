@@ -1,8 +1,8 @@
 <template>
     <div class="stepone">
-        <Abo v-if="hasSubscription" />
+        <Abo @interaction="interaction" v-if="hasSubscription" />
 
-        <Amount ref="amount" />
+        <Amount @interaction="interaction" ref="amount" />
         <button
             v-if="showButton"
             class="vca-button navigation"
@@ -51,9 +51,24 @@ export default {
         },
         ...mapGetters({
             setting: "setting",
+            money: "payment/money",
+            interval: "payment/interval",
+            interval_type: "payment/interval_v2",
         }),
     },
     methods: {
+        interaction() {
+            const message = {
+                type: "data-update",
+                data: {
+                    amount: this.money.amount,
+                    interval:
+                        this.interval_type == "single" ? "once" : this.interval,
+                },
+            };
+            parent.postMessage(message, "*");
+            console.debug("message sent with: ", message.data);
+        },
         submit() {
             this.gtmTrack("click", "StepOne Next donation-form", 0);
             this.$emit("submit");
