@@ -45,6 +45,7 @@
                     :showButton="!next"
                     @submit="next = true"
                 />
+                <div id="steptwo"></div>
                 <StepTwoV2
                     v-if="step === 1 && next == true"
                     @submit="navigate(), step++"
@@ -95,6 +96,8 @@ import HeaderSteps from "@/components/layout/HeaderSteps";
 import HeaderStepsMtg from "@/components/layout/HeaderStepsMtg";
 //import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from "@/components/layout/Headline";
+
+import VueScrollTo from "vue-scrollto";
 import { mapGetters } from "vuex";
 export default {
     name: "DonationForm",
@@ -168,7 +171,7 @@ export default {
         ];
         this.$store
             .dispatch({ type: "init", data: this.donation_form_id })
-            .then((resp) => {
+            .then(() => {
                 if (this.setting != "v2") {
                     let next = 0;
                     if (this.amount && this.amount >= this.minAmount) {
@@ -201,8 +204,44 @@ export default {
                     if (next == 2) {
                         this.step = 2;
                     }
+                } else {
+                    let next = 0;
+                    if (this.amount && this.amount >= this.minAmount) {
+                        this.$store.commit("payment/money", {
+                            amount: this.amount,
+                        });
+                        next++;
+
+                        if (["2500", "5000", "10000"].includes(this.amount)) {
+                            this.$store.commit("payment/amount_type", "amount");
+                        } else {
+                            this.$store.commit("payment/amount_type", "custom");
+                        }
+                    }
+
+                    if (
+                        this.interval &&
+                        ["once", "monthly", "yearly"].includes(this.interval)
+                    ) {
+                        next++;
+
+                        if (this.interval != "once") {
+                            this.$store.commit("payment/abo", true);
+                            this.$store.commit(
+                                "payment/interval_v2",
+                                this.interval
+                            );
+                            this.$store.commit(
+                                "payment/interval",
+                                this.interval
+                            );
+                        }
+                    }
+                    if (next == 2) {
+                        this.next = true;
+                        VueScrollTo.scrollTo("#steptwo");
+                    }
                 }
-                console.log(resp);
             })
             .catch((error) => {
                 this.iserror = true;
