@@ -41,7 +41,7 @@
 
                 <vca-checkbox
                     v-if="!isCompany && language != 'at' && setting != 'nwt'"
-                    v-model="additional">
+                    v-model="additional" >
                             <div v-html="$t('contactform.additional')"></div>
                 </vca-checkbox>
 
@@ -114,6 +114,7 @@
 <script>
 import { required, email} from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
+import EventBus from "@/event-bus.js"
 export default {
     name: 'ContactForm',
     created() {
@@ -270,8 +271,12 @@ export default {
     methods: {        
         lower() {
             this.anonymous.email = this.anonymous.email.toLowerCase()
-        }
+        },
+    },
+    updated() {
+        EventBus.$emit("interaction")
     }
+
 }
 </script>
 <style lang="scss">
