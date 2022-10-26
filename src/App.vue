@@ -1,7 +1,12 @@
 <template>
     <div id="app">
         <notifications position="top center" width="100%" />
-        <div id="payment-widget" class="payment-widget" ref="paymentwidget" @click="interaction">
+        <div
+            id="payment-widget"
+            class="payment-widget"
+            ref="paymentwidget"
+            @click="interaction"
+        >
             <router-view class="app-content" />
         </div>
     </div>
@@ -24,7 +29,7 @@
     }
     });*/
 export default {
-    name: 'App',
+    name: "App",
     /*  props: {
         campaign_id: {
             type: String,
@@ -43,25 +48,25 @@ export default {
         interaction() {
             const contentHeight = this.$refs.paymentwidget.clientHeight;
             const message = {
-                type: 'iframe-height',
+                type: "iframe-height",
                 data: {
                     height: contentHeight,
                 },
             };
-            parent.postMessage(message, '*');
-            console.log('message sent with: ', contentHeight);
+            parent.postMessage(message, "*");
+            console.debug("message sent with: ", contentHeight);
         },
     },
     mounted() {
         window.addEventListener(
-            'message',
+            "message",
             (event) => {
-                if (event.data.type === 'iframe-loaded') {
-                    console.log('iframe loaded event received');
+                if (event.data.type === "iframe-loaded") {
+                    console.debug("iframe loaded event received");
                     this.interaction();
                 }
             },
-            false,
+            false
         );
     },
 };
