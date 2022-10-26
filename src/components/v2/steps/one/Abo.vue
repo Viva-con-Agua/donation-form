@@ -44,7 +44,6 @@ export default {
             },
             set(value) {
                 VueScrollTo.scrollTo("#amount");
-                console.log("current");
                 this.$store.commit("payment/interval_v2", value);
                 if (value == "single") {
                     this.$store.commit("payment/abo", false);
