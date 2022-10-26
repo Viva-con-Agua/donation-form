@@ -134,7 +134,7 @@ export default {
             margin-left: 15px;
         }
         &.selected {
-            border: solid 2px $primary-dark;
+            border: solid 6px $primary-dark;
             background-color: $white;
             color: $primary-dark;
         }
