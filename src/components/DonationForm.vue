@@ -98,7 +98,6 @@ import HeaderStepsMtg from "@/components/layout/HeaderStepsMtg";
 //import LanguageSelection from "@/components/utils/LanguageSelection"
 import Headline from "@/components/layout/Headline";
 
-import VueScrollTo from "vue-scrollto";
 import { mapGetters } from "vuex";
 export default {
     name: "DonationForm",
@@ -206,12 +205,10 @@ export default {
                         this.step = 2;
                     }
                 } else {
-                    let next = 0;
                     if (this.amount && this.amount >= this.minAmount) {
                         this.$store.commit("payment/money", {
                             amount: this.amount,
                         });
-                        next++;
 
                         if (["2500", "5000", "10000"].includes(this.amount)) {
                             this.$store.commit("payment/amount_type", "amount");
@@ -224,8 +221,6 @@ export default {
                         this.interval &&
                         ["once", "monthly", "yearly"].includes(this.interval)
                     ) {
-                        next++;
-
                         if (this.interval != "once") {
                             this.$store.commit("payment/abo", true);
                             this.$store.commit(
@@ -238,15 +233,11 @@ export default {
                             );
                         }
                     }
-                    if (next == 2) {
-                        this.next = true;
-                        VueScrollTo.scrollTo("#steptwo");
-                    }
                 }
             })
             .catch((error) => {
                 this.iserror = true;
-                console.log(error);
+                console.error(error);
             })
             .finally(this.$store.commit("loadingFlow"));
     },
