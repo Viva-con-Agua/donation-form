@@ -286,9 +286,9 @@ export default {
             //this.$refs.stepthree.commit()
             this.step = 4;
         },
-        interaction(){
-            this.$emit("intera")
-        }
+        interaction() {
+            this.$emit("intera");
+        },
     },
 };
 </script>
