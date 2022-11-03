@@ -1,60 +1,75 @@
 <template>
-        <div class="steps-mtg">
-            <ul>
-                <li v-for="step in steps" :key="step.id" 
-                    :class="{
-                         'is-active': step.id == currentStep,
-                         'mtg': true,
-                         'is-inactive': step.id != currentStep, 
-                         'last-step': step.id == steps.length, 
-                         'first-step': step.id == 1,
-                         'behind': step.id > currentStep
-                 }">
-                    <div class="step-content">
-                        <div class="step-id"><div></div></div>
-                        <div class="step-label"><div>{{ step.id }}. {{ step.label }}</div></div>
+    <div class="steps-mtg">
+        <ul>
+            <li
+                v-for="step in steps"
+                :key="step.id"
+                :class="{
+                    'is-active': step.id == currentStep,
+                    mtg: true,
+                    'is-inactive': step.id != currentStep,
+                    'last-step': step.id == steps.length,
+                    'first-step': step.id == 1,
+                    behind: step.id > currentStep,
+                }"
+            >
+                <div class="step-content">
+                    <div class="step-id"><div></div></div>
+                    <div class="step-label">
+                        <div>{{ step.id }}. {{ step.label }}</div>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </template>
 <script>
-
 export default {
-    name: 'HeaderSteps',
+    name: "HeaderSteps",
     props: {
         steps: {
             type: Array,
             default() {
                 return [
                     {
-                        id: '1',
-                        label: ''
-                    }
-                ]
-            }
+                        id: "1",
+                        label: "",
+                    },
+                ];
+            },
         },
         currentStep: {
             type: Number,
-            default: 1
-        }
-    }
-}
+            default: 1,
+        },
+    },
+};
 </script>
 <style lang="scss">
 @function url-friendly-colour($colour) {
-    @return '%23' + str-slice('#{$colour}', 2, -1)
+    @return "%23" + str-slice("#{$colour}", 2, -1);
 }
 
 .mtg-theme {
-    h1, h2 {
+    h1,
+    h2 {
         color: black !important;
-        font-family: 'Poppins', serif !important;
+        font-family: "Poppins", serif !important;
         font-weight: 600 !important;
     }
 
-    h3, h4, h5, a, p, li, div, button, label, input, span {
-        font-family: 'Poppins', serif !important;
+    h3,
+    h4,
+    h5,
+    a,
+    p,
+    li,
+    div,
+    button,
+    label,
+    input,
+    span {
+        font-family: "Poppins", serif !important;
         font-weight: 200 !important;
     }
     .vca-border {
@@ -100,26 +115,32 @@ export default {
         }
     }
 
-    .main-color { color: black !important; } 
-    .primary-light { color: $orange-light !important; }
+    .main-color {
+        color: black !important;
+    }
+    .primary-light {
+        color: $orange-light !important;
+    }
 
     .vca-field-label {
-        background-image: linear-gradient(180deg, $mtg-main 0, $mtg-main 51%,transparent 0)
+        background-image: linear-gradient(
+            180deg,
+            $mtg-main 0,
+            $mtg-main 51%,
+            transparent 0
+        );
     }
 
     .vca-button {
-
-            color: white;
-            background-color: $mtg-main;
-            &:hover {
-                background-color: $orange-dark;
-                border-color: $orange-dark;
-            }
-     
+        color: white;
+        background-color: $mtg-main;
+        &:hover {
+            background-color: $orange-dark;
+            border-color: $orange-dark;
+        }
     }
 
     .selection-button-box {
-
         .selection-button {
             color: $mtg-main;
             border-color: $mtg-main;
@@ -137,7 +158,6 @@ export default {
                 }
             }
         }
-
     }
 }
 
@@ -172,7 +192,7 @@ export default {
             flex-grow: 1;
             position: relative;
             padding: 6px 16px;
-            transition: .3s;
+            transition: 0.3s;
             font-size: 1.1em;
 
             &.is-active {
@@ -196,7 +216,7 @@ export default {
                         text-align: left;
                         white-space: break-spaces;
                         padding-left: 10px;
-                        
+
                         display: table;
                         position: absolute;
                         right: 0;
@@ -219,26 +239,26 @@ export default {
                         height: 100%;
                         font-weight: bold;
                         text-align: center;
-                     
+
                         font-size: 1.5em;
                         background-image: url("~@/assets/icons/skull.png");
                         color: #000;
                         background-size: contain;
                         background-attachment: scroll;
-                        background-position: center; 
+                        background-position: center;
                         background-repeat: no-repeat;
-                        
+
                         left: 0;
                         width: 30%;
 
                         div {
                             vertical-align: top;
                             display: table-cell;
-                            padding-top: 5px;    
+                            padding-top: 5px;
                             padding-left: 5px;
                             text-align: center;
                             @include media(small) {
-                                font-size: .75em;
+                                font-size: 0.75em;
                             }
                         }
 
@@ -251,8 +271,6 @@ export default {
                     }
                 }
             }
-
-
 
             &.is-inactive {
                 background-color: $white;
@@ -275,7 +293,7 @@ export default {
                         text-align: left;
                         white-space: break-spaces;
                         padding-left: 10px;
-                        
+
                         display: table;
                         position: absolute;
                         right: 0;
@@ -302,26 +320,26 @@ export default {
                         height: 100%;
                         font-weight: bold;
                         text-align: center;
-                     
+
                         font-size: 1.2em;
                         background-image: url("~@/assets/icons/skull.png");
                         background-attachment: scroll;
                         color: #000;
                         background-size: contain;
-                        background-position: center; 
+                        background-position: center;
                         background-repeat: no-repeat;
-                        
+
                         left: 0;
                         width: 30%;
 
                         div {
                             vertical-align: top;
                             display: table-cell;
-                            padding-top: 5px;    
+                            padding-top: 5px;
                             padding-left: 5px;
                             text-align: center;
                             @include media(small) {
-                                font-size: .75em;
+                                font-size: 0.75em;
                             }
                         }
 
@@ -332,7 +350,7 @@ export default {
                             right: 0;
                         }
                         @include media(1000) {
-                            font-size: .9em;
+                            font-size: 0.9em;
                         }
                     }
                 }
@@ -347,12 +365,7 @@ export default {
                     }
                 }
             }
-
         }
-
     }
-
 }
-
-
 </style>
