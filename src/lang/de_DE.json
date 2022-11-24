@@ -54,7 +54,7 @@
         "nwt": "NIMM JETZT AM VIVA CON_festival TEIL",
         "mtg": "MILLERNTOR GALLERY",
         "paid": "DANKE FÜR DEINE ZAHLUNG AN VIVA CON AGUA",
-        "donate": "SPENDE JETZT FÜR SAUBERES TRINKWASSER",
+        "donate": "JETZT SPENDEN.",
         "thanks": "DANKE FÜR DEINE SPENDE FÜR SAUBERES TRINKWASSER"
     },
     "header": {
@@ -125,7 +125,7 @@
         }
     },
     "abo": {
-        "label": " Wie häufig willst du spenden?",
+        "label": " Wähle ein Zahlungsintervall",
         "single": "Einmalig",
         "monthly": "Monatlich",
         "yearly": "Jährlich",
@@ -277,13 +277,13 @@
     },
     "next": {
         "label": "So geht es weiter",
-        "email": "Du erhältst gleich eine Bestätigungsmail von uns.",
+        "email": "Du erhältst gleich eine <strong>Bestätigungsmail</strong> von uns.",
         "nwt": "Du erhältst gleich eine Zahlungsbestätigung von uns.<br/>Wir werden die Zahlungen noch einmal mit der Gästeliste abgleichen und dir in den nächsten Tagen eine finale Anmeldebestätigung schicken.<br/>Schau auch gerne noch einmal in deinen Spam Ordner, falls du diese nicht erhältst.<br/><strong>Für weitere Infos kannst uns jederzeit unter netzwerkt@vivaconagua.org erreichen.</strong><br/><br/>Wir freuen uns auf die gemeinsame Zeit!",
-        "receipt": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
+        "receipt": "Deine <strong>Spendenbescheinigungen</strong> erhältst du im <strong>Februar</strong> des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>spenden@vivaconagua.org</strong> melden.",
         "receipt_mtg": "Deine Spendenbescheinigungen erhältst du im Februar des nächsten Jahres.<br/>Solltest du diese früher benötigen, kannst du dich jederzeit unter <strong>contact@millerntorgallery.org</strong> melden.",
         "newsletter": {
-            "text": "In der Zwischenzeit melde dich doch bei unserem Newsletter an",
-            "button": "Jetzt anmelden",
+            "text": "In der Zwischenzeit melde dich doch bei unserem <strong>Newsletter</strong> an",
+            "button": "Jetzt Newsletter abonieren",
             "success": "Danke für die Anmeldung in unserem Newsletter!"
         },
         "yours": "Dein Viva con Agua Team",

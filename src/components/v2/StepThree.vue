@@ -4,14 +4,31 @@
             <h2>Payment_id: {{ payment }}</h2>
             <span>{{ $t("error.payment") }}</span>
         </div>
-        <PaymentSelection v-if="!abo" ref="selection" :product="product" class="button-wrapper" v-on:success="success"
-            v-on:error="error" @isInvalid="validate" />
-        <SubscribeSelection v-if="abo" ref="selection" :product="product" v-on:success="success" v-on:error="error"
-            @isInvalid="validate" />
+        <PaymentSelection
+            v-if="!abo"
+            ref="selection"
+            :product="product"
+            class="button-wrapper"
+            v-on:success="success"
+            v-on:error="error"
+            @isInvalid="validate"
+        />
+        <SubscribeSelection
+            v-if="abo"
+            ref="selection"
+            :product="product"
+            v-on:success="success"
+            v-on:error="error"
+            @isInvalid="validate"
+        />
         <div class="button-wrapper">
             <Policies v-if="paymentType != ''" />
         </div>
-        <button v-if="paymentType == 'paypal'" class="vca-button navigation" @click="back">
+        <button
+            v-if="paymentType == 'paypal'"
+            class="vca-button navigation"
+            @click="back"
+        >
             {{ $t("buttons.back") }}
         </button>
 
@@ -22,10 +39,15 @@
                 </button>
             </div>
             <div>
-                <button class="vca-button navigation" @click="commit" :disabled="isInvalid">
+                <button
+                    class="vca-button navigation"
+                    @click="commit"
+                    :disabled="isInvalid"
+                >
                     {{ getLabel }}
                 </button>
             </div>
+            <Certificates />
         </div>
     </div>
 </template>
@@ -35,10 +57,16 @@ import SubscribeSelection from "@/components/v2/steps/three/SubscribeSelection";
 import Policies from "@/components/v2/steps/three/Policies";
 import Money from "vca-ui/src/utils/Money";
 import { mapGetters } from "vuex";
+import Certificates from "@/components/layout/Certificates.vue";
 export default {
     name: "StepThreeV2",
     props: ["product"],
-    components: { PaymentSelection, SubscribeSelection, Policies },
+    components: {
+        PaymentSelection,
+        SubscribeSelection,
+        Policies,
+        Certificates,
+    },
     data() {
         return {
             isInvalid: true,
