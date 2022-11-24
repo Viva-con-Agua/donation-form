@@ -1,290 +1,346 @@
-{ 
-  "locale": { 
-    "dateFormat": "DD.MM.YYYY", 
-    "monthDateFormat": "MM.YYYY", 
-    "de": { 
-      "locale": "de-DE", 
-      "name": "German", 
-      "label": "DE" 
-    }, 
-    "ch": { 
-      "locale": "de-CH", 
-      "name": "Swiss German", 
-      "label": "CH" 
-    }, 
-    "za": { 
-      "locale": "en-ZA", 
-      "name": "South African English", 
-      "label": "ZA" 
-    }, 
-    "gb": { 
-      "locale": "en-GB", 
-      "name": "British English", 
-      "label": "GB" 
-    } 
-  }, 
-  "language": { 
-    "title": "language" 
-  }, 
-  "messages": { 
-    "title": { 
-      "success": "Awesome!", 
-      "error": "Ooops", 
-      "warn": "Hmmm", 
-      "welcome": "Hello!", 
-      "bye": "Goodbye!", 
-      "thanks": "Thank you!" 
-    }, 
-    "defaults": { 
-      "error": { 
-        "unknown": "An unknown error has occurred.", 
-        "unauth": "You're not properly logged in right now!"
-      } 
-    } 
-  }, 
-  "error": {
-    "payment": "Oh dear, I'm afraid there's been an error. We're sorry about that. Please contact kontakt@vivaconagua.org and include this payment ID.",
-    "not_found": {
-      "headline": "Ooops, unfortunately no suitable form was found",
-      "text": "Unfortunately, we have not found a suitable donation form.<br/>Please send us a short message where the error occurred to <strong>kontakt@vivaconagua.org</strong> so that we can fix the problem."
-    }
-  },
-  "headline": {
-    "pay": "PAYMENT FOR VIVA CON AGUA",
-    "paid": "THANK YOU FOR YOUR PAYMENT FOR VIVA CON AGUA",
-    "nwt": "PARTICIPATE AT OUR NETWORK GATHERING", 
-    "donate": "DONATE NOW FOR CLEAN DRINKING WATER", 
-    "thanks": "THANK YOU FOR YOUR DONATION FOR CLEAN DRINKING WATER" 
-  }, 
-  "header": { 
-    "amount": " Your amount ", 
-    "contact": "Your details", 
-    "payment": "Payment", 
-    "thanks": "Thank you!" 
-  }, 
-  "information_nwt": { 
-    "label": "Important information:", 
-    "info_1": "For further information you can always contact kontakt@vivaconagua.org", 
-    "info_2": "As this is a participation fee, the amount is not tax deductible"
-  },
-  "information": { 
-    "label": "Important information:", 
-    "info_1": "Monthly donations can be canceled at any time.", 
-    "info_2": "Your donation is tax deductible. You will receive a donation receipt in February next year.", 
-    "info_3": "Viva con Agua uses your data exclusively for the administration of donations. We do not pass them on to third parties.",
-    "info_4": "Viva con Agua de Sankt Pauli e.V. is recognized as a non-profit organization by the Hamburg-Nord tax office. Tax number: 17/454/04711. Last notice dated 21.09.2020." 
-  }, 
-  "buttons": { 
-    "next": "Continue", 
-    "back": "Back" 
-  }, 
-  "example": { 
-    "default": "", 
-    "1500": "With this amount you will support us e.g. with at least 20 liters of soap for schools", 
-    "2000": " With this amount you will support us e.g. with at least one water filter for a family ", 
-    "5000": " With this amount you will support us e.g. with at least 50 trees ", 
-    "8000": " With this amount you will support us e.g. with at least one hygiene workshop at a school " 
-  }, 
-  "amount": { 
-    "label": " You want to donate a different amount? No problem!", 
-    "toptext": " Other amount ", 
-    "error": { 
-      "default": " Please select an amount ", 
-      "minAmount": " Please select at least one amount from {0} {1} " 
-    } 
-  }, 
-  "nwt": {
-    "header": "IMPORTANT INFO",
-    "infotext": "We are thrilled that you have been selected to join us at this year's network meeting.<br/>Now only the last step is missing - the payment.<br/>If you are one of the lucky ones who can come, please select the amount once below and click continue.<br/>Attention: Please use a payment service provider under your name for the payment.<br/><br/><h3 class='vca-center'>If, unfortunately, you were not selected:</h3><br/>This is only the payment system. Selected participants have already been notified. If you are not one of them, we are very sorry. Payment here does not lead to registration."
-  },
-  "abo": { 
-    "label": " How often do you want to donate?", 
-    "no": " One time ", 
-    "yes": " Regularly " 
-  }, 
-  "interval": { 
-    "label": " Choose your donation interval ", 
-    "monthly": " monthly", 
-    "yearly": "1x a year",
-    "half": "2x a year", 
-    "thrice": "3x a year", 
-    "quarterly": "4x a year" 
-  }, 
-  "paymentselection": { 
-    "label": {
-      "donate": "I will donate via",
-      "pay": "I will pay via"
-    }
-  }, 
-  "contacttypeselection": { 
-    "label": " I donate as a", 
-    "individual": "Private person", 
-    "company": "Company" 
-  }, 
-  "contactform": { 
-    "label": "Personal details", 
-    "additional": " I would like to receive a donation receipt ", 
-    "required": "*These are the details we definitely need from you.", 
-    "company": { 
-      "placeholder": " Company name *", 
-      "error": " Please enter the name of your company " 
-    }, 
-    "email": { 
-      "placeholder": "E-Mail address *", 
-      "error": " Please enter a valid email address ", 
-      "info": " This is not a required field, but we will send the donation receipts by e-mail and would appreciate it if you could provide us with your e-mail address.." 
-    }, 
-    "firstname": { 
-      "placeholder": " Your first name *", 
-      "error": " Please enter your first name" 
-    }, 
-    "lastname": { 
-      "placeholder": "Your last name *", 
-      "error": " Please enter your last name " 
-    }, 
-    "street": { 
-      "placeholder": " Your street *", 
-      "error": " Please enter your street " 
-    }, 
-    "number": { 
-      "placeholder": "Deine Hausnummer *", 
-      "error": " Your house number " 
-    }, 
-    "zip": { 
-      "placeholder": " Your zip code *", 
-      "error": " Please enter your zip code " 
-    }, 
-    "city": { 
-      "placeholder": " Your residence *", 
-      "error": " Please enter your city " 
-    }, 
-    "country": { 
-      "placeholder": " Your country *", 
-      "error": " Please enter your country " 
-    }, 
-    "selectCountry": { 
-      "label": " Please select in which currency you would like to donate ", 
-      "placeholder": " Please select organization ", 
-      "de": { 
-        "title": "Viva con Agua de Sankt Pauli e.V.", 
-        "subtitle": " Our association in Germany ", 
-        "currency": "Euro" 
-      }, 
-      "ch": { 
-        "title": "Viva con Agua Switzerland", 
-        "subtitle": " Our association in Switzerland", 
-        "currency": "CHF" 
-      } 
-    } 
-  }, 
-  "payment": { 
-    "type": { 
-      "sepa": "SEPA", 
-      "creditcard": "Creditcard", 
-      "paypal": "Paypal" 
-    }, 
-    "more_details": " More details", 
-    "email": " We need your email address at this point to be able to make the donation with this payment provider.", 
-    "sepa": { 
-      "placeholder": "DE00 0000 0000 0000 0000 00", 
-      "error": " Please check your IBAN " 
-    }, 
-    "terms": { 
-      "sepa": { 
-        "de": { 
-          "single": "I authorize Viva con Agua de Sankt Pauli e.V. to collect payments from my account by direct debit. At the same time, I instruct my credit institution to accept the direct debit drawn from my account by Viva con Agua de Sankt Pauli e.V..<br/><strong>Note:</strong> I can demand reimbursement of the debited amount within eight weeks, beginning with the debit date. The conditions agreed with my credit institution shall apply.", 
-          "subscription": "I authorize Viva con Agua de Sankt Pauli e.V. to collect payments from my account by direct debit on the 15th of the following month. At the same time, I instruct my credit institution to accept the direct debit drawn from my account by Viva con Agua de Sankt Pauli e.V.<br/><strong>Note:</strong> I can demand within eight weeks, beginning with the debit date, the refund of the debited amount. The terms and conditions agreed with my credit institution shall apply"
-        }, 
-        "error": "Please confirm the direct debit authorization" 
-      } 
-    }, 
-    "submit": " Donate {0} {1} now " 
-  }, 
-  "policies": { 
-    "label": {
-      "donate": "With your donation you confirm to have read the {0}.",
-      "nwt": "With your payment you confirm to have read the {0}."
+{
+    "locale": {
+        "dateFormat": "DD.MM.YYYY",
+        "monthDateFormat": "MM.YYYY",
+        "de": {
+            "locale": "de-DE",
+            "name": "German",
+            "label": "DE"
+        },
+        "ch": {
+            "locale": "de-CH",
+            "name": "Swiss German",
+            "label": "CH"
+        },
+        "za": {
+            "locale": "en-ZA",
+            "name": "South African English",
+            "label": "ZA"
+        },
+        "gb": {
+            "locale": "en-GB",
+            "name": "British English",
+            "label": "GB"
+        }
     },
-    "data": { 
-      "label": " Privacy policy ", 
-      "url": "https://www.vivaconagua.org/datenschutzerklaerung" 
-    }, 
-    "tos": { 
-      "label": "Terms & Conditions", 
-      "url": "https://www.vivaconagua.org/agb" 
-    } 
-  }, 
-  "thanks": { 
-    "header": "THANK YOU", 
-    "subheader": " for your support and trust!", 
-    "text": " Your donation of {0}{1}", 
-    "example": { 
-      "default": " enables for example in our project country Uganda, even more people to get access to clean drinking water", 
-      "1500": " among other things, provided at least 20 liters of soap for schools in our project country Uganda.", 
-      "2000": " donated among other things, a water filter to another family in our project country Uganda.", 
-      "5000": " planted among others things, in our project country Uganda at least 50 trees.", 
-      "8000": " facilitated among other things, another hygiene workshop at a school in our project country Uganda." 
-    } 
-  }, 
-  "next": { 
-    "label": " This is how it continues ", 
-    "email": " You will receive a confirmation email from us immediately.", 
-    "nwt": "You will receive a payment confirmation from us immediately.<br/>We will reconcile the payments with the guest list and send you a final registration confirmation in the next few days.<br/>Also, feel free to check your spam folder again if you don't receive it.<br/><strong>For more information you can always contact us at kontakt@vivaconagua.org.</strong><br/><br/>We look forward to spending time together!",
-    "receipt": " You will receive your donation receipts in February next year. <br/>If you need it sooner, you can always contact us at <strong>spenden@vivaconagua.org</strong>.",     
-    "newsletter": { 
-      "text": " In the meantime, you can sign up for our newsletter. Note: We currently only send our newsletter in German.", 
-      "button": "Sign up now.", 
-      "success": " Thank you for subscribing our newsletter!" 
-    }, 
-    "yours": "Your Viva con Agua Team" 
-  }, 
-  "tenseconds": { 
-    "label": " Do you have 10 more seconds?", 
-    "success": " Thanks for your feedback!", 
-    "knownfrom": { 
-      "label": " Feel free to tell us how you know us:", 
-      "dropdown": { 
-        "placeholder": " Therefore I know you from", 
-        "family_friends": " Recommendation from friends & family", 
-        "festivals_cupdonation": " Festivals and cup donation ", 
-        "water": " Drinking water ", 
-        "toiletpaper": " Your toilet paper from Goldeimer ", 
-        "arts": "Viva con Agua Arts",
-        "mtg": "Millerntor Gallery",
-        "instagram": "Instagram", 
-        "facebook": "Facebook", 
-        "shops": "Shops", 
-        "print": "Print Media", 
-        "google": "Google", 
-        "none": "Other reason that is not mentioned here" 
-      } 
-    }, 
-    "comment": { 
-      "label": " You always wanted to tell us something?<br/>Here is your chance - your message to our team.:", 
-      "placeholder": "200 characters ", 
-      "error": " Please enter a short message ", 
-      "button": " Submit" 
-    } 
-  }, 
-  "navigation": { 
-    "tabs": { 
-      "home": " Start", 
-      "logout": "Logout", 
-      "signin": "Login" 
-    } 
-  }, 
-  "footer": { 
-    "legal": { 
-      "dataSecurity": "Data protection", 
-      "imprint": "Impressum", 
-      "language": "Language", 
-      "contact": "Contact" 
-    } 
-  },
-  "publish":{
-      "label": "Spende auf Twitch",
-      "yes": "Spende mit Namen veröffentlichen",
-      "anonym": "Spende anonym veröffentlichen",
-      "none": "Spende nicht veröffentlichen"
-  }
+    "language": {
+        "title": "language"
+    },
+    "messages": {
+        "title": {
+            "success": "Awesome!",
+            "error": "Ooops",
+            "warn": "Hmmm",
+            "welcome": "Hello!",
+            "bye": "Goodbye!",
+            "thanks": "Thank you!"
+        },
+        "defaults": {
+            "error": {
+                "unknown": "An unknown error has occurred.",
+                "unauth": "You're not properly logged in right now!"
+            }
+        }
+    },
+    "error": {
+        "payment": "Oh dear, I'm afraid there's been an error. We're sorry about that. Please contact kontakt@vivaconagua.org and include this payment ID.",
+        "not_found": {
+            "headline": "Ooops, unfortunately no suitable form was found",
+            "text": "Unfortunately, we have not found a suitable donation form.<br/>Please send us a short message where the error occurred to <strong>kontakt@vivaconagua.org</strong> so that we can fix the problem."
+        }
+    },
+    "headline": {
+        "pay": "PAYMENT FOR VIVA CON AGUA",
+        "nwt": "PARTICIPATE AT OUR NETWORK GATHERING",
+        "mtg": "MILLERNTOR GALLERY",
+        "paid": "THANK YOU FOR YOUR PAYMENT FOR VIVA CON AGUA",
+        "donate": "DONATE NOW FOR CLEAN DRINKING WATER",
+        "thanks": "THANK YOU FOR YOUR DONATION FOR CLEAN DRINKING WATER"
+    },
+    "header": {
+        "amount": " Your amount ",
+        "data": "Amount und contact",
+        "contact": "Your details",
+        "payment": "Payment",
+        "thanks": "Thank you!"
+    },
+    "information": {
+        "label": "Important information:",
+        "info_1": "Monthly donations can be canceled at any time.",
+        "info_2": "Your donation is tax deductible. You will receive a donation receipt in February next year.",
+        "info_3": "Viva con Agua uses your data exclusively for the administration of donations. We do not pass them on to third parties.",
+        "info_4": "Viva con Agua de Sankt Pauli e.V. is recognized as a non-profit organization by the Hamburg-Nord tax office. Tax number: 17/454/04711. Last notice dated 21.09.2020."
+    },
+    "information_nwt": {
+        "label": "Important information:",
+        "info_1": "For further information you can always contact kontakt@vivaconagua.org",
+        "info_2": "As this is a participation fee, the amount is not tax deductible"
+    },
+    "information_mtg": {
+        "info_3": "Viva con Agua Arts will only use your data for donation management. We do not pass them on to third parties.",
+        "info_4": "Viva con Agua ARTS gGmbH - VAT identification number according to §27 a VAT Act: DE304637764"
+    },
+    "buttons": {
+        "next": "Continue",
+        "back": "Back"
+    },
+    "example": {
+        "default": "",
+        "1500": "With this amount you will support us e.g. with at least 20 liters of soap for schools",
+        "2000": " With this amount you will support us e.g. with at least one water filter for a family ",
+        "5000": " With this amount you will support us e.g. with at least 50 trees ",
+        "8000": " With this amount you will support us e.g. with at least one hygiene workshop at a school ",
+        "mtg": {
+            "100": "With this you support us e.g. with at least one glass of water",
+            "500": "With this you support us e.g. with at least one Spray Can",
+            "2500": "With this you support us e.g. with at least one day's rent for a microphone",
+            "5000": "With this you support us e.g. with at least one bucket of facade white",
+            "15000": "With this you support us e.g. with at least paint and material for a complete wall area"
+        },
+        "icon": {
+            "2500": "With 25 you support us e.g. with at least one water filter for a family",
+            "5000": "With 50 euros you support us e.g. with at least 50 trees",
+            "10000": "With 100 Euros you support us e.g. with at least one hygiene workshop at a school"
+        }
+    },
+    "amount": {
+        "custom": "+",
+        "label": {
+            "donate": "You want to donate a different amount? No problem!",
+            "donate_2": "Choose your amount",
+            "pay": "You want to give a different amount? No problem!"
+        },
+        "toptext": "Other amount ",
+        "error": {
+            "default": " Please select an amount ",
+            "minAmount": " Please select at least one amount from {0} {1} "
+        }
+    },
+    "nwt": {
+        "header": "IMPORTANT INFO",
+        "sliderinfo": "Info on pricing: 199€ would cover costs.  Then let's make it 50/50, for example. 50 per cent is on us and you add 50 per cent",
+        "infotext": "We are thrilled that you have been selected to join us at this year's network meeting.<br/>Now only the last step is missing - the payment.<br/>If you are one of the lucky ones who can come, please select the amount once below and click continue.<br/>Attention: Please use a payment service provider under your name for the payment.<br/><br/><h3 class='vca-center'>If, unfortunately, you were not selected:</h3><br/>This is only the payment system. Selected participants have already been notified. If you are not one of them, we are very sorry. Payment here does not lead to registration.",
+        "thanks": {
+            "subheader": "COOL THAT YOU ARE HERE AND THANK YOU FOR YOUR TRUST!"
+        }
+    },
+    "abo": {
+        "label": " How often do you want to donate?",
+        "single": "One time",
+        "monthly": "monthly",
+        "yearly": "Annual",
+        "no": " One time ",
+        "yes": " Regularly "
+    },
+    "interval": {
+        "label": " Choose your donation interval ",
+        "monthly": " monthly",
+        "yearly": "1x a year",
+        "half": "2x a year",
+        "thrice": "3x a year",
+        "quarterly": "4x a year"
+    },
+    "paymentselection": {
+        "label": {
+            "donate": "I will donate via",
+            "pay": "I will pay via"
+        }
+    },
+    "contacttypeselection": {
+        "label": " I donate as a",
+        "individual": "Private person",
+        "company": "Company"
+    },
+    "contactform": {
+        "label": "Personal details",
+        "additional": " I would like to receive a donation receipt ",
+        "required": "*These are the details we definitely need from you.",
+        "company": {
+            "placeholder": " Company name *",
+            "error": " Please enter the name of your company "
+        },
+        "email": {
+            "placeholder": "E-Mail address *",
+            "error": " Please enter a valid email address ",
+            "info": " This is not a required field, but we will send the donation receipts by e-mail and would appreciate it if you could provide us with your e-mail address.."
+        },
+        "firstname": {
+            "placeholder": " Your first name *",
+            "error": " Please enter your first name"
+        },
+        "lastname": {
+            "placeholder": "Your last name *",
+            "error": " Please enter your last name "
+        },
+        "street": {
+            "placeholder": " Your street *",
+            "error": " Please enter your street "
+        },
+        "number": {
+            "placeholder": "Deine Hausnummer *",
+            "error": " Your house number "
+        },
+        "zip": {
+            "placeholder": " Your zip code *",
+            "error": " Please enter your zip code "
+        },
+        "city": {
+            "placeholder": " Your residence *",
+            "error": " Please enter your city "
+        },
+        "country": {
+            "placeholder": " Your country *",
+            "error": " Please enter your country "
+        },
+        "selectCountry": {
+            "label": " Please select in which currency you would like to donate ",
+            "placeholder": " Please select organization ",
+            "de": {
+                "title": "Viva con Agua de Sankt Pauli e.V.",
+                "subtitle": " Our association in Germany ",
+                "currency": "Euro"
+            },
+            "ch": {
+                "title": "Viva con Agua Switzerland",
+                "subtitle": " Our association in Switzerland",
+                "currency": "CHF"
+            }
+        }
+    },
+    "payment": {
+        "type": {
+            "sepa": "SEPA",
+            "creditcard": "Creditcard",
+            "paypal": "Paypal"
+        },
+        "more_details": " More details",
+        "email": " We need your email address at this point to be able to make the donation with this payment provider.",
+        "sepa": {
+            "placeholder": "DE00 0000 0000 0000 0000 00",
+            "error": " Please check your IBAN "
+        },
+        "terms": {
+            "sepa": {
+                "de": {
+                    "single": "I authorize Viva con Agua de Sankt Pauli e.V. to collect payments from my account by direct debit. At the same time, I instruct my credit institution to accept the direct debit drawn from my account by Viva con Agua de Sankt Pauli e.V..<br/><strong>Note:</strong> I can demand reimbursement of the debited amount within eight weeks, beginning with the debit date. The conditions agreed with my credit institution shall apply.",
+                    "subscription": "I authorize Viva con Agua de Sankt Pauli e.V. to collect payments from my account by direct debit on the 15th of the following month. At the same time, I instruct my credit institution to accept the direct debit drawn from my account by Viva con Agua de Sankt Pauli e.V.<br/><strong>Note:</strong> I can demand within eight weeks, beginning with the debit date, the refund of the debited amount. The terms and conditions agreed with my credit institution shall apply"
+                },
+                "mtg": {
+                    "single": "I authorize Viva con Agua Arts gGmbH to collect payments from my account by direct debit. At the same time I instruct my credit institution to honour the direct debit drawn on my account by Viva con Agua Arts gGmbH. <br/><strong>Note:</strong> I can demand reimbursement of the debited amount within eight weeks, beginning with the debit date. The conditions agreed with my credit institution apply.",
+                    "subscription": "I authorize Viva con Agua Arts gGmbH to collect payments from my account by direct debit on the 15th of the following month. At the same time I instruct my credit institution to honour the direct debit drawn on my account by Viva con Agua Arts gGmbH. <br/><strong>Note:</strong> I can demand reimbursement of the debited amount within eight weeks, beginning with the debit date. The conditions agreed with my credit institution apply."
+                },
+                "error": "Please confirm the direct debit authorization"
+            }
+        },
+        "submit": {
+            "donate": "Donate {0} {1} now",
+            "pay": "Pay {0} {1} now"
+        }
+    },
+    "policies": {
+        "label": {
+            "donate": "With your donation you confirm to have read the {0}.",
+            "nwt": "With your payment you confirm to have read the {0}."
+        },
+        "data": {
+            "label": " Privacy policy ",
+            "url": "https://www.vivaconagua.org/datenschutzerklaerung"
+        },
+        "data_mtg": {
+            "label": " Privacy policy ",
+            "url": "https://www.artcreateswater.org/datenschutz/"
+        },
+        "tos": {
+            "label": "Terms & Conditions",
+            "url": "https://www.vivaconagua.org/agb"
+        }
+    },
+    "thanks": {
+        "header": "THANK YOU",
+        "subheader": " for your support and trust!",
+        "text": " Your donation of {0}{1}",
+        "share": "I have just donated {0} to Viva con Agua. Support projects for clean access to drinking water and basic sanitation with a donation!",
+        "example": {
+            "default": " enables for example in our project country Uganda, even more people to get access to clean drinking water",
+            "1500": " among other things, provided at least 20 liters of soap for schools in our project country Uganda.",
+            "2000": " donated among other things, a water filter to another family in our project country Uganda.",
+            "5000": " planted among others things, in our project country Uganda at least 50 trees.",
+            "8000": " facilitated among other things, another hygiene workshop at a school in our project country Uganda.",
+            "mtg": {
+                "100": "supported us with at least one glass of water",
+                "500": "supported us with at least one spray can",
+                "2500": "supported us with at least one day's rent for a micro",
+                "5000": "supported us with at least one bucket of barrel white",
+                "15000": "supported us with at least paint and material for a complete wall surface"
+            }
+        }
+    },
+    "next": {
+        "label": " This is how it continues ",
+        "email": " You will receive a <strong>confirmation email</strong> from us immediately.",
+        "nwt": "You will receive a payment confirmation from us immediately.<br/>We will reconcile the payments with the guest list and send you a final registration confirmation in the next few days.<br/>Also, feel free to check your spam folder again if you don't receive it.<br/><strong>For more information you can always contact us at kontakt@vivaconagua.org.</strong><br/><br/>We look forward to spending time together!",
+        "receipt": " You will receive your <strong>donation receipts</strong> in <strong>February</strong> next year. <br/>If you need it sooner, you can always contact us at <strong>spenden@vivaconagua.org</strong>.",
+        "receipt_mtg": "You will receive your donation receipt in February of the following year. If you need them sooner, please contact us at <strong>contact@millerntorgallery.org</strong>.",
+        "newsletter": {
+            "text": " In the meantime, you can sign up for our <strong>newsletter</strong>. Note: We currently only send our newsletter in German.",
+            "button": "Sign up now.",
+            "success": " Thank you for subscribing our newsletter!"
+        },
+        "yours": "Your Viva con Agua Team",
+        "yours_mtg": "Your Viva con Agua Arts Team"
+    },
+    "tenseconds": {
+        "label": " Do you have 10 more seconds?",
+        "success": " Thanks for your feedback!",
+        "knownfrom": {
+            "label": " Feel free to tell us how you know us:",
+            "dropdown": {
+                "placeholder": " Therefore I know you from",
+                "family_friends": " Recommendation from friends & family",
+                "festivals_cupdonation": " Festivals and cup donation ",
+                "water": " Drinking water ",
+                "toiletpaper": " Your toilet paper from Goldeimer ",
+                "arts": "Viva con Agua Arts",
+                "mtg": "Millerntor Gallery",
+                "instagram": "Instagram",
+                "facebook": "Facebook",
+                "shops": "Shops",
+                "print": "Print Media",
+                "google": "Google",
+                "none": "Other reason that is not mentioned here"
+            }
+        },
+        "comment": {
+            "label": " You always wanted to tell us something?<br/>Here is your chance - your message to our team.:",
+            "label_nwt": "Please state here why you are participating in the NWT, e.g. voluntary work, donor, interested ...",
+            "placeholder": "200 characters ",
+            "error": " Please enter a short message ",
+            "button": " Submit"
+        }
+    },
+    "navigation": {
+        "tabs": {
+            "home": " Start",
+            "logout": "Logout",
+            "signin": "Login"
+        }
+    },
+    "footer": {
+        "legal": {
+            "dataSecurity": "Data protection",
+            "imprint": "Impressum",
+            "language": "Language",
+            "contact": "Contact"
+        }
+    },
+    "publish": {
+        "label": "Donate on Twitch",
+        "yes": "Publish donation with name",
+        "anonym": "Publish donation anonymously",
+        "none": "Do not publish donation"
+    },
+    "ssl": {
+        "ssl": "SSL encrypted",
+        "transparent": "Transparent civil society"
+    }
 }

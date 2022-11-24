@@ -57,3 +57,15 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.button-wrapper {
+    flex-wrap: nowrap !important;
+    .vca-button {
+        margin: 5px !important;
+    }
+    @include media(500px) {
+        justify-content: center;
+        flex-wrap: wrap !important;
+    }
+}
+</style>

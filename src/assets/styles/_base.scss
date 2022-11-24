@@ -3,14 +3,14 @@ dev.mode
  */
 @import "_mixins.scss";
 
-
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 body {
-  margin: 0 !important;
-  display: flex;
+    margin: 0 !important;
+    display: flex;
 }
 
 #app {
@@ -44,24 +44,24 @@ body {
 }
 
 // VcA-Colors
-$main-color:            #008fc3;
-$primary-light:         #b8d8ea;
-$primary-dark:          #002e6d;
-$secondary-light:       #55c0e9;
-$secondary-dark:        #03558c;
+$main-color: #008fc3;
+$primary-light: #b8d8ea;
+$primary-dark: #002e6d;
+$secondary-light: #55c0e9;
+$secondary-dark: #03558c;
 
 // MTG-Colors
-$mtg-main:              #F77C3A;
+$mtg-main: #f77c3a;
 
-$white:                 #FFFFFF;
-$grey:                  #CCCCCC;
-$grey-dark:             #AAAAAA;
-$red:                   #f12222;
-$red-dark:              #b50846;
-$green:                 #33af50;
-$green-dark:            #559955;
-$yellow:                #ffe500;
-$yellow-dark:           #ffe500;
-$orange:                #ff5522;
-$orange-dark:           #fb4202;
-$orange-light:          #FEB163;
+$white: #ffffff;
+$grey: #cccccc;
+$grey-dark: #aaaaaa;
+$red: #f12222;
+$red-dark: #b50846;
+$green: #33af50;
+$green-dark: #559955;
+$yellow: #ffe500;
+$yellow-dark: #ffe500;
+$orange: #ff5522;
+$orange-dark: #fb4202;
+$orange-light: #feb163;

@@ -71,12 +71,11 @@
                     :title="$t('information.label')"
                     ><PaymentFooter :showSSL="true" />
                 </vca-popup>
-                <img
+                <div
                     v-if="step < 3"
-                    src="@/assets/icons/info.png"
                     @click="showInfo = true"
                     class="infobox"
-                />
+                ></div>
             </div>
         </div>
     </div>
@@ -141,6 +140,16 @@ export default {
             type: String,
             default: "",
         },
+    },
+    data() {
+        return {
+            showInfo: false,
+            next: false,
+            iserror: false,
+            step: 1,
+            steps: [],
+            steps_v2: [],
+        };
     },
     created() {
         this.$store.commit("loadingFlow");
@@ -209,12 +218,12 @@ export default {
                         this.$store.commit("payment/money", {
                             amount: this.amount,
                         });
+                    }
 
-                        if (["2500", "5000", "10000"].includes(this.amount)) {
-                            this.$store.commit("payment/amount_type", "amount");
-                        } else {
-                            this.$store.commit("payment/amount_type", "custom");
-                        }
+                    if ([2500, 5000, 10000].includes(this.money.amount)) {
+                        this.$store.commit("payment/amount_type", "amount");
+                    } else {
+                        this.$store.commit("payment/amount_type", "custom");
                     }
 
                     if (
@@ -240,16 +249,6 @@ export default {
                 console.error(error);
             })
             .finally(this.$store.commit("loadingFlow"));
-    },
-    data() {
-        return {
-            showInfo: false,
-            next: false,
-            iserror: false,
-            step: 1,
-            steps: [],
-            steps_v2: [],
-        };
     },
     computed: {
         ...mapGetters({
@@ -327,13 +326,27 @@ export default {
 }
 
 .v2 {
+    .vca-input {
+        input,
+        textarea,
+        .v-select {
+            border-radius: 10px !important;
+        }
+    }
     .button-wrapper {
         padding: 0 1em;
         @include media(large) {
             padding: 0;
         }
     }
+    .selection-button {
+        border-radius: 10px;
+    }
     .vca-button {
+        border-radius: 10px;
+        & + .vca-button {
+            margin-left: 10px;
+        }
         &.selection {
             margin: 5px auto;
             border: solid thin $main-color;
@@ -342,7 +355,6 @@ export default {
 
             @include media(large) {
                 padding: 20px;
-                margin: 20px 0;
             }
 
             &.inactive {
@@ -358,11 +370,13 @@ export default {
         }
         &.navigation {
             background-color: $mtg-main;
+            border: solid thin $mtg-main;
             min-width: 20%;
             width: auto;
 
             &:hover {
-                background-color: $orange-dark;
+                color: $mtg-main;
+                background-color: $white;
             }
             &:disabled {
                 opacity: 0.5;
@@ -375,12 +389,18 @@ export default {
         width: 40px;
         height: 40px;
         bottom: 5%;
+        background-image: url("~@/assets/icons/info.png");
+        background-size: contain;
+        transition: 0.3s;
         right: 10px;
         cursor: pointer;
         @include media(large) {
             width: 50px;
             height: 50px;
             right: 25px;
+        }
+        &:hover {
+            background-image: url("~@/assets/icons/info_hover.png");
         }
     }
 }
