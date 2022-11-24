@@ -2,7 +2,9 @@
     <vca-card>
         <div class="button-wrapper">
             <div>
-                <h1 class="text-center">{{ $t("thanks.header") }}</h1>
+                <h1 class="text-center header-xl">
+                    {{ $t("thanks.header") }}
+                </h1>
                 <h2 class="text-center">{{ $t("thanks.subheader") }}</h2>
             </div>
             <p class="text-center" v-if="getExample && setting != 'nwt'">
@@ -42,3 +44,9 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.header-xl {
+    font-size: 6em;
+    color: $green;
+}
+</style>

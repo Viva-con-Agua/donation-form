@@ -19,20 +19,19 @@
                 <li>{{ $t('information.info_4') }}</li>
             </ul>
         </p>
-        <div v-if="showSSL" class="vca-right ssl-certs">
-            <img class="trans" :alt="$t('ssl.transparent')" :title="$t('ssl.transparent')" src="~@/assets/img/ssl/Transparente_ZivilgesellschaftPNG.png">
-            <img class="ssl" :alt="$t('ssl.ssl')" :title="$t('ssl.ssl')" src="~@/assets/img/ssl/ssl-icon.svg">
-        </div>
+        <Certificates v-if="showSSL" />
     </div>
 
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Certificates from '@/components/layout/Certificates.vue';
 export default {
-    name: 'Footer',
+    name: "Footer",
+    components: { Certificates },
     computed: {
         ...mapGetters({
-            setting: 'setting'
+            setting: "setting"
         })
     },
     props: {
@@ -40,7 +39,7 @@ export default {
             type: Boolean,
             default: false
         }
-    }
+    },
 }
 </script>
 <style lang="scss">

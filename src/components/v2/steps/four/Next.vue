@@ -11,7 +11,7 @@
                 ></p>
                 <p v-else class="text-center" v-html="$t('next.receipt')"></p>
                 <br />
-                <p class="text-center">{{ $t("next.newsletter.text") }}</p>
+                <p class="text-center" v-html="$t('next.newsletter.text')"></p>
 
                 <button
                     v-if="flow"
