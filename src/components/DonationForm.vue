@@ -146,7 +146,7 @@ export default {
             showInfo: false,
             next: false,
             iserror: false,
-            step: 2,
+            step: 1,
             steps: [],
             steps_v2: [],
         };
