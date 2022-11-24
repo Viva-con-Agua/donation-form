@@ -1,7 +1,7 @@
 <template>
     <div class="steptwo">
         <vca-field :label="$t('contacttypeselection.label')">
-            <vca-row class="button-wrapper">
+            <vca-row class="button-wrapper vca-center">
                 <button
                     :class="btnSelected('private')"
                     class="vca-button selection"
@@ -44,3 +44,8 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.vca-button {
+    margin: 10px !important;
+}
+</style>

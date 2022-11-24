@@ -119,12 +119,11 @@ export default {
     font-weight: bold;
 }
 
-/* 
+/*
     ACTIVE STEP
 */
 .steps li.is-active {
-    background-color: #008fc3;
-    border-color: #008fc3 #008fc3 #008fc3;
+    background-color: #ffffff;
     line-height: 1.2;
 }
 
@@ -144,12 +143,12 @@ export default {
 }
 
 .steps li.is-active div.step-content div.step-id {
-    color: #008fc3;
+    color: #ffffff;
     font-weight: bold;
     font-size: 2.2vw;
     text-align: center;
 
-    background-image: url("~@/assets/icons/drop_white.png");
+    background-image: url("~@/assets/icons/drop.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -185,6 +184,8 @@ export default {
 
 .steps li.is-active div.step-content div.step-label div {
     padding-left: 10px;
+    font-size: 1.1em;
+    color: #008fc3;
 }
 
 /*
@@ -227,6 +228,10 @@ export default {
     display: table-row;
     height: 40px;
 }
+.steps li.is-inactive div.step-content div.step-id.last div {
+    visibility: hidden;
+}
+
 .steps li.is-inactive div.step-content div.step-id.last {
     background-image: url("~@/assets/icons/drop_heart.png");
 }
