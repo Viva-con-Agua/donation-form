@@ -186,6 +186,7 @@ export default {
                     if (this.amount && this.amount >= this.minAmount) {
                         this.$store.commit("payment/money", {
                             amount: this.amount,
+                            currency: this.money.currency,
                         });
                         next++;
                     }
@@ -217,6 +218,7 @@ export default {
                     if (this.amount && this.amount >= this.minAmount) {
                         this.$store.commit("payment/money", {
                             amount: this.amount,
+                            currency: this.money.currency,
                         });
                     }
 
