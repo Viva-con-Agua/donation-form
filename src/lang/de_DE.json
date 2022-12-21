@@ -98,7 +98,10 @@
             "15000": "Damit unterstützt du uns z.B. mit mindestens Farbe und Material für eine komplete Wandfläche"
         },
         "icon": {
-            "2500": "Mit 25 unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
+            "500": "Mit 5 Euro unterstützt du uns z.B. mit sanitären Hygiene-Artikeln für eine Person für ein ganzes Jahr",
+            "1000": "Mit 10 Euro unterstützt du uns z.B. mit Hygiene-kits für eine ganze Familie",
+            "1500": "Mit 15 Euro unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
+            "2500": "Mit 25 Euro unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
             "5000": "Mit 50 Euro unterstützt z.B. mit mindestens 50 Bäumen",
             "10000": "Mit 100 Euro unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
         }
@@ -262,6 +265,8 @@
         "share": "Ich habe gerade {0} an Viva con Agua gespendet. Unterstütze auch du mit einer Spende Projekte für sauberen Zugang zu Trinkwasser und Sanitärer Grundversorgung!",
         "example": {
             "default": "unter anderem in unserem Projektland Uganda noch mehr Menschen den Zugang zu sauberem Trinkwasser ermöglicht",
+            "500": "unter anderem in unserem Projektland Uganda eine Person mit sanitären Hygiene-Artikeln für ein ganzes Jahr unterstützt",
+            "1000": "unter anderem in unserem Projektland Uganda eine ganze Familie mit Hygiene-kits unterstützt",
             "1500": "unter anderem in unserem Projektland Uganda mindestens 20 l Seife für Schulen zur Verfügung gestellt.",
             "2000": "unter anderem in unserem Projektland Uganda einer weiteren Familie einen Wasserfilter spendiert.",
             "5000": "unter anderem in unserem Projektland Uganda mindestens 50 Bäumen gepflanzt.",
