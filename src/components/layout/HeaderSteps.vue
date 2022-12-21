@@ -177,6 +177,13 @@ export default {
     padding-top: 5px;
 }
 
+.steps li.is-active div.step-content div.step-id.last div {
+    visibility: hidden;
+}
+.steps li.is-active div.step-content div.step-id.last {
+    background-image: url("~@/assets/icons/drop_heart.png");
+}
+
 .steps li.is-active div.step-content div.step-id div {
     text-align: center;
     padding-left: 5px;

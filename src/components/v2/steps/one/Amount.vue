@@ -8,27 +8,27 @@
             <vca-column>
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
-                        @click="setAmount(2500)"
+                        @click="setAmount(500)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(2500) }"
+                        :class="{ inactive: !isActive(500) }"
                     >
-                        25 €
+                        5 €
                     </button>
                     <button
-                        @click="setAmount(5000)"
+                        @click="setAmount(1000)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(5000) }"
+                        :class="{ inactive: !isActive(1000) }"
                     >
-                        50 €
+                        10 €
                     </button>
                 </vca-row>
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
-                        @click="setAmount(10000)"
+                        @click="setAmount(1500)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(10000) }"
+                        :class="{ inactive: !isActive(1500) }"
                     >
-                        100 €
+                        15 €
                     </button>
                     <button
                         @click="setAmount('custom')"
@@ -111,7 +111,7 @@ export default {
     },
     computed: {
         getImgSrc() {
-            if ([2500, 5000, 10000].includes(this.money.amount)) {
+            if ([500, 1000, 1500].includes(this.money.amount)) {
                 return require("@/assets/icons/icon-" +
                     this.money.amount +
                     ".png");

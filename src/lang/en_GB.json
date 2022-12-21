@@ -98,7 +98,10 @@
             "15000": "With this you support us e.g. with at least paint and material for a complete wall area"
         },
         "icon": {
-            "2500": "With 25 you support us e.g. with at least one water filter for a family",
+            "500": "With 5 euros you support us e.g. with sanitary hygiene articles for one person for a whole year",
+            "1000": "With 10 euros you support us e.g. with hygiene kits for a whole family",
+            "1500": "With 15 euros you support us e.g. with at least 20 liters of soap for schools",
+            "2500": "With 25 euros you support us e.g. with at least one water filter for a family",
             "5000": "With 50 euros you support us e.g. with at least 50 trees",
             "10000": "With 100 Euros you support us e.g. with at least one hygiene workshop at a school"
         }
@@ -262,6 +265,8 @@
         "share": "I have just donated {0} to Viva con Agua. Support projects for clean access to drinking water and basic sanitation with a donation!",
         "example": {
             "default": " enables for example in our project country Uganda, even more people to get access to clean drinking water",
+            "500": " among other things, supported one person in our project country Uganda with sanitary hygiene articles for a whole year",
+            "1000": " among other things, supported an entire family with hygiene kits in our project country Uganda",
             "1500": " among other things, provided at least 20 liters of soap for schools in our project country Uganda.",
             "2000": " donated among other things, a water filter to another family in our project country Uganda.",
             "5000": " planted among others things, in our project country Uganda at least 50 trees.",
