@@ -6,7 +6,7 @@
             <vca-card v-html="$t('error.not_found.text')"></vca-card>
         </div>
         <div v-else :class="{ 'mtg-theme': setting == 'mtg' }">
-            <div v-if="setting != 'v2'">
+            <div v-if="setting != 'v2' && setting != 'v2Twitch'">
                 <Headline :text="getText" />
                 <Slider v-if="step === 4" />
                 <HeaderStepsMtg
@@ -159,7 +159,7 @@ export default {
             this.$store.commit("payment/email", this.email);
         }
 
-        if (this.setting == "v2") {
+        if (this.setting == "v2" || this.setting == "v2Twitch") {
             this.$store.commit("payment/money", {
                 currency: this.money.currency,
                 amount: 2500,
@@ -181,7 +181,7 @@ export default {
         this.$store
             .dispatch({ type: "init", data: this.donation_form_id })
             .then(() => {
-                if (this.setting != "v2") {
+                if (this.setting != "v2" && this.setting != "v2Twitch") {
                     let next = 0;
                     if (this.amount && this.amount >= this.minAmount) {
                         this.$store.commit("payment/money", {

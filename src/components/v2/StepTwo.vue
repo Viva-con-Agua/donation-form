@@ -2,6 +2,7 @@
     <div class="steptwo">
         <ContactTypeSelect />
         <ContactForm ref="contactdata" class="button-wrapper" />
+        <PublishCheckbox v-if="setting == 'v2Twitch'"/>
         <button
             class="vca-button navigation"
             @click="submit"
@@ -15,6 +16,7 @@
 import { mapGetters } from "vuex";
 import ContactTypeSelect from "@/components/v2/steps/two/ContactTypeSelect";
 import ContactForm from "@/components/steps/two/ContactForm";
+import PublishCheckbox from '@/components/v2/steps/two/PublishCheckbox'
 export default {
     name: "StepTwoV2",
     components: {
