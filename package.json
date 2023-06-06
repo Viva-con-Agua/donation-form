@@ -8,9 +8,9 @@
         "widget": "vue-cli-service build --target wc --inline-vue --name donation-form ./src/main.wc.js",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "build-develop": "vue-tsc --noEmit && vite build --mode develop",
-        "build-stage": "vue-tsc --noEmit && vite build --mode stage",
-        "build-main": "vue-tsc --noEmit && vite build --mode main"
+        "build-develop": "vue-cli-service build --mode develop",
+        "build-stage": "vue-cli-service build --mode stage",
+        "build-main": "vue-cli-service build --mode main"
     },
     "dependencies": {
         "@gtm-support/vue2-gtm": "^1.1.0",
