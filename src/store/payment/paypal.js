@@ -73,7 +73,7 @@ const paypal = {
             };
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/v1/donations/payment/paypal/checkout", data)
+                    .post("/payments/payment/paypal/checkout", data)
                     .then((response) => {
                         if (response.status == 201) {
                             resolve();
@@ -93,7 +93,7 @@ const paypal = {
             };
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/v1/donations/payment/paypal/subscription", data)
+                    .post("/payments/payment/paypal/subscription", data)
                     .then((response) => {
                         commit(
                             "plan_id",
@@ -114,7 +114,7 @@ const paypal = {
             };
             return new Promise((resolve, reject) => {
                 api.call
-                    .put("/v1/donations/payment/paypal/subscription", data)
+                    .put("/payments/payment/paypal/subscription", data)
                     .then((response) => {
                         if (response.status == 200) {
                             resolve();
