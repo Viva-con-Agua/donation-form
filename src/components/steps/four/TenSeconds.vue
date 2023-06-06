@@ -130,7 +130,7 @@ export default {
 
             if (this.$v.$invalid) {
                 return;
-            } 
+            }
             this.gtmTrack(
                 "click",
                 "StepFour Feedback-Contact-Us donation-form",
