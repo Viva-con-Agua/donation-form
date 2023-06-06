@@ -9,7 +9,7 @@
         </div>
         <p class="text-center" v-if="getExample && setting != 'nwt'">{{ $t('thanks.text', {0: getAmount, 1: getExample}) }}</p>
     </vca-card>
- </template> 
+ </template>
 
 <script>
 import { mapGetters } from 'vuex'

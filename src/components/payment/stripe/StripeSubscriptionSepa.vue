@@ -108,7 +108,7 @@ export default {
             billing_details: 'payment/stripe/billing_details',
             company: 'form/company',
             setting: 'setting'
-        })    
+        })
     },
     watch: {
         anonymous: {
