@@ -60,7 +60,7 @@ Vue.mixin({
         return new Date(val * 1000).toLocaleDateString(this.$i18n.locale, options)
     },
     gtmTrack (action, label, value) {
-    window.top.postMessage({
+        var event = {
         event: "gtm-trigger",
         data: {
             event: "gtm-trigger-" + action,
@@ -69,7 +69,11 @@ Vue.mixin({
             label: label,
             value: value
             }
-        }, "*")
+        }
+        window.top.postMessage(event, "*")
+        if (process.env.VUE_APP_MODE === "debug") {
+            console.log("gtm-event: ",event)
+        }
     }
   }
 })

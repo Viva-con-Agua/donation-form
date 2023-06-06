@@ -114,10 +114,9 @@ export default new Vuex.Store({
                         : "",
                 },
             };
-
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/v1/donations/feedback", data)
+                    .post("/payments/feedback", data)
                     .then((response) => {
                         resolve(response);
                     })
