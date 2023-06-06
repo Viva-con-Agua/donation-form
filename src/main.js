@@ -63,7 +63,7 @@ Vue.mixin({
     window.top.postMessage({
         event: "gtm-trigger",
         data: {
-            event: "gtm-trigger-" + action, 
+            event: "gtm-trigger-" + action,
             target: "DonationForm",
             action: action,
             label: label,

@@ -46,7 +46,7 @@ export default {
 .payment-footer {
 
     padding: 10px;
-    
+
     display: block;
     ul {
         padding-left: 0;

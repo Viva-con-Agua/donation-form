@@ -36,7 +36,7 @@ export default {
         }),
         getLabel() {
             if (this.setting == 'nwt') {
-                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})   
+                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
             } else {
                 return this.$t('payment.submit.donate', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
             }
