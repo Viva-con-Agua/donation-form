@@ -140,7 +140,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/payments/payment", data)
+                    .post("/payment", data)
                     .then((response) => {
                         commit("create", response.data.payload), resolve();
                     })
@@ -163,7 +163,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .put("/payments/payment", data)
+                    .put("/payment", data)
                     .then((response) => {
                         console.log(response), resolve();
                     })

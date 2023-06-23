@@ -49,7 +49,7 @@ const form = {
         get({ commit }, data) {
             return new Promise((resolve, reject) => {
                 api.call
-                    .get("/payments/form/" + data.data)
+                    .get("/form/" + data.data)
                     .then((response) => {
                         commit("get", response.data.payload),
                             commit("company/current", response.data.payload, {
