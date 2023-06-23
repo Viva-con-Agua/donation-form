@@ -74,8 +74,14 @@ Vue.mixin({
         if (process.env.VUE_APP_MODE === "debug") {
             console.log("gtm-event: ",event)
         }
+    },
+    trackingTrigger(data) {
+        window.top.postMessage(data, "*")
+        if (process.env.VUE_APP_MODE === "debug") {
+            console.log("tracking-event: ", data)
+        }
     }
-  }
+}
 })
 
 //const CustomElement = wrap(Vue, App);

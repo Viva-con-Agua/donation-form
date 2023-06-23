@@ -48,11 +48,14 @@ export default {
             return this.$store.state.form.current.subscription_types != null && this.$store.state.form.current.subscription_types.length > 0
         },
         ...mapGetters({
-            setting: 'setting'
+            setting: 'setting',
+            trackingData: 'payment/trackingData'
         })
     },
     methods: {
         submit() {
+            this.$store.commit("payment/trackingData", "view_donation_form_step2")
+            this.trackingTrigger(this.trackingData)
             this.gtmTrack("click", "StepOne Next donation-form", 0)
             this.$emit("submit")
         }

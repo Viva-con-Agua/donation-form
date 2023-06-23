@@ -39,6 +39,7 @@ const payment = {
         country: [],
         abo: false,
         donation_receipt: false,
+        trackingData: {}
     },
     mutations: {
         create(state, val) {
@@ -87,6 +88,42 @@ const payment = {
         amount_type(state, val) {
             state.amount_type = val;
         },
+        trackingData(state, val) {
+            var data = {
+                event: val,
+                currency: state.money.currency,
+                donation_value: state.money.amount / 100,
+                donation_interval: "single",
+                donation_per_year: 1,
+                yearly_donation_value: undefined,
+                donation_customer_type: undefined,
+                value: undefined
+            }
+            if (state.abo == true) {
+                data.donation_interval = "recurring"
+                switch(state.interval) {
+                    case "monthly":
+                        data.donation_per_year = 12
+                        break
+                    case "quarterly":
+                        data.donation_per_year = 4
+                        break
+                    case "half":
+                        data.donation_per_year = 2
+                        break
+                    default:
+                        data.donation_per_year = 1
+                }
+            }
+            if (state.contact.email !== "") {
+                if (state.contact.company_name === "") {
+                    data.donation_customer_type = "private"
+                } else {
+                    data.donation_customer_type = "business"
+                }
+            }
+            state.trackingData = data
+        }
     },
     getters: {
         money(state) {
@@ -116,6 +153,9 @@ const payment = {
         donation_receipt(state) {
             return state.donation_receipt;
         },
+        trackingData(state) {
+            return JSON.parse(JSON.stringify(state.trackingData))
+        }
     },
     actions: {
         async process({ dispatch, state }) {

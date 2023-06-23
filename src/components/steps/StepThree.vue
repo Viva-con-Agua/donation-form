@@ -62,6 +62,8 @@ export default {
         },
         commit() {
             this.$store.commit('loadingFlow')
+            this.$store.commit("payment/trackingData", "view_donation_form_step4")
+            this.trackingTrigger(this.trackingData)
             this.gtmTrack("click", "StepTree Donate donation-form", this.money.amount/100)
             this.$refs.selection.commit()
         },

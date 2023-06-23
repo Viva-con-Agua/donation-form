@@ -131,6 +131,7 @@ export default {
             if (this.$v.$invalid) {
                 return;
             }
+            this.trackingTrigger({event: "submit_feedback_form", source: "donation_form"})
             this.gtmTrack(
                 "click",
                 "StepFour Feedback-Contact-Us donation-form",

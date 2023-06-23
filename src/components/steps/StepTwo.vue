@@ -40,6 +40,8 @@ export default {
             this.$emit("back")
         },
         submit() {
+            this.$store.commit("payment/trackingData", "view_donation_form_step3")
+            this.trackingTrigger(this.trackingData)
             this.gtmTrack("click", "StepTwo Next donation-form", 0)
             this.$store.dispatch("payment/process").then(() => {
                 this.$emit("submit")
