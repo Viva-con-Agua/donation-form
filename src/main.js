@@ -76,9 +76,13 @@ Vue.mixin({
         }
     },
     trackingTrigger(data) {
-        window.top.postMessage(data, "*")
+        var event = {
+            event: "tracking-trigger",
+            data: data
+        }
+        window.top.postMessage(event, "*")
         if (process.env.VUE_APP_MODE === "debug") {
-            console.log("tracking-event: ", data)
+            console.log("tracking-event: ", event)
         }
     }
 }
