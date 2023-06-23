@@ -32,7 +32,8 @@ export default {
             payment: 'payment/payment_id',
             money: 'payment/money',
             abo: 'payment/abo',
-            paymentType: 'payment/payment_type'
+            paymentType: 'payment/payment_type',
+            trackingData: 'payment/trackingData'
         }),
         getLabel() {
             if (this.setting == 'nwt') {
