@@ -46,8 +46,7 @@ const payment = {
             donation_interval: undefined,
             donation_per_year: undefined,
             yearly_donation_value: undefined,
-            donation_customer_type: undefined,
-            value: undefined
+            donation_customer_type: undefined
         }
     },
     mutations: {
@@ -105,8 +104,7 @@ const payment = {
                 donation_interval: "single",
                 donation_per_year: 1,
                 yearly_donation_value: undefined,
-                donation_customer_type: undefined,
-                value: undefined
+                donation_customer_type: undefined
             }
             if (state.abo == true) {
                 data.donation_interval = "recurring"
