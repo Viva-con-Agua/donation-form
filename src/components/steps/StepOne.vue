@@ -17,11 +17,11 @@
             <Interval />
         </div>
 
-        <vca-arrow-navigation 
-        @next="submit" 
-        :showBack="false" 
-        :nextLabel="this.$t('buttons.next')" 
-        :nextEnabled="isValid" 
+        <vca-arrow-navigation
+        @next="submit"
+        :showBack="false"
+        :nextLabel="this.$t('buttons.next')"
+        :nextEnabled="isValid"
         v-observe-visibility="visibilityChanged"/>
     </div>
 
