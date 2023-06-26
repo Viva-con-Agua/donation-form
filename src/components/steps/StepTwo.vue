@@ -32,7 +32,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-            setting: 'setting'
+            setting: 'setting',
+            trackingData: 'payment/trackingData'
         })
     },
     methods: {
@@ -41,7 +42,8 @@ export default {
         },
         submit() {
             this.$store.commit("payment/trackingData", "view_donation_form_step3")
-            this.trackingTrigger(this.trackingData)
+            var data = this.trackingData
+            this.trackingTrigger(data)
             this.gtmTrack("click", "StepTwo Next donation-form", 0)
             this.$store.dispatch("payment/process").then(() => {
                 this.$emit("submit")

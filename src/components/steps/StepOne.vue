@@ -17,7 +17,12 @@
             <Interval />
         </div>
 
-        <vca-arrow-navigation @next="submit" :showBack="false" :nextLabel="this.$t('buttons.next')" :nextEnabled="isValid"/>
+        <vca-arrow-navigation 
+        @next="submit" 
+        :showBack="false" 
+        :nextLabel="this.$t('buttons.next')" 
+        :nextEnabled="isValid" 
+        v-observe-visibility="visibilityChanged"/>
     </div>
 
 </template>
@@ -32,7 +37,9 @@ export default {
     components: {Amount, Abo, Interval, Slider},
     data() {
         return {
-            isValid: true
+            isValid: true,
+            tracked: false
+
         }
     },
     mounted () {
@@ -55,9 +62,17 @@ export default {
     methods: {
         submit() {
             this.$store.commit("payment/trackingData", "view_donation_form_step2")
-            this.trackingTrigger(this.trackingData)
+            var data = this.trackingData
+            this.trackingTrigger(data)
             this.gtmTrack("click", "StepOne Next donation-form", 0)
             this.$emit("submit")
+        },
+        visibilityChanged (isVisible, entry) {
+            this.isVisible = isVisible
+            if (entry.isIntersecting && !this.tracked) {
+                this.tracked = true
+                this.trackingTrigger(this.trackingData)
+            }
         }
     },
 }

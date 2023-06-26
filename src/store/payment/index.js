@@ -39,7 +39,16 @@ const payment = {
         country: [],
         abo: false,
         donation_receipt: false,
-        trackingData: {}
+        trackingData: {
+            event: "view_donation_form_step1",
+            currency: undefined,
+            donation_value: undefined,
+            donation_interval: undefined,
+            donation_per_year: undefined,
+            yearly_donation_value: undefined,
+            donation_customer_type: undefined,
+            value: undefined
+        }
     },
     mutations: {
         create(state, val) {
@@ -167,7 +176,6 @@ const payment = {
             }
         },
         create({ rootState, state, commit }) {
-            console.log(state.country);
             var country =
                 state.country.length > 0 && state.country[0]
                     ? state.country[0].value
