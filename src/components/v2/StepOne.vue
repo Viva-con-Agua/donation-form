@@ -8,6 +8,7 @@
             class="vca-button navigation"
             @click="submit"
             :disabled="!isValid"
+            v-observe-visibility="visibilityChanged"
         >
             {{ $t("buttons.next") }}
         </button>
@@ -54,6 +55,7 @@ export default {
             money: "payment/money",
             interval: "payment/interval",
             interval_type: "payment/interval_v2",
+            trackingData: 'payment/trackingData'
         }),
     },
     methods: {
@@ -70,9 +72,19 @@ export default {
             console.debug("message sent with: ", message.data);
         },
         submit() {
+            this.$store.commit("payment/trackingData", "view_donation_form_step2")
+            var data = this.trackingData
+            this.trackingTrigger(data)
             this.gtmTrack("click", "StepOne Next donation-form", 0);
             this.$emit("submit");
         },
+        visibilityChanged (isVisible, entry) {
+            this.isVisible = isVisible
+            if (entry.isIntersecting && !this.tracked) {
+                this.tracked = true
+                this.trackingTrigger(this.trackingData)
+            }
+        }
     },
 };
 </script>
