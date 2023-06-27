@@ -25,7 +25,7 @@ FROM node:14 as build-main
 WORKDIR /app/src
 ADD ./ /app/src/
 RUN npm clean-install
-RUN npm run build-develop
+RUN npm run build-main
 
 FROM docker.io/nginx:mainline as main
 ADD .docker/nginx.conf /etc/nginx/conf.d/default.conf
