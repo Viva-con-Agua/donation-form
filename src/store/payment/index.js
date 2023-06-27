@@ -39,6 +39,15 @@ const payment = {
         country: [],
         abo: false,
         donation_receipt: false,
+        trackingData: {
+            event: "view_donation_form_step1",
+            currency: undefined,
+            donation_value: undefined,
+            donation_interval: undefined,
+            donation_per_year: undefined,
+            yearly_donation_value: undefined,
+            donation_customer_type: undefined
+        }
     },
     mutations: {
         create(state, val) {
@@ -87,6 +96,42 @@ const payment = {
         amount_type(state, val) {
             state.amount_type = val;
         },
+        trackingData(state, val) {
+            var data = {
+                event: val,
+                currency: state.money.currency,
+                donation_value: state.money.amount / 100,
+                donation_interval: "single",
+                donation_per_year: 1,
+                yearly_donation_value: undefined,
+                donation_customer_type: undefined
+            }
+            if (state.abo == true) {
+                data.donation_interval = "recurring"
+                switch(state.interval) {
+                    case "monthly":
+                        data.donation_per_year = 12
+                        break
+                    case "quarterly":
+                        data.donation_per_year = 4
+                        break
+                    case "half":
+                        data.donation_per_year = 2
+                        break
+                    default:
+                        data.donation_per_year = 1
+                }
+                data.yearly_donation_value = data.donation_value * data.donation_per_year
+            }
+            if (state.contact.email !== "") {
+                if (state.contact.company_name === "") {
+                    data.donation_customer_type = "private"
+                } else {
+                    data.donation_customer_type = "business"
+                }
+            }
+            state.trackingData = data
+        }
     },
     getters: {
         money(state) {
@@ -116,6 +161,9 @@ const payment = {
         donation_receipt(state) {
             return state.donation_receipt;
         },
+        trackingData(state) {
+            return JSON.parse(JSON.stringify(state.trackingData))
+        }
     },
     actions: {
         async process({ dispatch, state }) {
@@ -126,7 +174,6 @@ const payment = {
             }
         },
         create({ rootState, state, commit }) {
-            console.log(state.country);
             var country =
                 state.country.length > 0 && state.country[0]
                     ? state.country[0].value
@@ -140,7 +187,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/v1/donations/payment", data)
+                    .post(process.env.VUE_APP_BACKEND_CONTEXT + "/payment", data)
                     .then((response) => {
                         commit("create", response.data.payload), resolve();
                     })
@@ -163,7 +210,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .put("/v1/donations/payment", data)
+                    .put(process.env.VUE_APP_BACKEND_CONTEXT + "/payment", data)
                     .then((response) => {
                         console.log(response), resolve();
                     })

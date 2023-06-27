@@ -23,7 +23,7 @@ export default {
             maxParts: 5
         }
     },
-    computed: {       
+    computed: {
         ...mapGetters({
            slider: 'form/slider',
            setting: 'setting',
@@ -93,9 +93,9 @@ export default {
       /* IE
       */
       .slider::-ms-fill-lower {
-        background-color: $mtg-main !important; 
+        background-color: $mtg-main !important;
       }
-      .slider::-ms-fill-upper {  
+      .slider::-ms-fill-upper {
         background-color: $orange !important;
       }
 
@@ -103,11 +103,11 @@ export default {
       /* Firefox
       */
       .slider::-moz-range-progress {
-        background-color: $mtg-main !important; 
+        background-color: $mtg-main !important;
         height: 15px;
         border-radius: 8px;
       }
-      .slider::-moz-range-track {  
+      .slider::-moz-range-track {
         background-color: $orange !important;
       }
     }

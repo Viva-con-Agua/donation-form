@@ -90,6 +90,7 @@ export default {
     },
     methods: {
         submit() {
+            this.trackingTrigger({event: "signup_newsletter", source: "donation_form"})
             this.gtmTrack(
                 "click",
                 "StepFour Newsletter-Subscription donation-form",

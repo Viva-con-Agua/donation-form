@@ -8,6 +8,7 @@ import store from './store'
 import getUserLocale from 'get-user-locale';
 import VueI18n from 'vue-i18n'
 import FlagIcon from 'vue-flag-icon'
+import VueObserveVisibility from 'vue-observe-visibility'
 import 'vca-ui/dist/vca-ui.css'
 
 //import wrap from '@vue/web-component-wrapper';
@@ -21,6 +22,7 @@ Vue.use(VcaUi)
 Vue.use(VueI18n)
 Vue.use(Vuelidate)
 Vue.use(FlagIcon)
+Vue.use(VueObserveVisibility)
 Vue.config.productionTip = false
 
 
@@ -60,18 +62,32 @@ Vue.mixin({
         return new Date(val * 1000).toLocaleDateString(this.$i18n.locale, options)
     },
     gtmTrack (action, label, value) {
-    window.top.postMessage({
+        var event = {
         event: "gtm-trigger",
         data: {
-            event: "gtm-trigger-" + action, 
+            event: "gtm-trigger-" + action,
             target: "DonationForm",
             action: action,
             label: label,
             value: value
             }
-        }, "*")
+        }
+        window.top.postMessage(event, "*")
+        if (process.env.VUE_APP_MODE === "debug") {
+            console.log("gtm-event: ",event)
+        }
+    },
+    trackingTrigger(data) {
+        var event = {
+            event: "tracking-trigger",
+            data: data
+        }
+        window.top.postMessage(event, "*")
+        if (process.env.VUE_APP_MODE === "debug") {
+            console.log("tracking-event: ", event)
+        }
     }
-  }
+}
 })
 
 //const CustomElement = wrap(Vue, App);

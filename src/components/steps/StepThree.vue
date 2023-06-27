@@ -32,11 +32,12 @@ export default {
             payment: 'payment/payment_id',
             money: 'payment/money',
             abo: 'payment/abo',
-            paymentType: 'payment/payment_type'
+            paymentType: 'payment/payment_type',
+            trackingData: 'payment/trackingData'
         }),
         getLabel() {
             if (this.setting == 'nwt') {
-                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})   
+                return this.$t('payment.submit.pay', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
             } else {
                 return this.$t('payment.submit.donate', {0: Money.convertDE(this.money.amount), 1: this.money.currency})
             }
@@ -62,6 +63,8 @@ export default {
         },
         commit() {
             this.$store.commit('loadingFlow')
+            this.$store.commit("payment/trackingData", "view_donation_form_step4")
+            this.trackingTrigger(this.trackingData)
             this.gtmTrack("click", "StepTree Donate donation-form", this.money.amount/100)
             this.$refs.selection.commit()
         },

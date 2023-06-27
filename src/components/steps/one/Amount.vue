@@ -1,6 +1,6 @@
 <template>
     <vca-field class="typo-roboto" :label="getLabel">
-        <vca-money-input 
+        <vca-money-input
             ref="money"
             v-model="money"
             :css="getCSS"
