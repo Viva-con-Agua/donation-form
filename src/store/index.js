@@ -116,7 +116,7 @@ export default new Vuex.Store({
             };
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/feedback", data)
+                    .post(process.env.VUE_APP_BACKEND_CONTEXT + "/feedback", data)
                     .then((response) => {
                         resolve(response);
                     })

@@ -187,7 +187,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .post("/payment", data)
+                    .post(process.env.VUE_APP_BACKEND_CONTEXT + "/payment", data)
                     .then((response) => {
                         commit("create", response.data.payload), resolve();
                     })
@@ -210,7 +210,7 @@ const payment = {
             data.contact.country = country;
             return new Promise((resolve, reject) => {
                 api.call
-                    .put("/payment", data)
+                    .put(process.env.VUE_APP_BACKEND_CONTEXT + "/payment", data)
                     .then((response) => {
                         console.log(response), resolve();
                     })

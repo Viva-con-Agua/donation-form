@@ -49,7 +49,7 @@ const form = {
         get({ commit }, data) {
             return new Promise((resolve, reject) => {
                 api.call
-                    .get("/form/" + data.data)
+                    .get(process.env.VUE_APP_BACKEND_CONTEXT + "/form/" + data.data)
                     .then((response) => {
                         commit("get", response.data.payload),
                             commit("company/current", response.data.payload, {
