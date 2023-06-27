@@ -79,7 +79,7 @@ Vue.mixin({
     },
     trackingTrigger(data) {
         var event = {
-            event: "tracking-trigger",
+            event: "gtm-trigger",
             data: data
         }
         window.top.postMessage(event, "*")
