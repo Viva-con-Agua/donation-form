@@ -29,7 +29,7 @@ export default {
     created() {
         this.setMulled(this.money)
     },
-    computed: {       
+    computed: {
         ...mapGetters({
            slider: 'form/slider',
            setting: 'setting',

@@ -126,16 +126,17 @@ export default {
     },
     methods: {
         submit() {
-            this.gtmTrack(
-                "click",
-                "StepFour Feedback-Contact-Us donation-form",
-                0
-            );
             this.$refs.comment.validate();
 
             if (this.$v.$invalid) {
                 return;
             }
+            this.trackingTrigger({event: "submit_feedback_form", source: "donation_form"})
+            this.gtmTrack(
+                "click",
+                "StepFour Feedback-Contact-Us donation-form",
+                0
+            );
             this.$store
                 .dispatch({ type: "feedback" })
                 .then((resp) => {
