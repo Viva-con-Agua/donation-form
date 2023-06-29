@@ -18,6 +18,7 @@ export default new Vuex.Store({
     state: {
         loading: false,
         setting: "",
+        customized: false,
         currentMsg: null,
         product: "prod_HZW4PLYJeuxnyC",
         isCompany: false,
@@ -45,6 +46,9 @@ export default new Vuex.Store({
         setting(state, value) {
             state.setting = value;
         },
+        customized(state, value) {
+            state.customized = value
+        }
     },
     getters: {
         currentMsg(state) {
@@ -71,6 +75,9 @@ export default new Vuex.Store({
         setting(state) {
             return state.setting;
         },
+        customized(state) {
+            return state.customized
+        }
     },
     actions: {
         async init({ dispatch }, data) {
