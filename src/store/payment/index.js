@@ -121,8 +121,8 @@ const payment = {
                     default:
                         data.donation_per_year = 1
                 }
-                data.yearly_donation_value = data.donation_value * data.donation_per_year
             }
+            data.yearly_donation_value = data.donation_value * data.donation_per_year
             if (state.contact.email !== "") {
                 if (state.contact.company_name === "") {
                     data.donation_customer_type = "private"
