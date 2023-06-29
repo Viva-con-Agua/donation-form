@@ -6,6 +6,41 @@
     >
         <vca-row>
             <vca-column>
+                <div v-if="customized">
+                <vca-row class="button-wrapper inline-wrapper">
+                    <button
+                        @click="setAmount(2500)"
+                        class="vca-button selection"
+                        :class="{ inactive: !isActive(2500) }"
+                    >
+                        25 €
+                    </button>
+                    <button
+                        @click="setAmount(5000)"
+                        class="vca-button selection"
+                        :class="{ inactive: !isActive(5000) }"
+                    >
+                        50 €
+                    </button>
+                </vca-row>
+                <vca-row class="button-wrapper inline-wrapper">
+                    <button
+                        @click="setAmount(10000)"
+                        class="vca-button selection"
+                        :class="{ inactive: !isActive(10000) }"
+                    >
+                        100 €
+                    </button>
+                    <button
+                        @click="setAmount('custom')"
+                        class="vca-button selection"
+                        :class="{ inactive: !isActive('custom') }"
+                    >
+                        {{ $t("amount.custom") }}
+                    </button>
+                </vca-row>
+                </div>
+                <div v-else>
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
                         @click="setAmount(500)"
@@ -38,6 +73,7 @@
                         {{ $t("amount.custom") }}
                     </button>
                 </vca-row>
+                </div>
                 <vca-row>
                     <div></div>
                     <vca-money-input
@@ -122,6 +158,7 @@ export default {
             slider: "form/slider",
             setting: "setting",
             minAmount: "form/minAmount",
+            customized: "customized"
         }),
         threshold() {
             let cssClass = "main-color bold";

@@ -15,6 +15,7 @@ const routes = [
             donation_form_id: route.query.donation_form_id,
             lang: route.query.lang,
             setting: route.query.setting,
+            customized: route.query.customized,
             email: route.query.email,
             amount: route.query.amount,
             interval: route.query.interval,
