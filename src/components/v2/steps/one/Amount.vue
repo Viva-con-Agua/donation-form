@@ -9,27 +9,27 @@
                 <div v-if="customized">
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
-                        @click="setAmount(2500)"
+                        @click="setAmount(customized_amount.a_1)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(2500) }"
+                        :class="{ inactive: !isActive(customized_amount.a_1) }"
                     >
-                        25 €
+                        {{ customized_amount.a_1 /100 }} €
                     </button>
                     <button
-                        @click="setAmount(5000)"
+                        @click="setAmount(customized_amount.a_2)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(5000) }"
+                        :class="{ inactive: !isActive(customized_amount.a_2) }"
                     >
-                        50 €
+                        {{ customized_amount.a_2 /100 }} €
                     </button>
                 </vca-row>
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
-                        @click="setAmount(10000)"
+                        @click="setAmount(customized_amount.a_3)"
                         class="vca-button selection"
-                        :class="{ inactive: !isActive(10000) }"
+                        :class="{ inactive: !isActive(customized_amount.a_3) }"
                     >
-                        100 €
+                        {{ customized_amount.a_3 /100}} €
                     </button>
                     <button
                         @click="setAmount('custom')"
@@ -91,7 +91,7 @@
                 </vca-row>
             </vca-column>
             <vca-row>
-                <vca-card v-if="current != 'custom'" class="vertical-center">
+                <vca-card v-if="current != 'custom' && hasIcon" class="vertical-center">
                     <div class="example-wrapper">
                         <div class="vertical-center">
                             <img :src="getImgSrc" class="example-image" />
@@ -158,7 +158,8 @@ export default {
             slider: "form/slider",
             setting: "setting",
             minAmount: "form/minAmount",
-            customized: "customized"
+            customized: "customized",
+            customized_amount: "customized_amount"
         }),
         threshold() {
             let cssClass = "main-color bold";
@@ -170,6 +171,14 @@ export default {
                 return this.threshold.css;
             }
             return this.css;
+        },
+        hasIcon() {
+            var object = this.$t("example.icon")
+            if (object[this.money.amount] === undefined) {
+                return false
+            } else {
+                return true
+            }
         },
         errorMessage() {
             return this.minAmount > 0

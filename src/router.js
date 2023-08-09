@@ -19,6 +19,9 @@ const routes = [
             email: route.query.email,
             amount: route.query.amount,
             interval: route.query.interval,
+            a1: route.query.a1,
+            a2: route.query.a2,
+            a3: route.query.a3
         }),
     },
 ];
