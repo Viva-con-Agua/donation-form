@@ -26,6 +26,11 @@ export default new Vuex.Store({
             known_from: null,
             comment: null,
         },
+        customized_amount: {
+            a_1: 2500,
+            a_2: 5000,
+            a_3: 10000
+        }
     },
     mutations: {
         currentMsg(state, value) {
@@ -48,6 +53,17 @@ export default new Vuex.Store({
         },
         customized(state, value) {
             state.customized = value
+        },
+        customized_amount(state, val) {
+            if (val.a_1 !== null) {
+                state.customized_amount.a_1 = Number.parseInt(val.a_1)
+            }
+            if (val.a_2 !== null) {
+                state.customized_amount.a_2 = Number.parseInt(val.a_2)
+            }     
+            if (val.a_3 !== null) {
+                state.customized_amount.a_3 = Number.parseInt(val.a_3)
+            }
         }
     },
     getters: {
@@ -77,6 +93,9 @@ export default new Vuex.Store({
         },
         customized(state) {
             return state.customized
+        },
+        customized_amount(state) {
+            return state.customized_amount
         }
     },
     actions: {
