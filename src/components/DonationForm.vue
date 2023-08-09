@@ -183,7 +183,7 @@ export default {
             });
         }
         this.defaultLanguage(this.lang);
-        
+
         this.$store.commit("customized_amount", { a_1: this.a1, a_2: this.a2, a_3: this.a3})
 
         this.steps = [

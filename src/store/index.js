@@ -60,7 +60,7 @@ export default new Vuex.Store({
             }
             if (val.a_2 !== null) {
                 state.customized_amount.a_2 = Number.parseInt(val.a_2)
-            }     
+            }
             if (val.a_3 !== null) {
                 state.customized_amount.a_3 = Number.parseInt(val.a_3)
             }
