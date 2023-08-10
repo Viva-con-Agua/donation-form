@@ -64,7 +64,7 @@ const payment = {
             state.payment_type = val;
         },
         default_amount(state, val) {
-            if (val > 0) {
+            if (val >= 0) {
                 var nVal = {
                     amount: val,
                     currency: state.money.currency,
