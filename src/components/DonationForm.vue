@@ -141,8 +141,8 @@ export default {
             default: "",
         },
         customized: {
-            type: Boolean,
-            default: false
+            type: String,
+            default: ""
         },
         a1: {
             type: String,
