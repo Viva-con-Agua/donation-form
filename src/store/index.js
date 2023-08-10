@@ -18,7 +18,7 @@ export default new Vuex.Store({
     state: {
         loading: false,
         setting: "",
-        customized: false,
+        customized: "",
         currentMsg: null,
         product: "prod_HZW4PLYJeuxnyC",
         isCompany: false,

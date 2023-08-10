@@ -141,8 +141,8 @@ export default {
             default: "",
         },
         customized: {
-            type: Boolean,
-            default: false
+            type: String,
+            default: ""
         },
         a1: {
             type: String,
@@ -171,6 +171,7 @@ export default {
         this.$store.commit("loadingFlow");
         this.$store.commit("setting", this.setting);
         this.$store.commit("customized", this.customized);
+
 
         if (this.email) {
             this.$store.commit("payment/email", this.email);
