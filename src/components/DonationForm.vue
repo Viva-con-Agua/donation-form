@@ -172,6 +172,7 @@ export default {
         this.$store.commit("setting", this.setting);
         this.$store.commit("customized", this.customized);
 
+
         if (this.email) {
             this.$store.commit("payment/email", this.email);
         }
