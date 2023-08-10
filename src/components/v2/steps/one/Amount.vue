@@ -2,7 +2,7 @@
     <vca-field
         class="typo-roboto"
         id="amount"
-        :label="$t('amount.label.donate_2')"
+        :label="header_text"
     >
         <vca-row>
             <vca-column>
@@ -86,7 +86,7 @@
                         :threshold="threshold"
                         :rules="$v.money"
                         :errorMsg="errorMessage"
-                        :topText="$t('amount.toptext')"
+                        :topText="amount_text"
                     />
                     <div v-if="customized == 'simple'"></div>
                 </vca-row>
@@ -206,6 +206,22 @@ export default {
                 this.$store.commit("payment/amount_type", value);
             },
         },
+        amount_text() {
+            if (this.customized === "simple") {
+                return "Betrag"
+            } else {
+                return this.$t('amount.toptext')
+            }
+
+        },
+        header_text() {
+            if (this.customized === "simple") {
+                return ""
+            } else {
+                return this.$t('amount.label.donate_2')
+            }
+        }
+
     },
     validations() {
         return {
