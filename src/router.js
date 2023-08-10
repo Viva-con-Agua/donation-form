@@ -1,16 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
+import DonationForm from '@/components/DonationForm.vue'
 
 Vue.use(Router);
 
+/*
 function loadView(view) {
     return () => import(`@/components/${view}.vue`);
-}
+}*/
 
 const routes = [
     {
         path: "*",
-        component: loadView("DonationForm"),
+        component: DonationForm,
         props: (route) => ({
             donation_form_id: route.query.donation_form_id,
             lang: route.query.lang,
