@@ -6,7 +6,7 @@
     >
         <vca-row>
             <vca-column>
-                <div v-if="customized">
+                <div v-if="customized == 'true'">
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
                         @click="setAmount(customized_amount.a_1)"
@@ -40,7 +40,7 @@
                     </button>
                 </vca-row>
                 </div>
-                <div v-else>
+                <div v-if="customized != 'true' && customized != 'simple'">
                 <vca-row class="button-wrapper inline-wrapper">
                     <button
                         @click="setAmount(500)"
@@ -77,7 +77,7 @@
                 <vca-row>
                     <div></div>
                     <vca-money-input
-                        v-if="current == 'custom'"
+                        v-if="current == 'custom' || customized  == 'simple'"
                         ref="money"
                         v-model="money"
                         class="amount-field"
@@ -88,9 +88,10 @@
                         :errorMsg="errorMessage"
                         :topText="$t('amount.toptext')"
                     />
+                    <div v-if="customized == 'simple'"></div>
                 </vca-row>
             </vca-column>
-            <vca-row>
+            <vca-row v-if="customized != 'simple'">
                 <vca-card v-if="current != 'custom' && hasIcon" class="vertical-center">
                     <div class="example-wrapper">
                         <div class="vertical-center">

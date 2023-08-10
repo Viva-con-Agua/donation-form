@@ -1,6 +1,6 @@
 <template>
     <div class="stepone">
-        <Abo @interaction="interaction" v-if="hasSubscription" />
+        <Abo @interaction="interaction" v-if="hasSubscription && customized != 'simple'" />
 
         <Amount @interaction="interaction" ref="amount" />
         <button
@@ -55,7 +55,8 @@ export default {
             money: "payment/money",
             interval: "payment/interval",
             interval_type: "payment/interval_v2",
-            trackingData: 'payment/trackingData'
+            trackingData: 'payment/trackingData',
+            customized: 'customized'
         }),
     },
     methods: {
