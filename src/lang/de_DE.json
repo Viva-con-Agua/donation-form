@@ -312,7 +312,8 @@
                 "shops": "Shops",
                 "print": "Print Medien",
                 "google": "Google",
-                "none": "Grund ist hier nicht aufgezählt"
+                "none": "Grund ist hier nicht aufgezählt",
+                "fcsp": "FC St. Pauli"
             }
         },
         "comment": {
