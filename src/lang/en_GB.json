@@ -101,10 +101,11 @@
             "500": "With 5 euros you support us e.g. with sanitary hygiene articles for one person for a whole year",
             "1000": "With 10 euros you support us e.g. with hygiene kits for a whole family",
             "1500": "With 15 euros you support us e.g. with at least 20 liters of soap for schools",
+            "2000": "20€: provide access to clean drinking water through a new well for one person",
             "2500": "With 25 euros you support us e.g. with at least one water filter for a family",
             "3500": "With 35 euros, in South Africa a Football4WASH trainer can be trained and teach children about hygiene in a fun way",
-            "5000": "With 50 euros you support us e.g. with at least 50 trees",
-            "10000": "With 100 Euros you support us e.g. with at least one hygiene workshop at a school"
+            "5000": "50€: enable training in sustainable water management for one person",
+            "10000": "100€: enable the training of 1 Health Extension Worker"
         }
     },
     "amount": {
