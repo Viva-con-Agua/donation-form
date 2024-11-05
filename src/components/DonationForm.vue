@@ -242,7 +242,7 @@ export default {
                         });
                     }
 
-                    if ([2500, 5000, 10000].includes(this.money.amount)) {
+                    if ([2000, 2500, 5000, 10000].includes(this.money.amount)) {
                         this.$store.commit("payment/amount_type", "amount");
                     } else {
                         this.$store.commit("payment/amount_type", "custom");
