@@ -101,11 +101,11 @@
             "500": "Mit 5 Euro unterstützt du uns z.B. mit sanitären Hygiene-Artikeln für eine Person für ein ganzes Jahr",
             "1000": "Mit 10 Euro unterstützt du uns z.B. mit Hygiene-kits für eine ganze Familie",
             "1500": "Mit 15 Euro unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
-            "2000": "20€: ermöglichen Zugang zu sauberem Trinkwasser durch einen neuen Brunnen für einen Menschen",
+            "2000": "20 Euro ermöglichen den Zugang zu sauberem Trinkwasser durch einen neuen Brunnen für einen Menschen.",
             "2500": "Mit 25 Euro unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
             "3500": "Mit 35 Euro kann eine Football4WASH Trainer*in in Südafrika ausgebildet werden und bringt Kindern spielerisch Hygieneinhalte bei",
-            "5000": "50€: ermöglichen Ausbildung in nachhaltigem Wassermanagement für eine Person",
-            "10000": "100€: ermöglichen Schulung von 1 Health Extension Worker"
+            "5000": "50 Euro ermöglichen eine Ausbildung in nachhaltigem Wassermanagement für eine Person.",
+            "10000": "100 Euro ermöglichen eine Schulung von einem Health Extension Worker."
         }
     },
     "amount": {
