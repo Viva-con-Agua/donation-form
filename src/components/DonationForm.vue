@@ -180,7 +180,7 @@ export default {
         if (this.setting == "v2") {
             this.$store.commit("payment/money", {
                 currency: this.money.currency,
-                amount: 2500,
+                amount: 2000,
             });
         }
         this.defaultLanguage(this.lang);
