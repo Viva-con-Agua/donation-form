@@ -69,7 +69,7 @@
         "info_1": "Monatliche Spenden können jederzeit gekündigt werden.",
         "info_2": "Deine Spende ist steuerlich absetzbar. Eine Spendenbescheinigung erhältst du im Februar des Folgejahres.",
         "info_3": "Viva con Agua nutzt deine Daten ausschließlich zur Spendenverwaltung. Wir geben sie nicht an Dritte weiter.",
-        "info_4": "Viva con Agua de Sankt Pauli e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt. Steuernummer: 17/454/04711. Letzter Bescheid vom 21.09.2020"
+        "info_4": "Viva con Agua de Sankt Pauli e.V. ist vom Finanzamt Hamburg-Nord als gemeinnützig anerkannt. Steuernummer: 17/454/04711. Letzter Bescheid vom 15.03.2024"
     },
     "information_nwt": {
         "label": "Hinweise:",
@@ -101,10 +101,11 @@
             "500": "Mit 5 Euro unterstützt du uns z.B. mit sanitären Hygiene-Artikeln für eine Person für ein ganzes Jahr",
             "1000": "Mit 10 Euro unterstützt du uns z.B. mit Hygiene-kits für eine ganze Familie",
             "1500": "Mit 15 Euro unterstützt du uns z.B. mit mindestens 20 Liter Seife für Schulen",
+            "2000": "20 Euro ermöglichen den Zugang zu sauberem Trinkwasser durch einen neuen Brunnen für einen Menschen.",
             "2500": "Mit 25 Euro unterstützt du uns z.B. mit mindestens einem Wasserfilter für eine Familie",
             "3500": "Mit 35 Euro kann eine Football4WASH Trainer*in in Südafrika ausgebildet werden und bringt Kindern spielerisch Hygieneinhalte bei",
-            "5000": "Mit 50 Euro unterstützt z.B. mit mindestens 50 Bäumen",
-            "10000": "Mit 100 Euro unterstützt du uns z.B. mit mindestens einem Hygieneworkshop an einer Schule"
+            "5000": "50 Euro ermöglichen eine Ausbildung in nachhaltigem Wassermanagement für eine Person.",
+            "10000": "100 Euro ermöglichen eine Schulung von einem Health Extension Worker."
         }
     },
     "amount": {
@@ -313,7 +314,8 @@
                 "shops": "Shops",
                 "print": "Print Medien",
                 "google": "Google",
-                "none": "Grund ist hier nicht aufgezählt"
+                "none": "Grund ist hier nicht aufgezählt",
+                "fcsp": "FC St. Pauli"
             }
         },
         "comment": {
