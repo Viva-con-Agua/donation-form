@@ -180,7 +180,7 @@ export default {
         if (this.setting == "v2") {
             this.$store.commit("payment/money", {
                 currency: this.money.currency,
-                amount: 2500,
+                amount: 2000,
             });
         }
         this.defaultLanguage(this.lang);
@@ -242,7 +242,7 @@ export default {
                         });
                     }
 
-                    if ([2500, 5000, 10000].includes(this.money.amount)) {
+                    if ([2000, 2500, 5000, 10000].includes(this.money.amount)) {
                         this.$store.commit("payment/amount_type", "amount");
                     } else {
                         this.$store.commit("payment/amount_type", "custom");
