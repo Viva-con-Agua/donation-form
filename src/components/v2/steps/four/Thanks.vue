@@ -5,11 +5,24 @@
                 <h1 class="text-center header-xl">
                     {{ $t("thanks.header") }}
                 </h1>
-                <h2 class="text-center">{{ $t("thanks.subheader") }}</h2>
+                <!--h2 class="text-center">{{ $t("thanks.subheader") }}</h2-->
             </div>
-            <p class="text-center" v-if="getExample && setting != 'nwt'">
+            <!--p class="text-center" v-if="getExample && setting != 'nwt'">
                 {{ $t("thanks.text", { 0: getAmount, 1: getExample }) }}
-            </p>
+            </p-->
+            <div class="container">
+                <div class="text-block">
+
+            <p>{{ $t('thanks.text_p1') }}</p>
+            <br><br>
+            <p>{{ $t('thanks.text_p2') }}</p>
+            <br><br>
+            <p> {{$t('thanks.text_p3')}}</p>
+                </div>
+                <div class="img-block">
+                    <img style="width: 100%;" src="@/assets/img/ThanksPageText.png" />
+                </div>
+            </div>
         </div>
     </vca-card>
 </template>
@@ -46,7 +59,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header-xl {
-    font-size: 6em;
-    color: $green;
+    font-size: 4.5em;
+    color: $primary-dark;
+    font-weight: inherit;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
+.text-block {
+    font-size: 0.86em;
+    flex-basis: 60%;
+}
+.img-block {
+    flex-basis: 40%;
 }
 </style>

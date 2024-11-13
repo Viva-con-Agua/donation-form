@@ -62,7 +62,9 @@
                     "
                     @success="step++"
                 />
-                <Slider v-if="step === 3" />
+
+                <img style="width:100%" v-if="step === 3" src="@/assets/img/ThanksPage.png"/>
+                <!--Slider v-if="step === 3" /-->
                 <StepThanksV2 v-if="step === 3" />
 
                 <vca-popup
@@ -162,7 +164,7 @@ export default {
             showInfo: false,
             next: false,
             iserror: false,
-            step: 1,
+            step: 3,
             steps: [],
             steps_v2: [],
         };
