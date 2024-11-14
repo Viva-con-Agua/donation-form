@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="text-block">
 
-            <p>{{ $t('thanks.text_p1') }}</p>
+            <p>{{ $t('thanks.text_p1', [getAmount]) }}</p>
             <br><br>
             <p>{{ $t('thanks.text_p2') }}</p>
             <br><br>
@@ -40,8 +40,7 @@ export default {
         getAmount() {
             return (
                 this.toLocaleString(this.money.amount / 100) +
-                " " +
-                this.money.currency
+                " "
             );
         },
         getExample() {
