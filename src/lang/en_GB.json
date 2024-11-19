@@ -261,9 +261,13 @@
         }
     },
     "thanks": {
-        "header": "THANK YOU",
+        "header": "THANKS FOR YOUR SUPPORT!",
         "subheader": " for your support and trust!",
         "text": " Your donation of {0}{1}",
+        "text_p1": "Thanks to your donation of {0} euros, we are one step closer to our next milestone: building 100 new wells in Ethiopia. Together, we enable s safe access to clean drinking water for thousands of people, which not only protects lives but also opens up new perspectives.",
+        "text_p2": "Your donation has a direct, positive impact on the lives of many families - and we can't say thank you enough for that!",
+        "text_p3": "WATER FOR ALL - ALL FOR WATER!",
+        "newsletter_text": "Do you want to stay up to date? Then subscribe to our newsletter \"Laufend Gute Nachrichten\".",
         "share": "I have just donated {0} to Viva con Agua. Support projects for clean access to drinking water and basic sanitation with a donation!",
         "example": {
             "default": " enables for example in our project country Uganda, even more people to get access to clean drinking water",
@@ -290,7 +294,7 @@
         "receipt_mtg": "You will receive your donation receipt in February of the following year. If you need them sooner, please contact us at <strong>contact@millerntorgallery.org</strong>.",
         "newsletter": {
             "text": " In the meantime, you can sign up for our <strong>newsletter</strong>. Note: We currently only send our newsletter in German.",
-            "button": "Sign up now.",
+            "button": "SUBSCRIBE NOW",
             "success": " Thank you for subscribing our newsletter!"
         },
         "yours": "Your Viva con Agua Team",

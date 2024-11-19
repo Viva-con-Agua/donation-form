@@ -29,7 +29,7 @@
                 </vca-column>
                 <button
                     v-if="flow"
-                    class="vca-button quarter navigation"
+                    class="vca-button quarter"
                     @click.prevent="submit"
                 >
                     {{ $t("tenseconds.comment.button") }}
