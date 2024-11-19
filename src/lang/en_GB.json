@@ -261,7 +261,7 @@
         }
     },
     "thanks": {
-        "header": "THANKS FOR YOUR SUPPORT",
+        "header": "THANKS FOR YOUR SUPPORT!",
         "subheader": " for your support and trust!",
         "text": " Your donation of {0}{1}",
         "text_p1": "Thanks to your donation of {0} euros, we are one step closer to our next milestone: building 100 new wells in Ethiopia. Together, we enable s safe access to clean drinking water for thousands of people, which not only protects lives but also opens up new perspectives.",
