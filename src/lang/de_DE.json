@@ -47,6 +47,10 @@
         "not_found": {
             "headline": "Uuuups, es wurde leider kein passendes Formular gefunden",
             "text": "Leider haben wir kein passendes Spendenformular gefunden.<br/>Bitte schicke uns doch kurz eine Nachricht wo der Fehler aufgetreten ist an <strong>kontakt@vivaconagua.org</strong>, dass wir das Problem beheben können."
+        },
+        "deprecated": {
+            "headline": "Uuuups, das Formular wird nicht mehr verwendet.",
+            "text": "Bitte melde dich bei kontakt@vivaconagua.org"
         }
     },
     "headline": {

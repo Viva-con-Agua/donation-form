@@ -5,6 +5,10 @@
             <Headline :text="$t('error.not_found.headline')" />
             <vca-card v-html="$t('error.not_found.text')"></vca-card>
         </div>
+        <div v-else-if="deprecated">
+            <Headline :text="$t('error.deprecated.headline')" />
+            <vca-card v-html="$t('error.deprecated.text')"></vca-card>
+        </div>
         <div v-else :class="{ 'mtg-theme': setting == 'mtg' }">
             <div v-if="setting != 'v2'">
                 <Headline :text="getText" />
@@ -246,6 +250,7 @@
                 minAmount: 'form/minAmount',
                 money: 'payment/money',
                 loadingFlow: 'loadingFlow',
+                deprecated: 'form/deprecated',
             }),
             getText() {
                 if (this.setting == 'nwt') {

@@ -39,6 +39,9 @@ const form = {
         company(state) {
             return state.current.company;
         },
+        deprecated(state) {
+            return state.current.deprecated;
+        }
     },
     mutations: {
         get(state, value) {
