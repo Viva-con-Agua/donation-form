@@ -39,8 +39,11 @@ const form = {
         company(state) {
             return state.current.company;
         },
-        deprecated(state) {
-            return state.current.deprecated;
+        expired(state) {
+            return state.current.expired;
+        },
+        expired_form(state) {
+            return state.current.expired_form
         }
     },
     mutations: {

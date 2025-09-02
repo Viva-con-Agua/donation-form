@@ -358,5 +358,13 @@
     "ssl": {
         "ssl": "SSL verschlüsselt",
         "transparent": "Transparente Zivilgesellschaft"
+    },
+    "error_page": {
+        "expired": {
+            "headline": "Das Formular ist abgelaufen",
+            "fallback_url": "zum neuen Formular",
+            "contact": "Bei Fragen oder Problemen melde dich gerne bei ",
+            "description": "Mit dem Button geht es zum neuen Formular."
+        }
     }
 }
