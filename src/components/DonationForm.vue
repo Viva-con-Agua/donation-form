@@ -5,6 +5,9 @@
             <Headline :text="$t('error.not_found.headline')" />
             <vca-card v-html="$t('error.not_found.text')"></vca-card>
         </div>
+        <div v-else-if="expired">
+            <ExpiredPage />
+        </div>
         <div v-else :class="{ 'mtg-theme': setting == 'mtg' }">
             <div v-if="setting != 'v2'">
                 <Headline :text="getText" />
@@ -80,6 +83,7 @@
     import Headline from '@/components/layout/Headline';
 
     import { mapGetters } from 'vuex';
+    import ExpiredPage from './v2/steps/ExpiredPage.vue';
     export default {
         name: 'DonationForm',
         components: {
@@ -96,6 +100,7 @@
             HeaderSteps,
             HeaderStepsMtg,
             Headline,
+            ExpiredPage,
         },
         props: {
             donation_form_id: {
@@ -246,6 +251,7 @@
                 minAmount: 'form/minAmount',
                 money: 'payment/money',
                 loadingFlow: 'loadingFlow',
+                expired: 'form/expired',
             }),
             getText() {
                 if (this.setting == 'nwt') {
